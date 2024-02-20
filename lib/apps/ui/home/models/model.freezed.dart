@@ -12,7 +12,7 @@ part of 'model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$StoresMainItemModel {
@@ -69,22 +69,22 @@ class _$StoresMainItemModelCopyWithImpl<$Res, $Val extends StoresMainItemModel>
 }
 
 /// @nodoc
-abstract class _$$_StoresMainItemModelCopyWith<$Res>
+abstract class _$$StoresMainItemModelImplCopyWith<$Res>
     implements $StoresMainItemModelCopyWith<$Res> {
-  factory _$$_StoresMainItemModelCopyWith(_$_StoresMainItemModel value,
-          $Res Function(_$_StoresMainItemModel) then) =
-      __$$_StoresMainItemModelCopyWithImpl<$Res>;
+  factory _$$StoresMainItemModelImplCopyWith(_$StoresMainItemModelImpl value,
+          $Res Function(_$StoresMainItemModelImpl) then) =
+      __$$StoresMainItemModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String type, String name});
 }
 
 /// @nodoc
-class __$$_StoresMainItemModelCopyWithImpl<$Res>
-    extends _$StoresMainItemModelCopyWithImpl<$Res, _$_StoresMainItemModel>
-    implements _$$_StoresMainItemModelCopyWith<$Res> {
-  __$$_StoresMainItemModelCopyWithImpl(_$_StoresMainItemModel _value,
-      $Res Function(_$_StoresMainItemModel) _then)
+class __$$StoresMainItemModelImplCopyWithImpl<$Res>
+    extends _$StoresMainItemModelCopyWithImpl<$Res, _$StoresMainItemModelImpl>
+    implements _$$StoresMainItemModelImplCopyWith<$Res> {
+  __$$StoresMainItemModelImplCopyWithImpl(_$StoresMainItemModelImpl _value,
+      $Res Function(_$StoresMainItemModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_StoresMainItemModelCopyWithImpl<$Res>
     Object? type = null,
     Object? name = null,
   }) {
-    return _then(_$_StoresMainItemModel(
+    return _then(_$StoresMainItemModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$_StoresMainItemModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StoresMainItemModel implements _StoresMainItemModel {
-  _$_StoresMainItemModel(
+class _$StoresMainItemModelImpl implements _StoresMainItemModel {
+  _$StoresMainItemModelImpl(
       {required this.id, required this.type, required this.name});
 
   @override
@@ -130,10 +130,10 @@ class _$_StoresMainItemModel implements _StoresMainItemModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StoresMainItemModel &&
+            other is _$StoresMainItemModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name));
@@ -145,8 +145,8 @@ class _$_StoresMainItemModel implements _StoresMainItemModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StoresMainItemModelCopyWith<_$_StoresMainItemModel> get copyWith =>
-      __$$_StoresMainItemModelCopyWithImpl<_$_StoresMainItemModel>(
+  _$$StoresMainItemModelImplCopyWith<_$StoresMainItemModelImpl> get copyWith =>
+      __$$StoresMainItemModelImplCopyWithImpl<_$StoresMainItemModelImpl>(
           this, _$identity);
 }
 
@@ -154,7 +154,7 @@ abstract class _StoresMainItemModel implements StoresMainItemModel {
   factory _StoresMainItemModel(
       {required final int id,
       required final String type,
-      required final String name}) = _$_StoresMainItemModel;
+      required final String name}) = _$StoresMainItemModelImpl;
 
   @override
   int get id;
@@ -164,6 +164,6 @@ abstract class _StoresMainItemModel implements StoresMainItemModel {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_StoresMainItemModelCopyWith<_$_StoresMainItemModel> get copyWith =>
+  _$$StoresMainItemModelImplCopyWith<_$StoresMainItemModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

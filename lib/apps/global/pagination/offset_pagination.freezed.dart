@@ -12,7 +12,7 @@ part of 'offset_pagination.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$OffsetPaginationMetaData {
@@ -64,24 +64,25 @@ class _$OffsetPaginationMetaDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_OffsetPaginationMetaDataCopyWith<$Res>
+abstract class _$$OffsetPaginationMetaDataImplCopyWith<$Res>
     implements $OffsetPaginationMetaDataCopyWith<$Res> {
-  factory _$$_OffsetPaginationMetaDataCopyWith(
-          _$_OffsetPaginationMetaData value,
-          $Res Function(_$_OffsetPaginationMetaData) then) =
-      __$$_OffsetPaginationMetaDataCopyWithImpl<$Res>;
+  factory _$$OffsetPaginationMetaDataImplCopyWith(
+          _$OffsetPaginationMetaDataImpl value,
+          $Res Function(_$OffsetPaginationMetaDataImpl) then) =
+      __$$OffsetPaginationMetaDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int currentPage, bool isLast});
 }
 
 /// @nodoc
-class __$$_OffsetPaginationMetaDataCopyWithImpl<$Res>
+class __$$OffsetPaginationMetaDataImplCopyWithImpl<$Res>
     extends _$OffsetPaginationMetaDataCopyWithImpl<$Res,
-        _$_OffsetPaginationMetaData>
-    implements _$$_OffsetPaginationMetaDataCopyWith<$Res> {
-  __$$_OffsetPaginationMetaDataCopyWithImpl(_$_OffsetPaginationMetaData _value,
-      $Res Function(_$_OffsetPaginationMetaData) _then)
+        _$OffsetPaginationMetaDataImpl>
+    implements _$$OffsetPaginationMetaDataImplCopyWith<$Res> {
+  __$$OffsetPaginationMetaDataImplCopyWithImpl(
+      _$OffsetPaginationMetaDataImpl _value,
+      $Res Function(_$OffsetPaginationMetaDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +91,7 @@ class __$$_OffsetPaginationMetaDataCopyWithImpl<$Res>
     Object? currentPage = null,
     Object? isLast = null,
   }) {
-    return _then(_$_OffsetPaginationMetaData(
+    return _then(_$OffsetPaginationMetaDataImpl(
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -105,8 +106,8 @@ class __$$_OffsetPaginationMetaDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OffsetPaginationMetaData implements _OffsetPaginationMetaData {
-  _$_OffsetPaginationMetaData({this.currentPage = 0, this.isLast = false});
+class _$OffsetPaginationMetaDataImpl implements _OffsetPaginationMetaData {
+  _$OffsetPaginationMetaDataImpl({this.currentPage = 1, this.isLast = false});
 
   @override
   @JsonKey()
@@ -121,10 +122,10 @@ class _$_OffsetPaginationMetaData implements _OffsetPaginationMetaData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OffsetPaginationMetaData &&
+            other is _$OffsetPaginationMetaDataImpl &&
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
             (identical(other.isLast, isLast) || other.isLast == isLast));
@@ -136,14 +137,15 @@ class _$_OffsetPaginationMetaData implements _OffsetPaginationMetaData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OffsetPaginationMetaDataCopyWith<_$_OffsetPaginationMetaData>
-      get copyWith => __$$_OffsetPaginationMetaDataCopyWithImpl<
-          _$_OffsetPaginationMetaData>(this, _$identity);
+  _$$OffsetPaginationMetaDataImplCopyWith<_$OffsetPaginationMetaDataImpl>
+      get copyWith => __$$OffsetPaginationMetaDataImplCopyWithImpl<
+          _$OffsetPaginationMetaDataImpl>(this, _$identity);
 }
 
 abstract class _OffsetPaginationMetaData implements OffsetPaginationMetaData {
   factory _OffsetPaginationMetaData(
-      {final int currentPage, final bool isLast}) = _$_OffsetPaginationMetaData;
+      {final int currentPage,
+      final bool isLast}) = _$OffsetPaginationMetaDataImpl;
 
   @override
   int get currentPage;
@@ -151,7 +153,7 @@ abstract class _OffsetPaginationMetaData implements OffsetPaginationMetaData {
   bool get isLast;
   @override
   @JsonKey(ignore: true)
-  _$$_OffsetPaginationMetaDataCopyWith<_$_OffsetPaginationMetaData>
+  _$$OffsetPaginationMetaDataImplCopyWith<_$OffsetPaginationMetaDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -199,23 +201,24 @@ class _$WithOffsetPaginationCopyWithImpl<T, $Res,
 }
 
 /// @nodoc
-abstract class _$$_WithOffsetPaginationCopyWith<T, $Res>
+abstract class _$$WithOffsetPaginationImplCopyWith<T, $Res>
     implements $WithOffsetPaginationCopyWith<T, $Res> {
-  factory _$$_WithOffsetPaginationCopyWith(_$_WithOffsetPagination<T> value,
-          $Res Function(_$_WithOffsetPagination<T>) then) =
-      __$$_WithOffsetPaginationCopyWithImpl<T, $Res>;
+  factory _$$WithOffsetPaginationImplCopyWith(
+          _$WithOffsetPaginationImpl<T> value,
+          $Res Function(_$WithOffsetPaginationImpl<T>) then) =
+      __$$WithOffsetPaginationImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({T items});
 }
 
 /// @nodoc
-class __$$_WithOffsetPaginationCopyWithImpl<T, $Res>
+class __$$WithOffsetPaginationImplCopyWithImpl<T, $Res>
     extends _$WithOffsetPaginationCopyWithImpl<T, $Res,
-        _$_WithOffsetPagination<T>>
-    implements _$$_WithOffsetPaginationCopyWith<T, $Res> {
-  __$$_WithOffsetPaginationCopyWithImpl(_$_WithOffsetPagination<T> _value,
-      $Res Function(_$_WithOffsetPagination<T>) _then)
+        _$WithOffsetPaginationImpl<T>>
+    implements _$$WithOffsetPaginationImplCopyWith<T, $Res> {
+  __$$WithOffsetPaginationImplCopyWithImpl(_$WithOffsetPaginationImpl<T> _value,
+      $Res Function(_$WithOffsetPaginationImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -223,7 +226,7 @@ class __$$_WithOffsetPaginationCopyWithImpl<T, $Res>
   $Res call({
     Object? items = freezed,
   }) {
-    return _then(_$_WithOffsetPagination<T>(
+    return _then(_$WithOffsetPaginationImpl<T>(
       items: freezed == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -234,8 +237,8 @@ class __$$_WithOffsetPaginationCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_WithOffsetPagination<T> implements _WithOffsetPagination<T> {
-  _$_WithOffsetPagination({required this.items});
+class _$WithOffsetPaginationImpl<T> implements _WithOffsetPagination<T> {
+  _$WithOffsetPaginationImpl({required this.items});
 
   @override
   final T items;
@@ -246,10 +249,10 @@ class _$_WithOffsetPagination<T> implements _WithOffsetPagination<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WithOffsetPagination<T> &&
+            other is _$WithOffsetPaginationImpl<T> &&
             const DeepCollectionEquality().equals(other.items, items));
   }
 
@@ -260,20 +263,19 @@ class _$_WithOffsetPagination<T> implements _WithOffsetPagination<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WithOffsetPaginationCopyWith<T, _$_WithOffsetPagination<T>>
-      get copyWith =>
-          __$$_WithOffsetPaginationCopyWithImpl<T, _$_WithOffsetPagination<T>>(
-              this, _$identity);
+  _$$WithOffsetPaginationImplCopyWith<T, _$WithOffsetPaginationImpl<T>>
+      get copyWith => __$$WithOffsetPaginationImplCopyWithImpl<T,
+          _$WithOffsetPaginationImpl<T>>(this, _$identity);
 }
 
 abstract class _WithOffsetPagination<T> implements WithOffsetPagination<T> {
   factory _WithOffsetPagination({required final T items}) =
-      _$_WithOffsetPagination<T>;
+      _$WithOffsetPaginationImpl<T>;
 
   @override
   T get items;
   @override
   @JsonKey(ignore: true)
-  _$$_WithOffsetPaginationCopyWith<T, _$_WithOffsetPagination<T>>
+  _$$WithOffsetPaginationImplCopyWith<T, _$WithOffsetPaginationImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

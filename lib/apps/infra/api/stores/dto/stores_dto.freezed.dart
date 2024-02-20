@@ -12,7 +12,174 @@ part of 'stores_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+StoresDataDto _$StoresDataDtoFromJson(Map<String, dynamic> json) {
+  return _StoresDataDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$StoresDataDto {
+  StoresDto get data => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $StoresDataDtoCopyWith<StoresDataDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StoresDataDtoCopyWith<$Res> {
+  factory $StoresDataDtoCopyWith(
+          StoresDataDto value, $Res Function(StoresDataDto) then) =
+      _$StoresDataDtoCopyWithImpl<$Res, StoresDataDto>;
+  @useResult
+  $Res call({StoresDto data, String message});
+
+  $StoresDtoCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$StoresDataDtoCopyWithImpl<$Res, $Val extends StoresDataDto>
+    implements $StoresDataDtoCopyWith<$Res> {
+  _$StoresDataDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_value.copyWith(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as StoresDto,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StoresDtoCopyWith<$Res> get data {
+    return $StoresDtoCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$StoresDataDtoImplCopyWith<$Res>
+    implements $StoresDataDtoCopyWith<$Res> {
+  factory _$$StoresDataDtoImplCopyWith(
+          _$StoresDataDtoImpl value, $Res Function(_$StoresDataDtoImpl) then) =
+      __$$StoresDataDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({StoresDto data, String message});
+
+  @override
+  $StoresDtoCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$StoresDataDtoImplCopyWithImpl<$Res>
+    extends _$StoresDataDtoCopyWithImpl<$Res, _$StoresDataDtoImpl>
+    implements _$$StoresDataDtoImplCopyWith<$Res> {
+  __$$StoresDataDtoImplCopyWithImpl(
+      _$StoresDataDtoImpl _value, $Res Function(_$StoresDataDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$StoresDataDtoImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as StoresDto,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$StoresDataDtoImpl implements _StoresDataDto {
+  _$StoresDataDtoImpl({required this.data, required this.message});
+
+  factory _$StoresDataDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StoresDataDtoImplFromJson(json);
+
+  @override
+  final StoresDto data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'StoresDataDto(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StoresDataDtoImpl &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StoresDataDtoImplCopyWith<_$StoresDataDtoImpl> get copyWith =>
+      __$$StoresDataDtoImplCopyWithImpl<_$StoresDataDtoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$StoresDataDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _StoresDataDto implements StoresDataDto {
+  factory _StoresDataDto(
+      {required final StoresDto data,
+      required final String message}) = _$StoresDataDtoImpl;
+
+  factory _StoresDataDto.fromJson(Map<String, dynamic> json) =
+      _$StoresDataDtoImpl.fromJson;
+
+  @override
+  StoresDto get data;
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$StoresDataDtoImplCopyWith<_$StoresDataDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 StoresDto _$StoresDtoFromJson(Map<String, dynamic> json) {
   return _StoresDto.fromJson(json);
@@ -90,10 +257,11 @@ class _$StoresDtoCopyWithImpl<$Res, $Val extends StoresDto>
 }
 
 /// @nodoc
-abstract class _$$_StoresDtoCopyWith<$Res> implements $StoresDtoCopyWith<$Res> {
-  factory _$$_StoresDtoCopyWith(
-          _$_StoresDto value, $Res Function(_$_StoresDto) then) =
-      __$$_StoresDtoCopyWithImpl<$Res>;
+abstract class _$$StoresDtoImplCopyWith<$Res>
+    implements $StoresDtoCopyWith<$Res> {
+  factory _$$StoresDtoImplCopyWith(
+          _$StoresDtoImpl value, $Res Function(_$StoresDtoImpl) then) =
+      __$$StoresDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -105,11 +273,11 @@ abstract class _$$_StoresDtoCopyWith<$Res> implements $StoresDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StoresDtoCopyWithImpl<$Res>
-    extends _$StoresDtoCopyWithImpl<$Res, _$_StoresDto>
-    implements _$$_StoresDtoCopyWith<$Res> {
-  __$$_StoresDtoCopyWithImpl(
-      _$_StoresDto _value, $Res Function(_$_StoresDto) _then)
+class __$$StoresDtoImplCopyWithImpl<$Res>
+    extends _$StoresDtoCopyWithImpl<$Res, _$StoresDtoImpl>
+    implements _$$StoresDtoImplCopyWith<$Res> {
+  __$$StoresDtoImplCopyWithImpl(
+      _$StoresDtoImpl _value, $Res Function(_$StoresDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +289,7 @@ class __$$_StoresDtoCopyWithImpl<$Res>
     Object? totalCount = null,
     Object? items = null,
   }) {
-    return _then(_$_StoresDto(
+    return _then(_$StoresDtoImpl(
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -148,8 +316,8 @@ class __$$_StoresDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StoresDto implements _StoresDto {
-  _$_StoresDto(
+class _$StoresDtoImpl implements _StoresDto {
+  _$StoresDtoImpl(
       {required this.page,
       required this.perPage,
       required this.totalPage,
@@ -157,8 +325,8 @@ class _$_StoresDto implements _StoresDto {
       required final List<StoreDto> items})
       : _items = items;
 
-  factory _$_StoresDto.fromJson(Map<String, dynamic> json) =>
-      _$$_StoresDtoFromJson(json);
+  factory _$StoresDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StoresDtoImplFromJson(json);
 
   @override
   final int page;
@@ -182,10 +350,10 @@ class _$_StoresDto implements _StoresDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StoresDto &&
+            other is _$StoresDtoImpl &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.perPage, perPage) || other.perPage == perPage) &&
             (identical(other.totalPage, totalPage) ||
@@ -203,12 +371,12 @@ class _$_StoresDto implements _StoresDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StoresDtoCopyWith<_$_StoresDto> get copyWith =>
-      __$$_StoresDtoCopyWithImpl<_$_StoresDto>(this, _$identity);
+  _$$StoresDtoImplCopyWith<_$StoresDtoImpl> get copyWith =>
+      __$$StoresDtoImplCopyWithImpl<_$StoresDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StoresDtoToJson(
+    return _$$StoresDtoImplToJson(
       this,
     );
   }
@@ -220,10 +388,10 @@ abstract class _StoresDto implements StoresDto {
       required final int perPage,
       required final int totalPage,
       required final int totalCount,
-      required final List<StoreDto> items}) = _$_StoresDto;
+      required final List<StoreDto> items}) = _$StoresDtoImpl;
 
   factory _StoresDto.fromJson(Map<String, dynamic> json) =
-      _$_StoresDto.fromJson;
+      _$StoresDtoImpl.fromJson;
 
   @override
   int get page;
@@ -237,6 +405,6 @@ abstract class _StoresDto implements StoresDto {
   List<StoreDto> get items;
   @override
   @JsonKey(ignore: true)
-  _$$_StoresDtoCopyWith<_$_StoresDto> get copyWith =>
+  _$$StoresDtoImplCopyWith<_$StoresDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ part of 'store_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 StoreImageDto _$StoreImageDtoFromJson(Map<String, dynamic> json) {
   return _StoreImageDto.fromJson(json);
@@ -68,22 +68,22 @@ class _$StoreImageDtoCopyWithImpl<$Res, $Val extends StoreImageDto>
 }
 
 /// @nodoc
-abstract class _$$_StoreImageDtoCopyWith<$Res>
+abstract class _$$StoreImageDtoImplCopyWith<$Res>
     implements $StoreImageDtoCopyWith<$Res> {
-  factory _$$_StoreImageDtoCopyWith(
-          _$_StoreImageDto value, $Res Function(_$_StoreImageDto) then) =
-      __$$_StoreImageDtoCopyWithImpl<$Res>;
+  factory _$$StoreImageDtoImplCopyWith(
+          _$StoreImageDtoImpl value, $Res Function(_$StoreImageDtoImpl) then) =
+      __$$StoreImageDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String url});
 }
 
 /// @nodoc
-class __$$_StoreImageDtoCopyWithImpl<$Res>
-    extends _$StoreImageDtoCopyWithImpl<$Res, _$_StoreImageDto>
-    implements _$$_StoreImageDtoCopyWith<$Res> {
-  __$$_StoreImageDtoCopyWithImpl(
-      _$_StoreImageDto _value, $Res Function(_$_StoreImageDto) _then)
+class __$$StoreImageDtoImplCopyWithImpl<$Res>
+    extends _$StoreImageDtoCopyWithImpl<$Res, _$StoreImageDtoImpl>
+    implements _$$StoreImageDtoImplCopyWith<$Res> {
+  __$$StoreImageDtoImplCopyWithImpl(
+      _$StoreImageDtoImpl _value, $Res Function(_$StoreImageDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_StoreImageDtoCopyWithImpl<$Res>
     Object? id = null,
     Object? url = null,
   }) {
-    return _then(_$_StoreImageDto(
+    return _then(_$StoreImageDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_StoreImageDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StoreImageDto implements _StoreImageDto {
-  _$_StoreImageDto({required this.id, required this.url});
+class _$StoreImageDtoImpl implements _StoreImageDto {
+  _$StoreImageDtoImpl({required this.id, required this.url});
 
-  factory _$_StoreImageDto.fromJson(Map<String, dynamic> json) =>
-      _$$_StoreImageDtoFromJson(json);
+  factory _$StoreImageDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StoreImageDtoImplFromJson(json);
 
   @override
   final String id;
@@ -124,10 +124,10 @@ class _$_StoreImageDto implements _StoreImageDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StoreImageDto &&
+            other is _$StoreImageDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.url, url) || other.url == url));
   }
@@ -139,12 +139,12 @@ class _$_StoreImageDto implements _StoreImageDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StoreImageDtoCopyWith<_$_StoreImageDto> get copyWith =>
-      __$$_StoreImageDtoCopyWithImpl<_$_StoreImageDto>(this, _$identity);
+  _$$StoreImageDtoImplCopyWith<_$StoreImageDtoImpl> get copyWith =>
+      __$$StoreImageDtoImplCopyWithImpl<_$StoreImageDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StoreImageDtoToJson(
+    return _$$StoreImageDtoImplToJson(
       this,
     );
   }
@@ -152,10 +152,11 @@ class _$_StoreImageDto implements _StoreImageDto {
 
 abstract class _StoreImageDto implements StoreImageDto {
   factory _StoreImageDto(
-      {required final String id, required final String url}) = _$_StoreImageDto;
+      {required final String id,
+      required final String url}) = _$StoreImageDtoImpl;
 
   factory _StoreImageDto.fromJson(Map<String, dynamic> json) =
-      _$_StoreImageDto.fromJson;
+      _$StoreImageDtoImpl.fromJson;
 
   @override
   String get id;
@@ -163,7 +164,7 @@ abstract class _StoreImageDto implements StoreImageDto {
   String get url;
   @override
   @JsonKey(ignore: true)
-  _$$_StoreImageDtoCopyWith<_$_StoreImageDto> get copyWith =>
+  _$$StoreImageDtoImplCopyWith<_$StoreImageDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -279,11 +280,11 @@ class _$GameMTTDtoCopyWithImpl<$Res, $Val extends GameMTTDto>
 }
 
 /// @nodoc
-abstract class _$$_GameMTTDtoCopyWith<$Res>
+abstract class _$$GameMTTDtoImplCopyWith<$Res>
     implements $GameMTTDtoCopyWith<$Res> {
-  factory _$$_GameMTTDtoCopyWith(
-          _$_GameMTTDto value, $Res Function(_$_GameMTTDto) then) =
-      __$$_GameMTTDtoCopyWithImpl<$Res>;
+  factory _$$GameMTTDtoImplCopyWith(
+          _$GameMTTDtoImpl value, $Res Function(_$GameMTTDtoImpl) then) =
+      __$$GameMTTDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -300,11 +301,11 @@ abstract class _$$_GameMTTDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GameMTTDtoCopyWithImpl<$Res>
-    extends _$GameMTTDtoCopyWithImpl<$Res, _$_GameMTTDto>
-    implements _$$_GameMTTDtoCopyWith<$Res> {
-  __$$_GameMTTDtoCopyWithImpl(
-      _$_GameMTTDto _value, $Res Function(_$_GameMTTDto) _then)
+class __$$GameMTTDtoImplCopyWithImpl<$Res>
+    extends _$GameMTTDtoCopyWithImpl<$Res, _$GameMTTDtoImpl>
+    implements _$$GameMTTDtoImplCopyWith<$Res> {
+  __$$GameMTTDtoImplCopyWithImpl(
+      _$GameMTTDtoImpl _value, $Res Function(_$GameMTTDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -321,7 +322,7 @@ class __$$_GameMTTDtoCopyWithImpl<$Res>
     Object? isDaily = null,
     Object? name = null,
   }) {
-    return _then(_$_GameMTTDto(
+    return _then(_$GameMTTDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -368,8 +369,8 @@ class __$$_GameMTTDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GameMTTDto implements _GameMTTDto {
-  _$_GameMTTDto(
+class _$GameMTTDtoImpl implements _GameMTTDto {
+  _$GameMTTDtoImpl(
       {required this.id,
       required this.type,
       required this.entryPrice,
@@ -381,8 +382,8 @@ class _$_GameMTTDto implements _GameMTTDto {
       required this.isDaily,
       required this.name});
 
-  factory _$_GameMTTDto.fromJson(Map<String, dynamic> json) =>
-      _$$_GameMTTDtoFromJson(json);
+  factory _$GameMTTDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GameMTTDtoImplFromJson(json);
 
   @override
   final String id;
@@ -411,10 +412,10 @@ class _$_GameMTTDto implements _GameMTTDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GameMTTDto &&
+            other is _$GameMTTDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.entryPrice, entryPrice) ||
@@ -440,12 +441,12 @@ class _$_GameMTTDto implements _GameMTTDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GameMTTDtoCopyWith<_$_GameMTTDto> get copyWith =>
-      __$$_GameMTTDtoCopyWithImpl<_$_GameMTTDto>(this, _$identity);
+  _$$GameMTTDtoImplCopyWith<_$GameMTTDtoImpl> get copyWith =>
+      __$$GameMTTDtoImplCopyWithImpl<_$GameMTTDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GameMTTDtoToJson(
+    return _$$GameMTTDtoImplToJson(
       this,
     );
   }
@@ -462,10 +463,10 @@ abstract class _GameMTTDto implements GameMTTDto {
       required final int prize,
       required final String eventType,
       required final bool isDaily,
-      required final String name}) = _$_GameMTTDto;
+      required final String name}) = _$GameMTTDtoImpl;
 
   factory _GameMTTDto.fromJson(Map<String, dynamic> json) =
-      _$_GameMTTDto.fromJson;
+      _$GameMTTDtoImpl.fromJson;
 
   @override
   String get id;
@@ -489,7 +490,7 @@ abstract class _GameMTTDto implements GameMTTDto {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_GameMTTDtoCopyWith<_$_GameMTTDto> get copyWith =>
+  _$$GameMTTDtoImplCopyWith<_$GameMTTDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -505,12 +506,11 @@ mixin _$StoreDto {
   String get address => throw _privateConstructorUsedError;
   String get addressDetail => throw _privateConstructorUsedError;
   String get openTime => throw _privateConstructorUsedError;
-  String get closeTime => throw _privateConstructorUsedError;
-  int get distance => throw _privateConstructorUsedError;
-  double get lat => throw _privateConstructorUsedError;
-  double get lng => throw _privateConstructorUsedError;
+  String? get closeTime => throw _privateConstructorUsedError;
+  double? get distance =>
+      throw _privateConstructorUsedError; // required double lat,
+// required double lng,
   List<StoreImageDto> get storeImages => throw _privateConstructorUsedError;
-  List<GameMTTDto> get gameMttItems => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -530,12 +530,9 @@ abstract class $StoreDtoCopyWith<$Res> {
       String address,
       String addressDetail,
       String openTime,
-      String closeTime,
-      int distance,
-      double lat,
-      double lng,
-      List<StoreImageDto> storeImages,
-      List<GameMTTDto> gameMttItems});
+      String? closeTime,
+      double? distance,
+      List<StoreImageDto> storeImages});
 }
 
 /// @nodoc
@@ -557,12 +554,9 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
     Object? address = null,
     Object? addressDetail = null,
     Object? openTime = null,
-    Object? closeTime = null,
-    Object? distance = null,
-    Object? lat = null,
-    Object? lng = null,
+    Object? closeTime = freezed,
+    Object? distance = freezed,
     Object? storeImages = null,
-    Object? gameMttItems = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -589,39 +583,28 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
               as String,
-      closeTime: null == closeTime
+      closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      distance: null == distance
+              as String?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int,
-      lat: null == lat
-          ? _value.lat
-          : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lng: null == lng
-          ? _value.lng
-          : lng // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       storeImages: null == storeImages
           ? _value.storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
               as List<StoreImageDto>,
-      gameMttItems: null == gameMttItems
-          ? _value.gameMttItems
-          : gameMttItems // ignore: cast_nullable_to_non_nullable
-              as List<GameMTTDto>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_StoreDtoCopyWith<$Res> implements $StoreDtoCopyWith<$Res> {
-  factory _$$_StoreDtoCopyWith(
-          _$_StoreDto value, $Res Function(_$_StoreDto) then) =
-      __$$_StoreDtoCopyWithImpl<$Res>;
+abstract class _$$StoreDtoImplCopyWith<$Res>
+    implements $StoreDtoCopyWith<$Res> {
+  factory _$$StoreDtoImplCopyWith(
+          _$StoreDtoImpl value, $Res Function(_$StoreDtoImpl) then) =
+      __$$StoreDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -631,20 +614,17 @@ abstract class _$$_StoreDtoCopyWith<$Res> implements $StoreDtoCopyWith<$Res> {
       String address,
       String addressDetail,
       String openTime,
-      String closeTime,
-      int distance,
-      double lat,
-      double lng,
-      List<StoreImageDto> storeImages,
-      List<GameMTTDto> gameMttItems});
+      String? closeTime,
+      double? distance,
+      List<StoreImageDto> storeImages});
 }
 
 /// @nodoc
-class __$$_StoreDtoCopyWithImpl<$Res>
-    extends _$StoreDtoCopyWithImpl<$Res, _$_StoreDto>
-    implements _$$_StoreDtoCopyWith<$Res> {
-  __$$_StoreDtoCopyWithImpl(
-      _$_StoreDto _value, $Res Function(_$_StoreDto) _then)
+class __$$StoreDtoImplCopyWithImpl<$Res>
+    extends _$StoreDtoCopyWithImpl<$Res, _$StoreDtoImpl>
+    implements _$$StoreDtoImplCopyWith<$Res> {
+  __$$StoreDtoImplCopyWithImpl(
+      _$StoreDtoImpl _value, $Res Function(_$StoreDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -656,14 +636,11 @@ class __$$_StoreDtoCopyWithImpl<$Res>
     Object? address = null,
     Object? addressDetail = null,
     Object? openTime = null,
-    Object? closeTime = null,
-    Object? distance = null,
-    Object? lat = null,
-    Object? lng = null,
+    Object? closeTime = freezed,
+    Object? distance = freezed,
     Object? storeImages = null,
-    Object? gameMttItems = null,
   }) {
-    return _then(_$_StoreDto(
+    return _then(_$StoreDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -688,38 +665,26 @@ class __$$_StoreDtoCopyWithImpl<$Res>
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
               as String,
-      closeTime: null == closeTime
+      closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      distance: null == distance
+              as String?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int,
-      lat: null == lat
-          ? _value.lat
-          : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lng: null == lng
-          ? _value.lng
-          : lng // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       storeImages: null == storeImages
           ? _value._storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
               as List<StoreImageDto>,
-      gameMttItems: null == gameMttItems
-          ? _value._gameMttItems
-          : gameMttItems // ignore: cast_nullable_to_non_nullable
-              as List<GameMTTDto>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_StoreDto implements _StoreDto {
-  _$_StoreDto(
+class _$StoreDtoImpl implements _StoreDto {
+  _$StoreDtoImpl(
       {required this.id,
       required this.type,
       required this.name,
@@ -728,15 +693,11 @@ class _$_StoreDto implements _StoreDto {
       required this.openTime,
       required this.closeTime,
       required this.distance,
-      required this.lat,
-      required this.lng,
-      required final List<StoreImageDto> storeImages,
-      required final List<GameMTTDto> gameMttItems})
-      : _storeImages = storeImages,
-        _gameMttItems = gameMttItems;
+      required final List<StoreImageDto> storeImages})
+      : _storeImages = storeImages;
 
-  factory _$_StoreDto.fromJson(Map<String, dynamic> json) =>
-      _$$_StoreDtoFromJson(json);
+  factory _$StoreDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StoreDtoImplFromJson(json);
 
   @override
   final String id;
@@ -751,14 +712,14 @@ class _$_StoreDto implements _StoreDto {
   @override
   final String openTime;
   @override
-  final String closeTime;
+  final String? closeTime;
   @override
-  final int distance;
-  @override
-  final double lat;
-  @override
-  final double lng;
+  final double? distance;
+// required double lat,
+// required double lng,
   final List<StoreImageDto> _storeImages;
+// required double lat,
+// required double lng,
   @override
   List<StoreImageDto> get storeImages {
     if (_storeImages is EqualUnmodifiableListView) return _storeImages;
@@ -766,24 +727,16 @@ class _$_StoreDto implements _StoreDto {
     return EqualUnmodifiableListView(_storeImages);
   }
 
-  final List<GameMTTDto> _gameMttItems;
-  @override
-  List<GameMTTDto> get gameMttItems {
-    if (_gameMttItems is EqualUnmodifiableListView) return _gameMttItems;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_gameMttItems);
-  }
-
   @override
   String toString() {
-    return 'StoreDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMttItems: $gameMttItems)';
+    return 'StoreDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, distance: $distance, storeImages: $storeImages)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StoreDto &&
+            other is _$StoreDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
@@ -796,12 +749,8 @@ class _$_StoreDto implements _StoreDto {
                 other.closeTime == closeTime) &&
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
-            (identical(other.lat, lat) || other.lat == lat) &&
-            (identical(other.lng, lng) || other.lng == lng) &&
             const DeepCollectionEquality()
-                .equals(other._storeImages, _storeImages) &&
-            const DeepCollectionEquality()
-                .equals(other._gameMttItems, _gameMttItems));
+                .equals(other._storeImages, _storeImages));
   }
 
   @JsonKey(ignore: true)
@@ -816,20 +765,17 @@ class _$_StoreDto implements _StoreDto {
       openTime,
       closeTime,
       distance,
-      lat,
-      lng,
-      const DeepCollectionEquality().hash(_storeImages),
-      const DeepCollectionEquality().hash(_gameMttItems));
+      const DeepCollectionEquality().hash(_storeImages));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StoreDtoCopyWith<_$_StoreDto> get copyWith =>
-      __$$_StoreDtoCopyWithImpl<_$_StoreDto>(this, _$identity);
+  _$$StoreDtoImplCopyWith<_$StoreDtoImpl> get copyWith =>
+      __$$StoreDtoImplCopyWithImpl<_$StoreDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StoreDtoToJson(
+    return _$$StoreDtoImplToJson(
       this,
     );
   }
@@ -843,14 +789,12 @@ abstract class _StoreDto implements StoreDto {
       required final String address,
       required final String addressDetail,
       required final String openTime,
-      required final String closeTime,
-      required final int distance,
-      required final double lat,
-      required final double lng,
-      required final List<StoreImageDto> storeImages,
-      required final List<GameMTTDto> gameMttItems}) = _$_StoreDto;
+      required final String? closeTime,
+      required final double? distance,
+      required final List<StoreImageDto> storeImages}) = _$StoreDtoImpl;
 
-  factory _StoreDto.fromJson(Map<String, dynamic> json) = _$_StoreDto.fromJson;
+  factory _StoreDto.fromJson(Map<String, dynamic> json) =
+      _$StoreDtoImpl.fromJson;
 
   @override
   String get id;
@@ -865,19 +809,14 @@ abstract class _StoreDto implements StoreDto {
   @override
   String get openTime;
   @override
-  String get closeTime;
+  String? get closeTime;
   @override
-  int get distance;
-  @override
-  double get lat;
-  @override
-  double get lng;
-  @override
+  double? get distance;
+  @override // required double lat,
+// required double lng,
   List<StoreImageDto> get storeImages;
   @override
-  List<GameMTTDto> get gameMttItems;
-  @override
   @JsonKey(ignore: true)
-  _$$_StoreDtoCopyWith<_$_StoreDto> get copyWith =>
+  _$$StoreDtoImplCopyWith<_$StoreDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

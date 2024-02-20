@@ -28,14 +28,14 @@ class StoresQuery with _$StoresQuery {
   factory StoresQuery({
     required double lat,
     required double lng,
-    String? operationStatus,
-    String? minOpenTime,
-    String? maxOpenTime,
-    String? gameType,
-    int? minEntryPrice,
-    int? maxEntryPrice,
-    int? page,
-    int? perPage,
+    // String? operationStatus,
+    // String? minOpenTime,
+    // String? maxOpenTime,
+    // String? gameType,
+    // int? minEntryPrice,
+    // int? maxEntryPrice,
+    // int? page,
+    // int? perPage,
   }) = _StoresQuery;
 
   factory StoresQuery.fromJson(Map<String, dynamic> json) =>

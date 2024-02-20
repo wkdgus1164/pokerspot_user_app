@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_dto.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/common/dio/dio_pr.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -10,9 +11,8 @@ part 'stores_api.g.dart';
 abstract class StoresApi {
   factory StoresApi(Dio dio) = _StoresApi;
 
-  @GET(
-      '/api/v1/stores?lat=36.3414&lng=127.3882&operationStatus=ALL&page=1&perPage=20')
-  Future<StoresDto> fetchStores(
+  @GET('/api/v1/stores?lat=37.5586687&lng=126.8321734')
+  Future<StoresDataDto> fetchStores(
       // @Queries() StoresQuery query,
       );
 }

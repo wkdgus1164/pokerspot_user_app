@@ -12,28 +12,27 @@ part 'items.g.dart';
 
 const PAGE_SIZE = 20;
 
-typedef Model = WithOffsetPagination<List<StoreDto>>;
+typedef Models = WithOffsetPagination<List<StoreDto>>;
 
 @riverpod
 class StoresItems extends _$StoresItems {
   @override
-  FutureOr<Model> build() {
+  FutureOr<Models> build() {
     return _fetch();
   }
 
-  Future<Model> _fetch() async {
+  Future<Models> _fetch() async {
     final res = await ref.read(storesApiProvider).fetchStores(
         // StoresQuery(
-        //   lat: 36.3414,
-        //   lng: 127.3882,
-        //   // operationStatus: 'ALL',
-        //   // page: 1,
-        //   // perPage: 20,
+        //   lat: 37.5586687,
+        //   lng: 126.8321734,
+        // operationStatus: 'ALL',
+        // page: 1,
+        // perPage: 20,
         // ),
         );
 
-    final data = res;
-    // Logger().e(res);
+    final data = res.data;
 
     return WithOffsetPagination(items: data.items.toModels());
   }
@@ -51,10 +50,10 @@ extension _ToolModelMapperExtension on List<StoreDto> {
         openTime: it.openTime,
         closeTime: it.closeTime,
         distance: it.distance,
-        lat: it.lat,
-        lng: it.lng,
+        // lat: it.lat,
+        // lng: it.lng,
         storeImages: it.storeImages,
-        gameMttItems: it.gameMttItems,
+        // gameMttItems: it.gameMttItems,
       ),
     ).toList();
   }

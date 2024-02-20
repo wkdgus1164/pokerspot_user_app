@@ -5,7 +5,7 @@ part 'offset_pagination.freezed.dart';
 @freezed
 class OffsetPaginationMetaData with _$OffsetPaginationMetaData {
   factory OffsetPaginationMetaData({
-    @Default(0) int currentPage,
+    @Default(1) int currentPage,
     @Default(false) bool isLast,
   }) = _OffsetPaginationMetaData;
 }

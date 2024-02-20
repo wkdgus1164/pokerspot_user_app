@@ -19,20 +19,20 @@ class _StoresApi implements StoresApi {
   String? baseUrl;
 
   @override
-  Future<StoresDto> fetchStores() async {
-    const _extra = <String, dynamic>{};
+  Future<StoresDataDto> fetchStores() async {
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<StoresDto>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<StoresDataDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/stores?lat=36.3414&lng=127.3882&operationStatus=ALL&page=1&perPage=20',
+              '/api/v1/stores?lat=37.5586687&lng=126.8321734',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -41,7 +41,7 @@ class _StoresApi implements StoresApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = StoresDto.fromJson(_result.data!);
+    final value = StoresDataDto.fromJson(_result.data!);
     return value;
   }
 
@@ -95,4 +95,4 @@ final storesApiProvider = AutoDisposeProvider<StoresApi>.internal(
 
 typedef StoresApiRef = AutoDisposeProviderRef<StoresApi>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

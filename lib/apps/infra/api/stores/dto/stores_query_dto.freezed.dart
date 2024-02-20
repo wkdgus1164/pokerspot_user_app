@@ -12,7 +12,7 @@ part of 'stores_query_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 StoresQuery _$StoresQueryFromJson(Map<String, dynamic> json) {
   return _StoresQuery.fromJson(json);
@@ -22,14 +22,6 @@ StoresQuery _$StoresQueryFromJson(Map<String, dynamic> json) {
 mixin _$StoresQuery {
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
-  String? get operationStatus => throw _privateConstructorUsedError;
-  String? get minOpenTime => throw _privateConstructorUsedError;
-  String? get maxOpenTime => throw _privateConstructorUsedError;
-  String? get gameType => throw _privateConstructorUsedError;
-  int? get minEntryPrice => throw _privateConstructorUsedError;
-  int? get maxEntryPrice => throw _privateConstructorUsedError;
-  int? get page => throw _privateConstructorUsedError;
-  int? get perPage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,17 +35,7 @@ abstract class $StoresQueryCopyWith<$Res> {
           StoresQuery value, $Res Function(StoresQuery) then) =
       _$StoresQueryCopyWithImpl<$Res, StoresQuery>;
   @useResult
-  $Res call(
-      {double lat,
-      double lng,
-      String? operationStatus,
-      String? minOpenTime,
-      String? maxOpenTime,
-      String? gameType,
-      int? minEntryPrice,
-      int? maxEntryPrice,
-      int? page,
-      int? perPage});
+  $Res call({double lat, double lng});
 }
 
 /// @nodoc
@@ -71,14 +53,6 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
   $Res call({
     Object? lat = null,
     Object? lng = null,
-    Object? operationStatus = freezed,
-    Object? minOpenTime = freezed,
-    Object? maxOpenTime = freezed,
-    Object? gameType = freezed,
-    Object? minEntryPrice = freezed,
-    Object? maxEntryPrice = freezed,
-    Object? page = freezed,
-    Object? perPage = freezed,
   }) {
     return _then(_value.copyWith(
       lat: null == lat
@@ -89,69 +63,27 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      operationStatus: freezed == operationStatus
-          ? _value.operationStatus
-          : operationStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
-      minOpenTime: freezed == minOpenTime
-          ? _value.minOpenTime
-          : minOpenTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      maxOpenTime: freezed == maxOpenTime
-          ? _value.maxOpenTime
-          : maxOpenTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gameType: freezed == gameType
-          ? _value.gameType
-          : gameType // ignore: cast_nullable_to_non_nullable
-              as String?,
-      minEntryPrice: freezed == minEntryPrice
-          ? _value.minEntryPrice
-          : minEntryPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxEntryPrice: freezed == maxEntryPrice
-          ? _value.maxEntryPrice
-          : maxEntryPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
-      page: freezed == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      perPage: freezed == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_StoresQueryCopyWith<$Res>
+abstract class _$$StoresQueryImplCopyWith<$Res>
     implements $StoresQueryCopyWith<$Res> {
-  factory _$$_StoresQueryCopyWith(
-          _$_StoresQuery value, $Res Function(_$_StoresQuery) then) =
-      __$$_StoresQueryCopyWithImpl<$Res>;
+  factory _$$StoresQueryImplCopyWith(
+          _$StoresQueryImpl value, $Res Function(_$StoresQueryImpl) then) =
+      __$$StoresQueryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {double lat,
-      double lng,
-      String? operationStatus,
-      String? minOpenTime,
-      String? maxOpenTime,
-      String? gameType,
-      int? minEntryPrice,
-      int? maxEntryPrice,
-      int? page,
-      int? perPage});
+  $Res call({double lat, double lng});
 }
 
 /// @nodoc
-class __$$_StoresQueryCopyWithImpl<$Res>
-    extends _$StoresQueryCopyWithImpl<$Res, _$_StoresQuery>
-    implements _$$_StoresQueryCopyWith<$Res> {
-  __$$_StoresQueryCopyWithImpl(
-      _$_StoresQuery _value, $Res Function(_$_StoresQuery) _then)
+class __$$StoresQueryImplCopyWithImpl<$Res>
+    extends _$StoresQueryCopyWithImpl<$Res, _$StoresQueryImpl>
+    implements _$$StoresQueryImplCopyWith<$Res> {
+  __$$StoresQueryImplCopyWithImpl(
+      _$StoresQueryImpl _value, $Res Function(_$StoresQueryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -159,16 +91,8 @@ class __$$_StoresQueryCopyWithImpl<$Res>
   $Res call({
     Object? lat = null,
     Object? lng = null,
-    Object? operationStatus = freezed,
-    Object? minOpenTime = freezed,
-    Object? maxOpenTime = freezed,
-    Object? gameType = freezed,
-    Object? minEntryPrice = freezed,
-    Object? maxEntryPrice = freezed,
-    Object? page = freezed,
-    Object? perPage = freezed,
   }) {
-    return _then(_$_StoresQuery(
+    return _then(_$StoresQueryImpl(
       lat: null == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
@@ -177,176 +101,68 @@ class __$$_StoresQueryCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      operationStatus: freezed == operationStatus
-          ? _value.operationStatus
-          : operationStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
-      minOpenTime: freezed == minOpenTime
-          ? _value.minOpenTime
-          : minOpenTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      maxOpenTime: freezed == maxOpenTime
-          ? _value.maxOpenTime
-          : maxOpenTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gameType: freezed == gameType
-          ? _value.gameType
-          : gameType // ignore: cast_nullable_to_non_nullable
-              as String?,
-      minEntryPrice: freezed == minEntryPrice
-          ? _value.minEntryPrice
-          : minEntryPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxEntryPrice: freezed == maxEntryPrice
-          ? _value.maxEntryPrice
-          : maxEntryPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
-      page: freezed == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      perPage: freezed == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_StoresQuery implements _StoresQuery {
-  _$_StoresQuery(
-      {required this.lat,
-      required this.lng,
-      this.operationStatus,
-      this.minOpenTime,
-      this.maxOpenTime,
-      this.gameType,
-      this.minEntryPrice,
-      this.maxEntryPrice,
-      this.page,
-      this.perPage});
+class _$StoresQueryImpl implements _StoresQuery {
+  _$StoresQueryImpl({required this.lat, required this.lng});
 
-  factory _$_StoresQuery.fromJson(Map<String, dynamic> json) =>
-      _$$_StoresQueryFromJson(json);
+  factory _$StoresQueryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StoresQueryImplFromJson(json);
 
   @override
   final double lat;
   @override
   final double lng;
-  @override
-  final String? operationStatus;
-  @override
-  final String? minOpenTime;
-  @override
-  final String? maxOpenTime;
-  @override
-  final String? gameType;
-  @override
-  final int? minEntryPrice;
-  @override
-  final int? maxEntryPrice;
-  @override
-  final int? page;
-  @override
-  final int? perPage;
 
   @override
   String toString() {
-    return 'StoresQuery(lat: $lat, lng: $lng, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, page: $page, perPage: $perPage)';
+    return 'StoresQuery(lat: $lat, lng: $lng)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StoresQuery &&
+            other is _$StoresQueryImpl &&
             (identical(other.lat, lat) || other.lat == lat) &&
-            (identical(other.lng, lng) || other.lng == lng) &&
-            (identical(other.operationStatus, operationStatus) ||
-                other.operationStatus == operationStatus) &&
-            (identical(other.minOpenTime, minOpenTime) ||
-                other.minOpenTime == minOpenTime) &&
-            (identical(other.maxOpenTime, maxOpenTime) ||
-                other.maxOpenTime == maxOpenTime) &&
-            (identical(other.gameType, gameType) ||
-                other.gameType == gameType) &&
-            (identical(other.minEntryPrice, minEntryPrice) ||
-                other.minEntryPrice == minEntryPrice) &&
-            (identical(other.maxEntryPrice, maxEntryPrice) ||
-                other.maxEntryPrice == maxEntryPrice) &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.perPage, perPage) || other.perPage == perPage));
+            (identical(other.lng, lng) || other.lng == lng));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      lat,
-      lng,
-      operationStatus,
-      minOpenTime,
-      maxOpenTime,
-      gameType,
-      minEntryPrice,
-      maxEntryPrice,
-      page,
-      perPage);
+  int get hashCode => Object.hash(runtimeType, lat, lng);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StoresQueryCopyWith<_$_StoresQuery> get copyWith =>
-      __$$_StoresQueryCopyWithImpl<_$_StoresQuery>(this, _$identity);
+  _$$StoresQueryImplCopyWith<_$StoresQueryImpl> get copyWith =>
+      __$$StoresQueryImplCopyWithImpl<_$StoresQueryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StoresQueryToJson(
+    return _$$StoresQueryImplToJson(
       this,
     );
   }
 }
 
 abstract class _StoresQuery implements StoresQuery {
-  factory _StoresQuery(
-      {required final double lat,
-      required final double lng,
-      final String? operationStatus,
-      final String? minOpenTime,
-      final String? maxOpenTime,
-      final String? gameType,
-      final int? minEntryPrice,
-      final int? maxEntryPrice,
-      final int? page,
-      final int? perPage}) = _$_StoresQuery;
+  factory _StoresQuery({required final double lat, required final double lng}) =
+      _$StoresQueryImpl;
 
   factory _StoresQuery.fromJson(Map<String, dynamic> json) =
-      _$_StoresQuery.fromJson;
+      _$StoresQueryImpl.fromJson;
 
   @override
   double get lat;
   @override
   double get lng;
   @override
-  String? get operationStatus;
-  @override
-  String? get minOpenTime;
-  @override
-  String? get maxOpenTime;
-  @override
-  String? get gameType;
-  @override
-  int? get minEntryPrice;
-  @override
-  int? get maxEntryPrice;
-  @override
-  int? get page;
-  @override
-  int? get perPage;
-  @override
   @JsonKey(ignore: true)
-  _$$_StoresQueryCopyWith<_$_StoresQuery> get copyWith =>
+  _$$StoresQueryImplCopyWith<_$StoresQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
