@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/list/providers/items.dart';
 import 'package:pokerspot_user_app/common/components/empty_list_placeholder/empty_list_placeholder.dart';
 import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
@@ -33,11 +34,14 @@ class _HomePageState extends ConsumerState<HomePage> {
           );
         }
 
-        return SmartRefresher(
-          controller: _refreshController,
-          enablePullDown: true,
-          onRefresh: () {},
-          child: SafeArea(
+        return Scaffold(
+          appBar: AppBar(
+            title: Image.asset(Assets.logoTextMinifiedColor.path),
+          ),
+          body: SmartRefresher(
+            controller: _refreshController,
+            enablePullDown: true,
+            onRefresh: () {},
             child: ListView.builder(
               itemCount: items.length,
               itemBuilder: (context, index) {

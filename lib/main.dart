@@ -20,15 +20,19 @@ ThemeData _createThemeData({required BuildContext context}) {
   return ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
-      seedColor: colorBrand40,
+      seedColor: colorBrand50,
     ),
     appBarTheme: appBarTheme,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: colorBrand100,
     splashFactory: InkRipple.splashFactory,
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: colorBrand80,
+    ),
     dividerTheme: const DividerThemeData(
       thickness: 1,
       indent: 1,
       space: 1,
+      color: colorGrey95,
     ),
   );
 }

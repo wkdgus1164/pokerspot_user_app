@@ -1,10 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:logger/logger.dart';
-import 'package:pokerspot_user_app/apps/global/exception/custom_exception.dart';
 import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
-import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
