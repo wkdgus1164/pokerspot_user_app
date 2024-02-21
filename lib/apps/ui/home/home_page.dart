@@ -3,9 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
-import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/list/components/list_item.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/list/providers/items.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/location/components/location_view.dart';
 import 'package:pokerspot_user_app/common/components/empty_list_placeholder/empty_list_placeholder.dart';
 import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -45,29 +45,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
           body: Column(
             children: [
-              Container(
-                color: colorGrey98,
-                width: double.infinity,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(
-                      Icons.location_on_rounded,
-                      color: colorGrey70,
-                      size: 16,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '서울시 강서구 공항대로 222',
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            color: colorGrey50,
-                          ),
-                    ),
-                  ],
-                ),
-              ),
+              const HomeLocationView(),
               Expanded(
                 child: SmartRefresher(
                   controller: _refreshController,
