@@ -23,10 +23,10 @@ _$GameMTTDtoImpl _$$GameMTTDtoImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       type: json['type'] as String,
       entryPrice: json['entryPrice'] as int,
-      entryMax: json['entryMax'] as int,
-      reEntryMax: json['reEntryMax'] as int,
-      duration: json['duration'] as int,
-      prize: json['prize'] as int,
+      entryMax: json['entryMax'] as int?,
+      reEntryMax: json['reEntryMax'] as int?,
+      duration: json['duration'] as int?,
+      prize: json['prize'] as int?,
       eventType: json['eventType'] as String,
       isDaily: json['isDaily'] as bool,
       name: json['name'] as String,
@@ -56,8 +56,11 @@ _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
       openTime: json['openTime'] as String,
       closeTime: json['closeTime'] as String?,
       distance: (json['distance'] as num?)?.toDouble(),
-      storeImages: (json['storeImages'] as List<dynamic>)
-          .map((e) => StoreImageDto.fromJson(e as Map<String, dynamic>))
+      storeImages: (json['storeImages'] as List<dynamic>?)
+          ?.map((e) => StoreImageDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      gameMttItems: (json['gameMttItems'] as List<dynamic>)
+          .map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -72,4 +75,5 @@ Map<String, dynamic> _$$StoreDtoImplToJson(_$StoreDtoImpl instance) =>
       'closeTime': instance.closeTime,
       'distance': instance.distance,
       'storeImages': instance.storeImages,
+      'gameMttItems': instance.gameMttItems,
     };

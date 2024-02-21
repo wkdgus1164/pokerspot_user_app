@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
+import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/list/components/list_item.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/list/providers/items.dart';
 import 'package:pokerspot_user_app/common/components/empty_list_placeholder/empty_list_placeholder.dart';
 import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class HomePage extends StatefulHookConsumerWidget {
   const HomePage({super.key});
@@ -36,89 +38,66 @@ class _HomePageState extends ConsumerState<HomePage> {
 
         return Scaffold(
           appBar: AppBar(
-            title: Image.asset(Assets.logoTextMinifiedColor.path),
-          ),
-          body: SmartRefresher(
-            controller: _refreshController,
-            enablePullDown: true,
-            onRefresh: () {},
-            child: ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return WithListFooter(
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text('name: ${items[index].name}'),
-                        Text('address: ${items[index].address}'),
-                        Text('addressDetail: ${items[index].addressDetail}'),
-                        Text('openTime: ${items[index].openTime}'),
-                        Text('closeTime: ${items[index].closeTime}'),
-                        Text('distance: ${items[index].distance}'),
-                        ListView(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          children: items[index]
-                              .storeImages
-                              .map(
-                                (it) => CachedNetworkImage(
-                                  placeholder: (context, url) {
-                                    return const SizedBox(
-                                      width: double.infinity,
-                                      child: AspectRatio(
-                                        aspectRatio: 16 / 9,
-                                        child: Center(
-                                          child: CircularProgressIndicator
-                                              .adaptive(),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  errorWidget: (context, url, error) {
-                                    return const SizedBox(
-                                      width: double.infinity,
-                                      child: AspectRatio(
-                                        aspectRatio: 16 / 9,
-                                        child: Center(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Icon(
-                                                Icons.error,
-                                                color: Colors.black26,
-                                              ),
-                                              SizedBox(height: 16),
-                                              Text(
-                                                '이미지를 불러오는 데에 실패했어요.',
-                                                style: TextStyle(
-                                                  color: Colors.black26,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  imageUrl: it.url.toString(),
-                                ),
-                              )
-                              .toList(),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              },
+            title: SvgPicture.asset(
+              Assets.logoTextMinifiedColor.path,
+              width: 90,
             ),
+          ),
+          body: Column(
+            children: [
+              Container(
+                color: colorGrey98,
+                width: double.infinity,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.location_on_rounded,
+                      color: colorGrey70,
+                      size: 16,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      '서울시 강서구 공항대로 222',
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            color: colorGrey50,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: SmartRefresher(
+                  controller: _refreshController,
+                  enablePullDown: true,
+                  onRefresh: () {
+                    _refresh();
+                  },
+                  child: ListView.separated(
+                    padding: const EdgeInsets.all(16),
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return WithListFooter(
+                        child: HomeStoreListItem(
+                          storeImages: items[index].storeImages,
+                          name: items[index].name,
+                          address: items[index].address,
+                          addressDetail: items[index].addressDetail,
+                          openTime: items[index].openTime,
+                          closeTime: items[index].closeTime ?? "",
+                          distance: items[index].distance ?? 0,
+                          storeGames: items[index].gameMttItems,
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 16),
+                  ),
+                ),
+              ),
+            ],
           ),
         );
       },
@@ -161,5 +140,10 @@ class _HomePageState extends ConsumerState<HomePage> {
     //     itemCount: 10,
     //   ),
     // );
+  }
+
+  void _refresh() {
+    ref.invalidate(storesItemsProvider);
+    _refreshController.refreshCompleted();
   }
 }

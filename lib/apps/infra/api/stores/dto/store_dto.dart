@@ -20,10 +20,10 @@ class GameMTTDto with _$GameMTTDto {
     required String id,
     required String type,
     required int entryPrice,
-    required int entryMax,
-    required int reEntryMax,
-    required int duration,
-    required int prize,
+    required int? entryMax,
+    required int? reEntryMax,
+    required int? duration,
+    required int? prize,
     required String eventType,
     required bool isDaily,
     required String name,
@@ -46,8 +46,8 @@ class StoreDto with _$StoreDto {
     required double? distance,
     // required double lat,
     // required double lng,
-    required List<StoreImageDto> storeImages,
-    // required List<GameMTTDto> gameMttItems,
+    required List<StoreImageDto>? storeImages,
+    required List<GameMTTDto> gameMttItems,
   }) = _StoreDto;
 
   factory StoreDto.fromJson(Map<String, dynamic> json) =>

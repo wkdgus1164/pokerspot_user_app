@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pokerspot_user_app/apps/global/theme/app_bar.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +35,7 @@ ThemeData _createThemeData({required BuildContext context}) {
       space: 1,
       color: colorGrey95,
     ),
+    textTheme: textTheme,
   );
 }
 

@@ -50,7 +50,7 @@ extension _ToolModelMapperExtension on List<StoreDto> {
         // lat: it.lat,
         // lng: it.lng,
         storeImages: it.storeImages,
-        // gameMttItems: it.gameMttItems,
+        gameMttItems: it.gameMttItems,
       ),
     ).toList();
   }
