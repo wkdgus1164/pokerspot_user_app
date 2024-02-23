@@ -33,6 +33,7 @@ class StoresItems extends _$StoresItems {
     final res = await ref.read(storesApiProvider).fetchStores(
           latitude,
           longitude,
+          50,
         );
 
     final data = res.data;

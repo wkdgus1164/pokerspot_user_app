@@ -14,6 +14,7 @@ abstract class StoresApi {
   Future<StoresDataDto> fetchStores(
     @Query('lat') double lat,
     @Query('lng') double lng,
+    @Query('perPage') double? perPage,
   );
 }
 

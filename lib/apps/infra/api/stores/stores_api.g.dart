@@ -22,12 +22,15 @@ class _StoresApi implements StoresApi {
   Future<StoresDataDto> fetchStores(
     double lat,
     double lng,
+    double? perPage,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'lat': lat,
       r'lng': lng,
+      r'perPage': perPage,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
