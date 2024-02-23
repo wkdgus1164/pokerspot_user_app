@@ -3,6 +3,7 @@
 import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/location/providers/gps.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'items.g.dart';
@@ -19,14 +20,19 @@ class StoresItems extends _$StoresItems {
   }
 
   Future<Models> _fetch() async {
+    double latitude = 0;
+    double longitude = 0;
+
+    await GpsService().getLocation(
+      (lat, lng) {
+        latitude = lat;
+        longitude = lng;
+      },
+    );
+
     final res = await ref.read(storesApiProvider).fetchStores(
-        // StoresQuery(
-        //   lat: 37.5586687,
-        //   lng: 126.8321734,
-        // operationStatus: 'ALL',
-        // page: 1,
-        // perPage: 20,
-        // ),
+          latitude,
+          longitude,
         );
 
     final data = res.data;

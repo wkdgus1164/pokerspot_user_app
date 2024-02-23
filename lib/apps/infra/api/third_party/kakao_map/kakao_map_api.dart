@@ -10,8 +10,11 @@ part 'kakao_map_api.g.dart';
 abstract class KakaoMapApi {
   factory KakaoMapApi(Dio dio) = _KakaoMapApi;
 
-  @GET('/v2/local/geo/coord2address?x=126.8375&y=37.5587')
-  Future<AddressDto> fetchAddressName();
+  @GET('/v2/local/geo/coord2address')
+  Future<AddressDto> fetchAddressName(
+    @Query('x') double x,
+    @Query('y') double y,
+  );
 }
 
 @riverpod

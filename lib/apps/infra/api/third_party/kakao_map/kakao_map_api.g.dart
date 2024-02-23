@@ -19,9 +19,15 @@ class _KakaoMapApi implements KakaoMapApi {
   String? baseUrl;
 
   @override
-  Future<AddressDto> fetchAddressName() async {
+  Future<AddressDto> fetchAddressName(
+    double x,
+    double y,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'x': x,
+      r'y': y,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -32,7 +38,7 @@ class _KakaoMapApi implements KakaoMapApi {
     )
             .compose(
               _dio.options,
-              '/v2/local/geo/coord2address?x=126.8375&y=37.5587',
+              '/v2/local/geo/coord2address',
               queryParameters: queryParameters,
               data: _data,
             )

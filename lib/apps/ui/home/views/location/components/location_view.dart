@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/location/providers/location.dart';
 
@@ -19,10 +18,6 @@ class _HomeLocationViewState extends ConsumerState<HomeLocationView> {
 
     return res.when(
       data: (data) {
-        // final location = data.documents[0]!.address!.address_name!;
-
-        Logger().e(data);
-
         return Container(
           color: colorGrey98,
           width: double.infinity,
@@ -48,7 +43,6 @@ class _HomeLocationViewState extends ConsumerState<HomeLocationView> {
         );
       },
       error: (error, stackTrace) {
-        Logger().e(error.toString());
         return Text(error.toString());
       },
       loading: () {

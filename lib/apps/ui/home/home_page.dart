@@ -93,7 +93,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         );
       },
       loading: () {
-        return const CircularProgressIndicator.adaptive();
+        return const Center(child: CircularProgressIndicator.adaptive());
       },
     );
 

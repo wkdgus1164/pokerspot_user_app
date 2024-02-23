@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:pokerspot_user_app/apps/infra/api/third_party/kakao_map/dto/address_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/third_party/kakao_map/kakao_map_api.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/location/providers/gps.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'location.g.dart';
@@ -14,7 +15,20 @@ class LocationName extends _$LocationName {
   }
 
   Future<AddressDto> _fetch() async {
-    final res = await ref.read(kakaoMapApiProvider).fetchAddressName();
+    double latitude = 0;
+    double longitude = 0;
+
+    await GpsService().getLocation(
+      (lat, lng) {
+        latitude = lat;
+        longitude = lng;
+      },
+    );
+
+    final res = await ref.read(kakaoMapApiProvider).fetchAddressName(
+          latitude,
+          longitude,
+        );
     return res.toModels();
   }
 }

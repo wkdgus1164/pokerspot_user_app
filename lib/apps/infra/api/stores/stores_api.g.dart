@@ -19,9 +19,15 @@ class _StoresApi implements StoresApi {
   String? baseUrl;
 
   @override
-  Future<StoresDataDto> fetchStores() async {
+  Future<StoresDataDto> fetchStores(
+    double lat,
+    double lng,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'lat': lat,
+      r'lng': lng,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -32,7 +38,7 @@ class _StoresApi implements StoresApi {
     )
             .compose(
               _dio.options,
-              '/api/v1/stores?lat=37.5586687&lng=126.8321734',
+              '/api/v1/stores',
               queryParameters: queryParameters,
               data: _data,
             )
