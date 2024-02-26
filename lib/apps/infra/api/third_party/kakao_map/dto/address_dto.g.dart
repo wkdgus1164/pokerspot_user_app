@@ -42,10 +42,8 @@ _$AddressDocumentsDtoImpl _$$AddressDocumentsDtoImplFromJson(
           ? null
           : AddressDocumentsRoadAddressDto.fromJson(
               json['road_address'] as Map<String, dynamic>),
-      address: json['address'] == null
-          ? null
-          : AddressDocumentsAddressDto.fromJson(
-              json['address'] as Map<String, dynamic>),
+      address: AddressDocumentsAddressDto.fromJson(
+          json['address'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$AddressDocumentsDtoImplToJson(
@@ -88,7 +86,7 @@ Map<String, dynamic> _$$AddressDocumentsRoadAddressDtoImplToJson(
 _$AddressDocumentsAddressDtoImpl _$$AddressDocumentsAddressDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$AddressDocumentsAddressDtoImpl(
-      address_name: json['address_name'] as String?,
+      address_name: json['address_name'] as String,
       region_1depth_name: json['region_1depth_name'] as String?,
       region_2depth_name: json['region_2depth_name'] as String?,
       region_3depth_name: json['region_3depth_name'] as String?,

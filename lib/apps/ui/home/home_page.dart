@@ -60,10 +60,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                       return WithListFooter(
                         child: HomeStoreListItem(
                           storeImages: items[index].storeImages,
-                          name: items[index].name,
-                          address: items[index].address,
-                          addressDetail: items[index].addressDetail,
-                          openTime: items[index].openTime,
+                          name: items[index].name ?? "",
+                          address: items[index].address ?? "",
+                          addressDetail: items[index].addressDetail ?? "",
+                          openTime: items[index].openTime ?? "",
                           closeTime: items[index].closeTime ?? "",
                           distance: items[index].distance ?? 0,
                           storeGames: items[index].gameMttItems,

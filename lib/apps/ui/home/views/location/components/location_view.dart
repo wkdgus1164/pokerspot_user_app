@@ -32,12 +32,22 @@ class _HomeLocationViewState extends ConsumerState<HomeLocationView> {
                 size: 16,
               ),
               const SizedBox(width: 4),
-              Text(
-                data.documents[0]!.address!.address_name!,
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      color: colorGrey50,
-                    ),
-              ),
+              if (data.documents[0] != null) ...[
+                Text(
+                  data.documents[0]!.address.address_name,
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        color: colorGrey50,
+                      ),
+                ),
+              ],
+              if (data.documents[0] == null) ...[
+                Text(
+                  data.documents[1]!.address.address_name,
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        color: colorGrey50,
+                      ),
+                ),
+              ],
             ],
           ),
         );

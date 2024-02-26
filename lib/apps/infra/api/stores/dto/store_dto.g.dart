@@ -52,8 +52,8 @@ _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       name: json['name'] as String,
       address: json['address'] as String,
-      addressDetail: json['addressDetail'] as String,
-      openTime: json['openTime'] as String,
+      addressDetail: json['addressDetail'] as String?,
+      openTime: json['openTime'] as String?,
       closeTime: json['closeTime'] as String?,
       distance: (json['distance'] as num?)?.toDouble(),
       storeImages: (json['storeImages'] as List<dynamic>?)

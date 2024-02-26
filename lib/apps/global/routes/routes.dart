@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pokerspot_user_app/apps/ui/home/home_page.dart';
 import 'package:pokerspot_user_app/apps/ui/main/main_page.dart';
 import 'package:pokerspot_user_app/apps/ui/splash/splash_page.dart';
 
 enum CustomRouter {
   splash('/splash'),
-  main('/home'),
+  main('/main'),
+  home('/home'),
   ;
 
   const CustomRouter(this.path);
@@ -25,6 +27,10 @@ final router = GoRouter(
     GoRoute(
       path: CustomRouter.main.path,
       builder: (context, state) => const MainPage(),
+    ),
+    GoRoute(
+      path: CustomRouter.home.path,
+      builder: (context, state) => const HomePage(),
     ),
   ],
 );

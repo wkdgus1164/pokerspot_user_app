@@ -504,8 +504,8 @@ mixin _$StoreDto {
   String get type => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  String get addressDetail => throw _privateConstructorUsedError;
-  String get openTime => throw _privateConstructorUsedError;
+  String? get addressDetail => throw _privateConstructorUsedError;
+  String? get openTime => throw _privateConstructorUsedError;
   String? get closeTime => throw _privateConstructorUsedError;
   double? get distance =>
       throw _privateConstructorUsedError; // required double lat,
@@ -529,8 +529,8 @@ abstract class $StoreDtoCopyWith<$Res> {
       String type,
       String name,
       String address,
-      String addressDetail,
-      String openTime,
+      String? addressDetail,
+      String? openTime,
       String? closeTime,
       double? distance,
       List<StoreImageDto>? storeImages,
@@ -554,8 +554,8 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
     Object? type = null,
     Object? name = null,
     Object? address = null,
-    Object? addressDetail = null,
-    Object? openTime = null,
+    Object? addressDetail = freezed,
+    Object? openTime = freezed,
     Object? closeTime = freezed,
     Object? distance = freezed,
     Object? storeImages = freezed,
@@ -578,14 +578,14 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      addressDetail: null == addressDetail
+      addressDetail: freezed == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String,
-      openTime: null == openTime
+              as String?,
+      openTime: freezed == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
@@ -619,8 +619,8 @@ abstract class _$$StoreDtoImplCopyWith<$Res>
       String type,
       String name,
       String address,
-      String addressDetail,
-      String openTime,
+      String? addressDetail,
+      String? openTime,
       String? closeTime,
       double? distance,
       List<StoreImageDto>? storeImages,
@@ -642,8 +642,8 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
     Object? type = null,
     Object? name = null,
     Object? address = null,
-    Object? addressDetail = null,
-    Object? openTime = null,
+    Object? addressDetail = freezed,
+    Object? openTime = freezed,
     Object? closeTime = freezed,
     Object? distance = freezed,
     Object? storeImages = freezed,
@@ -666,14 +666,14 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      addressDetail: null == addressDetail
+      addressDetail: freezed == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String,
-      openTime: null == openTime
+              as String?,
+      openTime: freezed == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
@@ -723,9 +723,9 @@ class _$StoreDtoImpl implements _StoreDto {
   @override
   final String address;
   @override
-  final String addressDetail;
+  final String? addressDetail;
   @override
-  final String openTime;
+  final String? openTime;
   @override
   final String? closeTime;
   @override
@@ -815,8 +815,8 @@ abstract class _StoreDto implements StoreDto {
       required final String type,
       required final String name,
       required final String address,
-      required final String addressDetail,
-      required final String openTime,
+      required final String? addressDetail,
+      required final String? openTime,
       required final String? closeTime,
       required final double? distance,
       required final List<StoreImageDto>? storeImages,
@@ -834,9 +834,9 @@ abstract class _StoreDto implements StoreDto {
   @override
   String get address;
   @override
-  String get addressDetail;
+  String? get addressDetail;
   @override
-  String get openTime;
+  String? get openTime;
   @override
   String? get closeTime;
   @override

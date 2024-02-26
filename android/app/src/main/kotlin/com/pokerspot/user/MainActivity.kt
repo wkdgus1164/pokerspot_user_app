@@ -1,4 +1,4 @@
-package com.example.pokerspot_user_app
+package com.pokerspot.user
 
 import io.flutter.embedding.android.FlutterActivity
 

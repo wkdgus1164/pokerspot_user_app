@@ -342,7 +342,7 @@ AddressDocumentsDto _$AddressDocumentsDtoFromJson(Map<String, dynamic> json) {
 mixin _$AddressDocumentsDto {
   AddressDocumentsRoadAddressDto? get road_address =>
       throw _privateConstructorUsedError;
-  AddressDocumentsAddressDto? get address => throw _privateConstructorUsedError;
+  AddressDocumentsAddressDto get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -358,10 +358,10 @@ abstract class $AddressDocumentsDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {AddressDocumentsRoadAddressDto? road_address,
-      AddressDocumentsAddressDto? address});
+      AddressDocumentsAddressDto address});
 
   $AddressDocumentsRoadAddressDtoCopyWith<$Res>? get road_address;
-  $AddressDocumentsAddressDtoCopyWith<$Res>? get address;
+  $AddressDocumentsAddressDtoCopyWith<$Res> get address;
 }
 
 /// @nodoc
@@ -378,17 +378,17 @@ class _$AddressDocumentsDtoCopyWithImpl<$Res, $Val extends AddressDocumentsDto>
   @override
   $Res call({
     Object? road_address = freezed,
-    Object? address = freezed,
+    Object? address = null,
   }) {
     return _then(_value.copyWith(
       road_address: freezed == road_address
           ? _value.road_address
           : road_address // ignore: cast_nullable_to_non_nullable
               as AddressDocumentsRoadAddressDto?,
-      address: freezed == address
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as AddressDocumentsAddressDto?,
+              as AddressDocumentsAddressDto,
     ) as $Val);
   }
 
@@ -407,12 +407,8 @@ class _$AddressDocumentsDtoCopyWithImpl<$Res, $Val extends AddressDocumentsDto>
 
   @override
   @pragma('vm:prefer-inline')
-  $AddressDocumentsAddressDtoCopyWith<$Res>? get address {
-    if (_value.address == null) {
-      return null;
-    }
-
-    return $AddressDocumentsAddressDtoCopyWith<$Res>(_value.address!, (value) {
+  $AddressDocumentsAddressDtoCopyWith<$Res> get address {
+    return $AddressDocumentsAddressDtoCopyWith<$Res>(_value.address, (value) {
       return _then(_value.copyWith(address: value) as $Val);
     });
   }
@@ -428,12 +424,12 @@ abstract class _$$AddressDocumentsDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {AddressDocumentsRoadAddressDto? road_address,
-      AddressDocumentsAddressDto? address});
+      AddressDocumentsAddressDto address});
 
   @override
   $AddressDocumentsRoadAddressDtoCopyWith<$Res>? get road_address;
   @override
-  $AddressDocumentsAddressDtoCopyWith<$Res>? get address;
+  $AddressDocumentsAddressDtoCopyWith<$Res> get address;
 }
 
 /// @nodoc
@@ -448,17 +444,17 @@ class __$$AddressDocumentsDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? road_address = freezed,
-    Object? address = freezed,
+    Object? address = null,
   }) {
     return _then(_$AddressDocumentsDtoImpl(
       road_address: freezed == road_address
           ? _value.road_address
           : road_address // ignore: cast_nullable_to_non_nullable
               as AddressDocumentsRoadAddressDto?,
-      address: freezed == address
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as AddressDocumentsAddressDto?,
+              as AddressDocumentsAddressDto,
     ));
   }
 }
@@ -475,7 +471,7 @@ class _$AddressDocumentsDtoImpl implements _AddressDocumentsDto {
   @override
   final AddressDocumentsRoadAddressDto? road_address;
   @override
-  final AddressDocumentsAddressDto? address;
+  final AddressDocumentsAddressDto address;
 
   @override
   String toString() {
@@ -514,7 +510,7 @@ class _$AddressDocumentsDtoImpl implements _AddressDocumentsDto {
 abstract class _AddressDocumentsDto implements AddressDocumentsDto {
   factory _AddressDocumentsDto(
           {required final AddressDocumentsRoadAddressDto? road_address,
-          required final AddressDocumentsAddressDto? address}) =
+          required final AddressDocumentsAddressDto address}) =
       _$AddressDocumentsDtoImpl;
 
   factory _AddressDocumentsDto.fromJson(Map<String, dynamic> json) =
@@ -523,7 +519,7 @@ abstract class _AddressDocumentsDto implements AddressDocumentsDto {
   @override
   AddressDocumentsRoadAddressDto? get road_address;
   @override
-  AddressDocumentsAddressDto? get address;
+  AddressDocumentsAddressDto get address;
   @override
   @JsonKey(ignore: true)
   _$$AddressDocumentsDtoImplCopyWith<_$AddressDocumentsDtoImpl> get copyWith =>
@@ -890,7 +886,7 @@ AddressDocumentsAddressDto _$AddressDocumentsAddressDtoFromJson(
 
 /// @nodoc
 mixin _$AddressDocumentsAddressDto {
-  String? get address_name => throw _privateConstructorUsedError;
+  String get address_name => throw _privateConstructorUsedError;
   String? get region_1depth_name => throw _privateConstructorUsedError;
   String? get region_2depth_name => throw _privateConstructorUsedError;
   String? get region_3depth_name => throw _privateConstructorUsedError;
@@ -913,7 +909,7 @@ abstract class $AddressDocumentsAddressDtoCopyWith<$Res> {
           AddressDocumentsAddressDto>;
   @useResult
   $Res call(
-      {String? address_name,
+      {String address_name,
       String? region_1depth_name,
       String? region_2depth_name,
       String? region_3depth_name,
@@ -937,7 +933,7 @@ class _$AddressDocumentsAddressDtoCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address_name = freezed,
+    Object? address_name = null,
     Object? region_1depth_name = freezed,
     Object? region_2depth_name = freezed,
     Object? region_3depth_name = freezed,
@@ -947,10 +943,10 @@ class _$AddressDocumentsAddressDtoCopyWithImpl<$Res,
     Object? zip_code = freezed,
   }) {
     return _then(_value.copyWith(
-      address_name: freezed == address_name
+      address_name: null == address_name
           ? _value.address_name
           : address_name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       region_1depth_name: freezed == region_1depth_name
           ? _value.region_1depth_name
           : region_1depth_name // ignore: cast_nullable_to_non_nullable
@@ -993,7 +989,7 @@ abstract class _$$AddressDocumentsAddressDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? address_name,
+      {String address_name,
       String? region_1depth_name,
       String? region_2depth_name,
       String? region_3depth_name,
@@ -1016,7 +1012,7 @@ class __$$AddressDocumentsAddressDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address_name = freezed,
+    Object? address_name = null,
     Object? region_1depth_name = freezed,
     Object? region_2depth_name = freezed,
     Object? region_3depth_name = freezed,
@@ -1026,10 +1022,10 @@ class __$$AddressDocumentsAddressDtoImplCopyWithImpl<$Res>
     Object? zip_code = freezed,
   }) {
     return _then(_$AddressDocumentsAddressDtoImpl(
-      address_name: freezed == address_name
+      address_name: null == address_name
           ? _value.address_name
           : address_name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       region_1depth_name: freezed == region_1depth_name
           ? _value.region_1depth_name
           : region_1depth_name // ignore: cast_nullable_to_non_nullable
@@ -1080,7 +1076,7 @@ class _$AddressDocumentsAddressDtoImpl implements _AddressDocumentsAddressDto {
       _$$AddressDocumentsAddressDtoImplFromJson(json);
 
   @override
-  final String? address_name;
+  final String address_name;
   @override
   final String? region_1depth_name;
   @override
@@ -1155,7 +1151,7 @@ class _$AddressDocumentsAddressDtoImpl implements _AddressDocumentsAddressDto {
 abstract class _AddressDocumentsAddressDto
     implements AddressDocumentsAddressDto {
   factory _AddressDocumentsAddressDto(
-      {required final String? address_name,
+      {required final String address_name,
       required final String? region_1depth_name,
       required final String? region_2depth_name,
       required final String? region_3depth_name,
@@ -1168,7 +1164,7 @@ abstract class _AddressDocumentsAddressDto
       _$AddressDocumentsAddressDtoImpl.fromJson;
 
   @override
-  String? get address_name;
+  String get address_name;
   @override
   String? get region_1depth_name;
   @override

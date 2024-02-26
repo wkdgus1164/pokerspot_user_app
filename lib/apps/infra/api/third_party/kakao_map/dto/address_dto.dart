@@ -28,7 +28,7 @@ class AddressMetaDto with _$AddressMetaDto {
 class AddressDocumentsDto with _$AddressDocumentsDto {
   factory AddressDocumentsDto({
     required AddressDocumentsRoadAddressDto? road_address,
-    required AddressDocumentsAddressDto? address,
+    required AddressDocumentsAddressDto address,
   }) = _AddressDocumentsDto;
 
   factory AddressDocumentsDto.fromJson(Map<String, dynamic> json) =>
@@ -57,7 +57,7 @@ class AddressDocumentsRoadAddressDto with _$AddressDocumentsRoadAddressDto {
 @freezed
 class AddressDocumentsAddressDto with _$AddressDocumentsAddressDto {
   factory AddressDocumentsAddressDto({
-    required String? address_name,
+    required String address_name,
     required String? region_1depth_name,
     required String? region_2depth_name,
     required String? region_3depth_name,
