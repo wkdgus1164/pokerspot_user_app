@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
-import 'package:pokerspot_user_app/apps/ui/home/views/list/components/games_list_item.dart';
+import 'package:pokerspot_user_app/apps/ui/home/components/tournament_info.dart';
 
 class StoreListItemGames extends StatelessWidget {
   const StoreListItemGames({super.key, required this.games});
@@ -83,26 +83,26 @@ class StoreListItemGames extends StatelessWidget {
                         ),
                   ),
                   const SizedBox(height: 8),
-                  StoreListItemGamesListItem(
+                  HomeStoreTournamentInfo(
                     title: 'BUY-IN',
                     caption: '${it.entryPrice.toString()} Ticket',
                   ),
                   const SizedBox(height: 8),
-                  StoreListItemGamesListItem(
+                  HomeStoreTournamentInfo(
                     title: 'ENTRY',
                     caption: it.entryMax != null
                         ? '${it.entryMax.toString()}~'
                         : "-",
                   ),
                   const SizedBox(height: 8),
-                  StoreListItemGamesListItem(
+                  HomeStoreTournamentInfo(
                     title: 'BL-UP',
                     caption: it.duration != null
                         ? '${it.duration.toString()}분'
                         : "-",
                   ),
                   const SizedBox(height: 8),
-                  StoreListItemGamesListItem(
+                  HomeStoreTournamentInfo(
                     title: 'PRIZE',
                     caption: '${it.prize.toString()}%',
                   ),

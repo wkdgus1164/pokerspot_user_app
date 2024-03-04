@@ -3,10 +3,10 @@
 import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
-import 'package:pokerspot_user_app/apps/ui/home/views/location/providers/gps.dart';
+import 'package:pokerspot_user_app/apps/global/utils/gps/gps_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'items.g.dart';
+part 'store.g.dart';
 
 const PAGE_SIZE = 20;
 

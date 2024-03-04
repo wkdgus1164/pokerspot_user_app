@@ -27,7 +27,7 @@ ThemeData _createThemeData({required BuildContext context}) {
     scaffoldBackgroundColor: colorBrand100,
     splashFactory: InkRipple.splashFactory,
     progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color: colorBrand80,
+      color: colorGrey80,
     ),
     dividerTheme: const DividerThemeData(
       thickness: 1,
@@ -46,11 +46,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarColor: Colors.white,
-        systemNavigationBarDividerColor: Colors.white,
-      ),
+          // statusBarColor: Colors.transparent,
+          // statusBarIconBrightness: Brightness.dark,
+          // systemNavigationBarColor: Colors.white,
+          // systemNavigationBarDividerColor: Colors.white,
+          ),
     );
 
     return GlobalLoaderOverlay(

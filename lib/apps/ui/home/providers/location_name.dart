@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/infra/api/third_party/kakao_map/dto/address_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/third_party/kakao_map/kakao_map_api.dart';
-import 'package:pokerspot_user_app/apps/ui/home/views/location/providers/gps.dart';
+import 'package:pokerspot_user_app/apps/global/utils/gps/gps_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'location.g.dart';
+part 'location_name.g.dart';
 
 @riverpod
 class LocationName extends _$LocationName {
@@ -24,6 +25,8 @@ class LocationName extends _$LocationName {
         longitude = lng;
       },
     );
+
+    Logger().d('사용자의 현위치: lat: $latitude, lon: $longitude');
 
     final res = await ref.read(kakaoMapApiProvider).fetchAddressName(
           latitude,

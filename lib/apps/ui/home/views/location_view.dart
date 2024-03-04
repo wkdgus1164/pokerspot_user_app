@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/views/location/providers/location.dart';
+import 'package:pokerspot_user_app/apps/ui/home/components/captions/gps_error.dart';
+import 'package:pokerspot_user_app/apps/ui/home/components/captions/gps_loading.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/location_name.dart';
 
 class HomeLocationView extends StatefulHookConsumerWidget {
   const HomeLocationView({super.key});
@@ -52,12 +55,11 @@ class _HomeLocationViewState extends ConsumerState<HomeLocationView> {
           ),
         );
       },
-      error: (error, stackTrace) {
-        return Text(error.toString());
+      error: (error, _) {
+        Logger().e('위치 정보 수집 실패!\n $error: ');
+        return const HomeGpsError();
       },
-      loading: () {
-        return const CircularProgressIndicator.adaptive();
-      },
+      loading: () => const HomeGpsLoading(),
     );
   }
 }

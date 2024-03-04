@@ -47,6 +47,6 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   }
 
   Future _init() async {
-    context.go(CustomRouter.main.path);
+    context.go(CustomRouter.home.path);
   }
 }
