@@ -38,8 +38,8 @@ class StoreDto with _$StoreDto {
   factory StoreDto({
     required String id,
     required String type,
-    required String name,
-    required String address,
+    required String? name,
+    required String? address,
     required String? addressDetail,
     required String? openTime,
     required String? closeTime,
@@ -47,7 +47,7 @@ class StoreDto with _$StoreDto {
     // required double lat,
     // required double lng,
     required List<StoreImageDto>? storeImages,
-    required List<GameMTTDto> gameMttItems,
+    required List<GameMTTDto>? gameMttItems,
   }) = _StoreDto;
 
   factory StoreDto.fromJson(Map<String, dynamic> json) =>

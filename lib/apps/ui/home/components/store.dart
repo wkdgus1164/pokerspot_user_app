@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/tournament.dart';
-import 'package:pokerspot_user_app/common/components/image_load_failed.dart';
+import 'package:pokerspot_user_app/apps/ui/home/components/captions/image_load_failed.dart';
 
 class HomeStore extends StatelessWidget {
   const HomeStore({
@@ -64,7 +64,7 @@ class HomeStore extends StatelessWidget {
                 ),
               );
             },
-            errorWidget: (context, url, error) => const ImageLoadFailed(),
+            errorWidget: (_, __, ___) => const ImageLoadFailed(),
             imageUrl: storeImages!.isNotEmpty ? storeImages!.first.url : "",
           ),
           Container(

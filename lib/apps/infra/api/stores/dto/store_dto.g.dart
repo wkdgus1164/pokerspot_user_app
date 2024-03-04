@@ -50,8 +50,8 @@ _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreDtoImpl(
       id: json['id'] as String,
       type: json['type'] as String,
-      name: json['name'] as String,
-      address: json['address'] as String,
+      name: json['name'] as String?,
+      address: json['address'] as String?,
       addressDetail: json['addressDetail'] as String?,
       openTime: json['openTime'] as String?,
       closeTime: json['closeTime'] as String?,
@@ -59,8 +59,8 @@ _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
       storeImages: (json['storeImages'] as List<dynamic>?)
           ?.map((e) => StoreImageDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gameMttItems: (json['gameMttItems'] as List<dynamic>)
-          .map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
+      gameMttItems: (json['gameMttItems'] as List<dynamic>?)
+          ?.map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

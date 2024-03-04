@@ -104,7 +104,7 @@ class StoreListItemGames extends StatelessWidget {
                   const SizedBox(height: 8),
                   HomeStoreTournamentInfo(
                     title: 'PRIZE',
-                    caption: '${it.prize.toString()}%',
+                    caption: it.prize != null ? '${it.prize.toString()}%' : "-",
                   ),
                 ],
               ),

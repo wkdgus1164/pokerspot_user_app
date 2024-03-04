@@ -44,7 +44,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                     openTime: items[index].openTime ?? "",
                     closeTime: items[index].closeTime ?? "",
                     distance: items[index].distance ?? 0,
-                    storeGames: items[index].gameMttItems,
+                    storeGames: items[index].gameMttItems ?? [],
                   ),
                 );
               },
