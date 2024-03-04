@@ -16,6 +16,7 @@ class HomeStore extends StatelessWidget {
     required this.closeTime,
     required this.distance,
     required this.storeGames,
+    required this.handleClick,
   });
 
   final List<StoreImageDto>? storeImages;
@@ -26,6 +27,7 @@ class HomeStore extends StatelessWidget {
   final String closeTime;
   final double distance;
   final List<GameMTTDto> storeGames;
+  final Function() handleClick;
 
   @override
   Widget build(BuildContext context) {
@@ -33,59 +35,62 @@ class HomeStore extends StatelessWidget {
         ? '오후 ${int.parse(openTime.substring(0, 2)) - 12}'
         : '오후 ${int.parse(openTime.substring(0, 2))}';
 
-    return Container(
-      decoration: BoxDecoration(
-        color: colorGrey100,
-        border: Border.all(color: colorGrey95),
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x19000000),
-            blurRadius: 20,
-            offset: Offset(4, 4),
-            spreadRadius: 0,
-          ),
-        ],
-      ),
-      clipBehavior: Clip.antiAlias,
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          CachedNetworkImage(
-            placeholder: (context, url) {
-              return const SizedBox(
-                width: double.infinity,
-                child: AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  ),
-                ),
-              );
-            },
-            errorWidget: (_, __, ___) => const ImageLoadFailed(),
-            imageUrl: storeImages!.isNotEmpty ? storeImages!.first.url : "",
-          ),
-          Container(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(name, style: Theme.of(context).textTheme.titleLarge),
-                const SizedBox(height: 4),
-                Text(
-                  '$address · $openTimeCalculated시 오픈',
-                  style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                        color: colorGrey60,
-                      ),
-                ),
-                const SizedBox(height: 24),
-                StoreListItemGames(games: storeGames),
-              ],
+    return GestureDetector(
+      onTap: handleClick,
+      child: Container(
+        decoration: BoxDecoration(
+          color: colorGrey100,
+          border: Border.all(color: colorGrey95),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x19000000),
+              blurRadius: 20,
+              offset: Offset(4, 4),
+              spreadRadius: 0,
             ),
-          ),
-        ],
+          ],
+        ),
+        clipBehavior: Clip.antiAlias,
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            CachedNetworkImage(
+              placeholder: (context, url) {
+                return const SizedBox(
+                  width: double.infinity,
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    ),
+                  ),
+                );
+              },
+              errorWidget: (_, __, ___) => const ImageLoadFailed(),
+              imageUrl: storeImages!.isNotEmpty ? storeImages!.first.url : "",
+            ),
+            Container(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(name, style: Theme.of(context).textTheme.titleLarge),
+                  const SizedBox(height: 4),
+                  Text(
+                    '$address · $openTimeCalculated시 오픈',
+                    style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                          color: colorGrey60,
+                        ),
+                  ),
+                  const SizedBox(height: 24),
+                  StoreListItemGames(games: storeGames),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -45,6 +48,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                     closeTime: items[index].closeTime ?? "",
                     distance: items[index].distance ?? 0,
                     storeGames: items[index].gameMttItems ?? [],
+                    handleClick: _handleClick,
                   ),
                 );
               },
@@ -91,5 +95,12 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
   void _refresh() {
     ref.invalidate(storesItemsProvider);
     _refreshController.refreshCompleted();
+  }
+
+  void _handleClick() {
+    context.push(
+      CustomRouter.storeDetail.path,
+      extra: StoreDetailPageArguments(storeId: "1"),
+    );
   }
 }
