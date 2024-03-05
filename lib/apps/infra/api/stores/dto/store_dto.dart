@@ -44,8 +44,8 @@ class StoreDto with _$StoreDto {
     required String? openTime,
     required String? closeTime,
     required double? distance,
-    // required double lat,
-    // required double lng,
+    required double lat,
+    required double lng,
     required List<StoreImageDto>? storeImages,
     required List<GameMTTDto>? gameMttItems,
   }) = _StoreDto;

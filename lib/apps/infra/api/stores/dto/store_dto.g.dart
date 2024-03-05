@@ -56,6 +56,8 @@ _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
       openTime: json['openTime'] as String?,
       closeTime: json['closeTime'] as String?,
       distance: (json['distance'] as num?)?.toDouble(),
+      lat: (json['lat'] as num).toDouble(),
+      lng: (json['lng'] as num).toDouble(),
       storeImages: (json['storeImages'] as List<dynamic>?)
           ?.map((e) => StoreImageDto.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -74,6 +76,8 @@ Map<String, dynamic> _$$StoreDtoImplToJson(_$StoreDtoImpl instance) =>
       'openTime': instance.openTime,
       'closeTime': instance.closeTime,
       'distance': instance.distance,
+      'lat': instance.lat,
+      'lng': instance.lng,
       'storeImages': instance.storeImages,
       'gameMttItems': instance.gameMttItems,
     };

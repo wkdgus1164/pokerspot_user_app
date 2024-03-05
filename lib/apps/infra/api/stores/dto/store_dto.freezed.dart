@@ -507,9 +507,9 @@ mixin _$StoreDto {
   String? get addressDetail => throw _privateConstructorUsedError;
   String? get openTime => throw _privateConstructorUsedError;
   String? get closeTime => throw _privateConstructorUsedError;
-  double? get distance =>
-      throw _privateConstructorUsedError; // required double lat,
-// required double lng,
+  double? get distance => throw _privateConstructorUsedError;
+  double get lat => throw _privateConstructorUsedError;
+  double get lng => throw _privateConstructorUsedError;
   List<StoreImageDto>? get storeImages => throw _privateConstructorUsedError;
   List<GameMTTDto>? get gameMttItems => throw _privateConstructorUsedError;
 
@@ -533,6 +533,8 @@ abstract class $StoreDtoCopyWith<$Res> {
       String? openTime,
       String? closeTime,
       double? distance,
+      double lat,
+      double lng,
       List<StoreImageDto>? storeImages,
       List<GameMTTDto>? gameMttItems});
 }
@@ -558,6 +560,8 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
     Object? openTime = freezed,
     Object? closeTime = freezed,
     Object? distance = freezed,
+    Object? lat = null,
+    Object? lng = null,
     Object? storeImages = freezed,
     Object? gameMttItems = freezed,
   }) {
@@ -594,6 +598,14 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
               as double?,
+      lat: null == lat
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      lng: null == lng
+          ? _value.lng
+          : lng // ignore: cast_nullable_to_non_nullable
+              as double,
       storeImages: freezed == storeImages
           ? _value.storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
@@ -623,6 +635,8 @@ abstract class _$$StoreDtoImplCopyWith<$Res>
       String? openTime,
       String? closeTime,
       double? distance,
+      double lat,
+      double lng,
       List<StoreImageDto>? storeImages,
       List<GameMTTDto>? gameMttItems});
 }
@@ -646,6 +660,8 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
     Object? openTime = freezed,
     Object? closeTime = freezed,
     Object? distance = freezed,
+    Object? lat = null,
+    Object? lng = null,
     Object? storeImages = freezed,
     Object? gameMttItems = freezed,
   }) {
@@ -682,6 +698,14 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
               as double?,
+      lat: null == lat
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      lng: null == lng
+          ? _value.lng
+          : lng // ignore: cast_nullable_to_non_nullable
+              as double,
       storeImages: freezed == storeImages
           ? _value._storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
@@ -706,6 +730,8 @@ class _$StoreDtoImpl implements _StoreDto {
       required this.openTime,
       required this.closeTime,
       required this.distance,
+      required this.lat,
+      required this.lng,
       required final List<StoreImageDto>? storeImages,
       required final List<GameMTTDto>? gameMttItems})
       : _storeImages = storeImages,
@@ -730,11 +756,11 @@ class _$StoreDtoImpl implements _StoreDto {
   final String? closeTime;
   @override
   final double? distance;
-// required double lat,
-// required double lng,
+  @override
+  final double lat;
+  @override
+  final double lng;
   final List<StoreImageDto>? _storeImages;
-// required double lat,
-// required double lng,
   @override
   List<StoreImageDto>? get storeImages {
     final value = _storeImages;
@@ -756,7 +782,7 @@ class _$StoreDtoImpl implements _StoreDto {
 
   @override
   String toString() {
-    return 'StoreDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, distance: $distance, storeImages: $storeImages, gameMttItems: $gameMttItems)';
+    return 'StoreDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMttItems: $gameMttItems)';
   }
 
   @override
@@ -776,6 +802,8 @@ class _$StoreDtoImpl implements _StoreDto {
                 other.closeTime == closeTime) &&
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
+            (identical(other.lat, lat) || other.lat == lat) &&
+            (identical(other.lng, lng) || other.lng == lng) &&
             const DeepCollectionEquality()
                 .equals(other._storeImages, _storeImages) &&
             const DeepCollectionEquality()
@@ -794,6 +822,8 @@ class _$StoreDtoImpl implements _StoreDto {
       openTime,
       closeTime,
       distance,
+      lat,
+      lng,
       const DeepCollectionEquality().hash(_storeImages),
       const DeepCollectionEquality().hash(_gameMttItems));
 
@@ -821,6 +851,8 @@ abstract class _StoreDto implements StoreDto {
       required final String? openTime,
       required final String? closeTime,
       required final double? distance,
+      required final double lat,
+      required final double lng,
       required final List<StoreImageDto>? storeImages,
       required final List<GameMTTDto>? gameMttItems}) = _$StoreDtoImpl;
 
@@ -843,8 +875,11 @@ abstract class _StoreDto implements StoreDto {
   String? get closeTime;
   @override
   double? get distance;
-  @override // required double lat,
-// required double lng,
+  @override
+  double get lat;
+  @override
+  double get lng;
+  @override
   List<StoreImageDto>? get storeImages;
   @override
   List<GameMTTDto>? get gameMttItems;

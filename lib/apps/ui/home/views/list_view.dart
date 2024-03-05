@@ -48,7 +48,11 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                     closeTime: items[index].closeTime ?? "",
                     distance: items[index].distance ?? 0,
                     storeGames: items[index].gameMttItems ?? [],
-                    handleClick: _handleClick,
+                    handleClick: () => _handleClick(
+                      items[index].id,
+                      items[index].lat,
+                      items[index].lng,
+                    ),
                   ),
                 );
               },
@@ -97,10 +101,14 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
     _refreshController.refreshCompleted();
   }
 
-  void _handleClick() {
+  void _handleClick(String storeId, double lat, double lng) {
     context.push(
       CustomRouter.storeDetail.path,
-      extra: StoreDetailPageArguments(storeId: "1"),
+      extra: StoreDetailPageArguments(
+        storeId: storeId,
+        lat: lat,
+        lng: lng,
+      ),
     );
   }
 }

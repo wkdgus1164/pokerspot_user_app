@@ -85,7 +85,7 @@ class HomeStore extends StatelessWidget {
                         ),
                   ),
                   const SizedBox(height: 24),
-                  StoreListItemGames(games: storeGames),
+                  HomeStoreTournament(games: storeGames),
                 ],
               ),
             ),

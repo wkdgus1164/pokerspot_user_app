@@ -3,8 +3,8 @@ import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/tournament_info.dart';
 
-class StoreListItemGames extends StatelessWidget {
-  const StoreListItemGames({super.key, required this.games});
+class HomeStoreTournament extends StatelessWidget {
+  const HomeStoreTournament({super.key, required this.games});
 
   final List<GameMTTDto> games;
 
@@ -83,26 +83,26 @@ class StoreListItemGames extends StatelessWidget {
                         ),
                   ),
                   const SizedBox(height: 8),
-                  HomeStoreTournamentInfo(
+                  HomeStoreTournaments(
                     title: 'BUY-IN',
                     caption: '${it.entryPrice.toString()} Ticket',
                   ),
                   const SizedBox(height: 8),
-                  HomeStoreTournamentInfo(
+                  HomeStoreTournaments(
                     title: 'ENTRY',
                     caption: it.entryMax != null
                         ? '${it.entryMax.toString()}~'
                         : "-",
                   ),
                   const SizedBox(height: 8),
-                  HomeStoreTournamentInfo(
+                  HomeStoreTournaments(
                     title: 'BL-UP',
                     caption: it.duration != null
                         ? '${it.duration.toString()}분'
                         : "-",
                   ),
                   const SizedBox(height: 8),
-                  HomeStoreTournamentInfo(
+                  HomeStoreTournaments(
                     title: 'PRIZE',
                     caption: it.prize != null ? '${it.prize.toString()}%' : "-",
                   ),
