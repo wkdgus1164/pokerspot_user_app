@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:label="pokerspot_user_app"
+        android:label="포커스팟"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
