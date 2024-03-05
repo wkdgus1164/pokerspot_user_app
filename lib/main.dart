@@ -7,9 +7,20 @@ import 'package:pokerspot_user_app/apps/global/theme/app_bar.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void initFirebase() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+}
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
+  initFirebase();
+
   runApp(
     const ProviderScope(
       child: MyApp(),
