@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
@@ -60,45 +62,82 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
             title: Text(data.name ?? "-"),
           ),
           backgroundColor: colorGrey98,
-          body: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 10),
-
-                // 이미지
-                StoreDetailImageSwiper(images: data.storeImages ?? []),
-
-                // 일반 정보
-                Padding(
-                  padding: const EdgeInsets.all(16),
+          body: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      StoreDetailTypeAndTitle(
-                        type: data.type,
-                        title: data.name ?? "-",
-                        distance: data.distance == null
-                            ? "-"
-                            : data.distance.toString(),
-                      ),
-                      const SizedBox(height: 16),
-                      StoreDetailBasicInformation(
-                        address: '${data.address},\n${data.addressDetail}',
-                        runningTime:
-                            '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
-                        lat: data.lat,
-                        lng: data.lng,
-                      ),
-                      const SizedBox(height: 16),
-                      StoreDetailTournaments(
-                        tournaments: data.gameMttItems ?? [],
+                      const SizedBox(height: 10),
+
+                      // 이미지
+                      StoreDetailImageSwiper(images: data.storeImages ?? []),
+
+                      // 일반 정보
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            StoreDetailTypeAndTitle(
+                              type: data.type,
+                              title: data.name ?? "-",
+                              distance: data.distance == null
+                                  ? "-"
+                                  : data.distance.toString(),
+                            ),
+                            const SizedBox(height: 16),
+                            StoreDetailBasicInformation(
+                              address:
+                                  '${data.address},\n${data.addressDetail}',
+                              runningTime:
+                                  '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
+                              lat: data.lat,
+                              lng: data.lng,
+                            ),
+                            const SizedBox(height: 16),
+                            StoreDetailTournaments(
+                              tournaments: data.gameMttItems ?? [],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: const BoxDecoration(
+                  color: colorGrey100,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x19000000),
+                      blurRadius: 20,
+                      offset: Offset(4, 4),
+                      spreadRadius: 0,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    OutlinedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.copy_rounded),
+                      label: const Text('주소 복사'),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: FilledButton(
+                        onPressed: () {},
+                        child: const Text('전화 걸기'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         );
       },
