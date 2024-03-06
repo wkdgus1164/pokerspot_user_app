@@ -87,6 +87,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                         address: '${data.address},\n${data.addressDetail}',
                         runningTime:
                             '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
+                        lat: data.lat,
+                        lng: data.lng,
                       ),
                       const SizedBox(height: 16),
                       StoreDetailTournaments(

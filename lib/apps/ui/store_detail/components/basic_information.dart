@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/views/map_view.dart';
 
 class StoreDetailBasicInformation extends StatelessWidget {
   const StoreDetailBasicInformation({
     super.key,
     required this.address,
     required this.runningTime,
+    required this.lat,
+    required this.lng,
   });
 
   final String address;
   final String runningTime;
+  final double? lat;
+  final double? lng;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +50,14 @@ class StoreDetailBasicInformation extends StatelessWidget {
             Icons.access_time_outlined,
             runningTime,
           ),
+
+          const SizedBox(height: 16),
+          if (lat != null && lng != null) ...[
+            StoreDetailMapView(
+              lat: lat!,
+              lng: lng!,
+            ),
+          ],
         ],
       ),
     );

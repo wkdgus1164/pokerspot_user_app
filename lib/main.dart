@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kakao_map_plugin/kakao_map_plugin.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pokerspot_user_app/apps/global/theme/app_bar.dart';
@@ -20,6 +21,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   initFirebase();
+
+  AuthRepository.initialize(appKey: '51c209ad19ea67073c407ab3fdeaed19');
 
   runApp(
     const ProviderScope(
