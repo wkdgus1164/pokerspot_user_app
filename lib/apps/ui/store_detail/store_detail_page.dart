@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
@@ -10,6 +9,7 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/components/tournaments.d
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/type_and_title.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StoreDetailPageArguments {
   String storeId;
@@ -123,14 +123,14 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                 child: Row(
                   children: [
                     OutlinedButton.icon(
-                      onPressed: () {},
+                      onPressed: () => _copy(data.address),
                       icon: const Icon(Icons.copy_rounded),
                       label: const Text('주소 복사'),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
                       child: FilledButton(
-                        onPressed: () {},
+                        onPressed: _call,
                         child: const Text('전화 걸기'),
                       ),
                     ),
@@ -160,5 +160,19 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         );
       },
     );
+  }
+
+  void _copy(String? address) {
+    if (address != null) {
+      Clipboard.setData(ClipboardData(text: address));
+    } else {
+      Logger().d('주소 정보가 없어요.');
+      return;
+    }
+  }
+
+  void _call() {
+    const number = '01012341234';
+    launchUrl(Uri.parse("tel://$number"));
   }
 }
