@@ -78,6 +78,9 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                       StoreDetailTypeAndTitle(
                         type: data.type,
                         title: data.name ?? "-",
+                        distance: data.distance == null
+                            ? "-"
+                            : data.distance.toString(),
                       ),
                       const SizedBox(height: 16),
                       StoreDetailBasicInformation(

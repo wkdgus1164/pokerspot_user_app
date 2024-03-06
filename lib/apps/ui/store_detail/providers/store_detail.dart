@@ -45,6 +45,7 @@ extension _StoreDetailodelMapperExtension on StoreDetailDto {
       addressDetail: addressDetail,
       openTime: openTime,
       closeTime: closeTime,
+      distance: distance,
       lat: lat,
       lng: lng,
       storeImages: storeImages?.toModels(),

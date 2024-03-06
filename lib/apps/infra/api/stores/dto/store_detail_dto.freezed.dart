@@ -195,6 +195,7 @@ mixin _$StoreDetailDto {
   String? get addressDetail => throw _privateConstructorUsedError;
   String? get openTime => throw _privateConstructorUsedError;
   String? get closeTime => throw _privateConstructorUsedError;
+  double? get distance => throw _privateConstructorUsedError;
   double? get lat => throw _privateConstructorUsedError;
   double? get lng => throw _privateConstructorUsedError;
   List<StoreDetailStoreImagesDto>? get storeImages =>
@@ -222,6 +223,7 @@ abstract class $StoreDetailDtoCopyWith<$Res> {
       String? addressDetail,
       String? openTime,
       String? closeTime,
+      double? distance,
       double? lat,
       double? lng,
       List<StoreDetailStoreImagesDto>? storeImages,
@@ -248,6 +250,7 @@ class _$StoreDetailDtoCopyWithImpl<$Res, $Val extends StoreDetailDto>
     Object? addressDetail = freezed,
     Object? openTime = freezed,
     Object? closeTime = freezed,
+    Object? distance = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
     Object? storeImages = freezed,
@@ -282,6 +285,10 @@ class _$StoreDetailDtoCopyWithImpl<$Res, $Val extends StoreDetailDto>
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
               as String?,
+      distance: freezed == distance
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double?,
       lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
@@ -318,6 +325,7 @@ abstract class _$$StoreDetailDtoImplCopyWith<$Res>
       String? addressDetail,
       String? openTime,
       String? closeTime,
+      double? distance,
       double? lat,
       double? lng,
       List<StoreDetailStoreImagesDto>? storeImages,
@@ -342,6 +350,7 @@ class __$$StoreDetailDtoImplCopyWithImpl<$Res>
     Object? addressDetail = freezed,
     Object? openTime = freezed,
     Object? closeTime = freezed,
+    Object? distance = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
     Object? storeImages = freezed,
@@ -376,6 +385,10 @@ class __$$StoreDetailDtoImplCopyWithImpl<$Res>
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
               as String?,
+      distance: freezed == distance
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double?,
       lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
@@ -407,6 +420,7 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
       required this.addressDetail,
       required this.openTime,
       required this.closeTime,
+      required this.distance,
       required this.lat,
       required this.lng,
       required final List<StoreDetailStoreImagesDto>? storeImages,
@@ -431,6 +445,8 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
   final String? openTime;
   @override
   final String? closeTime;
+  @override
+  final double? distance;
   @override
   final double? lat;
   @override
@@ -457,7 +473,7 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
 
   @override
   String toString() {
-    return 'StoreDetailDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, lat: $lat, lng: $lng, storeImages: $storeImages, gameMttItems: $gameMttItems)';
+    return 'StoreDetailDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMttItems: $gameMttItems)';
   }
 
   @override
@@ -475,6 +491,8 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
                 other.openTime == openTime) &&
             (identical(other.closeTime, closeTime) ||
                 other.closeTime == closeTime) &&
+            (identical(other.distance, distance) ||
+                other.distance == distance) &&
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.lng, lng) || other.lng == lng) &&
             const DeepCollectionEquality()
@@ -494,6 +512,7 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
       addressDetail,
       openTime,
       closeTime,
+      distance,
       lat,
       lng,
       const DeepCollectionEquality().hash(_storeImages),
@@ -523,6 +542,7 @@ abstract class _StoreDetailDto implements StoreDetailDto {
           required final String? addressDetail,
           required final String? openTime,
           required final String? closeTime,
+          required final double? distance,
           required final double? lat,
           required final double? lng,
           required final List<StoreDetailStoreImagesDto>? storeImages,
@@ -546,6 +566,8 @@ abstract class _StoreDetailDto implements StoreDetailDto {
   String? get openTime;
   @override
   String? get closeTime;
+  @override
+  double? get distance;
   @override
   double? get lat;
   @override

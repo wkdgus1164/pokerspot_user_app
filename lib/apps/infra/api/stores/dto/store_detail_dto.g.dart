@@ -29,6 +29,7 @@ _$StoreDetailDtoImpl _$$StoreDetailDtoImplFromJson(Map<String, dynamic> json) =>
       addressDetail: json['addressDetail'] as String?,
       openTime: json['openTime'] as String?,
       closeTime: json['closeTime'] as String?,
+      distance: (json['distance'] as num?)?.toDouble(),
       lat: (json['lat'] as num?)?.toDouble(),
       lng: (json['lng'] as num?)?.toDouble(),
       storeImages: (json['storeImages'] as List<dynamic>?)
@@ -51,6 +52,7 @@ Map<String, dynamic> _$$StoreDetailDtoImplToJson(
       'addressDetail': instance.addressDetail,
       'openTime': instance.openTime,
       'closeTime': instance.closeTime,
+      'distance': instance.distance,
       'lat': instance.lat,
       'lng': instance.lng,
       'storeImages': instance.storeImages,

@@ -6,10 +6,12 @@ class StoreDetailTypeAndTitle extends StatelessWidget {
     super.key,
     required this.type,
     required this.title,
+    required this.distance,
   });
 
   final String type;
   final String title;
+  final String distance;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,24 @@ class StoreDetailTypeAndTitle extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 fontWeight: FontWeight.bold,
               ),
-        )
+        ),
+        const SizedBox(height: 10),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.location_on_rounded,
+              color: colorGrey80,
+            ),
+            const SizedBox(width: 4),
+            Text(
+              "나와의 거리 ${distance}m",
+              style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    color: colorGrey60,
+                  ),
+            ),
+          ],
+        ),
       ],
     );
   }
