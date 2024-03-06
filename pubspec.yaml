@@ -36,6 +36,7 @@ dependencies:
   firebase_core: ^2.24.2
   card_swiper: ^3.0.1
   kakao_map_plugin: ^0.2.5
+  url_launcher: ^6.2.5
 
 dev_dependencies:
   flutter_test:
