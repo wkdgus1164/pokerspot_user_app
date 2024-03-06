@@ -24,19 +24,19 @@ _$StoreDetailDtoImpl _$$StoreDetailDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreDetailDtoImpl(
       id: json['id'] as String,
       type: json['type'] as String,
-      name: json['name'] as String,
-      address: json['address'] as String,
-      addressDetail: json['addressDetail'] as String,
-      openTime: json['openTime'] as String,
-      closeTime: json['closeTime'] as String,
-      lat: (json['lat'] as num).toDouble(),
-      lng: (json['lng'] as num).toDouble(),
-      storeImages: (json['storeImages'] as List<dynamic>)
-          .map((e) =>
+      name: json['name'] as String?,
+      address: json['address'] as String?,
+      addressDetail: json['addressDetail'] as String?,
+      openTime: json['openTime'] as String?,
+      closeTime: json['closeTime'] as String?,
+      lat: (json['lat'] as num?)?.toDouble(),
+      lng: (json['lng'] as num?)?.toDouble(),
+      storeImages: (json['storeImages'] as List<dynamic>?)
+          ?.map((e) =>
               StoreDetailStoreImagesDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gameMttItems: (json['gameMttItems'] as List<dynamic>)
-          .map((e) =>
+      gameMttItems: (json['gameMttItems'] as List<dynamic>?)
+          ?.map((e) =>
               StoreDetailGameMttItemsDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -76,13 +76,13 @@ _$StoreDetailGameMttItemsDtoImpl _$$StoreDetailGameMttItemsDtoImplFromJson(
     _$StoreDetailGameMttItemsDtoImpl(
       id: json['id'] as String,
       name: json['name'] as String,
-      type: json['type'] as String,
-      entryPrice: json['entryPrice'] as int,
+      type: json['type'] as String?,
+      entryPrice: json['entryPrice'] as int?,
       entryMax: json['entryMax'] as int?,
       reEntryMax: json['reEntryMax'] as int?,
       duration: json['duration'] as int?,
       prize: json['prize'] as int?,
-      eventType: json['eventType'] as String,
+      eventType: json['eventType'] as String?,
       isDaily: json['isDaily'] as bool,
     );
 

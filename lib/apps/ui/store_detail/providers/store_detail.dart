@@ -47,8 +47,8 @@ extension _StoreDetailodelMapperExtension on StoreDetailDto {
       closeTime: closeTime,
       lat: lat,
       lng: lng,
-      storeImages: storeImages.toModels(),
-      gameMttItems: gameMttItems.toModels(),
+      storeImages: storeImages?.toModels(),
+      gameMttItems: gameMttItems?.toModels(),
     );
   }
 }

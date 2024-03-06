@@ -1,14 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 
 class StoreDetailImageSwiper extends StatelessWidget {
-  const StoreDetailImageSwiper({
-    super.key,
-    required this.imageUrls,
-  });
+  const StoreDetailImageSwiper({super.key, required this.images});
 
-  final List<String> imageUrls;
+  final List<StoreDetailStoreImagesModel> images;
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +15,20 @@ class StoreDetailImageSwiper extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 16 / 9,
         child: Swiper(
-          itemCount: 10,
+          itemCount: images.length,
+          autoplay: true,
+          loop: false,
           viewportFraction: 0.8,
           scale: 0.9,
           itemBuilder: (context, index) {
             return Container(
-              width: 100,
-              height: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: colorBrand60,
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: CachedNetworkImage(
+                fit: BoxFit.cover,
+                imageUrl: images[index].url,
               ),
             );
           },
