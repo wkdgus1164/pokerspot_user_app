@@ -133,7 +133,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                   children: [
                     OutlinedButton.icon(
                       onPressed: () => _copy(data.address),
-                      icon: const Icon(Icons.copy_rounded),
+                      icon: const Icon(Icons.copy_rounded, size: 20),
                       label: const Text('주소 복사'),
                     ),
                     const SizedBox(width: 16),
