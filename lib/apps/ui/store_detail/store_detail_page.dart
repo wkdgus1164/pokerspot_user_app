@@ -120,11 +120,15 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                 padding: const EdgeInsets.all(16),
                 decoration: const BoxDecoration(
                   color: colorGrey100,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  ),
                   boxShadow: [
                     BoxShadow(
-                      color: Color(0x19000000),
+                      color: Color(0x33000000),
                       blurRadius: 20,
-                      offset: Offset(4, 4),
+                      offset: Offset(0, 0),
                       spreadRadius: 0,
                     ),
                   ],
