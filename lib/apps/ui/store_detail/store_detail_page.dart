@@ -5,8 +5,9 @@ import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/basic_information.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/captions/data_loading.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/components/map.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/tournaments.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/components/type_and_title.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -61,7 +62,6 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
           appBar: AppBar(
             title: Text(data.name ?? "-"),
           ),
-          backgroundColor: colorGrey98,
           body: Column(
             children: [
               Expanded(
@@ -69,18 +69,17 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 10),
-
                       // 이미지
                       StoreDetailImageSwiper(images: data.storeImages ?? []),
 
                       // 일반 정보
                       Padding(
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            StoreDetailTypeAndTitle(
+                            // 헤더
+                            StoreDetailHeader(
                               type: data.type,
                               title: data.name ?? "-",
                               distance: data.distance == null
@@ -88,18 +87,28 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                                   : data.distance.toString(),
                             ),
                             const SizedBox(height: 16),
+
+                            // 기본 정보
                             StoreDetailBasicInformation(
                               address:
                                   '${data.address},\n${data.addressDetail}',
                               runningTime:
                                   '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
+                            ),
+                            const SizedBox(height: 16),
+
+                            // 지도 정보
+                            StoreDetailMap(
                               lat: data.lat,
                               lng: data.lng,
                             ),
                             const SizedBox(height: 16),
+
+                            // 토너먼트 정보
                             StoreDetailTournaments(
                               tournaments: data.gameMttItems ?? [],
                             ),
+                            const SizedBox(height: 16),
                           ],
                         ),
                       ),

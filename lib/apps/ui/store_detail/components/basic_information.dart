@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/views/map_view.dart';
 
 class StoreDetailBasicInformation extends StatelessWidget {
   const StoreDetailBasicInformation({
     super.key,
     required this.address,
     required this.runningTime,
-    required this.lat,
-    required this.lng,
   });
 
   final String address;
   final String runningTime;
-  final double? lat;
-  final double? lng;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +18,14 @@ class StoreDetailBasicInformation extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: colorGrey95),
-        color: colorGrey100,
+        color: colorGrey98,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             '기본 정보',
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           ),
@@ -50,14 +45,6 @@ class StoreDetailBasicInformation extends StatelessWidget {
             Icons.access_time_outlined,
             runningTime,
           ),
-
-          const SizedBox(height: 16),
-          if (lat != null && lng != null) ...[
-            StoreDetailMapView(
-              lat: lat!,
-              lng: lng!,
-            ),
-          ],
         ],
       ),
     );
@@ -72,13 +59,14 @@ class StoreDetailBasicInformation extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(8),
-          decoration: const BoxDecoration(
-            color: colorGrey95,
-            borderRadius: BorderRadius.all(
+          decoration: BoxDecoration(
+            color: colorGrey100,
+            border: Border.all(color: colorGrey95),
+            borderRadius: const BorderRadius.all(
               Radius.circular(100),
             ),
           ),
-          child: Icon(icon, color: colorGrey60),
+          child: Icon(icon, color: colorGrey80),
         ),
         const SizedBox(width: 16),
         Text(

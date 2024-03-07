@@ -10,14 +10,15 @@ class StoreDetailImageSwiper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: double.infinity,
+      margin: const EdgeInsets.symmetric(vertical: 16),
       child: AspectRatio(
         aspectRatio: 16 / 9,
         child: Swiper(
           itemCount: images.length,
           autoplay: true,
-          loop: false,
+          loop: true,
           viewportFraction: 0.8,
           scale: 0.9,
           itemBuilder: (context, index) {

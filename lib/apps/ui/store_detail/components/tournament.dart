@@ -14,8 +14,9 @@ class StoreDetailTournament extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border.all(color: colorGrey90),
+        border: Border.all(color: colorGrey95),
         borderRadius: BorderRadius.circular(8),
+        color: colorGrey100,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
