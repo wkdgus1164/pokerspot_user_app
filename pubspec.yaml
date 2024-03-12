@@ -2,7 +2,7 @@ name: pokerspot_user_app
 description: 'A new Flutter project.'
 
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=3.2.4 <4.0.0'
@@ -37,6 +37,7 @@ dependencies:
   card_swiper: ^3.0.1
   kakao_map_plugin: ^0.2.5
   url_launcher: ^6.2.5
+  firebase_analytics: ^10.8.0
 
 dev_dependencies:
   flutter_test:
