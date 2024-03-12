@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/ui/home/home_page.dart';
@@ -18,7 +19,10 @@ enum CustomRouter {
 
 final GlobalKey<NavigatorState> rootNavKey = GlobalKey<NavigatorState>();
 
+final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
 final router = GoRouter(
+  // observers: [FirebaseAnalyticsObserver(analytics: analytics)],
   navigatorKey: rootNavKey,
   initialLocation: CustomRouter.splash.path,
   routes: [

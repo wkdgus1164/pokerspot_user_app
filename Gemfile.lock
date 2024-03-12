@@ -208,8 +208,6 @@ GEM
       xcpretty (~> 0.2, >= 0.0.7)
 
 PLATFORMS
-  arm64-darwin-23
-  ruby
   x64-mingw-ucrt
 
 DEPENDENCIES

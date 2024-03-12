@@ -37,7 +37,6 @@ class StoreDetailPage extends StatefulHookConsumerWidget {
 
 class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   StoreDetailPageArguments get _args => widget.args;
-  late final FirebaseAnalytics analytics;
 
   @override
   Widget build(BuildContext context) {
@@ -196,12 +195,14 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     const number = '01012341234';
     await launchUrl(Uri.parse("tel://$number"));
 
-    await analytics.logEvent(
-      name: 'phone_call',
+    await FirebaseAnalytics.instance.logEvent(
+      name: 'PHONE_CALL',
       parameters: {
         'store_id': storeId,
         'store_name': storeName,
       },
     );
+
+    await FirebaseAnalytics.instance.logUnlockAchievement(id: storeName);
   }
 }
