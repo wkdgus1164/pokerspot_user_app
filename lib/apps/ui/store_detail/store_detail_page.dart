@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -187,5 +188,12 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   void _call(String storeName) async {
     const number = '01012341234';
     await launchUrl(Uri.parse("tel://$number"));
+
+    await FirebaseAnalytics.instance.logEvent(
+      name: 'PHONE_CALL',
+      parameters: {
+        '업소명': storeName,
+      },
+    );
   }
 }
