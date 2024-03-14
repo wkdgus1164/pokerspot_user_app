@@ -1,4 +1,3 @@
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -144,10 +143,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                     const SizedBox(width: 16),
                     Expanded(
                       child: FilledButton(
-                        onPressed: () => _call(
-                          data.id,
-                          data.name ?? "매장 이름 없음",
-                        ),
+                        onPressed: () => _call(data.name!),
                         child: const Text('전화 걸기'),
                       ),
                     ),
@@ -188,21 +184,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     }
   }
 
-  void _call(
-    String storeId,
-    String storeName,
-  ) async {
+  void _call(String storeName) async {
     const number = '01012341234';
     await launchUrl(Uri.parse("tel://$number"));
-
-    await FirebaseAnalytics.instance.logEvent(
-      name: 'PHONE_CALL',
-      parameters: {
-        'store_id': storeId,
-        'store_name': storeName,
-      },
-    );
-
-    await FirebaseAnalytics.instance.logUnlockAchievement(id: storeName);
   }
 }
