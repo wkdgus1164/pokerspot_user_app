@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/filter.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
@@ -34,29 +35,55 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
             controller: _refreshController,
             enablePullDown: true,
             onRefresh: _refresh,
-            child: ListView.separated(
-              padding: const EdgeInsets.all(16),
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return WithListFooter(
-                  child: HomeStore(
-                    storeImages: items[index].storeImages,
-                    name: items[index].name ?? "",
-                    address: items[index].address ?? "",
-                    addressDetail: items[index].addressDetail ?? "",
-                    openTime: items[index].openTime ?? "",
-                    closeTime: items[index].closeTime ?? "",
-                    distance: items[index].distance ?? 0,
-                    storeGames: items[index].gameMttItems ?? [],
-                    handleClick: () => _handleClick(
-                      items[index].id,
-                      items[index].lat,
-                      items[index].lng,
-                    ),
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                ListView.separated(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return WithListFooter(
+                      child: HomeStore(
+                        storeImages: items[index].storeImages,
+                        name: items[index].name ?? "",
+                        address: items[index].address ?? "",
+                        addressDetail: items[index].addressDetail ?? "",
+                        openTime: items[index].openTime ?? "",
+                        closeTime: items[index].closeTime ?? "",
+                        distance: items[index].distance ?? 0,
+                        storeGames: items[index].gameMttItems ?? [],
+                        handleClick: () => _handleClick(
+                          items[index].id,
+                          items[index].lat,
+                          items[index].lng,
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 16),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: FloatingActionButton.extended(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        showDragHandle: true,
+                        isScrollControlled: true,
+                        isDismissible: true,
+                        enableDrag: true,
+                        backgroundColor: colorGrey100,
+                        builder: (context) {
+                          return const HomeSearchFilterSheet();
+                        },
+                      );
+                    },
+                    label: const Text('상세 검색'),
+                    icon: const Icon(Icons.tune_rounded),
                   ),
-                );
-              },
-              separatorBuilder: (context, index) => const SizedBox(height: 16),
+                ),
+              ],
             ),
           ),
         );

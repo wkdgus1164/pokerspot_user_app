@@ -8,6 +8,7 @@ import 'package:pokerspot_user_app/apps/global/theme/app_bar.dart';
 import 'package:pokerspot_user_app/apps/global/theme/button.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
+import 'package:pokerspot_user_app/apps/global/theme/fab.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -49,6 +50,7 @@ ThemeData _createThemeData({required BuildContext context}) {
     textTheme: textTheme,
     filledButtonTheme: filledButtonThemeData,
     outlinedButtonTheme: outlinedButtonThemeData,
+    floatingActionButtonTheme: floatingActionButtonThemeData,
   );
 }
 
