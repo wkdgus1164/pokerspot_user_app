@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
@@ -179,6 +182,10 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   void _copy(String? address) {
     if (address != null) {
       Clipboard.setData(ClipboardData(text: address));
+
+      if (Platform.isIOS) {
+        Fluttertoast.showToast(msg: '주소가 복사되었어요.');
+      }
     } else {
       Logger().d('주소 정보가 없어요.');
       return;

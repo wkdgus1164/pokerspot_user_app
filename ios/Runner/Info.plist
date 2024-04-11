@@ -45,5 +45,14 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+    <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true/>
+            <key>NSAllowArbitraryLoadsInWebContent</key>
+            <true/>
+        </dict>
+        <key>io.flutter.embedded_views_preview</key>
+        <true/>
 </dict>
 </plist>
