@@ -195,6 +195,7 @@ mixin _$StoreDetailDto {
   String? get addressDetail => throw _privateConstructorUsedError;
   String? get openTime => throw _privateConstructorUsedError;
   String? get closeTime => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
   double? get distance => throw _privateConstructorUsedError;
   double? get lat => throw _privateConstructorUsedError;
   double? get lng => throw _privateConstructorUsedError;
@@ -223,6 +224,7 @@ abstract class $StoreDetailDtoCopyWith<$Res> {
       String? addressDetail,
       String? openTime,
       String? closeTime,
+      String? phone,
       double? distance,
       double? lat,
       double? lng,
@@ -250,6 +252,7 @@ class _$StoreDetailDtoCopyWithImpl<$Res, $Val extends StoreDetailDto>
     Object? addressDetail = freezed,
     Object? openTime = freezed,
     Object? closeTime = freezed,
+    Object? phone = freezed,
     Object? distance = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
@@ -284,6 +287,10 @@ class _$StoreDetailDtoCopyWithImpl<$Res, $Val extends StoreDetailDto>
       closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String?,
       distance: freezed == distance
           ? _value.distance
@@ -325,6 +332,7 @@ abstract class _$$StoreDetailDtoImplCopyWith<$Res>
       String? addressDetail,
       String? openTime,
       String? closeTime,
+      String? phone,
       double? distance,
       double? lat,
       double? lng,
@@ -350,6 +358,7 @@ class __$$StoreDetailDtoImplCopyWithImpl<$Res>
     Object? addressDetail = freezed,
     Object? openTime = freezed,
     Object? closeTime = freezed,
+    Object? phone = freezed,
     Object? distance = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
@@ -384,6 +393,10 @@ class __$$StoreDetailDtoImplCopyWithImpl<$Res>
       closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String?,
       distance: freezed == distance
           ? _value.distance
@@ -420,6 +433,7 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
       required this.addressDetail,
       required this.openTime,
       required this.closeTime,
+      required this.phone,
       required this.distance,
       required this.lat,
       required this.lng,
@@ -445,6 +459,8 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
   final String? openTime;
   @override
   final String? closeTime;
+  @override
+  final String? phone;
   @override
   final double? distance;
   @override
@@ -473,7 +489,7 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
 
   @override
   String toString() {
-    return 'StoreDetailDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMttItems: $gameMttItems)';
+    return 'StoreDetailDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, phone: $phone, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMttItems: $gameMttItems)';
   }
 
   @override
@@ -491,6 +507,7 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
                 other.openTime == openTime) &&
             (identical(other.closeTime, closeTime) ||
                 other.closeTime == closeTime) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
             (identical(other.lat, lat) || other.lat == lat) &&
@@ -512,6 +529,7 @@ class _$StoreDetailDtoImpl implements _StoreDetailDto {
       addressDetail,
       openTime,
       closeTime,
+      phone,
       distance,
       lat,
       lng,
@@ -542,6 +560,7 @@ abstract class _StoreDetailDto implements StoreDetailDto {
           required final String? addressDetail,
           required final String? openTime,
           required final String? closeTime,
+          required final String? phone,
           required final double? distance,
           required final double? lat,
           required final double? lng,
@@ -566,6 +585,8 @@ abstract class _StoreDetailDto implements StoreDetailDto {
   String? get openTime;
   @override
   String? get closeTime;
+  @override
+  String? get phone;
   @override
   double? get distance;
   @override

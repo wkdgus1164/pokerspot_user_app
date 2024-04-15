@@ -24,6 +24,7 @@ class StoreDetailDto with _$StoreDetailDto {
     required String? addressDetail,
     required String? openTime,
     required String? closeTime,
+    required String? phone,
     required double? distance,
     required double? lat,
     required double? lng,

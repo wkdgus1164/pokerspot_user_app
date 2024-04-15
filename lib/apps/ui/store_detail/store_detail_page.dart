@@ -147,7 +147,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                     const SizedBox(width: 16),
                     Expanded(
                       child: FilledButton(
-                        onPressed: () => _call(data.name!),
+                        onPressed: () => _call(data.name!, data.phone),
                         child: const Text('전화 걸기'),
                       ),
                     ),
@@ -192,15 +192,30 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     }
   }
 
-  void _call(String storeName) async {
-    const number = '01012341234';
-    await launchUrl(Uri.parse("tel://$number"));
+  void _call(
+    String storeName,
+    String? phone,
+  ) {
+    if (phone == null) {
+      Fluttertoast.showToast(msg: '연락처가 제공되지 않은 업소에요.');
 
-    await FirebaseAnalytics.instance.logEvent(
-      name: 'PHONE_CALL',
-      parameters: {
-        '업소명': storeName,
-      },
-    );
+      FirebaseAnalytics.instance.logEvent(
+        name: 'PHONE_CALL',
+        parameters: {
+          '업소명': storeName,
+          '연락처': '없음',
+        },
+      );
+    } else {
+      launchUrl(Uri.parse("tel://$phone"));
+
+      FirebaseAnalytics.instance.logEvent(
+        name: 'PHONE_CALL',
+        parameters: {
+          '업소명': storeName,
+          '연락처': phone,
+        },
+      );
+    }
   }
 }

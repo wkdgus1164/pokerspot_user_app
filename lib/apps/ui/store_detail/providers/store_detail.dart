@@ -45,6 +45,7 @@ extension _StoreDetailodelMapperExtension on StoreDetailDto {
       addressDetail: addressDetail,
       openTime: openTime,
       closeTime: closeTime,
+      phone: phone,
       distance: distance,
       lat: lat,
       lng: lng,
