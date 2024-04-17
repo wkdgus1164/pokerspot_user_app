@@ -26,7 +26,7 @@ class MyToolbar extends StatelessWidget {
         children: [
           _buildItem(
             Assets.myRecentView.path,
-            '최근에 본 펍',
+            '최근 본 펍',
             handleRecentViewClick,
           ),
           const SizedBox(width: 16),

@@ -3,9 +3,20 @@ import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 
 BottomNavigationBarThemeData bottomNavigationBarThemeData =
     const BottomNavigationBarThemeData(
-  backgroundColor: colorBrand100,
-  selectedLabelStyle: TextStyle(color: colorGrey20),
-  unselectedLabelStyle: TextStyle(color: colorGrey80),
+  backgroundColor: Colors.white,
+  selectedLabelStyle: TextStyle(
+    color: colorGrey20,
+    fontSize: 12,
+    height: 1.5,
+  ),
+  unselectedLabelStyle: TextStyle(
+    color: colorGrey80,
+    fontSize: 12,
+    height: 1.5,
+  ),
   unselectedItemColor: colorGrey80,
   selectedItemColor: colorGrey20,
+  showSelectedLabels: true,
+  showUnselectedLabels: true,
+  type: BottomNavigationBarType.fixed,
 );

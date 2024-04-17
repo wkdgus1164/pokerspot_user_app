@@ -56,10 +56,21 @@ class MyMenus extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.asset(icon),
+              SvgPicture.asset(
+                icon,
+                colorFilter: const ColorFilter.mode(
+                  colorGrey40,
+                  BlendMode.srcIn,
+                ),
+              ),
               const SizedBox(width: 16),
               Expanded(
-                child: Text(text, style: textTheme.bodyLarge),
+                child: Text(
+                  text,
+                  style: textTheme.bodyLarge!.copyWith(
+                    color: colorGrey40,
+                  ),
+                ),
               ),
               SvgPicture.asset(Assets.arrowRight.path),
             ],

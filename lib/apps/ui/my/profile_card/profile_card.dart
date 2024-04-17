@@ -35,7 +35,9 @@ class MyProfileCard extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: textTheme.titleLarge,
+                    style: textTheme.titleLarge!.copyWith(
+                      color: colorGrey20,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(
