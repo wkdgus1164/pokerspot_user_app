@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/filter.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
@@ -35,70 +34,61 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
             controller: _refreshController,
             enablePullDown: true,
             onRefresh: _refresh,
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                ListView.separated(
-                  padding: const EdgeInsets.all(16),
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    return WithListFooter(
-                      child: HomeStore(
-                        storeImages: items[index].storeImages,
-                        name: items[index].name ?? "",
-                        address: items[index].address ?? "",
-                        addressDetail: items[index].addressDetail ?? "",
-                        openTime: items[index].openTime ?? "",
-                        closeTime: items[index].closeTime ?? "",
-                        distance: items[index].distance ?? 0,
-                        storeGames: items[index].gameMttItems ?? [],
-                        handleClick: () => _handleClick(
-                          items[index].id,
-                          items[index].lat,
-                          items[index].lng,
-                        ),
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 16),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: FloatingActionButton.extended(
-                    onPressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        showDragHandle: true,
-                        isScrollControlled: true,
-                        isDismissible: true,
-                        enableDrag: true,
-                        backgroundColor: colorGrey100,
-                        builder: (context) {
-                          return const HomeSearchFilterSheet();
-                        },
-                      );
-                    },
-                    label: const Text('상세 검색'),
-                    icon: const Icon(Icons.tune_rounded),
+            child: ListView.separated(
+              padding: const EdgeInsets.all(16),
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return WithListFooter(
+                  child: HomeStore(
+                    storeImages: items[index].storeImages,
+                    name: items[index].name ?? "",
+                    address: items[index].address ?? "",
+                    addressDetail: items[index].addressDetail ?? "",
+                    openTime: items[index].openTime ?? "",
+                    closeTime: items[index].closeTime ?? "",
+                    distance: items[index].distance ?? 0,
+                    storeGames: items[index].gameMttItems ?? [],
+                    handleClick: () => _handleClick(
+                      items[index].id,
+                      items[index].lat,
+                      items[index].lng,
+                    ),
                   ),
-                ),
-              ],
+                );
+              },
+              separatorBuilder: (context, index) => const SizedBox(height: 16),
             ),
           ),
         );
       },
       error: (error, stackTrace) {
         Logger().e(error.toString());
-        return SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text(error.toString()),
-                Text(stackTrace.toString()),
-              ],
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.location_off_rounded,
+              color: colorGrey80,
+              size: 60,
             ),
-          ),
+            const SizedBox(height: 16),
+            Text(
+              '위치 정보 권한을 확인해 주세요.',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: colorGrey40,
+                  ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              textAlign: TextAlign.center,
+              '위치 정보 권한이 활성화되어야\n주변 업소 정보를 확인할 수 있어요.',
+              style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    color: colorGrey60,
+                  ),
+            ),
+          ],
         );
       },
       loading: () {
@@ -110,7 +100,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                 const CircularProgressIndicator.adaptive(),
                 const SizedBox(height: 16),
                 Text(
-                  '데이터를 불러오고 있어요.',
+                  '주변 홀덤펍을 빠르게 찾고 있어요.',
                   style: Theme.of(context).textTheme.labelMedium!.copyWith(
                         color: colorGrey70,
                       ),

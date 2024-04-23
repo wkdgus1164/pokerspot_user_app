@@ -28,6 +28,23 @@ class _HomePageState extends ConsumerState<HomePage> {
           HomeListView(),
         ],
       ),
+      // floatingActionButton: FloatingActionButton.extended(
+      //   onPressed: () {
+      //     showModalBottomSheet(
+      //       context: context,
+      //       showDragHandle: true,
+      //       isScrollControlled: true,
+      //       isDismissible: true,
+      //       enableDrag: true,
+      //       backgroundColor: colorGrey100,
+      //       builder: (context) {
+      //         return const HomeSearchFilterSheet();
+      //       },
+      //     );
+      //   },
+      //   icon: const Icon(Icons.tune_rounded),
+      //   label: const Text('상세 검색'),
+      // ),
     );
   }
 }

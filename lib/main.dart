@@ -5,6 +5,7 @@ import 'package:kakao_map_plugin/kakao_map_plugin.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pokerspot_user_app/apps/global/theme/app_bar.dart';
+import 'package:pokerspot_user_app/apps/global/theme/bottom_navigation.dart';
 import 'package:pokerspot_user_app/apps/global/theme/button.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
@@ -51,6 +52,7 @@ ThemeData _createThemeData({required BuildContext context}) {
     filledButtonTheme: filledButtonThemeData,
     outlinedButtonTheme: outlinedButtonThemeData,
     floatingActionButtonTheme: floatingActionButtonThemeData,
+    bottomNavigationBarTheme: bottomNavigationBarThemeData,
   );
 }
 
