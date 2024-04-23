@@ -63,15 +63,32 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
       },
       error: (error, stackTrace) {
         Logger().e(error.toString());
-        return SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text(error.toString()),
-                Text(stackTrace.toString()),
-              ],
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.location_off_rounded,
+              color: colorGrey80,
+              size: 60,
             ),
-          ),
+            const SizedBox(height: 16),
+            Text(
+              '위치 정보 권한을 확인해 주세요.',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: colorGrey40,
+                  ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              textAlign: TextAlign.center,
+              '위치 정보 권한이 활성화되어야\n주변 업소 정보를 확인할 수 있어요.',
+              style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    color: colorGrey60,
+                  ),
+            ),
+          ],
         );
       },
       loading: () {
