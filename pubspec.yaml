@@ -2,7 +2,7 @@ name: pokerspot_user_app
 description: 'A new Flutter project.'
 
 publish_to: 'none'
-version: 1.0.0+11
+version: 1.0.0+13
 
 environment:
   sdk: '>=3.2.4 <4.0.0'
@@ -28,6 +28,7 @@ dependencies:
   loader_overlay: ^4.0.0
   json_annotation: ^4.8.1
   pull_to_refresh: ^2.0.0
+  kakao_flutter_sdk_share: ^1.9.1+2
 
   flutter_localizations:
     sdk: flutter
