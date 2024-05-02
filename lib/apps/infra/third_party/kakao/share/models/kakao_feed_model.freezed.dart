@@ -16,12 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$KakaoFeedModel {
-  int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   String get thumbnail => throw _privateConstructorUsedError;
-  String get authorName => throw _privateConstructorUsedError;
-  String get profileImageUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $KakaoFeedModelCopyWith<KakaoFeedModel> get copyWith =>
@@ -34,13 +32,7 @@ abstract class $KakaoFeedModelCopyWith<$Res> {
           KakaoFeedModel value, $Res Function(KakaoFeedModel) then) =
       _$KakaoFeedModelCopyWithImpl<$Res, KakaoFeedModel>;
   @useResult
-  $Res call(
-      {int id,
-      String title,
-      String description,
-      String thumbnail,
-      String authorName,
-      String profileImageUrl});
+  $Res call({String id, String? title, String? description, String thumbnail});
 }
 
 /// @nodoc
@@ -57,36 +49,26 @@ class _$KakaoFeedModelCopyWithImpl<$Res, $Val extends KakaoFeedModel>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? description = null,
+    Object? title = freezed,
+    Object? description = freezed,
     Object? thumbnail = null,
-    Object? authorName = null,
-    Object? profileImageUrl = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
+              as String,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorName: null == authorName
-          ? _value.authorName
-          : authorName // ignore: cast_nullable_to_non_nullable
-              as String,
-      profileImageUrl: null == profileImageUrl
-          ? _value.profileImageUrl
-          : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -100,13 +82,7 @@ abstract class _$$KakaoFeedModelImplCopyWith<$Res>
       __$$KakaoFeedModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      String title,
-      String description,
-      String thumbnail,
-      String authorName,
-      String profileImageUrl});
+  $Res call({String id, String? title, String? description, String thumbnail});
 }
 
 /// @nodoc
@@ -121,36 +97,26 @@ class __$$KakaoFeedModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? description = null,
+    Object? title = freezed,
+    Object? description = freezed,
     Object? thumbnail = null,
-    Object? authorName = null,
-    Object? profileImageUrl = null,
   }) {
     return _then(_$KakaoFeedModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
+              as String,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorName: null == authorName
-          ? _value.authorName
-          : authorName // ignore: cast_nullable_to_non_nullable
-              as String,
-      profileImageUrl: null == profileImageUrl
-          ? _value.profileImageUrl
-          : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -163,27 +129,21 @@ class _$KakaoFeedModelImpl extends _KakaoFeedModel {
       {required this.id,
       required this.title,
       required this.description,
-      required this.thumbnail,
-      required this.authorName,
-      required this.profileImageUrl})
+      required this.thumbnail})
       : super._();
 
   @override
-  final int id;
+  final String id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String description;
+  final String? description;
   @override
   final String thumbnail;
-  @override
-  final String authorName;
-  @override
-  final String profileImageUrl;
 
   @override
   String toString() {
-    return 'KakaoFeedModel(id: $id, title: $title, description: $description, thumbnail: $thumbnail, authorName: $authorName, profileImageUrl: $profileImageUrl)';
+    return 'KakaoFeedModel(id: $id, title: $title, description: $description, thumbnail: $thumbnail)';
   }
 
   @override
@@ -196,16 +156,12 @@ class _$KakaoFeedModelImpl extends _KakaoFeedModel {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.thumbnail, thumbnail) ||
-                other.thumbnail == thumbnail) &&
-            (identical(other.authorName, authorName) ||
-                other.authorName == authorName) &&
-            (identical(other.profileImageUrl, profileImageUrl) ||
-                other.profileImageUrl == profileImageUrl));
+                other.thumbnail == thumbnail));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, description,
-      thumbnail, authorName, profileImageUrl);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, description, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -217,26 +173,20 @@ class _$KakaoFeedModelImpl extends _KakaoFeedModel {
 
 abstract class _KakaoFeedModel extends KakaoFeedModel {
   factory _KakaoFeedModel(
-      {required final int id,
-      required final String title,
-      required final String description,
-      required final String thumbnail,
-      required final String authorName,
-      required final String profileImageUrl}) = _$KakaoFeedModelImpl;
+      {required final String id,
+      required final String? title,
+      required final String? description,
+      required final String thumbnail}) = _$KakaoFeedModelImpl;
   _KakaoFeedModel._() : super._();
 
   @override
-  int get id;
+  String get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get description;
+  String? get description;
   @override
   String get thumbnail;
-  @override
-  String get authorName;
-  @override
-  String get profileImageUrl;
   @override
   @JsonKey(ignore: true)
   _$$KakaoFeedModelImplCopyWith<_$KakaoFeedModelImpl> get copyWith =>

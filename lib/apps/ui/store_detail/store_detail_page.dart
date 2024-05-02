@@ -7,11 +7,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
+import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/basic_information.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/captions/data_loading.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/map.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/tournaments.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -113,6 +116,10 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                               tournaments: data.gameMttItems ?? [],
                             ),
                             const SizedBox(height: 16),
+
+                            FilledButton(
+                                onPressed: () => _handleKakaoShare(data),
+                                child: const Text('asd')),
                           ],
                         ),
                       ),
@@ -217,5 +224,17 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         },
       );
     }
+  }
+
+  void _handleKakaoShare(StoreDetailModel model) async {
+    Fluttertoast.showToast(msg: 'model');
+    KakaoLinkHelper().shareKakaoFeed(
+      KakaoFeedModel(
+        id: model.id,
+        title: model.name,
+        description: model.address,
+        thumbnail: model.storeImages![0].url,
+      ),
+    );
   }
 }

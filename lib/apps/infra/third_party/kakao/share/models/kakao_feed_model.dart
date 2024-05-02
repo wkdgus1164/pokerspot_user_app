@@ -6,12 +6,10 @@ part 'kakao_feed_model.freezed.dart';
 @freezed
 class KakaoFeedModel with _$KakaoFeedModel {
   factory KakaoFeedModel({
-    required int id,
-    required String title,
-    required String description,
+    required String id,
+    required String? title,
+    required String? description,
     required String thumbnail,
-    required String authorName,
-    required String profileImageUrl,
   }) = _KakaoFeedModel;
 
   KakaoFeedModel._();
@@ -33,10 +31,6 @@ class KakaoFeedModel with _$KakaoFeedModel {
           androidExecutionParams: params,
           iosExecutionParams: params,
         ),
-      ),
-      itemContent: ItemContent(
-        profileText: authorName,
-        profileImageUrl: Uri.parse(profileImageUrl),
       ),
       buttons: [
         Button(
