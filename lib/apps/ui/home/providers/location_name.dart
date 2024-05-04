@@ -16,8 +16,8 @@ class LocationName extends _$LocationName {
   }
 
   Future<AddressDto> _fetch() async {
-    double latitude = 0;
-    double longitude = 0;
+    double latitude = 37.496486063;
+    double longitude = 127.028361548;
 
     await GpsService().getLocation(
       (lat, lng) {

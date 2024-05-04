@@ -29,66 +29,85 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
       data: (data) {
         final items = data.items;
 
-        return Expanded(
-          child: SmartRefresher(
-            controller: _refreshController,
-            enablePullDown: true,
-            onRefresh: _refresh,
-            child: ListView.separated(
-              padding: const EdgeInsets.all(16),
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return WithListFooter(
-                  child: HomeStore(
-                    storeImages: items[index].storeImages,
-                    name: items[index].name ?? "",
-                    address: items[index].address ?? "",
-                    addressDetail: items[index].addressDetail ?? "",
-                    openTime: items[index].openTime ?? "",
-                    closeTime: items[index].closeTime ?? "",
-                    distance: items[index].distance ?? 0,
-                    storeGames: items[index].gameMttItems ?? [],
-                    handleClick: () => _handleClick(
-                      items[index].id,
-                      items[index].lat,
-                      items[index].lng,
+        if (items.isEmpty) {
+          return const Expanded(
+            child: Text('데이터 없음'),
+          );
+        } else {
+          return Expanded(
+            child: SmartRefresher(
+              controller: _refreshController,
+              enablePullDown: true,
+              onRefresh: _refresh,
+              child: ListView.separated(
+                padding: const EdgeInsets.all(16),
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return WithListFooter(
+                    child: HomeStore(
+                      storeImages: items[index].storeImages,
+                      name: items[index].name ?? "",
+                      address: items[index].address ?? "",
+                      addressDetail: items[index].addressDetail ?? "",
+                      openTime: items[index].openTime ?? "",
+                      closeTime: items[index].closeTime ?? "",
+                      distance: items[index].distance ?? 0,
+                      storeGames: items[index].gameMttItems ?? [],
+                      handleClick: () => _handleClick(
+                        items[index].id,
+                        items[index].lat,
+                        items[index].lng,
+                      ),
                     ),
-                  ),
-                );
-              },
-              separatorBuilder: (context, index) => const SizedBox(height: 16),
+                  );
+                },
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 16),
+              ),
             ),
-          ),
-        );
+          );
+        }
       },
       error: (error, stackTrace) {
         Logger().e(error.toString());
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.location_off_rounded,
-              color: colorGrey80,
-              size: 60,
+        return Expanded(
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.report_rounded,
+                  color: colorGrey80,
+                  size: 60,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  '예상치 못한 오류가 발생했어요.',
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: colorGrey40,
+                      ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  textAlign: TextAlign.center,
+                  '예상치 못한 오류로 인해 데이터를 불러오지 못했어요.',
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: colorGrey60,
+                      ),
+                ),
+                Text(
+                  textAlign: TextAlign.center,
+                  error.toString(),
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelSmall!
+                      .copyWith(color: colorGrey80),
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
-            Text(
-              '위치 정보 권한을 확인해 주세요.',
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: colorGrey40,
-                  ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              textAlign: TextAlign.center,
-              '위치 정보 권한이 활성화되어야\n주변 업소 정보를 확인할 수 있어요.',
-              style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                    color: colorGrey60,
-                  ),
-            ),
-          ],
+          ),
         );
       },
       loading: () {
