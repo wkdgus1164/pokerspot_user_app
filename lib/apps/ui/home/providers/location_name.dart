@@ -1,9 +1,10 @@
 import 'dart:async';
 
+import 'package:geolocator/geolocator.dart';
 import 'package:logger/web.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:pokerspot_user_app/apps/infra/api/third_party/kakao_map/dto/address_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/third_party/kakao_map/kakao_map_api.dart';
-import 'package:pokerspot_user_app/apps/global/utils/gps/gps_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'location_name.g.dart';
@@ -16,15 +17,23 @@ class LocationName extends _$LocationName {
   }
 
   Future<AddressDto> _fetch() async {
-    double latitude = 37.496486063;
-    double longitude = 127.028361548;
+    double latitude = 127.028361548;
+    double longitude = 37.496486063;
 
-    await GpsService().getLocation(
-      (lat, lng) {
-        latitude = lat;
-        longitude = lng;
-      },
-    );
+    if (await Permission.location.status.isGranted) {
+      Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.high);
+
+      latitude = position.latitude;
+      longitude = position.longitude;
+    }
+
+    // await GpsService().getLocation(
+    //   (lat, lng) {
+    //     latitude = lat;
+    //     longitude = lng;
+    //   },
+    // );
 
     Logger().d('사용자의 현위치: lat: $latitude, lon: $longitude');
 

@@ -40,6 +40,7 @@ dependencies:
   url_launcher: ^6.2.5
   firebase_analytics: ^10.8.10
   firebase_crashlytics: ^3.5.5
+  permission_handler: ^11.3.1
 
 dev_dependencies:
   flutter_test:
