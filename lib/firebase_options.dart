@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'ontheground-pokerspot-user.appspot.com',
     iosBundleId: 'com.pokerspot.user',
   );
+
 }

@@ -78,7 +78,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Icon(
-                  Icons.report_rounded,
+                  Icons.info_rounded,
                   color: colorGrey80,
                   size: 60,
                 ),
