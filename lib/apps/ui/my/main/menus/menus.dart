@@ -22,7 +22,9 @@ class MyMenus extends StatelessWidget {
           _buildItem(
             Assets.myNotice.path,
             '공지사항',
-            () {},
+            () {
+              context.push(CustomRouter.notice.path);
+            },
           ),
           const Divider(),
           _buildItem(
