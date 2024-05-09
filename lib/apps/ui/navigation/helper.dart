@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/home_page.dart';
-import 'package:pokerspot_user_app/apps/ui/my/my_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my/main/my_page.dart';
 
 final List<String> _defaultIcons = [
   Assets.bnHomeOff.path,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokerspot_user_app/apps/ui/my/login_required/login_required.dart';
-import 'package:pokerspot_user_app/apps/ui/my/menus/menus.dart';
-import 'package:pokerspot_user_app/apps/ui/my/profile_card/profile_card.dart';
-import 'package:pokerspot_user_app/apps/ui/my/toolbar/toolbar.dart';
+import 'package:pokerspot_user_app/apps/ui/my/main/login_required/login_required.dart';
+import 'package:pokerspot_user_app/apps/ui/my/main/menus/menus.dart';
+import 'package:pokerspot_user_app/apps/ui/my/main/profile_card/profile_card.dart';
+import 'package:pokerspot_user_app/apps/ui/my/main/toolbar/toolbar.dart';
 
 class MyPage extends StatefulHookConsumerWidget {
   const MyPage({super.key});
