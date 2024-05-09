@@ -29,10 +29,11 @@ final List<String> _labels = [
   '내정보',
 ];
 
-class MainPageHelper {
-  MainPageHelper._privateConstructor();
-  static final MainPageHelper _instance = MainPageHelper._privateConstructor();
-  factory MainPageHelper() => _instance;
+class NavigationHelper {
+  NavigationHelper._privateConstructor();
+  static final NavigationHelper _instance =
+      NavigationHelper._privateConstructor();
+  factory NavigationHelper() => _instance;
 
   List<Widget> pages = [
     const HomePage(),

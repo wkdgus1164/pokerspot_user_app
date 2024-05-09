@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 
@@ -21,9 +22,12 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   void initState() {
     super.initState();
 
-    _timer = Timer(const Duration(milliseconds: 1000), () async {
-      _init();
-    });
+    _timer = Timer(
+      const Duration(milliseconds: 1000),
+      () async {
+        _init();
+      },
+    );
   }
 
   @override
@@ -47,6 +51,10 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   }
 
   Future _init() async {
-    context.go(CustomRouter.home.path);
+    if (await Permission.locationWhenInUse.isGranted) {
+      context.go(CustomRouter.home.path);
+    } else {
+      context.go(CustomRouter.permission.path);
+    }
   }
 }

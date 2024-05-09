@@ -86,24 +86,8 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                 Text(
                   '예상치 못한 오류가 발생했어요.',
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: colorGrey40,
-                      ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  textAlign: TextAlign.center,
-                  '예상치 못한 오류로 인해 데이터를 불러오지 못했어요.',
-                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: colorGrey60,
                       ),
-                ),
-                Text(
-                  textAlign: TextAlign.center,
-                  error.toString(),
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelSmall!
-                      .copyWith(color: colorGrey80),
                 ),
               ],
             ),

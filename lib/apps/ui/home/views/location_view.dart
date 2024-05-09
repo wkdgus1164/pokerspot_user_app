@@ -21,6 +21,7 @@ class _HomeLocationViewState extends ConsumerState<HomeLocationView> {
 
     return res.when(
       data: (data) {
+        Logger().d(data);
         return Container(
           color: colorGrey98,
           width: double.infinity,
@@ -35,7 +36,7 @@ class _HomeLocationViewState extends ConsumerState<HomeLocationView> {
                 size: 16,
               ),
               const SizedBox(width: 4),
-              if (data.documents[0] != null) ...[
+              if (data.documents.isNotEmpty) ...[
                 Text(
                   data.documents[0]!.address.address_name,
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -43,9 +44,9 @@ class _HomeLocationViewState extends ConsumerState<HomeLocationView> {
                       ),
                 ),
               ],
-              if (data.documents[0] == null) ...[
+              if (data.documents.isEmpty) ...[
                 Text(
-                  data.documents[1]!.address.address_name,
+                  '주소정보없음',
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: colorGrey50,
                       ),

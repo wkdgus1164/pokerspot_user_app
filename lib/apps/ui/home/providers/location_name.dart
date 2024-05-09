@@ -28,18 +28,11 @@ class LocationName extends _$LocationName {
       longitude = position.longitude;
     }
 
-    // await GpsService().getLocation(
-    //   (lat, lng) {
-    //     latitude = lat;
-    //     longitude = lng;
-    //   },
-    // );
-
     Logger().d('사용자의 현위치: lat: $latitude, lon: $longitude');
 
     final res = await ref.read(kakaoMapApiProvider).fetchAddressName(
-          latitude,
           longitude,
+          latitude,
         );
     return res.toModels();
   }
