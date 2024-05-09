@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/my/main/login_required/login_required.dart';
 import 'package:pokerspot_user_app/apps/ui/my/main/menus/menus.dart';
 import 'package:pokerspot_user_app/apps/ui/my/main/profile_card/profile_card.dart';
@@ -27,7 +29,9 @@ class _MyPageState extends ConsumerState<MyPage> {
             MyProfileCard(
               name: '홍길동',
               createdAt: DateTime.now(),
-              handleEditClick: () {},
+              handleEditClick: () {
+                context.push(CustomRouter.myInfo.path);
+              },
             ),
 
             // 툴바

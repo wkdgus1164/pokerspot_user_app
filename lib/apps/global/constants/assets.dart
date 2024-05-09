@@ -26,6 +26,9 @@ enum Assets {
   myTerms('$assetPath/my_terms.svg'),
 
   arrowRight('$assetPath/arrow_right.svg'),
+
+  kakao('$assetPath/kakao.svg'),
+  apple('$assetPath/apple.svg'),
   ;
 
   const Assets(this.path);

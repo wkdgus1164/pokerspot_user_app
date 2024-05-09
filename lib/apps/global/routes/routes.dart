@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/ui/home/home_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my/info/info_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/policy/policy_page.dart';
 import 'package:pokerspot_user_app/apps/ui/navigation/navigation_page.dart';
 import 'package:pokerspot_user_app/apps/ui/permission/permission_page.dart';
@@ -15,6 +16,7 @@ enum CustomRouter {
   home('/home'),
   storeDetail('/store_detail'),
   policy('/policy'),
+  myInfo('/my_info'),
   ;
 
   const CustomRouter(this.path);
@@ -56,6 +58,10 @@ final router = GoRouter(
     GoRoute(
       path: CustomRouter.policy.path,
       builder: (context, state) => const PolicyPage(),
+    ),
+    GoRoute(
+      path: CustomRouter.myInfo.path,
+      builder: (context, state) => const MyInfoPage(),
     ),
   ],
 );

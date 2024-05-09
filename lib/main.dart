@@ -12,6 +12,7 @@ import 'package:pokerspot_user_app/apps/global/theme/app_bar.dart';
 import 'package:pokerspot_user_app/apps/global/theme/bottom_navigation.dart';
 import 'package:pokerspot_user_app/apps/global/theme/button.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/dialog.dart';
 import 'package:pokerspot_user_app/apps/global/theme/fab.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/secret/secret.dart';
@@ -64,6 +65,7 @@ ThemeData _createThemeData({required BuildContext context}) {
     outlinedButtonTheme: outlinedButtonThemeData,
     floatingActionButtonTheme: floatingActionButtonThemeData,
     bottomNavigationBarTheme: bottomNavigationBarThemeData,
+    dialogTheme: dialogTheme,
   );
 }
 
