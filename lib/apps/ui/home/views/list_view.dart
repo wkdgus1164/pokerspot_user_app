@@ -7,6 +7,7 @@ import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
+import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
 import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -70,29 +71,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
       },
       error: (error, stackTrace) {
         Logger().e(error.toString());
-        return Expanded(
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Icon(
-                  Icons.info_rounded,
-                  color: colorGrey80,
-                  size: 60,
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  '예상치 못한 오류가 발생했어요.',
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: colorGrey60,
-                      ),
-                ),
-              ],
-            ),
-          ),
-        );
+        return const Expanded(child: ErrorPlaceholder());
       },
       loading: () {
         return Expanded(

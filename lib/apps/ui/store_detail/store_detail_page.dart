@@ -17,6 +17,7 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
+import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class StoreDetailPageArguments {
@@ -169,9 +170,9 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: const Text('매장 정보 없음'),
+            title: const Icon(Icons.error_rounded, color: colorGrey80),
           ),
-          body: Text(error.toString()),
+          body: const ErrorPlaceholder(),
         );
       },
       loading: () {
