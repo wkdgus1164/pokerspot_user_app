@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/button_group.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/filter_by_participate_fee.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/filter_by_running_status.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/filter_by_start_time.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/filter_by_tournament_type.dart';
 
 class HomeSearchFilterSheet extends StatefulHookConsumerWidget {
   const HomeSearchFilterSheet({super.key});
@@ -17,29 +19,20 @@ class _HomeSearchFilterSheetState extends ConsumerState<HomeSearchFilterSheet> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
-      child: Wrap(
+      child: const Wrap(
         runSpacing: 32,
         children: [
-          Text(
-            '상세 검색',
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  color: colorGrey20,
-                ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                '운영 상태',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: colorGrey40,
-                      fontWeight: FontWeight.normal,
-                    ),
-              ),
-              const SizedBox(height: 8),
-              const FilterByRunningStatusView(),
-            ],
-          ),
+          // 운영 상태
+          FilterByRunningStatusView(),
+
+          // 스타트 시간
+          FilterByStartTimeView(),
+
+          // 토너먼트
+          FilterByTournamentTypeView(),
+
+          // 참가비
+          FilterByParticipateFeeView(),
         ],
       ),
     );

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'filter_running_status.dart';
+part of 'filter_by_running_status.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$FilterRunningStatusModel {
+mixin _$FilterByRunningStatusModel {
   RunningStatus get runningStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterRunningStatusModelCopyWith<FilterRunningStatusModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  $FilterByRunningStatusModelCopyWith<FilterByRunningStatusModel>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FilterRunningStatusModelCopyWith<$Res> {
-  factory $FilterRunningStatusModelCopyWith(FilterRunningStatusModel value,
-          $Res Function(FilterRunningStatusModel) then) =
-      _$FilterRunningStatusModelCopyWithImpl<$Res, FilterRunningStatusModel>;
+abstract class $FilterByRunningStatusModelCopyWith<$Res> {
+  factory $FilterByRunningStatusModelCopyWith(FilterByRunningStatusModel value,
+          $Res Function(FilterByRunningStatusModel) then) =
+      _$FilterByRunningStatusModelCopyWithImpl<$Res,
+          FilterByRunningStatusModel>;
   @useResult
   $Res call({RunningStatus runningStatus});
 }
 
 /// @nodoc
-class _$FilterRunningStatusModelCopyWithImpl<$Res,
-        $Val extends FilterRunningStatusModel>
-    implements $FilterRunningStatusModelCopyWith<$Res> {
-  _$FilterRunningStatusModelCopyWithImpl(this._value, this._then);
+class _$FilterByRunningStatusModelCopyWithImpl<$Res,
+        $Val extends FilterByRunningStatusModel>
+    implements $FilterByRunningStatusModelCopyWith<$Res> {
+  _$FilterByRunningStatusModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,25 +59,25 @@ class _$FilterRunningStatusModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FilterRunningStatusModelImplCopyWith<$Res>
-    implements $FilterRunningStatusModelCopyWith<$Res> {
-  factory _$$FilterRunningStatusModelImplCopyWith(
-          _$FilterRunningStatusModelImpl value,
-          $Res Function(_$FilterRunningStatusModelImpl) then) =
-      __$$FilterRunningStatusModelImplCopyWithImpl<$Res>;
+abstract class _$$FilterByRunningStatusModelImplCopyWith<$Res>
+    implements $FilterByRunningStatusModelCopyWith<$Res> {
+  factory _$$FilterByRunningStatusModelImplCopyWith(
+          _$FilterByRunningStatusModelImpl value,
+          $Res Function(_$FilterByRunningStatusModelImpl) then) =
+      __$$FilterByRunningStatusModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({RunningStatus runningStatus});
 }
 
 /// @nodoc
-class __$$FilterRunningStatusModelImplCopyWithImpl<$Res>
-    extends _$FilterRunningStatusModelCopyWithImpl<$Res,
-        _$FilterRunningStatusModelImpl>
-    implements _$$FilterRunningStatusModelImplCopyWith<$Res> {
-  __$$FilterRunningStatusModelImplCopyWithImpl(
-      _$FilterRunningStatusModelImpl _value,
-      $Res Function(_$FilterRunningStatusModelImpl) _then)
+class __$$FilterByRunningStatusModelImplCopyWithImpl<$Res>
+    extends _$FilterByRunningStatusModelCopyWithImpl<$Res,
+        _$FilterByRunningStatusModelImpl>
+    implements _$$FilterByRunningStatusModelImplCopyWith<$Res> {
+  __$$FilterByRunningStatusModelImplCopyWithImpl(
+      _$FilterByRunningStatusModelImpl _value,
+      $Res Function(_$FilterByRunningStatusModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -84,7 +85,7 @@ class __$$FilterRunningStatusModelImplCopyWithImpl<$Res>
   $Res call({
     Object? runningStatus = null,
   }) {
-    return _then(_$FilterRunningStatusModelImpl(
+    return _then(_$FilterByRunningStatusModelImpl(
       runningStatus: null == runningStatus
           ? _value.runningStatus
           : runningStatus // ignore: cast_nullable_to_non_nullable
@@ -95,8 +96,8 @@ class __$$FilterRunningStatusModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterRunningStatusModelImpl extends _FilterRunningStatusModel {
-  _$FilterRunningStatusModelImpl({this.runningStatus = RunningStatus.all})
+class _$FilterByRunningStatusModelImpl extends _FilterByRunningStatusModel {
+  _$FilterByRunningStatusModelImpl({this.runningStatus = RunningStatus.all})
       : super._();
 
   @override
@@ -105,14 +106,14 @@ class _$FilterRunningStatusModelImpl extends _FilterRunningStatusModel {
 
   @override
   String toString() {
-    return 'FilterRunningStatusModel(runningStatus: $runningStatus)';
+    return 'FilterByRunningStatusModel(runningStatus: $runningStatus)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FilterRunningStatusModelImpl &&
+            other is _$FilterByRunningStatusModelImpl &&
             (identical(other.runningStatus, runningStatus) ||
                 other.runningStatus == runningStatus));
   }
@@ -123,20 +124,20 @@ class _$FilterRunningStatusModelImpl extends _FilterRunningStatusModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterRunningStatusModelImplCopyWith<_$FilterRunningStatusModelImpl>
-      get copyWith => __$$FilterRunningStatusModelImplCopyWithImpl<
-          _$FilterRunningStatusModelImpl>(this, _$identity);
+  _$$FilterByRunningStatusModelImplCopyWith<_$FilterByRunningStatusModelImpl>
+      get copyWith => __$$FilterByRunningStatusModelImplCopyWithImpl<
+          _$FilterByRunningStatusModelImpl>(this, _$identity);
 }
 
-abstract class _FilterRunningStatusModel extends FilterRunningStatusModel {
-  factory _FilterRunningStatusModel({final RunningStatus runningStatus}) =
-      _$FilterRunningStatusModelImpl;
-  _FilterRunningStatusModel._() : super._();
+abstract class _FilterByRunningStatusModel extends FilterByRunningStatusModel {
+  factory _FilterByRunningStatusModel({final RunningStatus runningStatus}) =
+      _$FilterByRunningStatusModelImpl;
+  _FilterByRunningStatusModel._() : super._();
 
   @override
   RunningStatus get runningStatus;
   @override
   @JsonKey(ignore: true)
-  _$$FilterRunningStatusModelImplCopyWith<_$FilterRunningStatusModelImpl>
+  _$$FilterByRunningStatusModelImplCopyWith<_$FilterByRunningStatusModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

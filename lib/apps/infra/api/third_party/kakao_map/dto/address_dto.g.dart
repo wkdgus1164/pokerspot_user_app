@@ -26,7 +26,7 @@ Map<String, dynamic> _$$AddressDtoImplToJson(_$AddressDtoImpl instance) =>
 
 _$AddressMetaDtoImpl _$$AddressMetaDtoImplFromJson(Map<String, dynamic> json) =>
     _$AddressMetaDtoImpl(
-      total_count: json['total_count'] as int?,
+      total_count: (json['total_count'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$AddressMetaDtoImplToJson(

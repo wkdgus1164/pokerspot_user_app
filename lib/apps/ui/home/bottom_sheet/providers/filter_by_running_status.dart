@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'filter_running_status.g.dart';
-part 'filter_running_status.freezed.dart';
+part 'filter_by_running_status.g.dart';
+part 'filter_by_running_status.freezed.dart';
 
 enum RunningStatus {
   all('all'),
@@ -13,26 +13,28 @@ enum RunningStatus {
 }
 
 @freezed
-class FilterRunningStatusModel with _$FilterRunningStatusModel {
-  factory FilterRunningStatusModel({
+class FilterByRunningStatusModel with _$FilterByRunningStatusModel {
+  factory FilterByRunningStatusModel({
     @Default(RunningStatus.all) RunningStatus runningStatus,
-  }) = _FilterRunningStatusModel;
+  }) = _FilterByRunningStatusModel;
 
-  FilterRunningStatusModel._();
+  FilterByRunningStatusModel._();
 }
 
 @riverpod
-class FilterRunningStatus extends _$FilterRunningStatus {
+class FilterByRunningStatus extends _$FilterByRunningStatus {
   @override
-  FilterRunningStatusModel build() {
-    return FilterRunningStatusModel();
+  FilterByRunningStatusModel build() {
+    return FilterByRunningStatusModel(runningStatus: RunningStatus.all);
   }
 
   void setAll() {
     state = state.copyWith(runningStatus: RunningStatus.all);
+    ref.keepAlive();
   }
 
   void setRunning() {
     state = state.copyWith(runningStatus: RunningStatus.running);
+    ref.keepAlive();
   }
 }

@@ -20,10 +20,10 @@ Map<String, dynamic> _$$StoresDataDtoImplToJson(_$StoresDataDtoImpl instance) =>
 
 _$StoresDtoImpl _$$StoresDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoresDtoImpl(
-      page: json['page'] as int,
-      perPage: json['perPage'] as int,
-      totalPage: json['totalPage'] as int,
-      totalCount: json['totalCount'] as int,
+      page: (json['page'] as num).toInt(),
+      perPage: (json['perPage'] as num).toInt(),
+      totalPage: (json['totalPage'] as num).toInt(),
+      totalCount: (json['totalCount'] as num).toInt(),
       items: (json['items'] as List<dynamic>)
           .map((e) => StoreDto.fromJson(e as Map<String, dynamic>))
           .toList(),
