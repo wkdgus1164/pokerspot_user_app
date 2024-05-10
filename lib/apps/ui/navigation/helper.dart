@@ -7,21 +7,21 @@ import 'package:pokerspot_user_app/apps/ui/my/main/my_page.dart';
 
 final List<String> _defaultIcons = [
   Assets.bnHomeOff.path,
-  Assets.bnNearOff.path,
+  Assets.bnSearchOff.path,
   Assets.bnLocOff.path,
   Assets.bnMyOff.path,
 ];
 
 final List<String> _selectedIcons = [
   Assets.bnHomeOn.path,
-  Assets.bnNearOn.path,
+  Assets.bnSearchOn.path,
   Assets.bnLocOn.path,
   Assets.bnMyOn.path,
 ];
 
 final List<String> _labels = [
   '홈',
-  '내주변',
+  '검색',
   '지역',
   '내정보',
 ];
