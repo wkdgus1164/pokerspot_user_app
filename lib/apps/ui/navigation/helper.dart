@@ -9,7 +9,6 @@ final List<String> _defaultIcons = [
   Assets.bnHomeOff.path,
   Assets.bnNearOff.path,
   Assets.bnLocOff.path,
-  Assets.bnFavOff.path,
   Assets.bnMyOff.path,
 ];
 
@@ -17,7 +16,6 @@ final List<String> _selectedIcons = [
   Assets.bnHomeOn.path,
   Assets.bnNearOn.path,
   Assets.bnLocOn.path,
-  Assets.bnFavOn.path,
   Assets.bnMyOn.path,
 ];
 
@@ -25,7 +23,6 @@ final List<String> _labels = [
   '홈',
   '내주변',
   '지역',
-  '찜',
   '내정보',
 ];
 
@@ -37,7 +34,6 @@ class NavigationHelper {
 
   List<Widget> pages = [
     const HomePage(),
-    Container(),
     Container(),
     Container(),
     const MyPage(),

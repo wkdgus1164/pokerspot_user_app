@@ -2,10 +2,12 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/ui/home/home_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my/favorite/favorite_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/info/info_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/notice/notice_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/notice_detail/notice_detail_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/policy/policy_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my/recent/recent_page.dart';
 import 'package:pokerspot_user_app/apps/ui/navigation/navigation_page.dart';
 import 'package:pokerspot_user_app/apps/ui/permission/permission_page.dart';
 import 'package:pokerspot_user_app/apps/ui/splash/splash_page.dart';
@@ -21,6 +23,8 @@ enum CustomRouter {
   myInfo('/my_info'),
   notice('/notice'),
   noticeDetail('/notice_detail'),
+  favorite('/favorite'),
+  recent('/recent'),
   ;
 
   const CustomRouter(this.path);
@@ -74,6 +78,14 @@ final router = GoRouter(
     GoRoute(
       path: CustomRouter.noticeDetail.path,
       builder: (context, state) => const MyNoticeDetailPage(),
+    ),
+    GoRoute(
+      path: CustomRouter.favorite.path,
+      builder: (context, state) => const MyFavoritePage(),
+    ),
+    GoRoute(
+      path: CustomRouter.recent.path,
+      builder: (context, state) => const MyRecentPage(),
     ),
   ],
 );

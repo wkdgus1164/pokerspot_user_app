@@ -36,11 +36,11 @@ class _MyPageState extends ConsumerState<MyPage> {
 
             // 툴바
             MyToolbar(
-              handleFavoriteClick: () {
-                Fluttertoast.showToast(msg: '최근에 본 펍!');
-              },
               handleRecentViewClick: () {
-                Fluttertoast.showToast(msg: '찜한 펍!');
+                context.push(CustomRouter.recent.path);
+              },
+              handleFavoriteClick: () {
+                context.push(CustomRouter.favorite.path);
               },
             ),
 
