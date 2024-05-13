@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
+import 'package:pokerspot_user_app/apps/ui/photo_viewer/photo_viewer_page.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 
 class StoreDetailImageSwiper extends StatelessWidget {
@@ -22,18 +25,30 @@ class StoreDetailImageSwiper extends StatelessWidget {
           viewportFraction: 0.8,
           scale: 0.9,
           itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: images[index].url,
+            return GestureDetector(
+              onTap: () => _handleImageClick(context, images[index].url),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  imageUrl: images[index].url,
+                ),
               ),
             );
           },
         ),
+      ),
+    );
+  }
+
+  void _handleImageClick(BuildContext context, String imageUrl) {
+    context.push(
+      CustomRouter.photoView.path,
+      extra: PhotoViewerPageArguments(
+        imageUrl: imageUrl,
       ),
     );
   }
