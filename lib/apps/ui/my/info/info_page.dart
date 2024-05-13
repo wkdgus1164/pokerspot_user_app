@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/ui/my/info/providers/kakao_login_service.dart';
 import 'package:pokerspot_user_app/apps/ui/my/info/views/sections/basic_vac.dart';
 import 'package:pokerspot_user_app/apps/ui/my/info/views/sections/etc_vac.dart';
 import 'package:pokerspot_user_app/apps/ui/my/info/views/sections/social_vac.dart';
@@ -15,7 +17,7 @@ class MyInfoPage extends StatefulHookConsumerWidget {
 }
 
 class _MyInfoPageState extends ConsumerState<MyInfoPage> {
-  final isKakaoActivated = true;
+  final isKakaoActivated = false;
   final isAppleActivated = false;
 
   @override
@@ -62,7 +64,28 @@ class _MyInfoPageState extends ConsumerState<MyInfoPage> {
 
   _handleKakaoClick() {
     if (!isKakaoActivated) {
-      Fluttertoast.showToast(msg: '카카오 로그인');
+      KakaoLoginService().login(
+        (String token, String email) {
+          Logger().d('$token,$email');
+          Fluttertoast.showToast(msg: '카카오 로그인 성공!');
+        },
+        (String error) => showAdaptiveDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog.adaptive(
+              title: const Text('카카오 로그인 오류'),
+              content: Text(error.toString()),
+              actions: [
+                CustomAdaptiveDialogButton(
+                  context: context,
+                  onPressed: () => Navigator.pop(context, '닫기'),
+                  child: const Text('닫기'),
+                ),
+              ],
+            );
+          },
+        ),
+      );
     }
   }
 
