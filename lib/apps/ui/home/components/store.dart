@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/tournament.dart';
@@ -56,20 +57,52 @@ class HomeStore extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            CachedNetworkImage(
-              placeholder: (context, url) {
-                return const SizedBox(
-                  width: double.infinity,
-                  child: AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    ),
+            Stack(
+              alignment: Alignment.bottomLeft,
+              children: [
+                CachedNetworkImage(
+                  placeholder: (context, url) {
+                    return const SizedBox(
+                      width: double.infinity,
+                      child: AspectRatio(
+                        aspectRatio: 16 / 9,
+                        child: Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        ),
+                      ),
+                    );
+                  },
+                  errorWidget: (_, __, ___) => const ImageLoadFailed(),
+                  imageUrl:
+                      storeImages!.isNotEmpty ? storeImages!.first.url : "",
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
                   ),
-                );
-              },
-              errorWidget: (_, __, ___) => const ImageLoadFailed(),
-              imageUrl: storeImages!.isNotEmpty ? storeImages!.first.url : "",
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on_rounded,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        // distance.toString(),
+                        '${(distance / 1000).toStringAsFixed(2)}km',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Colors.white,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             Container(
               padding: const EdgeInsets.all(16),
