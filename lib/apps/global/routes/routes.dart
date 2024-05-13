@@ -10,6 +10,7 @@ import 'package:pokerspot_user_app/apps/ui/my/policy/policy_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/recent/recent_page.dart';
 import 'package:pokerspot_user_app/apps/ui/navigation/navigation_page.dart';
 import 'package:pokerspot_user_app/apps/ui/permission/permission_page.dart';
+import 'package:pokerspot_user_app/apps/ui/photo_viewer/photo_viewer_page.dart';
 import 'package:pokerspot_user_app/apps/ui/splash/splash_page.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 
@@ -25,6 +26,7 @@ enum CustomRouter {
   noticeDetail('/notice_detail'),
   favorite('/favorite'),
   recent('/recent'),
+  photoView('/photo_view'),
   ;
 
   const CustomRouter(this.path);
@@ -86,6 +88,13 @@ final router = GoRouter(
     GoRoute(
       path: CustomRouter.recent.path,
       builder: (context, state) => const MyRecentPage(),
+    ),
+    GoRoute(
+      path: CustomRouter.photoView.path,
+      builder: (context, state) {
+        final args = state.extra as PhotoViewerPageArguments;
+        return PhotoViewerPage(args: args);
+      },
     ),
   ],
 );

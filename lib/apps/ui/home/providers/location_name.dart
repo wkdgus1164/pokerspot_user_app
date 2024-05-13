@@ -20,9 +20,12 @@ class LocationName extends _$LocationName {
     double latitude = 127.028361548;
     double longitude = 37.496486063;
 
-    if (await Permission.location.status.isGranted) {
+    if (await Permission.location.status.isGranted &&
+        await Geolocator.isLocationServiceEnabled()) {
       Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
+        desiredAccuracy: LocationAccuracy.best,
+        timeLimit: const Duration(seconds: 10),
+      );
 
       latitude = position.latitude;
       longitude = position.longitude;

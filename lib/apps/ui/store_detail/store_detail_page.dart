@@ -69,6 +69,16 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         return Scaffold(
           appBar: AppBar(
             title: Text(data.name ?? "-"),
+            actions: [
+              IconButton(
+                onPressed: () => _handleKakaoShare(data),
+                icon: const Icon(Icons.share_rounded),
+              ),
+              IconButton(
+                onPressed: () => _handleFavoriteClick(),
+                icon: const Icon(Icons.favorite_outline_rounded),
+              ),
+            ],
           ),
           body: Column(
             children: [
@@ -117,10 +127,6 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                               tournaments: data.gameMttItems ?? [],
                             ),
                             const SizedBox(height: 16),
-
-                            FilledButton(
-                                onPressed: () => _handleKakaoShare(data),
-                                child: const Text('asd')),
                           ],
                         ),
                       ),
@@ -237,5 +243,9 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         thumbnail: model.storeImages![0].url,
       ),
     );
+  }
+
+  void _handleFavoriteClick() {
+    Fluttertoast.showToast(msg: '찜하기 완료! 찜 탭에서 다시 볼 수 있어요.');
   }
 }

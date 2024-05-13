@@ -15,7 +15,7 @@ class KakaoFeedModel with _$KakaoFeedModel {
   KakaoFeedModel._();
 
   Map<String, String> buildQueryParams() {
-    return {"path": "/community/$id"};
+    return {"path": "/store_detail/$id"};
   }
 
   FeedTemplate buildFeedTemplate(String url) {

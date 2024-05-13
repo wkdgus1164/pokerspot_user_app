@@ -1,10 +1,10 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:geolocator/geolocator.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'store.g.dart';
@@ -21,16 +21,16 @@ class StoresItems extends _$StoresItems {
   }
 
   Future<Models> _fetch() async {
-    double latitude = 0;
-    double longitude = 0;
+    double latitude = 127.028361548;
+    double longitude = 37.496486063;
 
-    if (await Permission.location.status.isGranted) {
-      Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
-
-      latitude = position.latitude;
-      longitude = position.longitude;
-    }
+    LocationService().getCurrentPosition(
+      (latitude, longitude) {
+        latitude = latitude;
+        longitude = longitude;
+      },
+      (error) => Logger().e(error),
+    );
 
     final res = await ref.read(storesApiProvider).fetchStores(
           latitude,

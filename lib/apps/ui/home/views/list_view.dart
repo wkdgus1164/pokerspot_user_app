@@ -5,6 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/location_name.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
@@ -97,6 +98,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
 
   void _refresh() {
     ref.invalidate(storesItemsProvider);
+    ref.invalidate(locationNameProvider);
     _refreshController.refreshCompleted();
   }
 

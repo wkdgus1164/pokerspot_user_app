@@ -1,4 +1,3 @@
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kakao_flutter_sdk_share/kakao_flutter_sdk_share.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
@@ -21,10 +20,8 @@ class KakaoLinkHelper {
             await ShareClient.instance.isKakaoTalkSharingAvailable();
 
         if (isAvailable) {
-          Fluttertoast.showToast(msg: '공유 가능');
           await _launchKakaoTalkWithFeed(feedTemplate);
         } else {
-          Fluttertoast.showToast(msg: '공유 불가');
           await _launchBrowserWithFeed(feedTemplate);
         }
       },
