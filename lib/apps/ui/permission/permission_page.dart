@@ -48,21 +48,19 @@ class _State extends ConsumerState<PermissionPage> {
       );
     }
     if (await Geolocator.checkPermission() == LocationPermission.denied) {
-      Fluttertoast.showToast(msg: 'denied');
+      Fluttertoast.showToast(msg: '위치 정보를 수집하지 못했어요.');
       _routeHomePage();
     }
     if (await Geolocator.checkPermission() == LocationPermission.whileInUse) {
-      Fluttertoast.showToast(msg: 'whileInUse');
       _routeHomePage();
     }
     if (await Geolocator.checkPermission() == LocationPermission.always) {
-      Fluttertoast.showToast(msg: 'always');
       _routeHomePage();
     }
     await Geolocator.requestPermission();
   }
 
   void _routeHomePage() {
-    context.go(CustomRouter.main.path);
+    context.go(CustomRouter.home.path);
   }
 }
