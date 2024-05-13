@@ -22,13 +22,56 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>kakaolink</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao6beb52328c9577c22e6dafff95efe1d6</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>link.pokerspot.co.kr</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pokerspot</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array/>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationUsageDescription</key>
-	<string>주변 업소 정보를 가져오기 위해 위치 정보 권한이 필요합니다.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>주변 업소 정보를 가져오기 위해 위치 정보 권한이 필요합니다.</string>
+	<key>NSLocationUsageDescription</key>
 	<string>주변 업소 정보를 가져오기 위해 위치 정보 권한이 필요합니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>주변 업소 정보를 가져오기 위해 위치 정보 권한이 필요합니다.</string>
@@ -51,16 +94,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-    <key>NSAppTransportSecurity</key>
-      <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-        <key>NSAllowsArbitraryLoadsInWebContent</key>
-        <true/>
-      </dict>
-    <key>io.flutter.embedded_views_preview</key>
-    <true/>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
 </dict>
 </plist>

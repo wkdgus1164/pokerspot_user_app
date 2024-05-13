@@ -23,10 +23,8 @@ class PhotoViewerPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('이미지 보기'),
       ),
-      body: Expanded(
-        child: PhotoView(
-          imageProvider: NetworkImage(args.imageUrl),
-        ),
+      body: PhotoView(
+        imageProvider: NetworkImage(args.imageUrl),
       ),
     );
   }
