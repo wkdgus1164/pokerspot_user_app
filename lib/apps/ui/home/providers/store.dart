@@ -24,7 +24,8 @@ class StoresItems extends _$StoresItems {
     double latitude = 0;
     double longitude = 0;
 
-    if (await Permission.location.status.isGranted) {
+    if (await Permission.location.status.isGranted &&
+        await Geolocator.isLocationServiceEnabled()) {
       Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.best,
       );
