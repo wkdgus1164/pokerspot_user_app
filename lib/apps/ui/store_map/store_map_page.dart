@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
+import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 
 class StoreMapPageArguments {
   String name;
@@ -58,27 +63,85 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
       appBar: AppBar(
         title: Text(_args.name),
       ),
-      body: GoogleMap(
-        onMapCreated: _onMapCreated,
-        myLocationButtonEnabled: true,
-        myLocationEnabled: true,
-        mapToolbarEnabled: false,
-        initialCameraPosition: CameraPosition(
-          target: LatLng(_args.lat, _args.lng),
-          zoom: 16,
-        ),
-        markers: {
-          Marker(
-            markerId: const MarkerId('Marker'),
-            position: LatLng(_args.lat, _args.lng),
-            infoWindow: InfoWindow(
-              title: _args.name,
-              snippet: _args.address,
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          GoogleMap(
+            onMapCreated: _onMapCreated,
+            myLocationButtonEnabled: true,
+            myLocationEnabled: true,
+            mapToolbarEnabled: false,
+            zoomControlsEnabled: false,
+            initialCameraPosition: CameraPosition(
+              target: LatLng(_args.lat, _args.lng),
+              zoom: 16,
             ),
-            icon: markerIcon,
+            markers: {
+              Marker(
+                markerId: const MarkerId('Marker'),
+                position: LatLng(_args.lat, _args.lng),
+                infoWindow: InfoWindow(
+                  title: _args.name,
+                  snippet: _args.address,
+                ),
+                icon: markerIcon,
+              ),
+            },
           ),
-        },
+          Container(
+            padding: const EdgeInsets.only(top: 16, left: 16, bottom: 16),
+            decoration: const BoxDecoration(
+              color: colorGrey100,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x33000000),
+                  blurRadius: 20,
+                  offset: Offset(0, 0),
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    _args.address,
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: colorGrey30,
+                        ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                IconButton(
+                  onPressed: () => _copy(_args.address),
+                  icon: const Icon(
+                    Icons.copy_rounded,
+                    color: colorGrey80,
+                  ),
+                ),
+                const SizedBox(width: 16),
+              ],
+            ),
+          ),
+        ],
       ),
     );
+  }
+
+  void _copy(String? address) {
+    if (address != null) {
+      Clipboard.setData(ClipboardData(text: address));
+
+      if (Platform.isIOS) {
+        Fluttertoast.showToast(msg: '주소가 복사되었어요.');
+      }
+    } else {
+      Logger().d('주소 정보가 없어요.');
+      return;
+    }
   }
 }
