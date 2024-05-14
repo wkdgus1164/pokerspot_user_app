@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FilterServiceModel {
-  String get isRunning => throw _privateConstructorUsedError;
+  String get operationStatus => throw _privateConstructorUsedError;
   int get minOpenTime => throw _privateConstructorUsedError;
   int get maxOpenTime => throw _privateConstructorUsedError;
   String get gameType => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $FilterServiceModelCopyWith<$Res> {
       _$FilterServiceModelCopyWithImpl<$Res, FilterServiceModel>;
   @useResult
   $Res call(
-      {String isRunning,
+      {String operationStatus,
       int minOpenTime,
       int maxOpenTime,
       String gameType,
@@ -56,7 +56,7 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isRunning = null,
+    Object? operationStatus = null,
     Object? minOpenTime = null,
     Object? maxOpenTime = null,
     Object? gameType = null,
@@ -64,9 +64,9 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
     Object? maxEntryPrice = null,
   }) {
     return _then(_value.copyWith(
-      isRunning: null == isRunning
-          ? _value.isRunning
-          : isRunning // ignore: cast_nullable_to_non_nullable
+      operationStatus: null == operationStatus
+          ? _value.operationStatus
+          : operationStatus // ignore: cast_nullable_to_non_nullable
               as String,
       minOpenTime: null == minOpenTime
           ? _value.minOpenTime
@@ -101,7 +101,7 @@ abstract class _$$FilterServiceModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String isRunning,
+      {String operationStatus,
       int minOpenTime,
       int maxOpenTime,
       String gameType,
@@ -120,7 +120,7 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isRunning = null,
+    Object? operationStatus = null,
     Object? minOpenTime = null,
     Object? maxOpenTime = null,
     Object? gameType = null,
@@ -128,9 +128,9 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
     Object? maxEntryPrice = null,
   }) {
     return _then(_$FilterServiceModelImpl(
-      isRunning: null == isRunning
-          ? _value.isRunning
-          : isRunning // ignore: cast_nullable_to_non_nullable
+      operationStatus: null == operationStatus
+          ? _value.operationStatus
+          : operationStatus // ignore: cast_nullable_to_non_nullable
               as String,
       minOpenTime: null == minOpenTime
           ? _value.minOpenTime
@@ -160,7 +160,7 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
 
 class _$FilterServiceModelImpl extends _FilterServiceModel {
   _$FilterServiceModelImpl(
-      {required this.isRunning,
+      {required this.operationStatus,
       required this.minOpenTime,
       required this.maxOpenTime,
       required this.gameType,
@@ -169,7 +169,7 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
       : super._();
 
   @override
-  final String isRunning;
+  final String operationStatus;
   @override
   final int minOpenTime;
   @override
@@ -183,7 +183,7 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
 
   @override
   String toString() {
-    return 'FilterServiceModel(isRunning: $isRunning, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice)';
+    return 'FilterServiceModel(operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice)';
   }
 
   @override
@@ -191,8 +191,8 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterServiceModelImpl &&
-            (identical(other.isRunning, isRunning) ||
-                other.isRunning == isRunning) &&
+            (identical(other.operationStatus, operationStatus) ||
+                other.operationStatus == operationStatus) &&
             (identical(other.minOpenTime, minOpenTime) ||
                 other.minOpenTime == minOpenTime) &&
             (identical(other.maxOpenTime, maxOpenTime) ||
@@ -206,7 +206,7 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isRunning, minOpenTime,
+  int get hashCode => Object.hash(runtimeType, operationStatus, minOpenTime,
       maxOpenTime, gameType, minEntryPrice, maxEntryPrice);
 
   @JsonKey(ignore: true)
@@ -219,7 +219,7 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
 
 abstract class _FilterServiceModel extends FilterServiceModel {
   factory _FilterServiceModel(
-      {required final String isRunning,
+      {required final String operationStatus,
       required final int minOpenTime,
       required final int maxOpenTime,
       required final String gameType,
@@ -228,7 +228,7 @@ abstract class _FilterServiceModel extends FilterServiceModel {
   _FilterServiceModel._() : super._();
 
   @override
-  String get isRunning;
+  String get operationStatus;
   @override
   int get minOpenTime;
   @override

@@ -1,24 +1,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'filter_by_participate_fee.g.dart';
-part 'filter_by_participate_fee.freezed.dart';
+part 'filter_by_entry_price.g.dart';
+part 'filter_by_entry_price.freezed.dart';
 
 @freezed
-class FilterByParticipateFeeModel with _$FilterByParticipateFeeModel {
-  factory FilterByParticipateFeeModel({
+class FilterByEntryPriceModel with _$FilterByEntryPriceModel {
+  factory FilterByEntryPriceModel({
     @Default(1) int minTicket,
     @Default(100) int maxTicket,
-  }) = _FilterByParticipageFeeModel;
+  }) = _FilterByEntryPriceModel;
 
-  FilterByParticipateFeeModel._();
+  FilterByEntryPriceModel._();
 }
 
 @riverpod
-class FilterByParticipateFee extends _$FilterByParticipateFee {
+class FilterByEntryPrice extends _$FilterByEntryPrice {
   @override
-  FilterByParticipateFeeModel build() {
-    return FilterByParticipateFeeModel();
+  FilterByEntryPriceModel build() {
+    return FilterByEntryPriceModel();
   }
 
   void setMinTicket(int ticket) {

@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_running_status.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
-class FilterByRunningStatusView extends StatefulHookConsumerWidget {
-  const FilterByRunningStatusView({super.key});
+class FilterByOperationStatusView extends StatefulHookConsumerWidget {
+  const FilterByOperationStatusView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByRunningStatusState();
+      _FilterByOperationStatusState();
 }
 
-class _FilterByRunningStatusState
-    extends ConsumerState<FilterByRunningStatusView> {
+class _FilterByOperationStatusState
+    extends ConsumerState<FilterByOperationStatusView> {
   @override
   Widget build(BuildContext context) {
-    final runningStatusFilter = ref.watch(filterByRunningStatusProvider);
+    final operationStatusFilter = ref.watch(filterByOperationStatusProvider);
     final bool isOnlyRunning =
-        runningStatusFilter.runningStatus == RunningStatus.running;
+        operationStatusFilter.operationStatus == OperationStatus.running;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -104,12 +104,12 @@ class _FilterByRunningStatusState
   }
 
   void _handleClickAll() {
-    ref.read(filterByRunningStatusProvider.notifier).setAll();
+    ref.read(filterByOperationStatusProvider.notifier).setAll();
     ref.invalidate(storesItemsProvider);
   }
 
   void _handleClickRunning() {
-    ref.read(filterByRunningStatusProvider.notifier).setRunning();
+    ref.read(filterByOperationStatusProvider.notifier).setRunning();
     ref.invalidate(storesItemsProvider);
   }
 }

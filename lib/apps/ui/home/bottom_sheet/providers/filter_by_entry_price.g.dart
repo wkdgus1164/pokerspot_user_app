@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'filter_service.dart';
+part of 'filter_by_entry_price.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$filterServiceHash() => r'cda49791e8c05a3562771c2a36a399ce45ddf8fa';
+String _$filterByEntryPriceHash() =>
+    r'8909599574882a8018b28629dced96a6f0aaf0d4';
 
-/// See also [FilterService].
-@ProviderFor(FilterService)
-final filterServiceProvider =
-    AutoDisposeNotifierProvider<FilterService, FilterServiceModel>.internal(
-  FilterService.new,
-  name: r'filterServiceProvider',
+/// See also [FilterByEntryPrice].
+@ProviderFor(FilterByEntryPrice)
+final filterByEntryPriceProvider = AutoDisposeNotifierProvider<
+    FilterByEntryPrice, FilterByEntryPriceModel>.internal(
+  FilterByEntryPrice.new,
+  name: r'filterByEntryPriceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$filterServiceHash,
+      : _$filterByEntryPriceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$FilterService = AutoDisposeNotifier<FilterServiceModel>;
+typedef _$FilterByEntryPrice = AutoDisposeNotifier<FilterByEntryPriceModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

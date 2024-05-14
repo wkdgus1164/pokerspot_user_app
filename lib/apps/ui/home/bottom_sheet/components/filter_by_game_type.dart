@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_tournament_type.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_game_type.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
-class FilterByTournamentTypeView extends StatefulHookConsumerWidget {
-  const FilterByTournamentTypeView({super.key});
+class FilterByGameTypeView extends StatefulHookConsumerWidget {
+  const FilterByGameTypeView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByTournamentTypeState();
+      _FilterByGameTypeState();
 }
 
-class _FilterByTournamentTypeState
-    extends ConsumerState<FilterByTournamentTypeView> {
+class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
   @override
   Widget build(BuildContext context) {
-    final tournamentTypeFilter = ref.watch(filterByTournamentTypeProvider);
+    final gameTypeFilter = ref.watch(filterByGameTypeProvider);
 
-    final isAll = tournamentTypeFilter.tournamentType == TournamentType.all;
-    final isDaily = tournamentTypeFilter.tournamentType == TournamentType.daily;
-    final isSeed = tournamentTypeFilter.tournamentType == TournamentType.seed;
-    final isGTD = tournamentTypeFilter.tournamentType == TournamentType.gtd;
+    final isAll = gameTypeFilter.gameType == GameType.all;
+    final isDaily = gameTypeFilter.gameType == GameType.daily;
+    final isSeed = gameTypeFilter.gameType == GameType.seed;
+    final isGTD = gameTypeFilter.gameType == GameType.gtd;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -167,22 +166,22 @@ class _FilterByTournamentTypeState
   }
 
   void _handleAllClick() {
-    ref.read(filterByTournamentTypeProvider.notifier).setAll();
+    ref.read(filterByGameTypeProvider.notifier).setAll();
     ref.invalidate(storesItemsProvider);
   }
 
   void _handleDailyClick() {
-    ref.read(filterByTournamentTypeProvider.notifier).setDaily();
+    ref.read(filterByGameTypeProvider.notifier).setDaily();
     ref.invalidate(storesItemsProvider);
   }
 
   void _handleSeedClick() {
-    ref.read(filterByTournamentTypeProvider.notifier).setSeed();
+    ref.read(filterByGameTypeProvider.notifier).setSeed();
     ref.invalidate(storesItemsProvider);
   }
 
   void _handleGTDClick() {
-    ref.read(filterByTournamentTypeProvider.notifier).setGTD();
+    ref.read(filterByGameTypeProvider.notifier).setGTD();
     ref.invalidate(storesItemsProvider);
   }
 }

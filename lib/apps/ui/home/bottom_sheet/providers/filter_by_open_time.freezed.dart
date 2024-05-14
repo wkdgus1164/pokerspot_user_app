@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'filter_by_start_time.dart';
+part of 'filter_by_open_time.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,29 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$FilterByStartTimeModel {
+mixin _$FilterByOpenTimeModel {
   int get minTime => throw _privateConstructorUsedError;
   int get maxTime => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterByStartTimeModelCopyWith<FilterByStartTimeModel> get copyWith =>
+  $FilterByOpenTimeModelCopyWith<FilterByOpenTimeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FilterByStartTimeModelCopyWith<$Res> {
-  factory $FilterByStartTimeModelCopyWith(FilterByStartTimeModel value,
-          $Res Function(FilterByStartTimeModel) then) =
-      _$FilterByStartTimeModelCopyWithImpl<$Res, FilterByStartTimeModel>;
+abstract class $FilterByOpenTimeModelCopyWith<$Res> {
+  factory $FilterByOpenTimeModelCopyWith(FilterByOpenTimeModel value,
+          $Res Function(FilterByOpenTimeModel) then) =
+      _$FilterByOpenTimeModelCopyWithImpl<$Res, FilterByOpenTimeModel>;
   @useResult
   $Res call({int minTime, int maxTime});
 }
 
 /// @nodoc
-class _$FilterByStartTimeModelCopyWithImpl<$Res,
-        $Val extends FilterByStartTimeModel>
-    implements $FilterByStartTimeModelCopyWith<$Res> {
-  _$FilterByStartTimeModelCopyWithImpl(this._value, this._then);
+class _$FilterByOpenTimeModelCopyWithImpl<$Res,
+        $Val extends FilterByOpenTimeModel>
+    implements $FilterByOpenTimeModelCopyWith<$Res> {
+  _$FilterByOpenTimeModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -64,25 +64,24 @@ class _$FilterByStartTimeModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FilterByStartTimeModelImplCopyWith<$Res>
-    implements $FilterByStartTimeModelCopyWith<$Res> {
-  factory _$$FilterByStartTimeModelImplCopyWith(
-          _$FilterByStartTimeModelImpl value,
-          $Res Function(_$FilterByStartTimeModelImpl) then) =
-      __$$FilterByStartTimeModelImplCopyWithImpl<$Res>;
+abstract class _$$FilterByOpenTimeModelImplCopyWith<$Res>
+    implements $FilterByOpenTimeModelCopyWith<$Res> {
+  factory _$$FilterByOpenTimeModelImplCopyWith(
+          _$FilterByOpenTimeModelImpl value,
+          $Res Function(_$FilterByOpenTimeModelImpl) then) =
+      __$$FilterByOpenTimeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int minTime, int maxTime});
 }
 
 /// @nodoc
-class __$$FilterByStartTimeModelImplCopyWithImpl<$Res>
-    extends _$FilterByStartTimeModelCopyWithImpl<$Res,
-        _$FilterByStartTimeModelImpl>
-    implements _$$FilterByStartTimeModelImplCopyWith<$Res> {
-  __$$FilterByStartTimeModelImplCopyWithImpl(
-      _$FilterByStartTimeModelImpl _value,
-      $Res Function(_$FilterByStartTimeModelImpl) _then)
+class __$$FilterByOpenTimeModelImplCopyWithImpl<$Res>
+    extends _$FilterByOpenTimeModelCopyWithImpl<$Res,
+        _$FilterByOpenTimeModelImpl>
+    implements _$$FilterByOpenTimeModelImplCopyWith<$Res> {
+  __$$FilterByOpenTimeModelImplCopyWithImpl(_$FilterByOpenTimeModelImpl _value,
+      $Res Function(_$FilterByOpenTimeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -91,7 +90,7 @@ class __$$FilterByStartTimeModelImplCopyWithImpl<$Res>
     Object? minTime = null,
     Object? maxTime = null,
   }) {
-    return _then(_$FilterByStartTimeModelImpl(
+    return _then(_$FilterByOpenTimeModelImpl(
       minTime: null == minTime
           ? _value.minTime
           : minTime // ignore: cast_nullable_to_non_nullable
@@ -106,8 +105,8 @@ class __$$FilterByStartTimeModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterByStartTimeModelImpl extends _FilterByStartTimeModel {
-  _$FilterByStartTimeModelImpl({this.minTime = 0, this.maxTime = 23})
+class _$FilterByOpenTimeModelImpl extends _FilterByOpenTimeModel {
+  _$FilterByOpenTimeModelImpl({this.minTime = 0, this.maxTime = 23})
       : super._();
 
   @override
@@ -119,14 +118,14 @@ class _$FilterByStartTimeModelImpl extends _FilterByStartTimeModel {
 
   @override
   String toString() {
-    return 'FilterByStartTimeModel(minTime: $minTime, maxTime: $maxTime)';
+    return 'FilterByOpenTimeModel(minTime: $minTime, maxTime: $maxTime)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FilterByStartTimeModelImpl &&
+            other is _$FilterByOpenTimeModelImpl &&
             (identical(other.minTime, minTime) || other.minTime == minTime) &&
             (identical(other.maxTime, maxTime) || other.maxTime == maxTime));
   }
@@ -137,15 +136,15 @@ class _$FilterByStartTimeModelImpl extends _FilterByStartTimeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterByStartTimeModelImplCopyWith<_$FilterByStartTimeModelImpl>
-      get copyWith => __$$FilterByStartTimeModelImplCopyWithImpl<
-          _$FilterByStartTimeModelImpl>(this, _$identity);
+  _$$FilterByOpenTimeModelImplCopyWith<_$FilterByOpenTimeModelImpl>
+      get copyWith => __$$FilterByOpenTimeModelImplCopyWithImpl<
+          _$FilterByOpenTimeModelImpl>(this, _$identity);
 }
 
-abstract class _FilterByStartTimeModel extends FilterByStartTimeModel {
-  factory _FilterByStartTimeModel({final int minTime, final int maxTime}) =
-      _$FilterByStartTimeModelImpl;
-  _FilterByStartTimeModel._() : super._();
+abstract class _FilterByOpenTimeModel extends FilterByOpenTimeModel {
+  factory _FilterByOpenTimeModel({final int minTime, final int maxTime}) =
+      _$FilterByOpenTimeModelImpl;
+  _FilterByOpenTimeModel._() : super._();
 
   @override
   int get minTime;
@@ -153,6 +152,6 @@ abstract class _FilterByStartTimeModel extends FilterByStartTimeModel {
   int get maxTime;
   @override
   @JsonKey(ignore: true)
-  _$$FilterByStartTimeModelImplCopyWith<_$FilterByStartTimeModelImpl>
+  _$$FilterByOpenTimeModelImplCopyWith<_$FilterByOpenTimeModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

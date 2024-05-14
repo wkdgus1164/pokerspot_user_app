@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/web.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_participate_fee.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_running_status.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_start_time.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_tournament_type.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_entry_price.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_operation_status.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_open_time.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_game_type.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'filter_service.g.dart';
@@ -12,7 +12,7 @@ part 'filter_service.freezed.dart';
 @freezed
 class FilterServiceModel with _$FilterServiceModel {
   factory FilterServiceModel({
-    required String isRunning,
+    required String operationStatus,
     required int minOpenTime,
     required int maxOpenTime,
     required String gameType,
@@ -27,19 +27,20 @@ class FilterServiceModel with _$FilterServiceModel {
 class FilterService extends _$FilterService {
   @override
   FilterServiceModel build() {
-    final isRunning = ref.read(filterByRunningStatusProvider).runningStatus;
-    final minOpenTime = ref.read(filterByStartTimeProvider).minTime;
-    final maxOpenTime = ref.read(filterByStartTimeProvider).maxTime;
-    final gameType =
-        ref.read(filterByTournamentTypeProvider).tournamentType.key;
-    final minEntryPrice = ref.read(filterByParticipateFeeProvider).minTicket;
-    final maxEntryPrice = ref.read(filterByParticipateFeeProvider).maxTicket;
+    final operationStatus =
+        ref.read(filterByOperationStatusProvider).operationStatus;
+    final minOpenTime = ref.read(filterByOpenTimeProvider).minTime;
+    final maxOpenTime = ref.read(filterByOpenTimeProvider).maxTime;
+    final gameType = ref.read(filterByGameTypeProvider).gameType.key;
+    final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
+    final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
 
     Logger().d(
-        '$isRunning, $minOpenTime, $maxOpenTime, $gameType, $minEntryPrice, $maxEntryPrice');
+        '$operationStatus, $minOpenTime, $maxOpenTime, $gameType, $minEntryPrice, $maxEntryPrice');
 
     return FilterServiceModel(
-      isRunning: isRunning == RunningStatus.running ? "OPEN" : "ALL",
+      operationStatus:
+          operationStatus == OperationStatus.running ? "OPEN" : "ALL",
       minOpenTime: minOpenTime,
       maxOpenTime: maxOpenTime,
       gameType: gameType,

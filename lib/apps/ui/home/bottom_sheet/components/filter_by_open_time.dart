@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_start_time.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_open_time.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
-class FilterByStartTimeView extends StatefulHookConsumerWidget {
-  const FilterByStartTimeView({super.key});
+class FilterByOpenTimeView extends StatefulHookConsumerWidget {
+  const FilterByOpenTimeView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByStartTimeViewState();
+      _FilterByOpenTimeViewState();
 }
 
-class _FilterByStartTimeViewState extends ConsumerState<FilterByStartTimeView> {
+class _FilterByOpenTimeViewState extends ConsumerState<FilterByOpenTimeView> {
   @override
   Widget build(BuildContext context) {
-    final startTimeFilter = ref.watch(filterByStartTimeProvider);
-    final int minTime = startTimeFilter.minTime;
-    final int maxTime = startTimeFilter.maxTime;
+    final openTimeFilter = ref.watch(filterByOpenTimeProvider);
+    final int minTime = openTimeFilter.minTime;
+    final int maxTime = openTimeFilter.maxTime;
 
     return Column(
       children: [
@@ -54,10 +54,10 @@ class _FilterByStartTimeViewState extends ConsumerState<FilterByStartTimeView> {
           onChanged: (RangeValues newValues) {
             Logger().d(newValues);
             ref
-                .watch(filterByStartTimeProvider.notifier)
+                .watch(filterByOpenTimeProvider.notifier)
                 .setMinTime(int.parse(newValues.start.ceil().toString()));
             ref
-                .watch(filterByStartTimeProvider.notifier)
+                .watch(filterByOpenTimeProvider.notifier)
                 .setMaxTime(int.parse(newValues.end.ceil().toString()));
             ref.invalidate(storesItemsProvider);
           },

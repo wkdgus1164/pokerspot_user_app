@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_participate_fee.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_entry_price.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
-class FilterByParticipateFeeView extends StatefulHookConsumerWidget {
-  const FilterByParticipateFeeView({super.key});
+class FilterByEntryPriecView extends StatefulHookConsumerWidget {
+  const FilterByEntryPriecView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByParticipateFeeState();
+      _FilterByEntryPriceState();
 }
 
-class _FilterByParticipateFeeState
-    extends ConsumerState<FilterByParticipateFeeView> {
+class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
   @override
   Widget build(BuildContext context) {
-    final participageFeeFilter = ref.watch(filterByParticipateFeeProvider);
-    final int minTicket = participageFeeFilter.minTicket;
-    final int maxTicket = participageFeeFilter.maxTicket;
+    final entryPriceFilter = ref.watch(filterByEntryPriceProvider);
+    final int minTicket = entryPriceFilter.minTicket;
+    final int maxTicket = entryPriceFilter.maxTicket;
 
     return Column(
       children: [
@@ -53,10 +52,10 @@ class _FilterByParticipateFeeState
           divisions: 1000,
           onChanged: (RangeValues newValues) {
             ref
-                .watch(filterByParticipateFeeProvider.notifier)
+                .watch(filterByEntryPriceProvider.notifier)
                 .setMinTicket(int.parse(newValues.start.ceil().toString()));
             ref
-                .watch(filterByParticipateFeeProvider.notifier)
+                .watch(filterByEntryPriceProvider.notifier)
                 .setMaxTicket(int.parse(newValues.end.ceil().toString()));
             ref.invalidate(storesItemsProvider);
           },

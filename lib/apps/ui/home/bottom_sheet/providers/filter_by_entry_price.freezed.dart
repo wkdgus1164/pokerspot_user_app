@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'filter_by_participate_fee.dart';
+part of 'filter_by_entry_price.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,31 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$FilterByParticipateFeeModel {
+mixin _$FilterByEntryPriceModel {
   int get minTicket => throw _privateConstructorUsedError;
   int get maxTicket => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterByParticipateFeeModelCopyWith<FilterByParticipateFeeModel>
-      get copyWith => throw _privateConstructorUsedError;
+  $FilterByEntryPriceModelCopyWith<FilterByEntryPriceModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FilterByParticipateFeeModelCopyWith<$Res> {
-  factory $FilterByParticipateFeeModelCopyWith(
-          FilterByParticipateFeeModel value,
-          $Res Function(FilterByParticipateFeeModel) then) =
-      _$FilterByParticipateFeeModelCopyWithImpl<$Res,
-          FilterByParticipateFeeModel>;
+abstract class $FilterByEntryPriceModelCopyWith<$Res> {
+  factory $FilterByEntryPriceModelCopyWith(FilterByEntryPriceModel value,
+          $Res Function(FilterByEntryPriceModel) then) =
+      _$FilterByEntryPriceModelCopyWithImpl<$Res, FilterByEntryPriceModel>;
   @useResult
   $Res call({int minTicket, int maxTicket});
 }
 
 /// @nodoc
-class _$FilterByParticipateFeeModelCopyWithImpl<$Res,
-        $Val extends FilterByParticipateFeeModel>
-    implements $FilterByParticipateFeeModelCopyWith<$Res> {
-  _$FilterByParticipateFeeModelCopyWithImpl(this._value, this._then);
+class _$FilterByEntryPriceModelCopyWithImpl<$Res,
+        $Val extends FilterByEntryPriceModel>
+    implements $FilterByEntryPriceModelCopyWith<$Res> {
+  _$FilterByEntryPriceModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,25 +64,25 @@ class _$FilterByParticipateFeeModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FilterByParticipageFeeModelImplCopyWith<$Res>
-    implements $FilterByParticipateFeeModelCopyWith<$Res> {
-  factory _$$FilterByParticipageFeeModelImplCopyWith(
-          _$FilterByParticipageFeeModelImpl value,
-          $Res Function(_$FilterByParticipageFeeModelImpl) then) =
-      __$$FilterByParticipageFeeModelImplCopyWithImpl<$Res>;
+abstract class _$$FilterByEntryPriceModelImplCopyWith<$Res>
+    implements $FilterByEntryPriceModelCopyWith<$Res> {
+  factory _$$FilterByEntryPriceModelImplCopyWith(
+          _$FilterByEntryPriceModelImpl value,
+          $Res Function(_$FilterByEntryPriceModelImpl) then) =
+      __$$FilterByEntryPriceModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int minTicket, int maxTicket});
 }
 
 /// @nodoc
-class __$$FilterByParticipageFeeModelImplCopyWithImpl<$Res>
-    extends _$FilterByParticipateFeeModelCopyWithImpl<$Res,
-        _$FilterByParticipageFeeModelImpl>
-    implements _$$FilterByParticipageFeeModelImplCopyWith<$Res> {
-  __$$FilterByParticipageFeeModelImplCopyWithImpl(
-      _$FilterByParticipageFeeModelImpl _value,
-      $Res Function(_$FilterByParticipageFeeModelImpl) _then)
+class __$$FilterByEntryPriceModelImplCopyWithImpl<$Res>
+    extends _$FilterByEntryPriceModelCopyWithImpl<$Res,
+        _$FilterByEntryPriceModelImpl>
+    implements _$$FilterByEntryPriceModelImplCopyWith<$Res> {
+  __$$FilterByEntryPriceModelImplCopyWithImpl(
+      _$FilterByEntryPriceModelImpl _value,
+      $Res Function(_$FilterByEntryPriceModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +91,7 @@ class __$$FilterByParticipageFeeModelImplCopyWithImpl<$Res>
     Object? minTicket = null,
     Object? maxTicket = null,
   }) {
-    return _then(_$FilterByParticipageFeeModelImpl(
+    return _then(_$FilterByEntryPriceModelImpl(
       minTicket: null == minTicket
           ? _value.minTicket
           : minTicket // ignore: cast_nullable_to_non_nullable
@@ -108,8 +106,8 @@ class __$$FilterByParticipageFeeModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterByParticipageFeeModelImpl extends _FilterByParticipageFeeModel {
-  _$FilterByParticipageFeeModelImpl({this.minTicket = 1, this.maxTicket = 100})
+class _$FilterByEntryPriceModelImpl extends _FilterByEntryPriceModel {
+  _$FilterByEntryPriceModelImpl({this.minTicket = 1, this.maxTicket = 100})
       : super._();
 
   @override
@@ -121,14 +119,14 @@ class _$FilterByParticipageFeeModelImpl extends _FilterByParticipageFeeModel {
 
   @override
   String toString() {
-    return 'FilterByParticipateFeeModel(minTicket: $minTicket, maxTicket: $maxTicket)';
+    return 'FilterByEntryPriceModel(minTicket: $minTicket, maxTicket: $maxTicket)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FilterByParticipageFeeModelImpl &&
+            other is _$FilterByEntryPriceModelImpl &&
             (identical(other.minTicket, minTicket) ||
                 other.minTicket == minTicket) &&
             (identical(other.maxTicket, maxTicket) ||
@@ -141,17 +139,15 @@ class _$FilterByParticipageFeeModelImpl extends _FilterByParticipageFeeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterByParticipageFeeModelImplCopyWith<_$FilterByParticipageFeeModelImpl>
-      get copyWith => __$$FilterByParticipageFeeModelImplCopyWithImpl<
-          _$FilterByParticipageFeeModelImpl>(this, _$identity);
+  _$$FilterByEntryPriceModelImplCopyWith<_$FilterByEntryPriceModelImpl>
+      get copyWith => __$$FilterByEntryPriceModelImplCopyWithImpl<
+          _$FilterByEntryPriceModelImpl>(this, _$identity);
 }
 
-abstract class _FilterByParticipageFeeModel
-    extends FilterByParticipateFeeModel {
-  factory _FilterByParticipageFeeModel(
-      {final int minTicket,
-      final int maxTicket}) = _$FilterByParticipageFeeModelImpl;
-  _FilterByParticipageFeeModel._() : super._();
+abstract class _FilterByEntryPriceModel extends FilterByEntryPriceModel {
+  factory _FilterByEntryPriceModel({final int minTicket, final int maxTicket}) =
+      _$FilterByEntryPriceModelImpl;
+  _FilterByEntryPriceModel._() : super._();
 
   @override
   int get minTicket;
@@ -159,6 +155,6 @@ abstract class _FilterByParticipageFeeModel
   int get maxTicket;
   @override
   @JsonKey(ignore: true)
-  _$$FilterByParticipageFeeModelImplCopyWith<_$FilterByParticipageFeeModelImpl>
+  _$$FilterByEntryPriceModelImplCopyWith<_$FilterByEntryPriceModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

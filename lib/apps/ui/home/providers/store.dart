@@ -19,7 +19,7 @@ class StoresItems extends _$StoresItems {
         return _requestStoreList(
           latitude: data.latitude,
           longitude: data.longitude,
-          isRunning: ref.read(filterServiceProvider).isRunning,
+          operationStatus: ref.read(filterServiceProvider).operationStatus,
           minOpenTime: ref.read(filterServiceProvider).minOpenTime,
           maxOpenTime: ref.read(filterServiceProvider).maxOpenTime,
           gameType: ref.read(filterServiceProvider).gameType,
@@ -41,7 +41,7 @@ class StoresItems extends _$StoresItems {
   Future<StoresDataDto> _requestStoreList({
     required double latitude,
     required double longitude,
-    String? isRunning = "ALL",
+    String? operationStatus = "ALL",
     int? minOpenTime = 0,
     int? maxOpenTime = 23,
     String? gameType = "ALL",
@@ -49,12 +49,12 @@ class StoresItems extends _$StoresItems {
     int? maxEntryPrice = 100,
   }) {
     Logger().d(
-        'latitude: $latitude, longitude: $longitude, isRunning: $isRunning, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice');
+        'latitude: $latitude, longitude: $longitude, isRunning: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice');
     return ref.read(storesApiProvider).fetchStores(
           latitude,
           longitude,
           50,
-          isRunning,
+          operationStatus,
           minOpenTime! > 9 ? '$minOpenTime:00' : '0$minOpenTime:00',
           maxOpenTime! > 9 ? '$maxOpenTime:00' : '0$maxOpenTime:00',
           gameType,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 
-class HomeStoreTournaments extends StatelessWidget {
-  const HomeStoreTournaments({
+class HomeStoreGames extends StatelessWidget {
+  const HomeStoreGames({
     super.key,
     required this.title,
     required this.caption,

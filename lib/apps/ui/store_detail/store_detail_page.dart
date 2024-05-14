@@ -12,7 +12,7 @@ import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kak
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/basic_information.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/captions/data_loading.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/map.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/components/tournaments.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/components/games.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
@@ -123,8 +123,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                               const SizedBox(height: 16),
 
                               // 토너먼트 정보
-                              StoreDetailTournaments(
-                                tournaments: data.gameMttItems ?? [],
+                              StoreDetailGames(
+                                games: data.gameMttItems ?? [],
                               ),
                               const SizedBox(height: 16),
                             ],

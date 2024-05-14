@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/components/tournament.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/components/game.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 
-class StoreDetailTournaments extends StatelessWidget {
-  const StoreDetailTournaments({super.key, required this.tournaments});
+class StoreDetailGames extends StatelessWidget {
+  const StoreDetailGames({super.key, required this.games});
 
-  final List<StoreDetailMttItemsModel> tournaments;
+  final List<StoreDetailMttItemsModel> games;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +31,10 @@ class StoreDetailTournaments extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              return StoreDetailTournament(game: tournaments[index]);
+              return StoreDetailGame(game: games[index]);
             },
             separatorBuilder: (context, index) => const SizedBox(height: 16),
-            itemCount: tournaments.length,
+            itemCount: games.length,
           ),
         ],
       ),

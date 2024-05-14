@@ -1,24 +1,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'filter_by_start_time.g.dart';
-part 'filter_by_start_time.freezed.dart';
+part 'filter_by_open_time.g.dart';
+part 'filter_by_open_time.freezed.dart';
 
 @freezed
-class FilterByStartTimeModel with _$FilterByStartTimeModel {
-  factory FilterByStartTimeModel({
+class FilterByOpenTimeModel with _$FilterByOpenTimeModel {
+  factory FilterByOpenTimeModel({
     @Default(0) int minTime,
     @Default(23) int maxTime,
-  }) = _FilterByStartTimeModel;
+  }) = _FilterByOpenTimeModel;
 
-  FilterByStartTimeModel._();
+  FilterByOpenTimeModel._();
 }
 
 @riverpod
-class FilterByStartTime extends _$FilterByStartTime {
+class FilterByOpenTime extends _$FilterByOpenTime {
   @override
-  FilterByStartTimeModel build() {
-    return FilterByStartTimeModel();
+  FilterByOpenTimeModel build() {
+    return FilterByOpenTimeModel();
   }
 
   void setMinTime(int time) {
