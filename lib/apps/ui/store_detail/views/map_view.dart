@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 
 class StoreDetailMapView extends StatefulHookConsumerWidget {
   const StoreDetailMapView({
@@ -31,24 +30,18 @@ class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 200,
+      height: 160,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
       ),
       child: GoogleMap(
         onMapCreated: _onMapCreated,
-        mapType: MapType.terrain,
-        buildingsEnabled: false,
         mapToolbarEnabled: false,
         liteModeEnabled: true,
-        myLocationEnabled: true,
-        myLocationButtonEnabled: true,
-        compassEnabled: false,
-        indoorViewEnabled: true,
         initialCameraPosition: CameraPosition(
           target: LatLng(widget.lat, widget.lng),
-          zoom: 17,
+          zoom: 16,
         ),
         markers: {
           Marker(
