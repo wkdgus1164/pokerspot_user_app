@@ -67,16 +67,16 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         return Scaffold(
           appBar: AppBar(
             title: Text(data.name ?? "-"),
-            actions: [
-              IconButton(
-                onPressed: () => _handleKakaoShare(data),
-                icon: const Icon(Icons.share_rounded),
-              ),
-              // IconButton(
-              //   onPressed: () => _handleFavoriteClick(),
-              //   icon: const Icon(Icons.favorite_outline_rounded),
-              // ),
-            ],
+            // actions: const [
+            // IconButton(
+            //   onPressed: () => _handleKakaoShare(data),
+            //   icon: const Icon(Icons.share_rounded),
+            // ),
+            // IconButton(
+            //   onPressed: () => _handleFavoriteClick(),
+            //   icon: const Icon(Icons.favorite_outline_rounded),
+            // ),
+            // ],
           ),
           body: Column(
             children: [
