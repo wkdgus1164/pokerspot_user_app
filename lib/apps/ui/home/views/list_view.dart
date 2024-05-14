@@ -5,11 +5,10 @@ import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/location_name.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
-import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeListView extends StatefulHookConsumerWidget {
@@ -29,9 +28,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
 
     return res.when(
       data: (data) {
-        final items = data.items;
-
-        if (items.isEmpty) {
+        if (data.isEmpty) {
           return const Expanded(
             child: Text('데이터 없음'),
           );
@@ -43,23 +40,21 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
               onRefresh: _refresh,
               child: ListView.separated(
                 padding: const EdgeInsets.all(16),
-                itemCount: items.length,
+                itemCount: data.length,
                 itemBuilder: (context, index) {
-                  return WithListFooter(
-                    child: HomeStore(
-                      storeImages: items[index].storeImages,
-                      name: items[index].name ?? "",
-                      address: items[index].address ?? "",
-                      addressDetail: items[index].addressDetail ?? "",
-                      openTime: items[index].openTime ?? "",
-                      closeTime: items[index].closeTime ?? "",
-                      distance: items[index].distance ?? 0,
-                      storeGames: items[index].gameMttItems ?? [],
-                      handleClick: () => _handleClick(
-                        items[index].id,
-                        items[index].lat,
-                        items[index].lng,
-                      ),
+                  return HomeStore(
+                    storeImages: data[index].storeImages,
+                    name: data[index].name ?? "",
+                    address: data[index].address ?? "",
+                    addressDetail: data[index].addressDetail ?? "",
+                    openTime: data[index].openTime ?? "",
+                    closeTime: data[index].closeTime ?? "",
+                    distance: data[index].distance ?? 0,
+                    storeGames: data[index].gameMttItems ?? [],
+                    handleClick: () => _handleClick(
+                      data[index].id,
+                      data[index].lat,
+                      data[index].lng,
                     ),
                   );
                 },
@@ -97,8 +92,8 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
   }
 
   void _refresh() {
+    ref.invalidate(locationServiceProvider);
     ref.invalidate(storesItemsProvider);
-    ref.invalidate(locationNameProvider);
     _refreshController.refreshCompleted();
   }
 
