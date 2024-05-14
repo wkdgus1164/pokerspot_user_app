@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_start_time.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
 class FilterByStartTimeView extends StatefulHookConsumerWidget {
   const FilterByStartTimeView({super.key});
@@ -15,8 +16,8 @@ class _FilterByStartTimeViewState extends ConsumerState<FilterByStartTimeView> {
   @override
   Widget build(BuildContext context) {
     final startTimeFilter = ref.watch(filterByStartTimeProvider);
-    final double minTime = startTimeFilter.minTime;
-    final double maxTime = startTimeFilter.maxTime;
+    final int minTime = startTimeFilter.minTime;
+    final int maxTime = startTimeFilter.maxTime;
 
     return Column(
       children: [
@@ -42,17 +43,21 @@ class _FilterByStartTimeViewState extends ConsumerState<FilterByStartTimeView> {
         ),
         const SizedBox(height: 8),
         RangeSlider(
-          values: RangeValues(minTime, maxTime),
+          values: RangeValues(
+            double.parse(minTime.toString()),
+            double.parse(maxTime.toString()),
+          ),
           min: 0,
           max: 23,
           divisions: 24,
           onChanged: (RangeValues newValues) {
             ref
                 .watch(filterByStartTimeProvider.notifier)
-                .setMinTime(newValues.start);
+                .setMinTime(int.parse(newValues.start.ceil().toString()));
             ref
                 .watch(filterByStartTimeProvider.notifier)
-                .setMaxTime(newValues.end);
+                .setMaxTime(int.parse(newValues.end.ceil().toString()));
+            ref.invalidate(storesItemsProvider);
           },
         ),
         const SizedBox(height: 8),

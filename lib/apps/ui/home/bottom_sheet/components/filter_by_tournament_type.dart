@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_tournament_type.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
 class FilterByTournamentTypeView extends StatefulHookConsumerWidget {
   const FilterByTournamentTypeView({super.key});
@@ -167,17 +168,21 @@ class _FilterByTournamentTypeState
 
   void _handleAllClick() {
     ref.read(filterByTournamentTypeProvider.notifier).setAll();
+    ref.invalidate(storesItemsProvider);
   }
 
   void _handleDailyClick() {
     ref.read(filterByTournamentTypeProvider.notifier).setDaily();
+    ref.invalidate(storesItemsProvider);
   }
 
   void _handleSeedClick() {
     ref.read(filterByTournamentTypeProvider.notifier).setSeed();
+    ref.invalidate(storesItemsProvider);
   }
 
   void _handleGTDClick() {
     ref.read(filterByTournamentTypeProvider.notifier).setGTD();
+    ref.invalidate(storesItemsProvider);
   }
 }

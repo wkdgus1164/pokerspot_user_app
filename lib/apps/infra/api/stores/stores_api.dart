@@ -16,6 +16,12 @@ abstract class StoresApi {
     @Query('lat') double lat,
     @Query('lng') double lng,
     @Query('perPage') double? perPage,
+    @Query('operationStatus') String? operationStatus,
+    @Query('minOpenTime') String? minOpenTime,
+    @Query('maxOpenTime') String? maxOpenTime,
+    @Query('gameType') String? gameType,
+    @Query('minEntryPrice') int? minEntryPrice,
+    @Query('maxEntryPrice') int? maxEntryPrice,
   );
 
   @GET('/api/v1/stores/{storeId}')

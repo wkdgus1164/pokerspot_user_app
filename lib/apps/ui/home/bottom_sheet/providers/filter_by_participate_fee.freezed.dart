@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FilterByParticipateFeeModel {
-  double get minTicket => throw _privateConstructorUsedError;
-  double get maxTicket => throw _privateConstructorUsedError;
+  int get minTicket => throw _privateConstructorUsedError;
+  int get maxTicket => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterByParticipateFeeModelCopyWith<FilterByParticipateFeeModel>
@@ -32,7 +32,7 @@ abstract class $FilterByParticipateFeeModelCopyWith<$Res> {
       _$FilterByParticipateFeeModelCopyWithImpl<$Res,
           FilterByParticipateFeeModel>;
   @useResult
-  $Res call({double minTicket, double maxTicket});
+  $Res call({int minTicket, int maxTicket});
 }
 
 /// @nodoc
@@ -56,11 +56,11 @@ class _$FilterByParticipateFeeModelCopyWithImpl<$Res,
       minTicket: null == minTicket
           ? _value.minTicket
           : minTicket // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       maxTicket: null == maxTicket
           ? _value.maxTicket
           : maxTicket // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ) as $Val);
   }
 }
@@ -74,7 +74,7 @@ abstract class _$$FilterByParticipageFeeModelImplCopyWith<$Res>
       __$$FilterByParticipageFeeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double minTicket, double maxTicket});
+  $Res call({int minTicket, int maxTicket});
 }
 
 /// @nodoc
@@ -97,11 +97,11 @@ class __$$FilterByParticipageFeeModelImplCopyWithImpl<$Res>
       minTicket: null == minTicket
           ? _value.minTicket
           : minTicket // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       maxTicket: null == maxTicket
           ? _value.maxTicket
           : maxTicket // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ));
   }
 }
@@ -109,15 +109,15 @@ class __$$FilterByParticipageFeeModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterByParticipageFeeModelImpl extends _FilterByParticipageFeeModel {
-  _$FilterByParticipageFeeModelImpl({this.minTicket = 1, this.maxTicket = 30})
+  _$FilterByParticipageFeeModelImpl({this.minTicket = 1, this.maxTicket = 100})
       : super._();
 
   @override
   @JsonKey()
-  final double minTicket;
+  final int minTicket;
   @override
   @JsonKey()
-  final double maxTicket;
+  final int maxTicket;
 
   @override
   String toString() {
@@ -149,14 +149,14 @@ class _$FilterByParticipageFeeModelImpl extends _FilterByParticipageFeeModel {
 abstract class _FilterByParticipageFeeModel
     extends FilterByParticipateFeeModel {
   factory _FilterByParticipageFeeModel(
-      {final double minTicket,
-      final double maxTicket}) = _$FilterByParticipageFeeModelImpl;
+      {final int minTicket,
+      final int maxTicket}) = _$FilterByParticipageFeeModelImpl;
   _FilterByParticipageFeeModel._() : super._();
 
   @override
-  double get minTicket;
+  int get minTicket;
   @override
-  double get maxTicket;
+  int get maxTicket;
   @override
   @JsonKey(ignore: true)
   _$$FilterByParticipageFeeModelImplCopyWith<_$FilterByParticipageFeeModelImpl>

@@ -1,12 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'filter_by_running_status.g.dart';
 part 'filter_by_running_status.freezed.dart';
 
 enum RunningStatus {
-  all('all'),
-  running('running'),
+  all('ALL'),
+  running('OPEN'),
   ;
 
   const RunningStatus(String key);
@@ -31,10 +32,12 @@ class FilterByRunningStatus extends _$FilterByRunningStatus {
   void setAll() {
     state = state.copyWith(runningStatus: RunningStatus.all);
     ref.keepAlive();
+    ref.invalidate(filterServiceProvider);
   }
 
   void setRunning() {
     state = state.copyWith(runningStatus: RunningStatus.running);
     ref.keepAlive();
+    ref.invalidate(filterServiceProvider);
   }
 }

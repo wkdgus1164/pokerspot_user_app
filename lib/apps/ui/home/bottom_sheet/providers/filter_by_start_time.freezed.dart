@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FilterByStartTimeModel {
-  double get minTime => throw _privateConstructorUsedError;
-  double get maxTime => throw _privateConstructorUsedError;
+  int get minTime => throw _privateConstructorUsedError;
+  int get maxTime => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterByStartTimeModelCopyWith<FilterByStartTimeModel> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $FilterByStartTimeModelCopyWith<$Res> {
           $Res Function(FilterByStartTimeModel) then) =
       _$FilterByStartTimeModelCopyWithImpl<$Res, FilterByStartTimeModel>;
   @useResult
-  $Res call({double minTime, double maxTime});
+  $Res call({int minTime, int maxTime});
 }
 
 /// @nodoc
@@ -54,11 +54,11 @@ class _$FilterByStartTimeModelCopyWithImpl<$Res,
       minTime: null == minTime
           ? _value.minTime
           : minTime // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       maxTime: null == maxTime
           ? _value.maxTime
           : maxTime // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ) as $Val);
   }
 }
@@ -72,7 +72,7 @@ abstract class _$$FilterByStartTimeModelImplCopyWith<$Res>
       __$$FilterByStartTimeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double minTime, double maxTime});
+  $Res call({int minTime, int maxTime});
 }
 
 /// @nodoc
@@ -95,11 +95,11 @@ class __$$FilterByStartTimeModelImplCopyWithImpl<$Res>
       minTime: null == minTime
           ? _value.minTime
           : minTime // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       maxTime: null == maxTime
           ? _value.maxTime
           : maxTime // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ));
   }
 }
@@ -112,10 +112,10 @@ class _$FilterByStartTimeModelImpl extends _FilterByStartTimeModel {
 
   @override
   @JsonKey()
-  final double minTime;
+  final int minTime;
   @override
   @JsonKey()
-  final double maxTime;
+  final int maxTime;
 
   @override
   String toString() {
@@ -143,15 +143,14 @@ class _$FilterByStartTimeModelImpl extends _FilterByStartTimeModel {
 }
 
 abstract class _FilterByStartTimeModel extends FilterByStartTimeModel {
-  factory _FilterByStartTimeModel(
-      {final double minTime,
-      final double maxTime}) = _$FilterByStartTimeModelImpl;
+  factory _FilterByStartTimeModel({final int minTime, final int maxTime}) =
+      _$FilterByStartTimeModelImpl;
   _FilterByStartTimeModel._() : super._();
 
   @override
-  double get minTime;
+  int get minTime;
   @override
-  double get maxTime;
+  int get maxTime;
   @override
   @JsonKey(ignore: true)
   _$$FilterByStartTimeModelImplCopyWith<_$FilterByStartTimeModelImpl>

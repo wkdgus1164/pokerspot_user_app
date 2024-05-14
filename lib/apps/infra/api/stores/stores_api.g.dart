@@ -23,12 +23,24 @@ class _StoresApi implements StoresApi {
     double lat,
     double lng,
     double? perPage,
+    String? operationStatus,
+    String? minOpenTime,
+    String? maxOpenTime,
+    String? gameType,
+    int? minEntryPrice,
+    int? maxEntryPrice,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'lat': lat,
       r'lng': lng,
       r'perPage': perPage,
+      r'operationStatus': operationStatus,
+      r'minOpenTime': minOpenTime,
+      r'maxOpenTime': maxOpenTime,
+      r'gameType': gameType,
+      r'minEntryPrice': minEntryPrice,
+      r'maxEntryPrice': maxEntryPrice,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

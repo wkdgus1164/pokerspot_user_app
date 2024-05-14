@@ -7,8 +7,8 @@ part 'filter_by_participate_fee.freezed.dart';
 @freezed
 class FilterByParticipateFeeModel with _$FilterByParticipateFeeModel {
   factory FilterByParticipateFeeModel({
-    @Default(1) double minTicket,
-    @Default(30) double maxTicket,
+    @Default(1) int minTicket,
+    @Default(100) int maxTicket,
   }) = _FilterByParticipageFeeModel;
 
   FilterByParticipateFeeModel._();
@@ -21,12 +21,12 @@ class FilterByParticipateFee extends _$FilterByParticipateFee {
     return FilterByParticipateFeeModel();
   }
 
-  void setMinTicket(double ticket) {
+  void setMinTicket(int ticket) {
     state = state.copyWith(minTicket: ticket);
     ref.keepAlive();
   }
 
-  void setMaxTicket(double ticket) {
+  void setMaxTicket(int ticket) {
     state = state.copyWith(maxTicket: ticket);
     ref.keepAlive();
   }

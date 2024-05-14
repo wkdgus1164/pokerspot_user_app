@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-SliderThemeData sliderThemeData = SliderThemeData(
-  overlayShape: SliderComponentShape.noOverlay,
-);
+SliderThemeData sliderThemeData = const SliderThemeData(
+    // overlayShape: SliderComponentShape.noOverlay,
+    );

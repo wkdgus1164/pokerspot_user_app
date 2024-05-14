@@ -7,7 +7,7 @@ part of 'filter_by_participate_fee.dart';
 // **************************************************************************
 
 String _$filterByParticipateFeeHash() =>
-    r'a51a7bf1aecfc070877267cd70807f0877453b07';
+    r'47a6b67834497c26afc02ea1bd3e9308e569f4f0';
 
 /// See also [FilterByParticipateFee].
 @ProviderFor(FilterByParticipateFee)

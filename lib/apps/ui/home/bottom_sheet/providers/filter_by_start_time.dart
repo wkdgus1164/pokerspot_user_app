@@ -7,8 +7,8 @@ part 'filter_by_start_time.freezed.dart';
 @freezed
 class FilterByStartTimeModel with _$FilterByStartTimeModel {
   factory FilterByStartTimeModel({
-    @Default(0) double minTime,
-    @Default(23) double maxTime,
+    @Default(0) int minTime,
+    @Default(23) int maxTime,
   }) = _FilterByStartTimeModel;
 
   FilterByStartTimeModel._();
@@ -21,12 +21,12 @@ class FilterByStartTime extends _$FilterByStartTime {
     return FilterByStartTimeModel();
   }
 
-  void setMinTime(double time) {
+  void setMinTime(int time) {
     state = state.copyWith(minTime: time);
     ref.keepAlive();
   }
 
-  void setMaxTime(double time) {
+  void setMaxTime(int time) {
     state = state.copyWith(maxTime: time);
     ref.keepAlive();
   }

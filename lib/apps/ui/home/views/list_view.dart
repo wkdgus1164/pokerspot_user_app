@@ -30,8 +30,28 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
       data: (data) {
         Logger().d(data);
         if (data.isEmpty) {
-          return const Expanded(
-            child: Text('데이터 없음'),
+          return Expanded(
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.info_rounded,
+                    color: colorGrey80,
+                    size: 60,
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    '주변에 필터와 일치하는 홀덤펍이 없어요.',
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: colorGrey60,
+                        ),
+                  ),
+                ],
+              ),
+            ),
           );
         } else {
           return Expanded(

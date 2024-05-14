@@ -5,13 +5,14 @@ part 'filter_by_tournament_type.g.dart';
 part 'filter_by_tournament_type.freezed.dart';
 
 enum TournamentType {
-  all('all'),
-  daily('daily'),
-  seed('seed'),
-  gtd('gtd'),
+  all('ALL'),
+  daily('DAILY'),
+  seed('SEED'),
+  gtd('GTD'),
   ;
 
-  const TournamentType(String key);
+  const TournamentType(this.key);
+  final String key;
 }
 
 @freezed

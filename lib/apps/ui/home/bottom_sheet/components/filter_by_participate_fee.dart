@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_participate_fee.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
 class FilterByParticipateFeeView extends StatefulHookConsumerWidget {
   const FilterByParticipateFeeView({super.key});
@@ -16,8 +17,8 @@ class _FilterByParticipateFeeState
   @override
   Widget build(BuildContext context) {
     final participageFeeFilter = ref.watch(filterByParticipateFeeProvider);
-    final double minTicket = participageFeeFilter.minTicket;
-    final double maxTicket = participageFeeFilter.maxTicket;
+    final int minTicket = participageFeeFilter.minTicket;
+    final int maxTicket = participageFeeFilter.maxTicket;
 
     return Column(
       children: [
@@ -43,17 +44,21 @@ class _FilterByParticipateFeeState
         ),
         const SizedBox(height: 8),
         RangeSlider(
-          values: RangeValues(minTicket, maxTicket),
+          values: RangeValues(
+            double.parse(minTicket.toString()),
+            double.parse(maxTicket.toString()),
+          ),
           min: 1,
           max: 30,
           divisions: 30,
           onChanged: (RangeValues newValues) {
             ref
                 .watch(filterByParticipateFeeProvider.notifier)
-                .setMinTicket(newValues.start);
+                .setMinTicket(int.parse(newValues.start.ceil().toString()));
             ref
                 .watch(filterByParticipateFeeProvider.notifier)
-                .setMaxTicket(newValues.end);
+                .setMaxTicket(int.parse(newValues.end.ceil().toString()));
+            ref.invalidate(storesItemsProvider);
           },
         ),
         const SizedBox(height: 8),
