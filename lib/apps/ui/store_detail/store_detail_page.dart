@@ -18,6 +18,7 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
 import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class StoreDetailPageArguments {
@@ -38,6 +39,9 @@ class StoreDetailPage extends StatefulHookConsumerWidget {
 
 class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   StoreDetailPageArguments get _args => widget.args;
+
+  final RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
 
   @override
   Widget build(BuildContext context) {
@@ -74,52 +78,60 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
           body: Column(
             children: [
               Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // 이미지
-                      StoreDetailImageSwiper(images: data.storeImages ?? []),
+                child: SmartRefresher(
+                  controller: _refreshController,
+                  enablePullDown: true,
+                  onRefresh: () {
+                    ref.invalidate(storeDetailDataProvider.call(_args.storeId));
+                    _refreshController.refreshCompleted();
+                  },
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // 이미지
+                        StoreDetailImageSwiper(images: data.storeImages ?? []),
 
-                      // 일반 정보
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // 헤더
-                            StoreDetailHeader(
-                              type: data.type,
-                              title: data.name ?? "-",
-                              distance: data.distance ?? 0.0,
-                            ),
-                            const SizedBox(height: 16),
+                        // 일반 정보
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // 헤더
+                              StoreDetailHeader(
+                                type: data.type,
+                                title: data.name ?? "-",
+                                distance: data.distance ?? 0.0,
+                              ),
+                              const SizedBox(height: 16),
 
-                            // 기본 정보
-                            StoreDetailBasicInformation(
-                              address:
-                                  '${data.address},\n${data.addressDetail}',
-                              runningTime:
-                                  '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
-                            ),
-                            const SizedBox(height: 16),
+                              // 기본 정보
+                              StoreDetailBasicInformation(
+                                address:
+                                    '${data.address},\n${data.addressDetail}',
+                                runningTime:
+                                    '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
+                              ),
+                              const SizedBox(height: 16),
 
-                            // 지도 정보
-                            StoreDetailMap(
-                              lat: data.lat,
-                              lng: data.lng,
-                            ),
-                            const SizedBox(height: 16),
+                              // 지도 정보
+                              StoreDetailMap(
+                                lat: data.lat,
+                                lng: data.lng,
+                              ),
+                              const SizedBox(height: 16),
 
-                            // 토너먼트 정보
-                            StoreDetailTournaments(
-                              tournaments: data.gameMttItems ?? [],
-                            ),
-                            const SizedBox(height: 16),
-                          ],
+                              // 토너먼트 정보
+                              StoreDetailTournaments(
+                                tournaments: data.gameMttItems ?? [],
+                              ),
+                              const SizedBox(height: 16),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
