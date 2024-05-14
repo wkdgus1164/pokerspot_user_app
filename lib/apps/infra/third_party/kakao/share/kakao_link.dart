@@ -1,5 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kakao_flutter_sdk_share/kakao_flutter_sdk_share.dart';
+import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
 
 class KakaoLinkHelper {
@@ -20,26 +21,22 @@ class KakaoLinkHelper {
             await ShareClient.instance.isKakaoTalkSharingAvailable();
 
         if (isAvailable) {
-          await _launchKakaoTalkWithFeed(feedTemplate);
+          try {
+            Uri uri = await ShareClient.instance.shareDefault(
+              template: feedTemplate,
+            );
+            await ShareClient.instance.launchKakaoTalk(uri);
+          } catch (e) {
+            Logger().e(e);
+          }
         } else {
-          await _launchBrowserWithFeed(feedTemplate);
+          Uri uri = await WebSharerClient.instance.makeDefaultUrl(
+            template: feedTemplate,
+          );
+
+          return await launchBrowserTab(uri, popupOpen: true);
         }
       },
     );
-  }
-
-  Future _launchKakaoTalkWithFeed(FeedTemplate feedTemplate) async {
-    final kakaoClient = ShareClient.instance;
-    Uri uri = await kakaoClient.shareDefault(template: feedTemplate);
-
-    return await kakaoClient.launchKakaoTalk(uri);
-  }
-
-  Future _launchBrowserWithFeed(FeedTemplate feedTemplate) async {
-    Uri uri = await WebSharerClient.instance.makeDefaultUrl(
-      template: feedTemplate,
-    );
-
-    return await launchBrowserTab(uri, popupOpen: true);
   }
 }

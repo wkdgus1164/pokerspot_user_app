@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_start_time.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
@@ -51,6 +52,7 @@ class _FilterByStartTimeViewState extends ConsumerState<FilterByStartTimeView> {
           max: 23,
           divisions: 24,
           onChanged: (RangeValues newValues) {
+            Logger().d(newValues);
             ref
                 .watch(filterByStartTimeProvider.notifier)
                 .setMinTime(int.parse(newValues.start.ceil().toString()));

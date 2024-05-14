@@ -41,7 +41,7 @@ class FilterService extends _$FilterService {
     return FilterServiceModel(
       isRunning: isRunning == RunningStatus.running ? "OPEN" : "ALL",
       minOpenTime: minOpenTime,
-      maxOpenTime: minOpenTime,
+      maxOpenTime: maxOpenTime,
       gameType: gameType,
       minEntryPrice: minEntryPrice,
       maxEntryPrice: maxEntryPrice,

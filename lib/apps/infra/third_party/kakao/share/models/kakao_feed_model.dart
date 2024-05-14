@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kakao_flutter_sdk_share/kakao_flutter_sdk_share.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 
 part 'kakao_feed_model.freezed.dart';
 
@@ -15,7 +16,7 @@ class KakaoFeedModel with _$KakaoFeedModel {
   KakaoFeedModel._();
 
   Map<String, String> buildQueryParams() {
-    return {"path": "/store_detail/$id"};
+    return {"path": CustomRouter.home.path};
   }
 
   FeedTemplate buildFeedTemplate(String url) {
