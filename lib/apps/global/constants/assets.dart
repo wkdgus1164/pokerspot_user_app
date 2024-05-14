@@ -31,7 +31,7 @@ enum Assets {
 
   kakao('$assetPath/kakao.svg'),
   apple('$assetPath/apple.svg'),
-  marker('$assetPath/marker.svg'),
+  marker('$assetPath/marker.png'),
   ;
 
   const Assets(this.path);

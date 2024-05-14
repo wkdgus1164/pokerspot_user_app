@@ -36,7 +36,6 @@ dependencies:
   change_app_package_name: ^1.1.0
   firebase_core: ^2.31.0
   card_swiper: ^3.0.1
-  kakao_map_plugin: ^0.3.0
   url_launcher: ^6.2.5
   firebase_analytics: ^10.8.10
   firebase_crashlytics: ^3.5.5

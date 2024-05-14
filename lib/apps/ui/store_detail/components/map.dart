@@ -7,10 +7,16 @@ class StoreDetailMap extends StatelessWidget {
     super.key,
     required this.lat,
     required this.lng,
+    required this.name,
+    required this.handleButtonClick,
+    required this.address,
   });
 
-  final double? lat;
-  final double? lng;
+  final String name;
+  final double lat;
+  final double lng;
+  final String address;
+  final Function() handleButtonClick;
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +32,39 @@ class StoreDetailMap extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             child: Text(
-              '지도 정보',
+              '위치 정보',
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
             ),
           ),
-          if (lat != null && lng != null) ...[
-            StoreDetailMapView(
-              lat: lat!,
-              lng: lng!,
+          StoreDetailMapView(
+            lat: lat,
+            lng: lng,
+          ),
+          Ink(
+            child: InkWell(
+              onTap: handleButtonClick,
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '지도 크게 보기',
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: colorGrey40,
+                          ),
+                    ),
+                    const Icon(
+                      Icons.chevron_right_rounded,
+                      color: colorGrey70,
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ],
+          ),
         ],
       ),
     );

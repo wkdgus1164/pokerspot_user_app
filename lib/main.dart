@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kakao_flutter_sdk_share/kakao_flutter_sdk_share.dart';
-import 'package:kakao_map_plugin/kakao_map_plugin.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/app_bar.dart';
@@ -28,8 +27,6 @@ void main() async {
   );
 
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-
-  AuthRepository.initialize(appKey: '51c209ad19ea67073c407ab3fdeaed19');
 
   KakaoSdk.init(
     nativeAppKey: Secret.kakaoNativeKey.key,

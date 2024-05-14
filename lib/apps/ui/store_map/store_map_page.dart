@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 
-class StoreDetailMapView extends StatefulHookConsumerWidget {
-  const StoreDetailMapView({
-    super.key,
+class StoreMapPageArguments {
+  String name;
+  String address;
+  double lat;
+  double lng;
+
+  StoreMapPageArguments({
+    required this.name,
+    required this.address,
     required this.lat,
     required this.lng,
   });
-
-  final double lat;
-  final double lng;
-
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _StoreDetailMapViewState();
 }
 
-class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
+class StoreMapPage extends StatefulHookConsumerWidget {
+  const StoreMapPage({super.key, required this.args});
+
+  final StoreMapPageArguments args;
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _StoreMapPageState();
+}
+
+class _StoreMapPageState extends ConsumerState<StoreMapPage> {
+  StoreMapPageArguments get _args => widget.args;
+
   late GoogleMapController mapController;
   BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
 
@@ -45,26 +54,27 @@ class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 160,
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_args.name),
       ),
-      child: GoogleMap(
+      body: GoogleMap(
         onMapCreated: _onMapCreated,
+        myLocationButtonEnabled: true,
+        myLocationEnabled: true,
         mapToolbarEnabled: false,
-        liteModeEnabled: true,
         initialCameraPosition: CameraPosition(
-          target: LatLng(widget.lat, widget.lng),
+          target: LatLng(_args.lat, _args.lng),
           zoom: 16,
         ),
         markers: {
           Marker(
             markerId: const MarkerId('Marker'),
-            position: LatLng(widget.lat, widget.lng),
-            draggable: false,
+            position: LatLng(_args.lat, _args.lng),
+            infoWindow: InfoWindow(
+              title: _args.name,
+              snippet: _args.address,
+            ),
             icon: markerIcon,
           ),
         },

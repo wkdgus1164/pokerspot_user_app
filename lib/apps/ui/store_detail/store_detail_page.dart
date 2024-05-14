@@ -4,8 +4,10 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
@@ -17,6 +19,7 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
+import 'package:pokerspot_user_app/apps/ui/store_map/store_map_page.dart';
 import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -69,10 +72,10 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                 onPressed: () => _handleKakaoShare(data),
                 icon: const Icon(Icons.share_rounded),
               ),
-              IconButton(
-                onPressed: () => _handleFavoriteClick(),
-                icon: const Icon(Icons.favorite_outline_rounded),
-              ),
+              // IconButton(
+              //   onPressed: () => _handleFavoriteClick(),
+              //   icon: const Icon(Icons.favorite_outline_rounded),
+              // ),
             ],
           ),
           body: Column(
@@ -117,9 +120,23 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
 
                               // 지도 정보
                               StoreDetailMap(
-                                lat: data.lat,
-                                lng: data.lng,
-                              ),
+                                  name: data.name ?? "-",
+                                  lat: data.lat ?? 0,
+                                  lng: data.lng ?? 0,
+                                  address:
+                                      '${data.address},\n${data.addressDetail}',
+                                  handleButtonClick: () {
+                                    context.push(
+                                      CustomRouter.storeMap.path,
+                                      extra: StoreMapPageArguments(
+                                        name: data.name ?? "-",
+                                        address:
+                                            '${data.address}, ${data.addressDetail}',
+                                        lat: data.lat ?? 0,
+                                        lng: data.lng ?? 0,
+                                      ),
+                                    );
+                                  }),
                               const SizedBox(height: 16),
 
                               // 토너먼트 정보
@@ -246,7 +263,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     );
   }
 
-  void _handleFavoriteClick() {
-    Fluttertoast.showToast(msg: '찜하기 완료! 찜 탭에서 다시 볼 수 있어요.');
-  }
+  // void _handleFavoriteClick() {
+  //   Fluttertoast.showToast(msg: '찜하기 완료! 찜 탭에서 다시 볼 수 있어요.');
+  // }
 }
