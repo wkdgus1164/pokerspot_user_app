@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kakao_map_plugin/kakao_map_plugin.dart';
-import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 
 class StoreDetailMapView extends StatefulHookConsumerWidget {
   const StoreDetailMapView({
@@ -19,22 +20,11 @@ class StoreDetailMapView extends StatefulHookConsumerWidget {
 }
 
 class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
-  late KakaoMapController mapController;
-  late LatLng center = LatLng(widget.lat, widget.lng);
-  Set<Marker> markers = {};
-  late Marker marker;
+  late GoogleMapController mapController;
+  BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
 
-  @override
-  void initState() {
-    Logger().d(center);
-    markers.add(Marker(markerId: 'markerId', latLng: center));
-
-    marker = Marker(
-      markerId: 'markerId',
-      latLng: center,
-    );
-
-    super.initState();
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
   }
 
   @override
@@ -46,18 +36,28 @@ class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
       ),
-      child: KakaoMap(
-        onMapCreated: ((controller) async {
-          mapController = controller;
-          markers.add(marker);
-
-          // mapController.setDraggable(false);
-
-          setState(() {});
-        }),
-        markers: markers.toList(),
-        center: center,
-        currentLevel: 3,
+      child: GoogleMap(
+        onMapCreated: _onMapCreated,
+        mapType: MapType.terrain,
+        buildingsEnabled: false,
+        mapToolbarEnabled: false,
+        liteModeEnabled: true,
+        myLocationEnabled: true,
+        myLocationButtonEnabled: true,
+        compassEnabled: false,
+        indoorViewEnabled: true,
+        initialCameraPosition: CameraPosition(
+          target: LatLng(widget.lat, widget.lng),
+          zoom: 17,
+        ),
+        markers: {
+          Marker(
+            markerId: const MarkerId('Marker'),
+            position: LatLng(widget.lat, widget.lng),
+            draggable: false,
+            icon: markerIcon,
+          ),
+        },
       ),
     );
   }

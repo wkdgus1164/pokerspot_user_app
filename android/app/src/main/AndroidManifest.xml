@@ -10,6 +10,9 @@
         android:usesCleartextTraffic="true"
         android:enableOnBackInvokedCallback="true">
 
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAZMPUy4C4BVxOkZhYADYvC1FvOUndaJkI" />
+
         <activity
             android:name="com.kakao.sdk.flutter.AuthCodeCustomTabsActivity"
             android:exported="true">
