@@ -22,14 +22,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class StoreDetailPageArguments {
   String storeId;
-  double lat;
-  double lng;
 
-  StoreDetailPageArguments({
-    required this.storeId,
-    required this.lat,
-    required this.lng,
-  });
+  StoreDetailPageArguments({required this.storeId});
 }
 
 class StoreDetailPage extends StatefulHookConsumerWidget {
@@ -47,19 +41,16 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    Logger().d(
-        '선택한 업소 정보: storeId: ${_args.storeId}, lan: ${_args.lat}, lng: ${_args.lng}');
-
     final res = ref.watch(
       storeDetailDataProvider.call(
         _args.storeId,
-        _args.lat,
-        _args.lng,
       ),
     );
 
     return res.when(
       data: (data) {
+        Logger().d(data);
+
         final openTimeCalculated = int.parse(
                     data.openTime.toString().substring(0, 2)) >
                 12
@@ -100,9 +91,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                             StoreDetailHeader(
                               type: data.type,
                               title: data.name ?? "-",
-                              distance: data.distance == null
-                                  ? "-"
-                                  : data.distance.toString(),
+                              distance: data.distance ?? 0.0,
                             ),
                             const SizedBox(height: 16),
 

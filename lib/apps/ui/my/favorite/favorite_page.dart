@@ -57,11 +57,7 @@ class _MyFavoritePageState extends ConsumerState<MyFavoritePage> {
   void _handleClick(String storeId, double lat, double lng) {
     context.push(
       CustomRouter.storeDetail.path,
-      extra: StoreDetailPageArguments(
-        storeId: storeId,
-        lat: lat,
-        lng: lng,
-      ),
+      extra: StoreDetailPageArguments(storeId: storeId),
     );
   }
 }

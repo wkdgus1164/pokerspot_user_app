@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kakao_map_plugin/kakao_map_plugin.dart';
+import 'package:logger/logger.dart';
 
 class StoreDetailMapView extends StatefulHookConsumerWidget {
   const StoreDetailMapView({
@@ -19,12 +20,13 @@ class StoreDetailMapView extends StatefulHookConsumerWidget {
 
 class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
   late KakaoMapController mapController;
-  late LatLng center = LatLng(widget.lng, widget.lat);
+  late LatLng center = LatLng(widget.lat, widget.lng);
   Set<Marker> markers = {};
   late Marker marker;
 
   @override
   void initState() {
+    Logger().d(center);
     markers.add(Marker(markerId: 'markerId', latLng: center));
 
     marker = Marker(

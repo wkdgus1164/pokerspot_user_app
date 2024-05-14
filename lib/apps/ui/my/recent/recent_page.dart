@@ -57,11 +57,7 @@ class _MyRecentPageState extends ConsumerState<MyRecentPage> {
   void _handleClick(String storeId, double lat, double lng) {
     context.push(
       CustomRouter.storeDetail.path,
-      extra: StoreDetailPageArguments(
-        storeId: storeId,
-        lat: lat,
-        lng: lng,
-      ),
+      extra: StoreDetailPageArguments(storeId: storeId),
     );
   }
 }

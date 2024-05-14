@@ -1,5 +1,6 @@
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_detail_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -8,30 +9,37 @@ part 'store_detail.g.dart';
 @riverpod
 class StoreDetailData extends _$StoreDetailData {
   @override
-  Future<StoreDetailModel> build(String storeId, double lat, double lng) async {
+  Future<StoreDetailModel> build(String storeId) async {
+    final res = ref.read(locationServiceProvider);
+
+    return res.when(
+      data: (data) {
+        return _requestStoreDetail(
+          latitude: data.latitude,
+          longitude: data.longitude,
+          storeId: storeId,
+        );
+      },
+      error: (error, stackTrace) {
+        throw Error();
+      },
+      loading: () {
+        throw Error();
+      },
+    );
+  }
+
+  Future<StoreDetailModel> _requestStoreDetail({
+    required String storeId,
+    required double latitude,
+    required double longitude,
+  }) async {
     final res = await ref.read(storesApiProvider).fetchStoreDetail(
           storeId,
-          lat,
-          lng,
+          latitude,
+          longitude,
         );
-
-    final data = res.data;
-
-    return data.toModel();
-
-    // return StoreDetailModel(
-    //   id: "",
-    //   type: "",
-    //   name: "",
-    //   address: "",
-    //   addressDetail: "",
-    //   openTime: "",
-    //   closeTime: "",
-    //   lat: 0,
-    //   lng: 0,
-    //   storeImages: [],
-    //   gameMttItems: [],
-    // );
+    return res.data.toModel();
   }
 }
 

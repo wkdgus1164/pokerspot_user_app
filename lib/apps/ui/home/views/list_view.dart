@@ -28,6 +28,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
 
     return res.when(
       data: (data) {
+        Logger().d(data);
         if (data.isEmpty) {
           return const Expanded(
             child: Text('데이터 없음'),
@@ -51,11 +52,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                     closeTime: data[index].closeTime ?? "",
                     distance: data[index].distance ?? 0,
                     storeGames: data[index].gameMttItems ?? [],
-                    handleClick: () => _handleClick(
-                      data[index].id,
-                      data[index].lat,
-                      data[index].lng,
-                    ),
+                    handleClick: () => _handleClick(data[index].id),
                   );
                 },
                 separatorBuilder: (context, index) =>
@@ -97,13 +94,11 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
     _refreshController.refreshCompleted();
   }
 
-  void _handleClick(String storeId, double lat, double lng) {
+  void _handleClick(String storeId) {
     context.push(
       CustomRouter.storeDetail.path,
       extra: StoreDetailPageArguments(
         storeId: storeId,
-        lat: lat,
-        lng: lng,
       ),
     );
   }

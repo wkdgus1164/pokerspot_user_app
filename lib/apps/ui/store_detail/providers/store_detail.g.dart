@@ -6,7 +6,7 @@ part of 'store_detail.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$storeDetailDataHash() => r'c842a8fd0d4be6f996e0ca908137181117226f66';
+String _$storeDetailDataHash() => r'a1bec7f331d0cd717af1379ccbf08c7111185c4b';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -32,13 +32,9 @@ class _SystemHash {
 abstract class _$StoreDetailData
     extends BuildlessAutoDisposeAsyncNotifier<StoreDetailModel> {
   late final String storeId;
-  late final double lat;
-  late final double lng;
 
   FutureOr<StoreDetailModel> build(
     String storeId,
-    double lat,
-    double lng,
   );
 }
 
@@ -54,13 +50,9 @@ class StoreDetailDataFamily extends Family<AsyncValue<StoreDetailModel>> {
   /// See also [StoreDetailData].
   StoreDetailDataProvider call(
     String storeId,
-    double lat,
-    double lng,
   ) {
     return StoreDetailDataProvider(
       storeId,
-      lat,
-      lng,
     );
   }
 
@@ -70,8 +62,6 @@ class StoreDetailDataFamily extends Family<AsyncValue<StoreDetailModel>> {
   ) {
     return call(
       provider.storeId,
-      provider.lat,
-      provider.lng,
     );
   }
 
@@ -96,13 +86,8 @@ class StoreDetailDataProvider extends AutoDisposeAsyncNotifierProviderImpl<
   /// See also [StoreDetailData].
   StoreDetailDataProvider(
     String storeId,
-    double lat,
-    double lng,
   ) : this._internal(
-          () => StoreDetailData()
-            ..storeId = storeId
-            ..lat = lat
-            ..lng = lng,
+          () => StoreDetailData()..storeId = storeId,
           from: storeDetailDataProvider,
           name: r'storeDetailDataProvider',
           debugGetCreateSourceHash:
@@ -113,8 +98,6 @@ class StoreDetailDataProvider extends AutoDisposeAsyncNotifierProviderImpl<
           allTransitiveDependencies:
               StoreDetailDataFamily._allTransitiveDependencies,
           storeId: storeId,
-          lat: lat,
-          lng: lng,
         );
 
   StoreDetailDataProvider._internal(
@@ -125,13 +108,9 @@ class StoreDetailDataProvider extends AutoDisposeAsyncNotifierProviderImpl<
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.storeId,
-    required this.lat,
-    required this.lng,
   }) : super.internal();
 
   final String storeId;
-  final double lat;
-  final double lng;
 
   @override
   FutureOr<StoreDetailModel> runNotifierBuild(
@@ -139,8 +118,6 @@ class StoreDetailDataProvider extends AutoDisposeAsyncNotifierProviderImpl<
   ) {
     return notifier.build(
       storeId,
-      lat,
-      lng,
     );
   }
 
@@ -149,18 +126,13 @@ class StoreDetailDataProvider extends AutoDisposeAsyncNotifierProviderImpl<
     return ProviderOverride(
       origin: this,
       override: StoreDetailDataProvider._internal(
-        () => create()
-          ..storeId = storeId
-          ..lat = lat
-          ..lng = lng,
+        () => create()..storeId = storeId,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         storeId: storeId,
-        lat: lat,
-        lng: lng,
       ),
     );
   }
@@ -173,18 +145,13 @@ class StoreDetailDataProvider extends AutoDisposeAsyncNotifierProviderImpl<
 
   @override
   bool operator ==(Object other) {
-    return other is StoreDetailDataProvider &&
-        other.storeId == storeId &&
-        other.lat == lat &&
-        other.lng == lng;
+    return other is StoreDetailDataProvider && other.storeId == storeId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, storeId.hashCode);
-    hash = _SystemHash.combine(hash, lat.hashCode);
-    hash = _SystemHash.combine(hash, lng.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -194,12 +161,6 @@ mixin StoreDetailDataRef
     on AutoDisposeAsyncNotifierProviderRef<StoreDetailModel> {
   /// The parameter `storeId` of this provider.
   String get storeId;
-
-  /// The parameter `lat` of this provider.
-  double get lat;
-
-  /// The parameter `lng` of this provider.
-  double get lng;
 }
 
 class _StoreDetailDataProviderElement
@@ -209,10 +170,6 @@ class _StoreDetailDataProviderElement
 
   @override
   String get storeId => (origin as StoreDetailDataProvider).storeId;
-  @override
-  double get lat => (origin as StoreDetailDataProvider).lat;
-  @override
-  double get lng => (origin as StoreDetailDataProvider).lng;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
