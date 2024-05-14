@@ -49,8 +49,8 @@ class _FilterByParticipateFeeState
             double.parse(maxTicket.toString()),
           ),
           min: 1,
-          max: 30,
-          divisions: 30,
+          max: 100,
+          divisions: 1000,
           onChanged: (RangeValues newValues) {
             ref
                 .watch(filterByParticipateFeeProvider.notifier)
