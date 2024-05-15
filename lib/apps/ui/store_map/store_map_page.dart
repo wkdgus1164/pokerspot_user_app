@@ -69,9 +69,9 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
           GoogleMap(
             onMapCreated: _onMapCreated,
             myLocationButtonEnabled: true,
+            liteModeEnabled: false,
             myLocationEnabled: true,
             mapToolbarEnabled: false,
-            zoomControlsEnabled: false,
             initialCameraPosition: CameraPosition(
               target: LatLng(_args.lat, _args.lng),
               zoom: 16,

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -55,7 +57,8 @@ class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
       child: GoogleMap(
         onMapCreated: _onMapCreated,
         mapToolbarEnabled: false,
-        liteModeEnabled: true,
+        liteModeEnabled: Platform.isAndroid,
+        myLocationButtonEnabled: Platform.isAndroid,
         initialCameraPosition: CameraPosition(
           target: LatLng(widget.lat, widget.lng),
           zoom: 16,
