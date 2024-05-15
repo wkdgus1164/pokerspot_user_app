@@ -48,7 +48,6 @@ class _State extends ConsumerState<PermissionPage> {
       );
     }
     if (await Geolocator.checkPermission() == LocationPermission.denied) {
-      Fluttertoast.showToast(msg: '위치 정보를 수집하지 못했어요.');
       _routeHomePage();
     }
     if (await Geolocator.checkPermission() == LocationPermission.whileInUse) {
