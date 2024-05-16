@@ -20,7 +20,7 @@ enum CustomRouter {
   permission('/permission'),
   main('/main'),
   home('/home'),
-  storeDetail('/store_detail'),
+  storeDetail('/store_detail/:storeId'),
   policy('/policy'),
   myInfo('/my_info'),
   notice('/notice'),
@@ -62,9 +62,11 @@ final router = GoRouter(
     ),
     GoRoute(
       path: CustomRouter.storeDetail.path,
+      name: CustomRouter.storeDetail.path,
       builder: (context, state) {
-        final args = state.extra as StoreDetailPageArguments;
-        return StoreDetailPage(args: args);
+        final storeId = state.pathParameters['storeId'] ?? "";
+
+        return StoreDetailPage(storeId: storeId);
       },
     ),
     GoRoute(

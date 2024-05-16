@@ -7,7 +7,6 @@ import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -115,11 +114,9 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
   }
 
   void _handleClick(String storeId) {
-    context.push(
+    context.pushNamed(
       CustomRouter.storeDetail.path,
-      extra: StoreDetailPageArguments(
-        storeId: storeId,
-      ),
+      pathParameters: {"storeId": storeId},
     );
   }
 }

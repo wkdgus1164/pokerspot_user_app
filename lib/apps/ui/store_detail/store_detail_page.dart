@@ -24,16 +24,10 @@ import 'package:pokerspot_user_app/common/components/error_placeholder/error_pla
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class StoreDetailPageArguments {
-  String storeId;
-
-  StoreDetailPageArguments({required this.storeId});
-}
-
 class StoreDetailPage extends StatefulHookConsumerWidget {
-  const StoreDetailPage({super.key, required this.args});
+  const StoreDetailPage({super.key, required this.storeId});
 
-  final StoreDetailPageArguments args;
+  final String storeId;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -41,18 +35,15 @@ class StoreDetailPage extends StatefulHookConsumerWidget {
 }
 
 class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
-  StoreDetailPageArguments get _args => widget.args;
+  String get _storeId => widget.storeId;
 
   final RefreshController _refreshController =
       RefreshController(initialRefresh: false);
 
   @override
   Widget build(BuildContext context) {
-    final res = ref.watch(
-      storeDetailDataProvider.call(
-        _args.storeId,
-      ),
-    );
+    Logger().d('store id: $_storeId');
+    final res = ref.watch(storeDetailDataProvider.call(_storeId));
 
     return res.when(
       data: (data) {
@@ -85,7 +76,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                   controller: _refreshController,
                   enablePullDown: true,
                   onRefresh: () {
-                    ref.invalidate(storeDetailDataProvider.call(_args.storeId));
+                    ref.invalidate(storeDetailDataProvider.call(_storeId));
                     _refreshController.refreshCompleted();
                   },
                   child: SingleChildScrollView(
@@ -191,6 +182,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         );
       },
       error: (error, _) {
+        Logger().e(error);
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,

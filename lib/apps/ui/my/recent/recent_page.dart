@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
 
 class MyRecentPage extends StatefulHookConsumerWidget {
@@ -55,9 +54,9 @@ class _MyRecentPageState extends ConsumerState<MyRecentPage> {
   }
 
   void _handleClick(String storeId, double lat, double lng) {
-    context.push(
+    context.pushNamed(
       CustomRouter.storeDetail.path,
-      extra: StoreDetailPageArguments(storeId: storeId),
+      pathParameters: {"storeId": storeId},
     );
   }
 }
