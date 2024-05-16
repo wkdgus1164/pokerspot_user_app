@@ -19,7 +19,7 @@ class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
 
     final isAll = gameTypeFilter.gameType == GameType.all;
     final isDaily = gameTypeFilter.gameType == GameType.daily;
-    final isSeed = gameTypeFilter.gameType == GameType.seed;
+    // final isSeed = gameTypeFilter.gameType == GameType.seed;
     final isGTD = gameTypeFilter.gameType == GameType.gtd;
 
     return Column(
@@ -95,36 +95,36 @@ class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
                 ),
               ),
             ),
-            Expanded(
-              child: Ink(
-                color: isSeed ? colorBrand90 : Colors.transparent,
-                child: InkWell(
-                  onTap: _handleSeedClick,
-                  splashColor: colorBrand95,
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomRight: Radius.circular(8),
-                  ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      border: Border.fromBorderSide(
-                        BorderSide(
-                          color: isSeed ? colorBrand40 : colorGrey80,
-                        ),
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      '시드권',
-                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                            color: isSeed ? colorBrand40 : colorGrey40,
-                          ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Expanded(
+            //   child: Ink(
+            //     color: isSeed ? colorBrand90 : Colors.transparent,
+            //     child: InkWell(
+            //       onTap: _handleSeedClick,
+            //       splashColor: colorBrand95,
+            //       borderRadius: const BorderRadius.only(
+            //         topRight: Radius.circular(8),
+            //         bottomRight: Radius.circular(8),
+            //       ),
+            //       child: Container(
+            //         alignment: Alignment.center,
+            //         decoration: BoxDecoration(
+            //           border: Border.fromBorderSide(
+            //             BorderSide(
+            //               color: isSeed ? colorBrand40 : colorGrey80,
+            //             ),
+            //           ),
+            //         ),
+            //         padding: const EdgeInsets.all(16),
+            //         child: Text(
+            //           '시드권',
+            //           style: Theme.of(context).textTheme.labelLarge!.copyWith(
+            //                 color: isSeed ? colorBrand40 : colorGrey40,
+            //               ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Expanded(
               child: Ink(
                 color: isGTD ? colorBrand90 : Colors.transparent,
