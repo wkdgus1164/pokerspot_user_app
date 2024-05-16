@@ -70,7 +70,7 @@ class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
                   ),
             ),
             Text(
-              '30 Ticket',
+              '100 Ticket',
               style: Theme.of(context).textTheme.labelMedium!.copyWith(
                     color: colorGrey60,
                   ),
