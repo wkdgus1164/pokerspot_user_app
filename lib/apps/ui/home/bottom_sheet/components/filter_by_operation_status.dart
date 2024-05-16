@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_operation_status.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
 class FilterByOperationStatusView extends StatefulHookConsumerWidget {
   const FilterByOperationStatusView({super.key});
@@ -105,11 +104,9 @@ class _FilterByOperationStatusState
 
   void _handleClickAll() {
     ref.read(filterByOperationStatusProvider.notifier).setAll();
-    ref.invalidate(storesItemsProvider);
   }
 
   void _handleClickRunning() {
     ref.read(filterByOperationStatusProvider.notifier).setRunning();
-    ref.invalidate(storesItemsProvider);
   }
 }

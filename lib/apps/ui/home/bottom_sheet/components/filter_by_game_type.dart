@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_game_type.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
 class FilterByGameTypeView extends StatefulHookConsumerWidget {
   const FilterByGameTypeView({super.key});
@@ -167,21 +166,18 @@ class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
 
   void _handleAllClick() {
     ref.read(filterByGameTypeProvider.notifier).setAll();
-    ref.invalidate(storesItemsProvider);
   }
 
   void _handleDailyClick() {
     ref.read(filterByGameTypeProvider.notifier).setDaily();
-    ref.invalidate(storesItemsProvider);
   }
 
-  void _handleSeedClick() {
-    ref.read(filterByGameTypeProvider.notifier).setSeed();
-    ref.invalidate(storesItemsProvider);
-  }
+  // void _handleSeedClick() {
+  //   ref.read(filterByGameTypeProvider.notifier).setSeed();
+  //   ref.invalidate(storesItemsProvider);
+  // }
 
   void _handleGTDClick() {
     ref.read(filterByGameTypeProvider.notifier).setGTD();
-    ref.invalidate(storesItemsProvider);
   }
 }

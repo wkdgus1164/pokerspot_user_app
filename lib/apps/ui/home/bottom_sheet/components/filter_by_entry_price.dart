@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_entry_price.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
 class FilterByEntryPriecView extends StatefulHookConsumerWidget {
   const FilterByEntryPriecView({super.key});
@@ -57,7 +56,6 @@ class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
             ref
                 .watch(filterByEntryPriceProvider.notifier)
                 .setMaxTicket(int.parse(newValues.end.ceil().toString()));
-            ref.invalidate(storesItemsProvider);
           },
         ),
         const SizedBox(height: 8),

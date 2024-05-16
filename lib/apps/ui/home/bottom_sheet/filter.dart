@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/button_group.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/filter_by_entry_price.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/components/filter_by_open_time.dart';
@@ -33,6 +34,9 @@ class _HomeSearchFilterSheetState extends ConsumerState<HomeSearchFilterSheet> {
 
           // 참가비
           FilterByEntryPriecView(),
+
+          // 버튼 그룹
+          FilterButtonGroupView(),
         ],
       ),
     );

@@ -3,7 +3,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_open_time.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 
 class FilterByOpenTimeView extends StatefulHookConsumerWidget {
   const FilterByOpenTimeView({super.key});
@@ -59,7 +58,6 @@ class _FilterByOpenTimeViewState extends ConsumerState<FilterByOpenTimeView> {
             ref
                 .watch(filterByOpenTimeProvider.notifier)
                 .setMaxTime(int.parse(newValues.end.ceil().toString()));
-            ref.invalidate(storesItemsProvider);
           },
         ),
         const SizedBox(height: 8),

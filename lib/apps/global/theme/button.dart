@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 FilledButtonThemeData filledButtonThemeData = FilledButtonThemeData(
   style: FilledButton.styleFrom(
@@ -13,9 +12,6 @@ FilledButtonThemeData filledButtonThemeData = FilledButtonThemeData(
     padding: const EdgeInsets.symmetric(
       vertical: 12,
       horizontal: 16,
-    ),
-    textStyle: textTheme.labelLarge!.copyWith(
-      fontWeight: FontWeight.bold,
     ),
   ),
 );
@@ -33,10 +29,6 @@ OutlinedButtonThemeData outlinedButtonThemeData = OutlinedButtonThemeData(
     padding: const EdgeInsets.symmetric(
       vertical: 12,
       horizontal: 16,
-    ),
-    textStyle: textTheme.labelLarge!.copyWith(
-      fontWeight: FontWeight.bold,
-      color: colorBrand60,
     ),
   ),
 );
