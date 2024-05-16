@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -20,14 +21,13 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
 import 'package:pokerspot_user_app/apps/ui/store_map/store_map_page.dart';
-import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class StoreDetailPage extends StatefulHookConsumerWidget {
-  const StoreDetailPage({super.key, required this.storeId});
+  const StoreDetailPage({super.key, required this.id});
 
-  final String storeId;
+  final String id;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -35,7 +35,7 @@ class StoreDetailPage extends StatefulHookConsumerWidget {
 }
 
 class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
-  String get _storeId => widget.storeId;
+  String get _storeId => widget.id;
 
   final RefreshController _refreshController =
       RefreshController(initialRefresh: false);
@@ -58,16 +58,16 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         return Scaffold(
           appBar: AppBar(
             title: Text(data.name ?? "-"),
-            // actions: const [
-            // IconButton(
-            //   onPressed: () => _handleKakaoShare(data),
-            //   icon: const Icon(Icons.share_rounded),
-            // ),
-            // IconButton(
-            //   onPressed: () => _handleFavoriteClick(),
-            //   icon: const Icon(Icons.favorite_outline_rounded),
-            // ),
-            // ],
+            actions: [
+              IconButton(
+                onPressed: () => _handleKakaoShare(data),
+                icon: const Icon(Icons.share_rounded),
+              ),
+              // IconButton(
+              //   onPressed: () => _handleFavoriteClick(),
+              //   icon: const Icon(Icons.favorite_outline_rounded),
+              // ),
+            ],
           ),
           body: Column(
             children: [
@@ -181,14 +181,15 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
           ),
         );
       },
-      error: (error, _) {
+      error: (error, stackTrace) {
         Logger().e(error);
+        String err = jsonEncode(error);
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
             title: const Icon(Icons.error_rounded, color: colorGrey80),
           ),
-          body: const ErrorPlaceholder(),
+          body: Text(err),
         );
       },
       loading: () {

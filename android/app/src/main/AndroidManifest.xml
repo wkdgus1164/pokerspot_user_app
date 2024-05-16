@@ -51,6 +51,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
+                <data android:scheme="pokerspot" android:host="app.pokerspot.co.kr" />
+                <data android:scheme="http" android:host="app.pokerspot.co.kr" />
+                <data android:scheme="https" android:host="app.pokerspot.co.kr" />
+
                 <data android:host="kakaolink"
                     android:scheme="kakao6beb52328c9577c22e6dafff95efe1d6" />
             </intent-filter>

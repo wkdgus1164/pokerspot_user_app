@@ -20,7 +20,7 @@ enum CustomRouter {
   permission('/permission'),
   main('/main'),
   home('/home'),
-  storeDetail('/store_detail/:storeId'),
+  store('/store/:id'),
   policy('/policy'),
   myInfo('/my_info'),
   notice('/notice'),
@@ -43,6 +43,9 @@ final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 final router = GoRouter(
   navigatorKey: rootNavKey,
   initialLocation: CustomRouter.splash.path,
+  onException: (context, state, router) {
+    router.go("/splash");
+  },
   routes: [
     GoRoute(
       path: CustomRouter.permission.path,
@@ -61,12 +64,12 @@ final router = GoRouter(
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      path: CustomRouter.storeDetail.path,
-      name: CustomRouter.storeDetail.path,
+      path: CustomRouter.store.path,
+      name: CustomRouter.store.name,
       builder: (context, state) {
-        final storeId = state.pathParameters['storeId'] ?? "";
+        final id = state.pathParameters['id'] ?? "";
 
-        return StoreDetailPage(storeId: storeId);
+        return StoreDetailPage(id: id);
       },
     ),
     GoRoute(

@@ -1,3 +1,4 @@
+import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_detail_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
@@ -14,6 +15,7 @@ class StoreDetailData extends _$StoreDetailData {
 
     return res.when(
       data: (data) {
+        Logger().d('store detail: $data');
         return _requestStoreDetail(
           latitude: data.latitude,
           longitude: data.longitude,
@@ -21,6 +23,7 @@ class StoreDetailData extends _$StoreDetailData {
         );
       },
       error: (error, stackTrace) {
+        Logger().e(error);
         throw Error();
       },
       loading: () {

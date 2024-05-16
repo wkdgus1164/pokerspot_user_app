@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kakao_flutter_sdk_share/kakao_flutter_sdk_share.dart';
-import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 
 part 'kakao_feed_model.freezed.dart';
 
@@ -16,7 +15,7 @@ class KakaoFeedModel with _$KakaoFeedModel {
   KakaoFeedModel._();
 
   Map<String, String> buildQueryParams() {
-    return {"path": CustomRouter.home.path};
+    return {"path": 'https://app.pokerspot.co.kr/store/$id'};
   }
 
   FeedTemplate buildFeedTemplate(String url) {
@@ -28,7 +27,6 @@ class KakaoFeedModel with _$KakaoFeedModel {
         description: description,
         imageUrl: Uri.parse(thumbnail),
         link: Link(
-          mobileWebUrl: Uri.parse('https://m.naver.com'),
           androidExecutionParams: params,
           iosExecutionParams: params,
         ),
@@ -37,7 +35,6 @@ class KakaoFeedModel with _$KakaoFeedModel {
         Button(
           title: '자세히 보기',
           link: Link(
-            mobileWebUrl: Uri.parse('https://m.naver.com'),
             androidExecutionParams: params,
             iosExecutionParams: params,
           ),

@@ -113,10 +113,10 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
     _refreshController.refreshCompleted();
   }
 
-  void _handleClick(String storeId) {
+  void _handleClick(String id) {
     context.pushNamed(
-      CustomRouter.storeDetail.path,
-      pathParameters: {"storeId": storeId},
+      CustomRouter.store.name,
+      pathParameters: {"id": id},
     );
   }
 }
