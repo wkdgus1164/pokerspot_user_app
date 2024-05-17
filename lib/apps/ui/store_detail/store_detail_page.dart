@@ -16,6 +16,7 @@ import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/basic_information.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/captions/data_loading.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/map.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/games.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
@@ -71,30 +72,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
               // ),
             ],
           ),
-          floatingActionButton: Padding(
-            padding: const EdgeInsets.only(bottom: 86),
-            child: FloatingActionButton.extended(
-              backgroundColor: const Color(0xffffdf00),
-              onPressed: () {
-                launchUrl(Uri.parse('https://open.kakao.com/o/g3RqqC5e'));
-              },
-              icon: SvgPicture.asset(
-                Assets.kakao.path,
-                width: 20,
-                height: 20,
-                colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.85),
-                  BlendMode.srcIn,
-                ),
-              ),
-              label: Text(
-                '오픈채팅방',
-                style: TextStyle(
-                  color: Colors.black.withOpacity(0.85),
-                ),
-              ),
-            ),
-          ),
+          floatingActionButton:
+              const StoreDetailFab(url: 'https://open.kakao.com/o/g3RqqC5e'),
           body: Column(
             children: [
               Expanded(
