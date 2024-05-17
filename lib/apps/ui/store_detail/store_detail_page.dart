@@ -40,13 +40,11 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    Logger().d('store id: $_storeId');
+    Logger().i('StoreDetailPage\n  store id: $_storeId');
     final res = ref.watch(storeDetailDataProvider.call(_storeId));
 
     return res.when(
       data: (data) {
-        Logger().d(data);
-
         final openTimeCalculated = int.parse(
                     data.openTime.toString().substring(0, 2)) >
                 12

@@ -15,7 +15,6 @@ class StoreDetailData extends _$StoreDetailData {
 
     return res.when(
       data: (data) {
-        Logger().d('store detail: $data');
         return _requestStoreDetail(
           latitude: data.latitude,
           longitude: data.longitude,
