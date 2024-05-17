@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 
 class StoreDetailBasicInformation extends StatelessWidget {
   const StoreDetailBasicInformation({
@@ -65,7 +62,7 @@ class StoreDetailBasicInformation extends StatelessWidget {
                 ),
               ),
               TextButton.icon(
-                onPressed: () => _copy(address),
+                onPressed: () => Utils().copyToClipboard(text: address),
                 label: const Text('복사'),
                 icon: const Icon(Icons.copy_rounded, size: 20),
                 style: TextButton.styleFrom(
@@ -115,18 +112,5 @@ class StoreDetailBasicInformation extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  void _copy(String? address) {
-    if (address != null) {
-      Clipboard.setData(ClipboardData(text: address));
-
-      if (Platform.isIOS) {
-        Fluttertoast.showToast(msg: '주소가 복사되었어요.');
-      }
-    } else {
-      Fluttertoast.showToast(msg: '주소 정보가 없어요.');
-      return;
-    }
   }
 }

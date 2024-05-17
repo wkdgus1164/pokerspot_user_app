@@ -1,17 +1,13 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/basic_information.dart';
@@ -25,7 +21,6 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.d
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
 import 'package:pokerspot_user_app/apps/ui/store_map/store_map_page.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class StoreDetailPage extends StatefulHookConsumerWidget {
   const StoreDetailPage({super.key, required this.id});
@@ -168,7 +163,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                 child: Row(
                   children: [
                     OutlinedButton.icon(
-                      onPressed: () => _copy(data.address),
+                      onPressed: () =>
+                          Utils().copyToClipboard(text: '${data.address}'),
                       icon: const Icon(Icons.copy_rounded, size: 20),
                       label: const Text('주소 복사'),
                     ),
@@ -209,48 +205,22 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     );
   }
 
-  void _copy(String? address) {
-    if (address != null) {
-      Clipboard.setData(ClipboardData(text: address));
-
-      if (Platform.isIOS) {
-        Fluttertoast.showToast(msg: '주소가 복사되었어요.');
-      }
-    } else {
-      Logger().d('주소 정보가 없어요.');
-      return;
-    }
-  }
-
   void _call(
     String storeName,
     String? phone,
   ) {
-    if (phone == null) {
-      Fluttertoast.showToast(msg: '연락처가 제공되지 않은 업소에요.');
+    Utils().callTo(phone: phone);
 
-      FirebaseAnalytics.instance.logEvent(
-        name: 'PHONE_CALL',
-        parameters: {
-          '업소명': storeName,
-          '연락처': '없음',
-        },
-      );
-    } else {
-      launchUrl(Uri.parse("tel://$phone"));
-
-      FirebaseAnalytics.instance.logEvent(
-        name: 'PHONE_CALL',
-        parameters: {
-          '업소명': storeName,
-          '연락처': phone,
-        },
-      );
-    }
+    FirebaseAnalytics.instance.logEvent(
+      name: 'PHONE_CALL',
+      parameters: {
+        '업소명': storeName,
+        '연락처': phone,
+      },
+    );
   }
 
   void _handleKakaoShare(StoreDetailModel model) async {
-    Fluttertoast.showToast(msg: 'model');
     KakaoLinkHelper().shareKakaoFeed(
       KakaoFeedModel(
         id: model.id,
@@ -260,8 +230,4 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
       ),
     );
   }
-
-  // void _handleFavoriteClick() {
-  //   Fluttertoast.showToast(msg: '찜하기 완료! 찜 탭에서 다시 볼 수 있어요.');
-  // }
 }

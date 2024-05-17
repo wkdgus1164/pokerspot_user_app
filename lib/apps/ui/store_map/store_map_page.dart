@@ -1,13 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 
 class StoreMapPageArguments {
   String name;
@@ -118,7 +115,7 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
                 ),
                 const SizedBox(width: 10),
                 IconButton(
-                  onPressed: () => _copy(_args.address),
+                  onPressed: () => Utils().copyToClipboard(text: _args.address),
                   icon: const Icon(
                     Icons.copy_rounded,
                     color: colorGrey80,
@@ -131,18 +128,5 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
         ],
       ),
     );
-  }
-
-  void _copy(String? address) {
-    if (address != null) {
-      Clipboard.setData(ClipboardData(text: address));
-
-      if (Platform.isIOS) {
-        Fluttertoast.showToast(msg: '주소가 복사되었어요.');
-      }
-    } else {
-      Logger().d('주소 정보가 없어요.');
-      return;
-    }
   }
 }
