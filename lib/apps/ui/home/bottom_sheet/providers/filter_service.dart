@@ -35,8 +35,14 @@ class FilterService extends _$FilterService {
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
 
-    Logger().d(
-        '$operationStatus, $minOpenTime, $maxOpenTime, $gameType, $minEntryPrice, $maxEntryPrice');
+    Logger().i('''
+FilterService
+  operationStatus: $operationStatus
+  minOpenTime: $minOpenTime
+  maxOpenTime: $maxOpenTime
+  gameType: $gameType
+  minEntryPrice: $minEntryPrice
+  maxEntryPrice: $maxEntryPrice''');
 
     return FilterServiceModel(
       operationStatus:

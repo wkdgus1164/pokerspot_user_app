@@ -6,7 +6,7 @@ part of 'store.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$storesItemsHash() => r'da482e8bf2215b435fd184d281e6c77ae2d7d7a9';
+String _$storesItemsHash() => r'58c61c8bf6fbecb95a30df9870fd4857aa3054ab';
 
 /// See also [StoresItems].
 @ProviderFor(StoresItems)

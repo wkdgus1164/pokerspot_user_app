@@ -27,7 +27,6 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
 
     return res.when(
       data: (data) {
-        Logger().d(data);
         if (data.isEmpty) {
           return Expanded(
             child: Center(

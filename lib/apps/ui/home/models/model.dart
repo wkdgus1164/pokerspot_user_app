@@ -3,10 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'model.freezed.dart';
 
 @freezed
-class StoresMainItemModel with _$StoresMainItemModel {
-  factory StoresMainItemModel({
+class StoresModel with _$StoresModel {
+  factory StoresModel({
     required int id,
     required String type,
     required String name,
-  }) = _StoresMainItemModel;
+  }) = _StoresModel;
 }

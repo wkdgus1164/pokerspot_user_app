@@ -33,19 +33,24 @@ class LocationService extends _$LocationService {
             position.latitude,
           );
 
-      Logger().d(
-          '사용자의 현위치: lat: ${position.latitude}, lon: ${position.longitude}, address: ${address.documents.firstOrNull?.address.address_name}');
+      Logger().i('''
+LocationService
+  position: $position
+  address: $address''');
 
       return LocationModel(
         latitude: position.latitude,
         longitude: position.longitude,
         address: address.documents.firstOrNull?.address.address_name ?? "",
       );
-    } catch (e) {
+    } catch (e, s) {
+      Logger().e('LocationService', error: e, stackTrace: s);
+
       final address = await ref.read(kakaoMapApiProvider).fetchAddressName(
             127.028361548,
             37.496486063,
           );
+
       return LocationModel(
         latitude: 37.496486063,
         longitude: 127.028361548,

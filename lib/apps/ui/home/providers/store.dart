@@ -16,6 +16,9 @@ class StoresItems extends _$StoresItems {
 
     return res.when(
       data: (data) {
+        Logger().i('''
+StoreItems
+  data: $data''');
         return _requestStoreList(
           latitude: data.latitude,
           longitude: data.longitude,
@@ -48,8 +51,17 @@ class StoresItems extends _$StoresItems {
     int? minEntryPrice = 0,
     int? maxEntryPrice = 100,
   }) {
-    Logger().d(
-        'latitude: $latitude, longitude: $longitude, isRunning: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice');
+    Logger().i('''
+_requestStoreList()
+  latitude: $latitude
+  longitude: $longitude
+  isRunning: $operationStatus
+  minOpenTime: $minOpenTime
+  maxOpenTime: $maxOpenTime
+  gameType: $gameType
+  minEntryPrice: $minEntryPrice
+  maxEntryPrice: $maxEntryPrice''');
+
     return ref.read(storesApiProvider).fetchStores(
           latitude,
           longitude,
