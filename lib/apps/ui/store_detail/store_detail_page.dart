@@ -4,10 +4,12 @@ import 'dart:io';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
@@ -69,6 +71,30 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
               // ),
             ],
           ),
+          floatingActionButton: Padding(
+            padding: const EdgeInsets.only(bottom: 86),
+            child: FloatingActionButton.extended(
+              backgroundColor: const Color(0xffffdf00),
+              onPressed: () {
+                launchUrl(Uri.parse('https://open.kakao.com/o/g3RqqC5e'));
+              },
+              icon: SvgPicture.asset(
+                Assets.kakao.path,
+                width: 20,
+                height: 20,
+                colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.85),
+                  BlendMode.srcIn,
+                ),
+              ),
+              label: Text(
+                '오픈채팅방',
+                style: TextStyle(
+                  color: Colors.black.withOpacity(0.85),
+                ),
+              ),
+            ),
+          ),
           body: Column(
             children: [
               Expanded(
@@ -102,8 +128,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
 
                               // 기본 정보
                               StoreDetailBasicInformation(
-                                address:
-                                    '${data.address},\n${data.addressDetail}',
+                                address: data.address ?? "-",
+                                addressDetail: data.addressDetail ?? "-",
                                 runningTime:
                                     '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
                               ),

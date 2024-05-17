@@ -1,14 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 
 class StoreDetailBasicInformation extends StatelessWidget {
   const StoreDetailBasicInformation({
     super.key,
     required this.address,
+    required this.addressDetail,
     required this.runningTime,
   });
 
   final String address;
+  final String addressDetail;
   final String runningTime;
 
   @override
@@ -32,10 +38,42 @@ class StoreDetailBasicInformation extends StatelessWidget {
           const SizedBox(height: 16),
 
           // 주소
-          _buildItem(
-            context,
-            Icons.map_outlined,
-            address,
+          Row(
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: colorGrey100,
+                        border: Border.all(color: colorGrey95),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(100),
+                        ),
+                      ),
+                      child: const Icon(Icons.map_outlined, color: colorGrey80),
+                    ),
+                    const SizedBox(width: 16),
+                    Text(
+                      '$address,\n$addressDetail',
+                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                            color: colorGrey50,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              TextButton.icon(
+                onPressed: () => _copy(address),
+                label: const Text('복사'),
+                icon: const Icon(Icons.copy_rounded, size: 20),
+                style: TextButton.styleFrom(
+                  iconColor: colorGrey80,
+                  foregroundColor: colorGrey80,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 16),
 
@@ -77,5 +115,18 @@ class StoreDetailBasicInformation extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _copy(String? address) {
+    if (address != null) {
+      Clipboard.setData(ClipboardData(text: address));
+
+      if (Platform.isIOS) {
+        Fluttertoast.showToast(msg: '주소가 복사되었어요.');
+      }
+    } else {
+      Fluttertoast.showToast(msg: '주소 정보가 없어요.');
+      return;
+    }
   }
 }
