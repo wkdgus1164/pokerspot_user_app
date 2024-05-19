@@ -6,12 +6,12 @@ part of 'store.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$storesItemsHash() => r'58c61c8bf6fbecb95a30df9870fd4857aa3054ab';
+String _$storesItemsHash() => r'c03f407d08b5c313f79eafb20e23d45e13113ee6';
 
 /// See also [StoresItems].
 @ProviderFor(StoresItems)
 final storesItemsProvider =
-    AutoDisposeAsyncNotifierProvider<StoresItems, List<StoreDto>>.internal(
+    AutoDisposeAsyncNotifierProvider<StoresItems, List<StoreModel>>.internal(
   StoresItems.new,
   name: r'storesItemsProvider',
   debugGetCreateSourceHash:
@@ -20,6 +20,6 @@ final storesItemsProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$StoresItems = AutoDisposeAsyncNotifier<List<StoreDto>>;
+typedef _$StoresItems = AutoDisposeAsyncNotifier<List<StoreModel>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

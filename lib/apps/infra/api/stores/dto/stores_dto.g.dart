@@ -6,18 +6,6 @@ part of 'stores_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StoresDataDtoImpl _$$StoresDataDtoImplFromJson(Map<String, dynamic> json) =>
-    _$StoresDataDtoImpl(
-      data: StoresDto.fromJson(json['data'] as Map<String, dynamic>),
-      message: json['message'] as String,
-    );
-
-Map<String, dynamic> _$$StoresDataDtoImplToJson(_$StoresDataDtoImpl instance) =>
-    <String, dynamic>{
-      'data': instance.data,
-      'message': instance.message,
-    };
-
 _$StoresDtoImpl _$$StoresDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoresDtoImpl(
       page: (json['page'] as num).toInt(),

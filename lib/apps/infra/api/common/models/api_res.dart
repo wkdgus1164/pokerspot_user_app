@@ -5,16 +5,16 @@ part 'api_res.g.dart';
 @JsonSerializable(genericArgumentFactories: true)
 class ApiResponse<T> {
   T? data;
-  String statusCode;
-  String statusMessage;
+  String message;
 
   ApiResponse({
     this.data,
-    required this.statusCode,
-    required this.statusMessage,
+    required this.message,
   });
 
   factory ApiResponse.fromJson(
-          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJsonT,
+  ) =>
       _$ApiResponseFromJson<T>(json, fromJsonT);
 }

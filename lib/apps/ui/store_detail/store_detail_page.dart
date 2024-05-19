@@ -10,15 +10,15 @@ import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/basic_information.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/captions/data_loading.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/map.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/games.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_detail.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_map/store_map_page.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -41,7 +41,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   @override
   Widget build(BuildContext context) {
     Logger().i('StoreDetailPage\n  store id: $_storeId');
-    final res = ref.watch(storeDetailDataProvider.call(_storeId));
+    final res = ref.watch(storeDataProvider.call(_storeId));
 
     return res.when(
       data: (data) {
@@ -74,7 +74,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                   controller: _refreshController,
                   enablePullDown: true,
                   onRefresh: () {
-                    ref.invalidate(storeDetailDataProvider.call(_storeId));
+                    ref.invalidate(storeDataProvider.call(_storeId));
                     _refreshController.refreshCompleted();
                   },
                   child: SingleChildScrollView(
@@ -92,7 +92,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                             children: [
                               // 헤더
                               StoreDetailHeader(
-                                type: data.type,
+                                type: data.type ?? "",
                                 title: data.name ?? "-",
                                 distance: data.distance ?? 0.0,
                               ),
@@ -110,8 +110,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                               // 지도 정보
                               StoreDetailMap(
                                   name: data.name ?? "-",
-                                  lat: data.lat ?? 0,
-                                  lng: data.lng ?? 0,
+                                  lat: data.lat ?? 0.0,
+                                  lng: data.lng ?? 0.0,
                                   address:
                                       '${data.address},\n${data.addressDetail}',
                                   handleButtonClick: () {
@@ -121,8 +121,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                                         name: data.name ?? "-",
                                         address:
                                             '${data.address}, ${data.addressDetail}',
-                                        lat: data.lat ?? 0,
-                                        lng: data.lng ?? 0,
+                                        lat: data.lat ?? 0.0,
+                                        lng: data.lng ?? 0.0,
                                       ),
                                     );
                                   }),
@@ -130,7 +130,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
 
                               // 토너먼트 정보
                               StoreDetailGames(
-                                games: data.gameMttItems ?? [],
+                                games: data.gameMTTItems ?? [],
                               ),
                               const SizedBox(height: 16),
                             ],
@@ -162,7 +162,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
                   children: [
                     OutlinedButton.icon(
                       onPressed: () =>
-                          Utils().copyToClipboard(text: '${data.address}'),
+                          Utils().copyToClipboard(text: data.address),
                       icon: const Icon(Icons.copy_rounded, size: 20),
                       label: const Text('주소 복사'),
                     ),
@@ -218,13 +218,13 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     );
   }
 
-  void _handleKakaoShare(StoreDetailModel model) async {
+  void _handleKakaoShare(StoreModel model) async {
     KakaoLinkHelper().shareKakaoFeed(
       KakaoFeedModel(
         id: model.id,
         title: model.name,
         description: model.address,
-        thumbnail: model.storeImages![0].url,
+        thumbnail: model.storeImages![0].url ?? "",
       ),
     );
   }

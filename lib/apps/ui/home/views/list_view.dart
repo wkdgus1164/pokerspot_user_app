@@ -27,6 +27,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
 
     return res.when(
       data: (data) {
+        Logger().i('HomeListView\n  data: $data');
         if (data.isEmpty) {
           return Expanded(
             child: Center(
@@ -62,14 +63,14 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                 itemCount: data.length,
                 itemBuilder: (context, index) {
                   return HomeStore(
-                    storeImages: data[index].storeImages,
+                    storeImages: data[index].storeImages ?? [],
                     name: data[index].name ?? "",
                     address: data[index].address ?? "",
                     addressDetail: data[index].addressDetail ?? "",
                     openTime: data[index].openTime ?? "",
                     closeTime: data[index].closeTime ?? "",
-                    distance: data[index].distance ?? 0,
-                    storeGames: data[index].gameMttItems ?? [],
+                    distance: data[index].distance ?? 0.0,
+                    storeGames: data[index].gameMTTItems ?? [],
                     handleClick: () => _handleClick(data[index].id),
                   );
                 },
@@ -82,6 +83,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
       },
       error: (error, stackTrace) {
         Logger().e(error.toString());
+        Logger().e(stackTrace.toString());
         return const Expanded(child: ErrorPlaceholder());
       },
       loading: () {

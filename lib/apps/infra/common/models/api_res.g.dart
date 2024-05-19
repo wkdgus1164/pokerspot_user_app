@@ -12,6 +12,7 @@ ApiResponse<T> _$ApiResponseFromJson<T>(
 ) =>
     ApiResponse<T>(
       data: _$nullableGenericFromJson(json['data'], fromJsonT),
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$ApiResponseToJson<T>(
@@ -20,6 +21,7 @@ Map<String, dynamic> _$ApiResponseToJson<T>(
 ) =>
     <String, dynamic>{
       'data': _$nullableGenericToJson(instance.data, toJsonT),
+      'message': instance.message,
     };
 
 T? _$nullableGenericFromJson<T>(

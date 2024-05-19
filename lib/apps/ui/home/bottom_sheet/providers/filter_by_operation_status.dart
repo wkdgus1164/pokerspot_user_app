@@ -1,17 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'filter_by_operation_status.g.dart';
 part 'filter_by_operation_status.freezed.dart';
-
-enum OperationStatus {
-  all('ALL'),
-  running('OPEN'),
-  ;
-
-  const OperationStatus(String key);
-}
 
 @freezed
 class FilterByOperationStatusModel with _$FilterByOperationStatusModel {
@@ -36,7 +29,7 @@ class FilterByOperationStatus extends _$FilterByOperationStatus {
   }
 
   void setRunning() {
-    state = state.copyWith(operationStatus: OperationStatus.running);
+    state = state.copyWith(operationStatus: OperationStatus.open);
     ref.keepAlive();
     ref.invalidate(filterServiceProvider);
   }

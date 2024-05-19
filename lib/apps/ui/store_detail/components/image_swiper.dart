@@ -3,13 +3,13 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/photo_viewer/photo_viewer_page.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/models/model.dart';
 
 class StoreDetailImageSwiper extends StatelessWidget {
   const StoreDetailImageSwiper({super.key, required this.images});
 
-  final List<StoreDetailStoreImagesModel> images;
+  final List<StoreImagesModel> images;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class StoreDetailImageSwiper extends StatelessWidget {
           scale: 0.9,
           itemBuilder: (context, index) {
             return GestureDetector(
-              onTap: () => _handleImageClick(context, images[index].url),
+              onTap: () => _handleImageClick(context, images[index].url ?? ""),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -34,7 +34,7 @@ class StoreDetailImageSwiper extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 child: CachedNetworkImage(
                   fit: BoxFit.cover,
-                  imageUrl: images[index].url,
+                  imageUrl: images[index].url ?? "",
                 ),
               ),
             );

@@ -4,14 +4,16 @@ part 'store_dto.freezed.dart';
 part 'store_dto.g.dart';
 
 @freezed
-class StoreImageDto with _$StoreImageDto {
-  factory StoreImageDto({
+class StoreImagesDto with _$StoreImagesDto {
+  factory StoreImagesDto({
     required String id,
     required String url,
   }) = _StoreImageDto;
 
-  factory StoreImageDto.fromJson(Map<String, dynamic> json) =>
-      _$StoreImageDtoFromJson(json);
+  factory StoreImagesDto.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$StoreImagesDtoFromJson(json);
 }
 
 @freezed
@@ -24,12 +26,15 @@ class GameMTTDto with _$GameMTTDto {
     required int? reEntryMax,
     required int? duration,
     required int? prize,
+    required int? gtdMinReward,
     required String eventType,
     required bool isDaily,
     required String name,
   }) = _GameMTTDto;
 
-  factory GameMTTDto.fromJson(Map<String, dynamic> json) =>
+  factory GameMTTDto.fromJson(
+    Map<String, dynamic> json,
+  ) =>
       _$GameMTTDtoFromJson(json);
 }
 
@@ -37,19 +42,22 @@ class GameMTTDto with _$GameMTTDto {
 class StoreDto with _$StoreDto {
   factory StoreDto({
     required String id,
-    required String type,
+    required String? type,
     required String? name,
     required String? address,
     required String? addressDetail,
     required String? openTime,
     required String? closeTime,
-    required double? distance,
+    required String? phone,
+    required double distance,
     required double lat,
     required double lng,
-    required List<StoreImageDto>? storeImages,
+    required List<StoreImagesDto>? storeImages,
     required List<GameMTTDto>? gameMttItems,
   }) = _StoreDto;
 
-  factory StoreDto.fromJson(Map<String, dynamic> json) =>
+  factory StoreDto.fromJson(
+    Map<String, dynamic> json,
+  ) =>
       _$StoreDtoFromJson(json);
 }

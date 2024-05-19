@@ -27,8 +27,6 @@ Interceptor _loggingInterceptor = InterceptorsWrapper(
   onResponse: (response, handler) {
     final log = {
       "uri": response.realUri,
-      "statusCode": response.statusCode,
-      "statusMessage": response.statusMessage,
       "data": response.data,
     };
     Logger().d(log);

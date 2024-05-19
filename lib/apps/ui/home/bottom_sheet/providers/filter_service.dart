@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/web.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_entry_price.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_open_time.dart';
@@ -31,7 +32,7 @@ class FilterService extends _$FilterService {
         ref.read(filterByOperationStatusProvider).operationStatus;
     final minOpenTime = ref.read(filterByOpenTimeProvider).minTime;
     final maxOpenTime = ref.read(filterByOpenTimeProvider).maxTime;
-    final gameType = ref.read(filterByGameTypeProvider).gameType.key;
+    final gameType = ref.read(filterByGameTypeProvider).gameType.value;
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
 
@@ -45,8 +46,7 @@ FilterService
   maxEntryPrice: $maxEntryPrice''');
 
     return FilterServiceModel(
-      operationStatus:
-          operationStatus == OperationStatus.running ? "OPEN" : "ALL",
+      operationStatus: operationStatus == OperationStatus.open ? "OPEN" : "ALL",
       minOpenTime: minOpenTime,
       maxOpenTime: maxOpenTime,
       gameType: gameType,

@@ -27,6 +27,7 @@ _$GameMTTDtoImpl _$$GameMTTDtoImplFromJson(Map<String, dynamic> json) =>
       reEntryMax: (json['reEntryMax'] as num?)?.toInt(),
       duration: (json['duration'] as num?)?.toInt(),
       prize: (json['prize'] as num?)?.toInt(),
+      gtdMinReward: (json['gtdMinReward'] as num?)?.toInt(),
       eventType: json['eventType'] as String,
       isDaily: json['isDaily'] as bool,
       name: json['name'] as String,
@@ -41,6 +42,7 @@ Map<String, dynamic> _$$GameMTTDtoImplToJson(_$GameMTTDtoImpl instance) =>
       'reEntryMax': instance.reEntryMax,
       'duration': instance.duration,
       'prize': instance.prize,
+      'gtdMinReward': instance.gtdMinReward,
       'eventType': instance.eventType,
       'isDaily': instance.isDaily,
       'name': instance.name,
@@ -49,17 +51,18 @@ Map<String, dynamic> _$$GameMTTDtoImplToJson(_$GameMTTDtoImpl instance) =>
 _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreDtoImpl(
       id: json['id'] as String,
-      type: json['type'] as String,
+      type: json['type'] as String?,
       name: json['name'] as String?,
       address: json['address'] as String?,
       addressDetail: json['addressDetail'] as String?,
       openTime: json['openTime'] as String?,
       closeTime: json['closeTime'] as String?,
-      distance: (json['distance'] as num?)?.toDouble(),
+      phone: json['phone'] as String?,
+      distance: (json['distance'] as num).toDouble(),
       lat: (json['lat'] as num).toDouble(),
       lng: (json['lng'] as num).toDouble(),
       storeImages: (json['storeImages'] as List<dynamic>?)
-          ?.map((e) => StoreImageDto.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => StoreImagesDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       gameMttItems: (json['gameMttItems'] as List<dynamic>?)
           ?.map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
@@ -75,6 +78,7 @@ Map<String, dynamic> _$$StoreDtoImplToJson(_$StoreDtoImpl instance) =>
       'addressDetail': instance.addressDetail,
       'openTime': instance.openTime,
       'closeTime': instance.closeTime,
+      'phone': instance.phone,
       'distance': instance.distance,
       'lat': instance.lat,
       'lng': instance.lng,

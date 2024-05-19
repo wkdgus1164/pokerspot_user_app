@@ -1,19 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'filter_by_game_type.g.dart';
 part 'filter_by_game_type.freezed.dart';
-
-enum GameType {
-  all('ALL'),
-  daily('DAILY'),
-  seed('SEED'),
-  gtd('GTD'),
-  ;
-
-  const GameType(this.key);
-  final String key;
-}
 
 @freezed
 class FilterByGameTypeModel with _$FilterByGameTypeModel {

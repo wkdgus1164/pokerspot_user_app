@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
-import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/game_info.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 
 class HomeStoreGame extends StatelessWidget {
   const HomeStoreGame({super.key, required this.games});
 
-  final List<GameMTTDto> games;
+  final List<StoreGameItemsModel> games;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +19,11 @@ class HomeStoreGame extends StatelessWidget {
         children: games.map(
           (it) {
             String type;
-            if (it.type == GameType.daily.key) {
+            if (it.type == GameType.daily.value) {
               type = '데일리 토너';
-            } else if (it.type == GameType.seed.key) {
+            } else if (it.type == GameType.seed.value) {
               type = '시드권 토너';
-            } else if (it.type == GameType.gtd.key) {
+            } else if (it.type == GameType.gtd.value) {
               type = 'GTD 토너';
             } else {
               type = '기타';
@@ -89,7 +89,7 @@ class HomeStoreGame extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    it.name,
+                    it.name ?? "",
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: colorGrey20,
                         ),

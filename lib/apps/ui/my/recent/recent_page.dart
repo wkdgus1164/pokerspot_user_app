@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
 
 class MyRecentPage extends StatefulHookConsumerWidget {
@@ -27,7 +27,7 @@ class _MyRecentPageState extends ConsumerState<MyRecentPage> {
           return WithListFooter(
             child: HomeStore(
               storeImages: [
-                StoreImageDto(
+                StoreImagesModel(
                   id: "1",
                   url:
                       'https://plus.unsplash.com/premium_photo-1700268374954-f06052915608',

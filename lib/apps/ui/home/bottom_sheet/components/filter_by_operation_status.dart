@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_operation_status.dart';
 
@@ -17,7 +18,7 @@ class _FilterByOperationStatusState
   Widget build(BuildContext context) {
     final operationStatusFilter = ref.watch(filterByOperationStatusProvider);
     final bool isOnlyRunning =
-        operationStatusFilter.operationStatus == OperationStatus.running;
+        operationStatusFilter.operationStatus == OperationStatus.open;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

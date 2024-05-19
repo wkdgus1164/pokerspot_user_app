@@ -19,34 +19,14 @@ class _StoresApi implements StoresApi {
   String? baseUrl;
 
   @override
-  Future<StoresDataDto> fetchStores(
-    double lat,
-    double lng,
-    double? perPage,
-    String? operationStatus,
-    String? minOpenTime,
-    String? maxOpenTime,
-    String? gameType,
-    int? minEntryPrice,
-    int? maxEntryPrice,
-  ) async {
+  Future<ApiResponse<StoresDto>> fetchStores(StoresQuery query) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'lat': lat,
-      r'lng': lng,
-      r'perPage': perPage,
-      r'operationStatus': operationStatus,
-      r'minOpenTime': minOpenTime,
-      r'maxOpenTime': maxOpenTime,
-      r'gameType': gameType,
-      r'minEntryPrice': minEntryPrice,
-      r'maxEntryPrice': maxEntryPrice,
-    };
-    queryParameters.removeWhere((k, v) => v == null);
+    final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(query.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<StoresDataDto>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<StoresDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -62,32 +42,29 @@ class _StoresApi implements StoresApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = StoresDataDto.fromJson(_result.data!);
+    final value = ApiResponse<StoresDto>.fromJson(
+      _result.data!,
+      (json) => StoresDto.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
   @override
-  Future<StoreDetailDataDto> fetchStoreDetail(
-    String storeId,
-    double lat,
-    double lng,
-  ) async {
+  Future<ApiResponse<StoreDto>> fetchStoreDetail(StoreQuery query) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'lat': lat,
-      r'lng': lng,
-    };
+    final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(query.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<StoreDetailDataDto>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<StoreDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/stores/${storeId}',
+              '/api/v1/stores/{storeId}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -96,7 +73,10 @@ class _StoresApi implements StoresApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = StoreDetailDataDto.fromJson(_result.data!);
+    final value = ApiResponse<StoreDto>.fromJson(
+      _result.data!,
+      (json) => StoreDto.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 

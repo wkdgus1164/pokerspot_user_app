@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/game.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/captions/image_load_failed.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 
 class HomeStore extends StatelessWidget {
   const HomeStore({
@@ -19,14 +19,14 @@ class HomeStore extends StatelessWidget {
     required this.handleClick,
   });
 
-  final List<StoreImageDto>? storeImages;
+  final List<StoreImagesModel>? storeImages;
   final String name;
   final String address;
   final String addressDetail;
   final String openTime;
   final String closeTime;
   final double distance;
-  final List<GameMTTDto> storeGames;
+  final List<StoreGameItemsModel> storeGames;
   final Function() handleClick;
 
   @override
@@ -76,8 +76,7 @@ class HomeStore extends StatelessWidget {
                     );
                   },
                   errorWidget: (_, __, ___) => const ImageLoadFailed(),
-                  imageUrl:
-                      storeImages!.isNotEmpty ? storeImages!.first.url : "",
+                  imageUrl: storeImages?.first.url ?? "",
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(

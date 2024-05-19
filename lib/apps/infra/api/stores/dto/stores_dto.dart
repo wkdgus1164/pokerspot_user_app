@@ -5,17 +5,6 @@ part 'stores_dto.freezed.dart';
 part 'stores_dto.g.dart';
 
 @freezed
-class StoresDataDto with _$StoresDataDto {
-  factory StoresDataDto({
-    required StoresDto data,
-    required String message,
-  }) = _StoresDataDto;
-
-  factory StoresDataDto.fromJson(Map<String, dynamic> json) =>
-      _$StoresDataDtoFromJson(json);
-}
-
-@freezed
 class StoresDto with _$StoresDto {
   factory StoresDto({
     required int page,
@@ -25,6 +14,8 @@ class StoresDto with _$StoresDto {
     required List<StoreDto> items,
   }) = _StoresDto;
 
-  factory StoresDto.fromJson(Map<String, dynamic> json) =>
+  factory StoresDto.fromJson(
+    Map<String, dynamic> json,
+  ) =>
       _$StoresDtoFromJson(json);
 }
