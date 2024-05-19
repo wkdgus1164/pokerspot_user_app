@@ -554,7 +554,7 @@ abstract class _StoreImagesModel implements StoreImagesModel {
 mixin _$StoreGameItemsModel {
   String get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  GameType? get type => throw _privateConstructorUsedError;
   int? get entryPrice => throw _privateConstructorUsedError;
   int? get entryMax => throw _privateConstructorUsedError;
   int? get reEntryMax => throw _privateConstructorUsedError;
@@ -578,7 +578,7 @@ abstract class $StoreGameItemsModelCopyWith<$Res> {
   $Res call(
       {String id,
       String? name,
-      String? type,
+      GameType? type,
       int? entryPrice,
       int? entryMax,
       int? reEntryMax,
@@ -626,7 +626,7 @@ class _$StoreGameItemsModelCopyWithImpl<$Res, $Val extends StoreGameItemsModel>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as GameType?,
       entryPrice: freezed == entryPrice
           ? _value.entryPrice
           : entryPrice // ignore: cast_nullable_to_non_nullable
@@ -674,7 +674,7 @@ abstract class _$$StoreGameItemsModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String? name,
-      String? type,
+      GameType? type,
       int? entryPrice,
       int? entryMax,
       int? reEntryMax,
@@ -720,7 +720,7 @@ class __$$StoreGameItemsModelImplCopyWithImpl<$Res>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as GameType?,
       entryPrice: freezed == entryPrice
           ? _value.entryPrice
           : entryPrice // ignore: cast_nullable_to_non_nullable
@@ -778,7 +778,7 @@ class _$StoreGameItemsModelImpl implements _StoreGameItemsModel {
   @override
   final String? name;
   @override
-  final String? type;
+  final GameType? type;
   @override
   final int? entryPrice;
   @override
@@ -841,7 +841,7 @@ abstract class _StoreGameItemsModel implements StoreGameItemsModel {
   factory _StoreGameItemsModel(
       {required final String id,
       required final String? name,
-      required final String? type,
+      required final GameType? type,
       required final int? entryPrice,
       required final int? entryMax,
       required final int? reEntryMax,
@@ -856,7 +856,7 @@ abstract class _StoreGameItemsModel implements StoreGameItemsModel {
   @override
   String? get name;
   @override
-  String? get type;
+  GameType? get type;
   @override
   int? get entryPrice;
   @override

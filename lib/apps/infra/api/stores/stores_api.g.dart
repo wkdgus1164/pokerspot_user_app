@@ -50,7 +50,10 @@ class _StoresApi implements StoresApi {
   }
 
   @override
-  Future<ApiResponse<StoreDto>> fetchStoreDetail(StoreQuery query) async {
+  Future<ApiResponse<StoreDto>> fetchStoreDetail(
+    String storeId,
+    StoreQuery query,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(query.toJson());
@@ -64,7 +67,7 @@ class _StoresApi implements StoresApi {
     )
             .compose(
               _dio.options,
-              '/api/v1/stores/{storeId}',
+              '/api/v1/stores/${storeId}',
               queryParameters: queryParameters,
               data: _data,
             )

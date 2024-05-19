@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/game_info.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
@@ -18,17 +17,6 @@ class HomeStoreGame extends StatelessWidget {
         spacing: 16,
         children: games.map(
           (it) {
-            String type;
-            if (it.type == GameType.daily.value) {
-              type = '데일리 토너';
-            } else if (it.type == GameType.seed.value) {
-              type = '시드권 토너';
-            } else if (it.type == GameType.gtd.value) {
-              type = 'GTD 토너';
-            } else {
-              type = '기타';
-            }
-
             return Container(
               width: MediaQuery.of(context).size.width * 0.6,
               padding: const EdgeInsets.all(16),
@@ -55,7 +43,7 @@ class HomeStoreGame extends StatelessWidget {
                           color: colorBrand95,
                         ),
                         child: Text(
-                          type,
+                          it.type?.kr ?? "",
                           style:
                               Theme.of(context).textTheme.labelSmall!.copyWith(
                                     color: colorBrand50,

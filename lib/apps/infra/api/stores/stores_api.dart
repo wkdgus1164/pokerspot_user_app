@@ -20,6 +20,7 @@ abstract class StoresApi {
 
   @GET('/api/v1/stores/{storeId}')
   Future<ApiResponse<StoreDto>> fetchStoreDetail(
+    @Path('storeId') String storeId,
     @Queries() StoreQuery query,
   );
 }

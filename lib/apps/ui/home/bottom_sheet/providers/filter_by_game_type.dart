@@ -8,7 +8,7 @@ part 'filter_by_game_type.freezed.dart';
 @freezed
 class FilterByGameTypeModel with _$FilterByGameTypeModel {
   factory FilterByGameTypeModel({
-    @Default(GameType.all) GameType gameType,
+    @Default(GameType.ALL) GameType gameType,
   }) = _FilterByGameTypeModel;
 
   FilterByGameTypeModel._();
@@ -18,26 +18,26 @@ class FilterByGameTypeModel with _$FilterByGameTypeModel {
 class FilterByGameType extends _$FilterByGameType {
   @override
   FilterByGameTypeModel build() {
-    return FilterByGameTypeModel(gameType: GameType.all);
+    return FilterByGameTypeModel(gameType: GameType.ALL);
   }
 
   void setAll() {
-    state = state.copyWith(gameType: GameType.all);
+    state = state.copyWith(gameType: GameType.ALL);
     ref.keepAlive();
   }
 
   void setDaily() {
-    state = state.copyWith(gameType: GameType.daily);
+    state = state.copyWith(gameType: GameType.DAILY);
     ref.keepAlive();
   }
 
   void setSeed() {
-    state = state.copyWith(gameType: GameType.seed);
+    state = state.copyWith(gameType: GameType.SEED);
     ref.keepAlive();
   }
 
   void setGTD() {
-    state = state.copyWith(gameType: GameType.gtd);
+    state = state.copyWith(gameType: GameType.GTD);
     ref.keepAlive();
   }
 }

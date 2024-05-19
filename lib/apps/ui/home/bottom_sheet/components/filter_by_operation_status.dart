@@ -18,7 +18,7 @@ class _FilterByOperationStatusState
   Widget build(BuildContext context) {
     final operationStatusFilter = ref.watch(filterByOperationStatusProvider);
     final bool isOnlyRunning =
-        operationStatusFilter.operationStatus == OperationStatus.open;
+        operationStatusFilter.operationStatus == OperationStatus.OPEN;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

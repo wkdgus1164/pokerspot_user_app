@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FilterServiceModel {
-  String get operationStatus => throw _privateConstructorUsedError;
+  OperationStatus get operationStatus => throw _privateConstructorUsedError;
   int get minOpenTime => throw _privateConstructorUsedError;
   int get maxOpenTime => throw _privateConstructorUsedError;
-  String get gameType => throw _privateConstructorUsedError;
+  GameType get gameType => throw _privateConstructorUsedError;
   int get minEntryPrice => throw _privateConstructorUsedError;
   int get maxEntryPrice => throw _privateConstructorUsedError;
 
@@ -35,10 +35,10 @@ abstract class $FilterServiceModelCopyWith<$Res> {
       _$FilterServiceModelCopyWithImpl<$Res, FilterServiceModel>;
   @useResult
   $Res call(
-      {String operationStatus,
+      {OperationStatus operationStatus,
       int minOpenTime,
       int maxOpenTime,
-      String gameType,
+      GameType gameType,
       int minEntryPrice,
       int maxEntryPrice});
 }
@@ -67,7 +67,7 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
       operationStatus: null == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
-              as String,
+              as OperationStatus,
       minOpenTime: null == minOpenTime
           ? _value.minOpenTime
           : minOpenTime // ignore: cast_nullable_to_non_nullable
@@ -79,7 +79,7 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
       gameType: null == gameType
           ? _value.gameType
           : gameType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as GameType,
       minEntryPrice: null == minEntryPrice
           ? _value.minEntryPrice
           : minEntryPrice // ignore: cast_nullable_to_non_nullable
@@ -101,10 +101,10 @@ abstract class _$$FilterServiceModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String operationStatus,
+      {OperationStatus operationStatus,
       int minOpenTime,
       int maxOpenTime,
-      String gameType,
+      GameType gameType,
       int minEntryPrice,
       int maxEntryPrice});
 }
@@ -131,7 +131,7 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
       operationStatus: null == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
-              as String,
+              as OperationStatus,
       minOpenTime: null == minOpenTime
           ? _value.minOpenTime
           : minOpenTime // ignore: cast_nullable_to_non_nullable
@@ -143,7 +143,7 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
       gameType: null == gameType
           ? _value.gameType
           : gameType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as GameType,
       minEntryPrice: null == minEntryPrice
           ? _value.minEntryPrice
           : minEntryPrice // ignore: cast_nullable_to_non_nullable
@@ -169,13 +169,13 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
       : super._();
 
   @override
-  final String operationStatus;
+  final OperationStatus operationStatus;
   @override
   final int minOpenTime;
   @override
   final int maxOpenTime;
   @override
-  final String gameType;
+  final GameType gameType;
   @override
   final int minEntryPrice;
   @override
@@ -219,22 +219,22 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
 
 abstract class _FilterServiceModel extends FilterServiceModel {
   factory _FilterServiceModel(
-      {required final String operationStatus,
+      {required final OperationStatus operationStatus,
       required final int minOpenTime,
       required final int maxOpenTime,
-      required final String gameType,
+      required final GameType gameType,
       required final int minEntryPrice,
       required final int maxEntryPrice}) = _$FilterServiceModelImpl;
   _FilterServiceModel._() : super._();
 
   @override
-  String get operationStatus;
+  OperationStatus get operationStatus;
   @override
   int get minOpenTime;
   @override
   int get maxOpenTime;
   @override
-  String get gameType;
+  GameType get gameType;
   @override
   int get minEntryPrice;
   @override

@@ -95,7 +95,7 @@ class __$$FilterByGameTypeModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterByGameTypeModelImpl extends _FilterByGameTypeModel {
-  _$FilterByGameTypeModelImpl({this.gameType = GameType.all}) : super._();
+  _$FilterByGameTypeModelImpl({this.gameType = GameType.ALL}) : super._();
 
   @override
   @JsonKey()

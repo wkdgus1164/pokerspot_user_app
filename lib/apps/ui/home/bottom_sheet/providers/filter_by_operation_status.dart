@@ -9,7 +9,7 @@ part 'filter_by_operation_status.freezed.dart';
 @freezed
 class FilterByOperationStatusModel with _$FilterByOperationStatusModel {
   factory FilterByOperationStatusModel({
-    @Default(OperationStatus.all) OperationStatus operationStatus,
+    @Default(OperationStatus.ALL) OperationStatus operationStatus,
   }) = _FilterByOperationStatusModel;
 
   FilterByOperationStatusModel._();
@@ -19,17 +19,17 @@ class FilterByOperationStatusModel with _$FilterByOperationStatusModel {
 class FilterByOperationStatus extends _$FilterByOperationStatus {
   @override
   FilterByOperationStatusModel build() {
-    return FilterByOperationStatusModel(operationStatus: OperationStatus.all);
+    return FilterByOperationStatusModel(operationStatus: OperationStatus.ALL);
   }
 
   void setAll() {
-    state = state.copyWith(operationStatus: OperationStatus.all);
+    state = state.copyWith(operationStatus: OperationStatus.ALL);
     ref.keepAlive();
     ref.invalidate(filterServiceProvider);
   }
 
   void setRunning() {
-    state = state.copyWith(operationStatus: OperationStatus.open);
+    state = state.copyWith(operationStatus: OperationStatus.OPEN);
     ref.keepAlive();
     ref.invalidate(filterServiceProvider);
   }

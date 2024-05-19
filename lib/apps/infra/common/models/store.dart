@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 
 part 'store.freezed.dart';
 
@@ -34,7 +35,7 @@ class StoreGameItemsModel with _$StoreGameItemsModel {
   factory StoreGameItemsModel({
     required String id,
     required String? name,
-    required String? type,
+    required GameType? type,
     required int? entryPrice,
     required int? entryMax,
     required int? reEntryMax,

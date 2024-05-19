@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 
 part 'store_dto.freezed.dart';
 part 'store_dto.g.dart';
@@ -20,7 +21,7 @@ class StoreImagesDto with _$StoreImagesDto {
 class GameMTTDto with _$GameMTTDto {
   factory GameMTTDto({
     required String id,
-    required String type,
+    required GameType type,
     required int entryPrice,
     required int? entryMax,
     required int? reEntryMax,

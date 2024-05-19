@@ -17,10 +17,10 @@ class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
   Widget build(BuildContext context) {
     final gameTypeFilter = ref.watch(filterByGameTypeProvider);
 
-    final isAll = gameTypeFilter.gameType == GameType.all;
-    final isDaily = gameTypeFilter.gameType == GameType.daily;
+    final isAll = gameTypeFilter.gameType == GameType.ALL;
+    final isDaily = gameTypeFilter.gameType == GameType.DAILY;
     // final isSeed = gameTypeFilter.gameType == GameType.seed;
-    final isGTD = gameTypeFilter.gameType == GameType.gtd;
+    final isGTD = gameTypeFilter.gameType == GameType.GTD;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -175,7 +175,7 @@ GameMTTDto _$GameMTTDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GameMTTDto {
   String get id => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
+  GameType get type => throw _privateConstructorUsedError;
   int get entryPrice => throw _privateConstructorUsedError;
   int? get entryMax => throw _privateConstructorUsedError;
   int? get reEntryMax => throw _privateConstructorUsedError;
@@ -200,7 +200,7 @@ abstract class $GameMTTDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String type,
+      GameType type,
       int entryPrice,
       int? entryMax,
       int? reEntryMax,
@@ -245,7 +245,7 @@ class _$GameMTTDtoCopyWithImpl<$Res, $Val extends GameMTTDto>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as GameType,
       entryPrice: null == entryPrice
           ? _value.entryPrice
           : entryPrice // ignore: cast_nullable_to_non_nullable
@@ -296,7 +296,7 @@ abstract class _$$GameMTTDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String type,
+      GameType type,
       int entryPrice,
       int? entryMax,
       int? reEntryMax,
@@ -339,7 +339,7 @@ class __$$GameMTTDtoImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as GameType,
       entryPrice: null == entryPrice
           ? _value.entryPrice
           : entryPrice // ignore: cast_nullable_to_non_nullable
@@ -402,7 +402,7 @@ class _$GameMTTDtoImpl implements _GameMTTDto {
   @override
   final String id;
   @override
-  final String type;
+  final GameType type;
   @override
   final int entryPrice;
   @override
@@ -473,7 +473,7 @@ class _$GameMTTDtoImpl implements _GameMTTDto {
 abstract class _GameMTTDto implements GameMTTDto {
   factory _GameMTTDto(
       {required final String id,
-      required final String type,
+      required final GameType type,
       required final int entryPrice,
       required final int? entryMax,
       required final int? reEntryMax,
@@ -490,7 +490,7 @@ abstract class _GameMTTDto implements GameMTTDto {
   @override
   String get id;
   @override
-  String get type;
+  GameType get type;
   @override
   int get entryPrice;
   @override

@@ -6,7 +6,7 @@ part of 'filter_by_game_type.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$filterByGameTypeHash() => r'191727d7bb8a2b94d0c6de889bed74808d21d1f8';
+String _$filterByGameTypeHash() => r'cfadd7a951eaa9e9c3cd28f9dde8f7dc9d9898bd';
 
 /// See also [FilterByGameType].
 @ProviderFor(FilterByGameType)

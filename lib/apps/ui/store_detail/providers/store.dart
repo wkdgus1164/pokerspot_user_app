@@ -25,8 +25,8 @@ class StoreData extends _$StoreData {
     final longitude = locationModel.asData!.value.longitude;
 
     final res = await ref.read(storesApiProvider).fetchStoreDetail(
+          id,
           StoreQuery(
-            id: id,
             lat: latitude,
             lng: longitude,
           ),

@@ -23,10 +23,10 @@ mixin _$StoresQuery {
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
   double? get perPage => throw _privateConstructorUsedError;
-  String? get operationStatus => throw _privateConstructorUsedError;
+  OperationStatus? get operationStatus => throw _privateConstructorUsedError;
   String? get minOpenTime => throw _privateConstructorUsedError;
   String? get maxOpenTime => throw _privateConstructorUsedError;
-  String? get gameType => throw _privateConstructorUsedError;
+  GameType? get gameType => throw _privateConstructorUsedError;
   int? get minEntryPrice => throw _privateConstructorUsedError;
   int? get maxEntryPrice => throw _privateConstructorUsedError;
 
@@ -46,10 +46,10 @@ abstract class $StoresQueryCopyWith<$Res> {
       {double lat,
       double lng,
       double? perPage,
-      String? operationStatus,
+      OperationStatus? operationStatus,
       String? minOpenTime,
       String? maxOpenTime,
-      String? gameType,
+      GameType? gameType,
       int? minEntryPrice,
       int? maxEntryPrice});
 }
@@ -93,7 +93,7 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
       operationStatus: freezed == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as OperationStatus?,
       minOpenTime: freezed == minOpenTime
           ? _value.minOpenTime
           : minOpenTime // ignore: cast_nullable_to_non_nullable
@@ -105,7 +105,7 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
       gameType: freezed == gameType
           ? _value.gameType
           : gameType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as GameType?,
       minEntryPrice: freezed == minEntryPrice
           ? _value.minEntryPrice
           : minEntryPrice // ignore: cast_nullable_to_non_nullable
@@ -130,10 +130,10 @@ abstract class _$$StoresQueryImplCopyWith<$Res>
       {double lat,
       double lng,
       double? perPage,
-      String? operationStatus,
+      OperationStatus? operationStatus,
       String? minOpenTime,
       String? maxOpenTime,
-      String? gameType,
+      GameType? gameType,
       int? minEntryPrice,
       int? maxEntryPrice});
 }
@@ -175,7 +175,7 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
       operationStatus: freezed == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as OperationStatus?,
       minOpenTime: freezed == minOpenTime
           ? _value.minOpenTime
           : minOpenTime // ignore: cast_nullable_to_non_nullable
@@ -187,7 +187,7 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
       gameType: freezed == gameType
           ? _value.gameType
           : gameType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as GameType?,
       minEntryPrice: freezed == minEntryPrice
           ? _value.minEntryPrice
           : minEntryPrice // ignore: cast_nullable_to_non_nullable
@@ -224,13 +224,13 @@ class _$StoresQueryImpl implements _StoresQuery {
   @override
   final double? perPage;
   @override
-  final String? operationStatus;
+  final OperationStatus? operationStatus;
   @override
   final String? minOpenTime;
   @override
   final String? maxOpenTime;
   @override
-  final String? gameType;
+  final GameType? gameType;
   @override
   final int? minEntryPrice;
   @override
@@ -296,10 +296,10 @@ abstract class _StoresQuery implements StoresQuery {
       {required final double lat,
       required final double lng,
       final double? perPage,
-      final String? operationStatus,
+      final OperationStatus? operationStatus,
       final String? minOpenTime,
       final String? maxOpenTime,
-      final String? gameType,
+      final GameType? gameType,
       final int? minEntryPrice,
       final int? maxEntryPrice}) = _$StoresQueryImpl;
 
@@ -313,13 +313,13 @@ abstract class _StoresQuery implements StoresQuery {
   @override
   double? get perPage;
   @override
-  String? get operationStatus;
+  OperationStatus? get operationStatus;
   @override
   String? get minOpenTime;
   @override
   String? get maxOpenTime;
   @override
-  String? get gameType;
+  GameType? get gameType;
   @override
   int? get minEntryPrice;
   @override
@@ -338,7 +338,6 @@ StoreQuery _$StoreQueryFromJson(Map<String, dynamic> json) {
 mixin _$StoreQuery {
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -352,7 +351,7 @@ abstract class $StoreQueryCopyWith<$Res> {
           StoreQuery value, $Res Function(StoreQuery) then) =
       _$StoreQueryCopyWithImpl<$Res, StoreQuery>;
   @useResult
-  $Res call({double lat, double lng, String id});
+  $Res call({double lat, double lng});
 }
 
 /// @nodoc
@@ -370,7 +369,6 @@ class _$StoreQueryCopyWithImpl<$Res, $Val extends StoreQuery>
   $Res call({
     Object? lat = null,
     Object? lng = null,
-    Object? id = null,
   }) {
     return _then(_value.copyWith(
       lat: null == lat
@@ -381,10 +379,6 @@ class _$StoreQueryCopyWithImpl<$Res, $Val extends StoreQuery>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -397,7 +391,7 @@ abstract class _$$StoreQueryImplCopyWith<$Res>
       __$$StoreQueryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double lat, double lng, String id});
+  $Res call({double lat, double lng});
 }
 
 /// @nodoc
@@ -413,7 +407,6 @@ class __$$StoreQueryImplCopyWithImpl<$Res>
   $Res call({
     Object? lat = null,
     Object? lng = null,
-    Object? id = null,
   }) {
     return _then(_$StoreQueryImpl(
       lat: null == lat
@@ -424,10 +417,6 @@ class __$$StoreQueryImplCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -435,7 +424,7 @@ class __$$StoreQueryImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StoreQueryImpl implements _StoreQuery {
-  _$StoreQueryImpl({required this.lat, required this.lng, required this.id});
+  _$StoreQueryImpl({required this.lat, required this.lng});
 
   factory _$StoreQueryImpl.fromJson(Map<String, dynamic> json) =>
       _$$StoreQueryImplFromJson(json);
@@ -444,12 +433,10 @@ class _$StoreQueryImpl implements _StoreQuery {
   final double lat;
   @override
   final double lng;
-  @override
-  final String id;
 
   @override
   String toString() {
-    return 'StoreQuery(lat: $lat, lng: $lng, id: $id)';
+    return 'StoreQuery(lat: $lat, lng: $lng)';
   }
 
   @override
@@ -458,13 +445,12 @@ class _$StoreQueryImpl implements _StoreQuery {
         (other.runtimeType == runtimeType &&
             other is _$StoreQueryImpl &&
             (identical(other.lat, lat) || other.lat == lat) &&
-            (identical(other.lng, lng) || other.lng == lng) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.lng, lng) || other.lng == lng));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, lat, lng, id);
+  int get hashCode => Object.hash(runtimeType, lat, lng);
 
   @JsonKey(ignore: true)
   @override
@@ -481,10 +467,8 @@ class _$StoreQueryImpl implements _StoreQuery {
 }
 
 abstract class _StoreQuery implements StoreQuery {
-  factory _StoreQuery(
-      {required final double lat,
-      required final double lng,
-      required final String id}) = _$StoreQueryImpl;
+  factory _StoreQuery({required final double lat, required final double lng}) =
+      _$StoreQueryImpl;
 
   factory _StoreQuery.fromJson(Map<String, dynamic> json) =
       _$StoreQueryImpl.fromJson;
@@ -493,8 +477,6 @@ abstract class _StoreQuery implements StoreQuery {
   double get lat;
   @override
   double get lng;
-  @override
-  String get id;
   @override
   @JsonKey(ignore: true)
   _$$StoreQueryImplCopyWith<_$StoreQueryImpl> get copyWith =>

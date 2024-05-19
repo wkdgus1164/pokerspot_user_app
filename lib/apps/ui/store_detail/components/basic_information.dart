@@ -52,11 +52,14 @@ class StoreDetailBasicInformation extends StatelessWidget {
                       child: const Icon(Icons.map_outlined, color: colorGrey80),
                     ),
                     const SizedBox(width: 16),
-                    Text(
-                      '$address,\n$addressDetail',
-                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                            color: colorGrey50,
-                          ),
+                    Expanded(
+                      child: Text(
+                        '$address, $addressDetail',
+                        style:
+                            Theme.of(context).textTheme.labelMedium!.copyWith(
+                                  color: colorGrey50,
+                                ),
+                      ),
                     ),
                   ],
                 ),

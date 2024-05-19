@@ -28,14 +28,14 @@ class StoresItems extends _$StoresItems {
     final latitude = locationModel.asData!.value.latitude;
     final longitude = locationModel.asData!.value.longitude;
     final operationStatus =
-        ref.read(filterByOperationStatusProvider).operationStatus.value;
+        ref.read(filterByOperationStatusProvider).operationStatus;
 
     final minOpenTime = ref.read(filterByOpenTimeProvider).minTime;
     final maxOpenTime = ref.read(filterByOpenTimeProvider).maxTime;
 
     String getStringTime(int time) => time < 10 ? '0$time:00' : '$time:00';
 
-    final gameType = ref.read(filterByGameTypeProvider).gameType.value;
+    final gameType = ref.read(filterByGameTypeProvider).gameType;
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
 

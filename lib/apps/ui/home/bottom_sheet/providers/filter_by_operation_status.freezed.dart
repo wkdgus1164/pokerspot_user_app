@@ -99,7 +99,7 @@ class __$$FilterByOperationStatusModelImplCopyWithImpl<$Res>
 
 class _$FilterByOperationStatusModelImpl extends _FilterByOperationStatusModel {
   _$FilterByOperationStatusModelImpl(
-      {this.operationStatus = OperationStatus.all})
+      {this.operationStatus = OperationStatus.ALL})
       : super._();
 
   @override

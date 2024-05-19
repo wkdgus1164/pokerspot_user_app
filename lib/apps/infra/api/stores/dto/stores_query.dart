@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 
 part 'stores_query.freezed.dart';
 part 'stores_query.g.dart';
@@ -9,10 +10,10 @@ class StoresQuery with _$StoresQuery {
     required double lat,
     required double lng,
     double? perPage,
-    String? operationStatus,
+    OperationStatus? operationStatus,
     String? minOpenTime,
     String? maxOpenTime,
-    String? gameType,
+    GameType? gameType,
     int? minEntryPrice,
     int? maxEntryPrice,
   }) = _StoresQuery;
@@ -28,7 +29,6 @@ class StoreQuery with _$StoreQuery {
   factory StoreQuery({
     required double lat,
     required double lng,
-    required String id,
   }) = _StoreQuery;
 
   factory StoreQuery.fromJson(

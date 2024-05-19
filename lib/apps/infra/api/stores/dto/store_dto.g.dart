@@ -21,7 +21,7 @@ Map<String, dynamic> _$$StoreImageDtoImplToJson(_$StoreImageDtoImpl instance) =>
 _$GameMTTDtoImpl _$$GameMTTDtoImplFromJson(Map<String, dynamic> json) =>
     _$GameMTTDtoImpl(
       id: json['id'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$GameTypeEnumMap, json['type']),
       entryPrice: (json['entryPrice'] as num).toInt(),
       entryMax: (json['entryMax'] as num?)?.toInt(),
       reEntryMax: (json['reEntryMax'] as num?)?.toInt(),
@@ -36,7 +36,7 @@ _$GameMTTDtoImpl _$$GameMTTDtoImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$GameMTTDtoImplToJson(_$GameMTTDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'type': instance.type,
+      'type': _$GameTypeEnumMap[instance.type]!,
       'entryPrice': instance.entryPrice,
       'entryMax': instance.entryMax,
       'reEntryMax': instance.reEntryMax,
@@ -47,6 +47,13 @@ Map<String, dynamic> _$$GameMTTDtoImplToJson(_$GameMTTDtoImpl instance) =>
       'isDaily': instance.isDaily,
       'name': instance.name,
     };
+
+const _$GameTypeEnumMap = {
+  GameType.DAILY: 'DAILY',
+  GameType.SEED: 'SEED',
+  GameType.GTD: 'GTD',
+  GameType.ALL: 'ALL',
+};
 
 _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreDtoImpl(

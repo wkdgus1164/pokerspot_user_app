@@ -13,10 +13,10 @@ part 'filter_service.freezed.dart';
 @freezed
 class FilterServiceModel with _$FilterServiceModel {
   factory FilterServiceModel({
-    required String operationStatus,
+    required OperationStatus operationStatus,
     required int minOpenTime,
     required int maxOpenTime,
-    required String gameType,
+    required GameType gameType,
     required int minEntryPrice,
     required int maxEntryPrice,
   }) = _FilterServiceModel;
@@ -28,11 +28,11 @@ class FilterServiceModel with _$FilterServiceModel {
 class FilterService extends _$FilterService {
   @override
   FilterServiceModel build() {
-    final operationStatus =
+    final OperationStatus operationStatus =
         ref.read(filterByOperationStatusProvider).operationStatus;
     final minOpenTime = ref.read(filterByOpenTimeProvider).minTime;
     final maxOpenTime = ref.read(filterByOpenTimeProvider).maxTime;
-    final gameType = ref.read(filterByGameTypeProvider).gameType.value;
+    final GameType gameType = ref.read(filterByGameTypeProvider).gameType;
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
 
@@ -46,7 +46,7 @@ FilterService
   maxEntryPrice: $maxEntryPrice''');
 
     return FilterServiceModel(
-      operationStatus: operationStatus == OperationStatus.open ? "OPEN" : "ALL",
+      operationStatus: operationStatus,
       minOpenTime: minOpenTime,
       maxOpenTime: maxOpenTime,
       gameType: gameType,
