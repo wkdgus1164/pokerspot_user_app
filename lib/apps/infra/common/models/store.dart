@@ -18,7 +18,7 @@ class StoreModel with _$StoreModel {
     required double? lat,
     required double? lng,
     required List<StoreImagesModel>? storeImages,
-    required List<StoreGameItemsModel>? gameMTTItems,
+    required List<StoreGamesModel>? gameMTTItems,
   }) = _StoreModel;
 }
 
@@ -31,8 +31,8 @@ class StoreImagesModel with _$StoreImagesModel {
 }
 
 @freezed
-class StoreGameItemsModel with _$StoreGameItemsModel {
-  factory StoreGameItemsModel({
+class StoreGamesModel with _$StoreGamesModel {
+  factory StoreGamesModel({
     required String id,
     required String? name,
     required GameType? type,
@@ -44,5 +44,5 @@ class StoreGameItemsModel with _$StoreGameItemsModel {
     required int? gtdMinReward,
     required String? eventType,
     required bool isDaily,
-  }) = _StoreGameItemsModel;
+  }) = _StoreGamesModel;
 }

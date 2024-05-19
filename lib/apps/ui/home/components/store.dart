@@ -26,7 +26,7 @@ class HomeStore extends StatelessWidget {
   final String openTime;
   final String closeTime;
   final double distance;
-  final List<StoreGameItemsModel> storeGames;
+  final List<StoreGamesModel> storeGames;
   final Function() handleClick;
 
   @override

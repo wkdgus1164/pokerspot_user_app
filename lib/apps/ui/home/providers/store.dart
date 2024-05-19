@@ -99,14 +99,14 @@ extension _StoreImageModelMapperExtension on StoreImagesDto {
 }
 
 extension _StoreGameItemsModelMapperExtension on List<GameMTTDto> {
-  List<StoreGameItemsModel> toModels() {
+  List<StoreGamesModel> toModels() {
     return map((it) => it.toModels()).toList();
   }
 }
 
 extension _StoreDetailItemModelMapperExtension on GameMTTDto {
-  StoreGameItemsModel toModels() {
-    return StoreGameItemsModel(
+  StoreGamesModel toModels() {
+    return StoreGamesModel(
       id: id,
       name: name,
       type: type,

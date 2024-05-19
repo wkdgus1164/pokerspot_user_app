@@ -6,7 +6,7 @@ import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 class StoreDetailGame extends StatelessWidget {
   const StoreDetailGame({super.key, required this.game});
 
-  final StoreGameItemsModel game;
+  final StoreGamesModel game;
 
   @override
   Widget build(BuildContext context) {

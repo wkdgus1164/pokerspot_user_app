@@ -28,8 +28,7 @@ mixin _$StoreModel {
   double? get lat => throw _privateConstructorUsedError;
   double? get lng => throw _privateConstructorUsedError;
   List<StoreImagesModel>? get storeImages => throw _privateConstructorUsedError;
-  List<StoreGameItemsModel>? get gameMTTItems =>
-      throw _privateConstructorUsedError;
+  List<StoreGamesModel>? get gameMTTItems => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $StoreModelCopyWith<StoreModel> get copyWith =>
@@ -55,7 +54,7 @@ abstract class $StoreModelCopyWith<$Res> {
       double? lat,
       double? lng,
       List<StoreImagesModel>? storeImages,
-      List<StoreGameItemsModel>? gameMTTItems});
+      List<StoreGamesModel>? gameMTTItems});
 }
 
 /// @nodoc
@@ -137,7 +136,7 @@ class _$StoreModelCopyWithImpl<$Res, $Val extends StoreModel>
       gameMTTItems: freezed == gameMTTItems
           ? _value.gameMTTItems
           : gameMTTItems // ignore: cast_nullable_to_non_nullable
-              as List<StoreGameItemsModel>?,
+              as List<StoreGamesModel>?,
     ) as $Val);
   }
 }
@@ -163,7 +162,7 @@ abstract class _$$StoreModelImplCopyWith<$Res>
       double? lat,
       double? lng,
       List<StoreImagesModel>? storeImages,
-      List<StoreGameItemsModel>? gameMTTItems});
+      List<StoreGamesModel>? gameMTTItems});
 }
 
 /// @nodoc
@@ -243,7 +242,7 @@ class __$$StoreModelImplCopyWithImpl<$Res>
       gameMTTItems: freezed == gameMTTItems
           ? _value._gameMTTItems
           : gameMTTItems // ignore: cast_nullable_to_non_nullable
-              as List<StoreGameItemsModel>?,
+              as List<StoreGamesModel>?,
     ));
   }
 }
@@ -264,7 +263,7 @@ class _$StoreModelImpl implements _StoreModel {
       required this.lat,
       required this.lng,
       required final List<StoreImagesModel>? storeImages,
-      required final List<StoreGameItemsModel>? gameMTTItems})
+      required final List<StoreGamesModel>? gameMTTItems})
       : _storeImages = storeImages,
         _gameMTTItems = gameMTTItems;
 
@@ -300,9 +299,9 @@ class _$StoreModelImpl implements _StoreModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<StoreGameItemsModel>? _gameMTTItems;
+  final List<StoreGamesModel>? _gameMTTItems;
   @override
-  List<StoreGameItemsModel>? get gameMTTItems {
+  List<StoreGamesModel>? get gameMTTItems {
     final value = _gameMTTItems;
     if (value == null) return null;
     if (_gameMTTItems is EqualUnmodifiableListView) return _gameMTTItems;
@@ -367,20 +366,19 @@ class _$StoreModelImpl implements _StoreModel {
 
 abstract class _StoreModel implements StoreModel {
   factory _StoreModel(
-          {required final String id,
-          required final String? type,
-          required final String? name,
-          required final String? phone,
-          required final String? address,
-          required final String? addressDetail,
-          required final String? openTime,
-          required final String? closeTime,
-          required final double? distance,
-          required final double? lat,
-          required final double? lng,
-          required final List<StoreImagesModel>? storeImages,
-          required final List<StoreGameItemsModel>? gameMTTItems}) =
-      _$StoreModelImpl;
+      {required final String id,
+      required final String? type,
+      required final String? name,
+      required final String? phone,
+      required final String? address,
+      required final String? addressDetail,
+      required final String? openTime,
+      required final String? closeTime,
+      required final double? distance,
+      required final double? lat,
+      required final double? lng,
+      required final List<StoreImagesModel>? storeImages,
+      required final List<StoreGamesModel>? gameMTTItems}) = _$StoreModelImpl;
 
   @override
   String get id;
@@ -407,7 +405,7 @@ abstract class _StoreModel implements StoreModel {
   @override
   List<StoreImagesModel>? get storeImages;
   @override
-  List<StoreGameItemsModel>? get gameMTTItems;
+  List<StoreGamesModel>? get gameMTTItems;
   @override
   @JsonKey(ignore: true)
   _$$StoreModelImplCopyWith<_$StoreModelImpl> get copyWith =>
@@ -551,7 +549,7 @@ abstract class _StoreImagesModel implements StoreImagesModel {
 }
 
 /// @nodoc
-mixin _$StoreGameItemsModel {
+mixin _$StoreGamesModel {
   String get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   GameType? get type => throw _privateConstructorUsedError;
@@ -565,15 +563,15 @@ mixin _$StoreGameItemsModel {
   bool get isDaily => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $StoreGameItemsModelCopyWith<StoreGameItemsModel> get copyWith =>
+  $StoreGamesModelCopyWith<StoreGamesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StoreGameItemsModelCopyWith<$Res> {
-  factory $StoreGameItemsModelCopyWith(
-          StoreGameItemsModel value, $Res Function(StoreGameItemsModel) then) =
-      _$StoreGameItemsModelCopyWithImpl<$Res, StoreGameItemsModel>;
+abstract class $StoreGamesModelCopyWith<$Res> {
+  factory $StoreGamesModelCopyWith(
+          StoreGamesModel value, $Res Function(StoreGamesModel) then) =
+      _$StoreGamesModelCopyWithImpl<$Res, StoreGamesModel>;
   @useResult
   $Res call(
       {String id,
@@ -590,9 +588,9 @@ abstract class $StoreGameItemsModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StoreGameItemsModelCopyWithImpl<$Res, $Val extends StoreGameItemsModel>
-    implements $StoreGameItemsModelCopyWith<$Res> {
-  _$StoreGameItemsModelCopyWithImpl(this._value, this._then);
+class _$StoreGamesModelCopyWithImpl<$Res, $Val extends StoreGamesModel>
+    implements $StoreGamesModelCopyWith<$Res> {
+  _$StoreGamesModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -664,11 +662,11 @@ class _$StoreGameItemsModelCopyWithImpl<$Res, $Val extends StoreGameItemsModel>
 }
 
 /// @nodoc
-abstract class _$$StoreGameItemsModelImplCopyWith<$Res>
-    implements $StoreGameItemsModelCopyWith<$Res> {
-  factory _$$StoreGameItemsModelImplCopyWith(_$StoreGameItemsModelImpl value,
-          $Res Function(_$StoreGameItemsModelImpl) then) =
-      __$$StoreGameItemsModelImplCopyWithImpl<$Res>;
+abstract class _$$StoreGamesModelImplCopyWith<$Res>
+    implements $StoreGamesModelCopyWith<$Res> {
+  factory _$$StoreGamesModelImplCopyWith(_$StoreGamesModelImpl value,
+          $Res Function(_$StoreGamesModelImpl) then) =
+      __$$StoreGamesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -686,11 +684,11 @@ abstract class _$$StoreGameItemsModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$StoreGameItemsModelImplCopyWithImpl<$Res>
-    extends _$StoreGameItemsModelCopyWithImpl<$Res, _$StoreGameItemsModelImpl>
-    implements _$$StoreGameItemsModelImplCopyWith<$Res> {
-  __$$StoreGameItemsModelImplCopyWithImpl(_$StoreGameItemsModelImpl _value,
-      $Res Function(_$StoreGameItemsModelImpl) _then)
+class __$$StoreGamesModelImplCopyWithImpl<$Res>
+    extends _$StoreGamesModelCopyWithImpl<$Res, _$StoreGamesModelImpl>
+    implements _$$StoreGamesModelImplCopyWith<$Res> {
+  __$$StoreGamesModelImplCopyWithImpl(
+      _$StoreGamesModelImpl _value, $Res Function(_$StoreGamesModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -708,7 +706,7 @@ class __$$StoreGameItemsModelImplCopyWithImpl<$Res>
     Object? eventType = freezed,
     Object? isDaily = null,
   }) {
-    return _then(_$StoreGameItemsModelImpl(
+    return _then(_$StoreGamesModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -759,8 +757,8 @@ class __$$StoreGameItemsModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StoreGameItemsModelImpl implements _StoreGameItemsModel {
-  _$StoreGameItemsModelImpl(
+class _$StoreGamesModelImpl implements _StoreGamesModel {
+  _$StoreGamesModelImpl(
       {required this.id,
       required this.name,
       required this.type,
@@ -798,14 +796,14 @@ class _$StoreGameItemsModelImpl implements _StoreGameItemsModel {
 
   @override
   String toString() {
-    return 'StoreGameItemsModel(id: $id, name: $name, type: $type, entryPrice: $entryPrice, entryMax: $entryMax, reEntryMax: $reEntryMax, duration: $duration, prize: $prize, gtdMinReward: $gtdMinReward, eventType: $eventType, isDaily: $isDaily)';
+    return 'StoreGamesModel(id: $id, name: $name, type: $type, entryPrice: $entryPrice, entryMax: $entryMax, reEntryMax: $reEntryMax, duration: $duration, prize: $prize, gtdMinReward: $gtdMinReward, eventType: $eventType, isDaily: $isDaily)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StoreGameItemsModelImpl &&
+            other is _$StoreGamesModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type) &&
@@ -832,13 +830,13 @@ class _$StoreGameItemsModelImpl implements _StoreGameItemsModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$StoreGameItemsModelImplCopyWith<_$StoreGameItemsModelImpl> get copyWith =>
-      __$$StoreGameItemsModelImplCopyWithImpl<_$StoreGameItemsModelImpl>(
+  _$$StoreGamesModelImplCopyWith<_$StoreGamesModelImpl> get copyWith =>
+      __$$StoreGamesModelImplCopyWithImpl<_$StoreGamesModelImpl>(
           this, _$identity);
 }
 
-abstract class _StoreGameItemsModel implements StoreGameItemsModel {
-  factory _StoreGameItemsModel(
+abstract class _StoreGamesModel implements StoreGamesModel {
+  factory _StoreGamesModel(
       {required final String id,
       required final String? name,
       required final GameType? type,
@@ -849,7 +847,7 @@ abstract class _StoreGameItemsModel implements StoreGameItemsModel {
       required final int? prize,
       required final int? gtdMinReward,
       required final String? eventType,
-      required final bool isDaily}) = _$StoreGameItemsModelImpl;
+      required final bool isDaily}) = _$StoreGamesModelImpl;
 
   @override
   String get id;
@@ -875,6 +873,6 @@ abstract class _StoreGameItemsModel implements StoreGameItemsModel {
   bool get isDaily;
   @override
   @JsonKey(ignore: true)
-  _$$StoreGameItemsModelImplCopyWith<_$StoreGameItemsModelImpl> get copyWith =>
+  _$$StoreGamesModelImplCopyWith<_$StoreGamesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
