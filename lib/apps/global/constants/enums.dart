@@ -1,21 +1,19 @@
 enum GameType {
-  daily("DAILY", '데일리'),
-  seed('SEED', '시드권'),
-  gtd('GTD', 'GTD'),
-  all('ALL', '전체'),
+  DAILY('데일리 토너'),
+  SEED('시드권 토너'),
+  GTD('GTD 토너'),
+  ALL('전체'),
   ;
 
-  const GameType(this.value, this.kr);
-  final String value;
+  const GameType(this.kr);
   final String kr;
 }
 
 enum OperationStatus {
-  all('ALL', '전체'),
-  open('OPEN', '운영 중'),
+  ALL('전체'),
+  OPEN('운영 중'),
   ;
 
-  const OperationStatus(this.value, this.kr);
-  final String value;
+  const OperationStatus(this.kr);
   final String kr;
 }
