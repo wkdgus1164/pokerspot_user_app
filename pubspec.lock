@@ -733,6 +733,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1+2"
+  kakao_flutter_sdk_navi:
+    dependency: "direct main"
+    description:
+      name: kakao_flutter_sdk_navi
+      sha256: da1794785390d68770085be766aaef4d53001cf00c9de8cb6f6cdebf20f00d89
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.9.1+2"
   kakao_flutter_sdk_share:
     dependency: "direct main"
     description:
