@@ -34,8 +34,8 @@ class NavigationHelper {
 
   List<Widget> pages = [
     const HomePage(),
-    Container(),
-    Container(),
+    const HomePage(),
+    const HomePage(),
     const MyPage(),
   ];
 

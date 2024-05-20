@@ -10,6 +10,7 @@ class NavigationPage extends StatefulHookConsumerWidget {
 }
 
 class _NavigationPageState extends ConsumerState<NavigationPage> {
+  final PageController _pageViewController = PageController();
   int currentPageIndex = 0;
 
   @override
@@ -20,13 +21,23 @@ class _NavigationPageState extends ConsumerState<NavigationPage> {
         items: NavigationHelper().getBottomNavigationItems(),
         onTap: _handleMenuIndexChange,
       ),
-      body: NavigationHelper().pages[currentPageIndex],
+      body: PageView(
+        controller: _pageViewController,
+        physics: const BouncingScrollPhysics(),
+        allowImplicitScrolling: true,
+        onPageChanged: _handleMenuIndexChange,
+        children: NavigationHelper().pages,
+      ),
     );
   }
 
   void _handleMenuIndexChange(int index) {
-    setState(() {
-      currentPageIndex = index;
-    });
+    _pageViewController.jumpToPage(index);
+    _pageViewController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 600),
+      curve: Curves.bounceInOut,
+    );
+    setState(() => currentPageIndex = index);
   }
 }
