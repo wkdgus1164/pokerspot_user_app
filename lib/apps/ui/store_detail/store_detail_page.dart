@@ -1,5 +1,6 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
@@ -106,6 +107,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   }
 
   void _handleKakaoShare(StoreModel model) async {
+    Fluttertoast.showToast(msg: '카카오톡으로 공유할게요.');
     KakaoLinkHelper().shareKakaoFeed(
       KakaoFeedModel(
         id: model.id,
