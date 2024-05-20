@@ -1,5 +1,6 @@
 import 'package:kakao_flutter_sdk_navi/kakao_flutter_sdk_navi.dart';
 import 'package:logger/web.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class KakaoNaviHelper {
   KakaoNaviHelper._privateConstructor();
@@ -55,5 +56,9 @@ class KakaoNaviHelper {
       Logger().i('Kakao Navi is not installed');
       launchBrowserTab(Uri.parse(NaviApi.webNaviInstall));
     }
+  }
+
+  Future searchKakaoMap(String name) async {
+    await launchUrl(Uri.parse('https://map.kakao.com/link/search/$name'));
   }
 }

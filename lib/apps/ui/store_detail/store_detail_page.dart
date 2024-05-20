@@ -59,9 +59,10 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
             handleRefresh: _handleRefresh,
             call: _call,
             showNaviBottomSheet: () => _showNaviBottomSheet(
-              data.name ?? "",
-              data.lng ?? 0,
-              data.lat ?? 0,
+              name: data.name ?? "",
+              address: data.address ?? "",
+              x: data.lng ?? 0,
+              y: data.lat ?? 0,
             ),
           ),
         );
@@ -125,11 +126,21 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     return time > 12 ? '오후 ${time - 12}시' : '오후 $time시';
   }
 
-  void _showNaviBottomSheet(String name, double x, double y) {
+  void _showNaviBottomSheet({
+    required String name,
+    required String address,
+    required double x,
+    required double y,
+  }) {
     showModalBottomSheet(
       context: context,
       builder: (context) {
-        return StoreDetailNaviBottomSheet(name: name, x: x, y: y);
+        return StoreDetailNaviBottomSheet(
+          name: name,
+          address: address,
+          x: x,
+          y: y,
+        );
       },
     );
   }
