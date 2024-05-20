@@ -11,6 +11,7 @@ class NavigationPage extends StatefulHookConsumerWidget {
 
 class _NavigationPageState extends ConsumerState<NavigationPage> {
   int currentPageIndex = 0;
+  final _pageViewController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,13 @@ class _NavigationPageState extends ConsumerState<NavigationPage> {
         items: NavigationHelper().getBottomNavigationItems(),
         onTap: _handleMenuIndexChange,
       ),
-      body: NavigationHelper().pages[currentPageIndex],
+      body: PageView(
+        controller: _pageViewController,
+        children: NavigationHelper().pages,
+        onPageChanged: (index) {
+          _handleMenuIndexChange(index);
+        },
+      ),
     );
   }
 
