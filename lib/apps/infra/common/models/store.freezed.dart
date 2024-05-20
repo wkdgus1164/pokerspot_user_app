@@ -559,7 +559,7 @@ mixin _$StoreGamesModel {
   int? get duration => throw _privateConstructorUsedError;
   int? get prize => throw _privateConstructorUsedError;
   int? get gtdMinReward => throw _privateConstructorUsedError;
-  String? get eventType => throw _privateConstructorUsedError;
+  EventType? get eventType => throw _privateConstructorUsedError;
   bool get isDaily => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -583,7 +583,7 @@ abstract class $StoreGamesModelCopyWith<$Res> {
       int? duration,
       int? prize,
       int? gtdMinReward,
-      String? eventType,
+      EventType? eventType,
       bool isDaily});
 }
 
@@ -652,7 +652,7 @@ class _$StoreGamesModelCopyWithImpl<$Res, $Val extends StoreGamesModel>
       eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as EventType?,
       isDaily: null == isDaily
           ? _value.isDaily
           : isDaily // ignore: cast_nullable_to_non_nullable
@@ -679,7 +679,7 @@ abstract class _$$StoreGamesModelImplCopyWith<$Res>
       int? duration,
       int? prize,
       int? gtdMinReward,
-      String? eventType,
+      EventType? eventType,
       bool isDaily});
 }
 
@@ -746,7 +746,7 @@ class __$$StoreGamesModelImplCopyWithImpl<$Res>
       eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as EventType?,
       isDaily: null == isDaily
           ? _value.isDaily
           : isDaily // ignore: cast_nullable_to_non_nullable
@@ -790,7 +790,7 @@ class _$StoreGamesModelImpl implements _StoreGamesModel {
   @override
   final int? gtdMinReward;
   @override
-  final String? eventType;
+  final EventType? eventType;
   @override
   final bool isDaily;
 
@@ -846,7 +846,7 @@ abstract class _StoreGamesModel implements StoreGamesModel {
       required final int? duration,
       required final int? prize,
       required final int? gtdMinReward,
-      required final String? eventType,
+      required final EventType? eventType,
       required final bool isDaily}) = _$StoreGamesModelImpl;
 
   @override
@@ -868,7 +868,7 @@ abstract class _StoreGamesModel implements StoreGamesModel {
   @override
   int? get gtdMinReward;
   @override
-  String? get eventType;
+  EventType? get eventType;
   @override
   bool get isDaily;
   @override

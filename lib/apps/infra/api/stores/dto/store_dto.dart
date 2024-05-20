@@ -28,7 +28,7 @@ class GameMTTDto with _$GameMTTDto {
     required int? duration,
     required int? prize,
     required int? gtdMinReward,
-    required String eventType,
+    required EventType eventType,
     required bool isDaily,
     required String name,
   }) = _GameMTTDto;

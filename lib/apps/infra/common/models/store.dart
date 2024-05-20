@@ -42,7 +42,7 @@ class StoreGamesModel with _$StoreGamesModel {
     required int? duration,
     required int? prize,
     required int? gtdMinReward,
-    required String? eventType,
+    required EventType? eventType,
     required bool isDaily,
   }) = _StoreGamesModel;
 }

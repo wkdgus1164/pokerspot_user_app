@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/components/game.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list.dart';
 
-class StoreDetailGames extends StatelessWidget {
-  const StoreDetailGames({super.key, required this.games});
+class StoreDetailGameList extends StatelessWidget {
+  const StoreDetailGameList({super.key, required this.games});
 
   final List<StoreGamesModel> games;
 
@@ -27,15 +27,7 @@ class StoreDetailGames extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 16),
-          ListView.separated(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) {
-              return StoreDetailGame(game: games[index]);
-            },
-            separatorBuilder: (context, index) => const SizedBox(height: 16),
-            itemCount: games.length,
-          ),
+          StoreGameList(games: games),
         ],
       ),
     );

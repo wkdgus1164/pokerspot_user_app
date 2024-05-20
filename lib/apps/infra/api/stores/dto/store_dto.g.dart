@@ -28,7 +28,7 @@ _$GameMTTDtoImpl _$$GameMTTDtoImplFromJson(Map<String, dynamic> json) =>
       duration: (json['duration'] as num?)?.toInt(),
       prize: (json['prize'] as num?)?.toInt(),
       gtdMinReward: (json['gtdMinReward'] as num?)?.toInt(),
-      eventType: json['eventType'] as String,
+      eventType: $enumDecode(_$EventTypeEnumMap, json['eventType']),
       isDaily: json['isDaily'] as bool,
       name: json['name'] as String,
     );
@@ -43,7 +43,7 @@ Map<String, dynamic> _$$GameMTTDtoImplToJson(_$GameMTTDtoImpl instance) =>
       'duration': instance.duration,
       'prize': instance.prize,
       'gtdMinReward': instance.gtdMinReward,
-      'eventType': instance.eventType,
+      'eventType': _$EventTypeEnumMap[instance.eventType]!,
       'isDaily': instance.isDaily,
       'name': instance.name,
     };
@@ -53,6 +53,11 @@ const _$GameTypeEnumMap = {
   GameType.SEED: 'SEED',
   GameType.GTD: 'GTD',
   GameType.ALL: 'ALL',
+};
+
+const _$EventTypeEnumMap = {
+  EventType.NORMAL: 'NORMAL',
+  EventType.FIRST_GAME: 'FIRST_GAME',
 };
 
 _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>

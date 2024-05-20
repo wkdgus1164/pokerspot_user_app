@@ -9,6 +9,15 @@ enum GameType {
   final String kr;
 }
 
+enum EventType {
+  NORMAL('일반'),
+  FIRST_GAME('첫 게임'),
+  ;
+
+  const EventType(this.kr);
+  final String kr;
+}
+
 enum OperationStatus {
   ALL('전체'),
   OPEN('운영 중'),

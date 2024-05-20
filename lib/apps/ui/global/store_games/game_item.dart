@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 
-class HomeStoreGames extends StatelessWidget {
-  const HomeStoreGames({
+class StoreGameItem extends StatelessWidget {
+  const StoreGameItem({
     super.key,
     required this.title,
-    required this.caption,
+    required this.description,
+    this.caption,
   });
 
   final String title;
-  final String caption;
+  final String description;
+  final String? caption;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +36,16 @@ class HomeStoreGames extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         Text(
-          caption,
+          description,
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: colorGrey20,
+              ),
+        ),
+        const SizedBox(width: 8),
+        Text(
+          caption ?? '',
+          style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                color: colorGrey50,
               ),
         ),
       ],

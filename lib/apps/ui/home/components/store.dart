@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/components/game.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/captions/image_load_failed.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 
@@ -119,7 +119,10 @@ class HomeStore extends StatelessWidget {
                         ),
                   ),
                   const SizedBox(height: 24),
-                  HomeStoreGame(games: storeGames),
+                  StoreGameList(
+                    games: storeGames,
+                    scrollDirection: Axis.horizontal,
+                  ),
                 ],
               ),
             ),

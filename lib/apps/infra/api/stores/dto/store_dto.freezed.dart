@@ -182,7 +182,7 @@ mixin _$GameMTTDto {
   int? get duration => throw _privateConstructorUsedError;
   int? get prize => throw _privateConstructorUsedError;
   int? get gtdMinReward => throw _privateConstructorUsedError;
-  String get eventType => throw _privateConstructorUsedError;
+  EventType get eventType => throw _privateConstructorUsedError;
   bool get isDaily => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
@@ -207,7 +207,7 @@ abstract class $GameMTTDtoCopyWith<$Res> {
       int? duration,
       int? prize,
       int? gtdMinReward,
-      String eventType,
+      EventType eventType,
       bool isDaily,
       String name});
 }
@@ -273,7 +273,7 @@ class _$GameMTTDtoCopyWithImpl<$Res, $Val extends GameMTTDto>
       eventType: null == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as EventType,
       isDaily: null == isDaily
           ? _value.isDaily
           : isDaily // ignore: cast_nullable_to_non_nullable
@@ -303,7 +303,7 @@ abstract class _$$GameMTTDtoImplCopyWith<$Res>
       int? duration,
       int? prize,
       int? gtdMinReward,
-      String eventType,
+      EventType eventType,
       bool isDaily,
       String name});
 }
@@ -367,7 +367,7 @@ class __$$GameMTTDtoImplCopyWithImpl<$Res>
       eventType: null == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as EventType,
       isDaily: null == isDaily
           ? _value.isDaily
           : isDaily // ignore: cast_nullable_to_non_nullable
@@ -416,7 +416,7 @@ class _$GameMTTDtoImpl implements _GameMTTDto {
   @override
   final int? gtdMinReward;
   @override
-  final String eventType;
+  final EventType eventType;
   @override
   final bool isDaily;
   @override
@@ -480,7 +480,7 @@ abstract class _GameMTTDto implements GameMTTDto {
       required final int? duration,
       required final int? prize,
       required final int? gtdMinReward,
-      required final String eventType,
+      required final EventType eventType,
       required final bool isDaily,
       required final String name}) = _$GameMTTDtoImpl;
 
@@ -504,7 +504,7 @@ abstract class _GameMTTDto implements GameMTTDto {
   @override
   int? get gtdMinReward;
   @override
-  String get eventType;
+  EventType get eventType;
   @override
   bool get isDaily;
   @override
