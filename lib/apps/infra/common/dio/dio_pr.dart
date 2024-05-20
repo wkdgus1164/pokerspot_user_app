@@ -7,8 +7,8 @@ part 'dio_pr.g.dart';
 
 BaseOptions _options = BaseOptions(
   baseUrl: Secret.mainServerOrigin.key,
-  connectTimeout: const Duration(milliseconds: 4000),
-  receiveTimeout: const Duration(milliseconds: 5000),
+  connectTimeout: const Duration(milliseconds: 10000),
+  receiveTimeout: const Duration(milliseconds: 10000),
 );
 
 // =================================================================

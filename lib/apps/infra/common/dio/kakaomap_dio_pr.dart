@@ -7,8 +7,8 @@ part 'kakaomap_dio_pr.g.dart';
 
 BaseOptions _options = BaseOptions(
   baseUrl: Secret.kakaomapServerOrigin.key,
-  connectTimeout: const Duration(milliseconds: 4000),
-  receiveTimeout: const Duration(milliseconds: 5000),
+  connectTimeout: const Duration(milliseconds: 10000),
+  receiveTimeout: const Duration(milliseconds: 10000),
 );
 
 Interceptor _interceptor = InterceptorsWrapper(
