@@ -46,6 +46,7 @@ class StoreData extends _$StoreData {
       addressDetail: data.addressDetail,
       openTime: data.openTime,
       closeTime: data.closeTime,
+      kakaoChatUrl: data.kakaoChatUrl,
       distance: data.distance,
       lat: data.lat,
       lng: data.lng,

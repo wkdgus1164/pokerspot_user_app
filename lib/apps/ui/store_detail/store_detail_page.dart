@@ -49,9 +49,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
               ),
             ],
           ),
-          floatingActionButton: const StoreDetailFab(
-            url: 'https://open.kakao.com/o/g3RqqC5e',
-          ),
+          floatingActionButton: _kakaoChatUrl(data.kakaoChatUrl),
           body: StoreDetailVac(
             data: data,
             storeId: _storeId,
@@ -145,5 +143,13 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         );
       },
     );
+  }
+
+  Widget _kakaoChatUrl(String? url) {
+    if (url == null) {
+      return const SizedBox();
+    } else {
+      return StoreDetailFab(url: url);
+    }
   }
 }

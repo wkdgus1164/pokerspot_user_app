@@ -60,6 +60,6 @@ class _State extends ConsumerState<PermissionPage> {
   }
 
   void _routeHomePage() {
-    context.go(CustomRouter.main.path);
+    context.go(CustomRouter.home.path);
   }
 }

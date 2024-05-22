@@ -54,7 +54,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
 
   Future _init() async {
     if (await Permission.location.isGranted) {
-      context.go(CustomRouter.main.path);
+      context.go(CustomRouter.home.path);
     } else {
       context.go(CustomRouter.permission.path);
     }

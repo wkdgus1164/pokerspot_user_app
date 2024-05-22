@@ -528,6 +528,7 @@ mixin _$StoreDto {
   String? get addressDetail => throw _privateConstructorUsedError;
   String? get openTime => throw _privateConstructorUsedError;
   String? get closeTime => throw _privateConstructorUsedError;
+  String? get kakaoChatUrl => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   double get distance => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
@@ -554,6 +555,7 @@ abstract class $StoreDtoCopyWith<$Res> {
       String? addressDetail,
       String? openTime,
       String? closeTime,
+      String? kakaoChatUrl,
       String? phone,
       double distance,
       double lat,
@@ -582,6 +584,7 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
     Object? addressDetail = freezed,
     Object? openTime = freezed,
     Object? closeTime = freezed,
+    Object? kakaoChatUrl = freezed,
     Object? phone = freezed,
     Object? distance = null,
     Object? lat = null,
@@ -617,6 +620,10 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
       closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kakaoChatUrl: freezed == kakaoChatUrl
+          ? _value.kakaoChatUrl
+          : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: freezed == phone
           ? _value.phone
@@ -662,6 +669,7 @@ abstract class _$$StoreDtoImplCopyWith<$Res>
       String? addressDetail,
       String? openTime,
       String? closeTime,
+      String? kakaoChatUrl,
       String? phone,
       double distance,
       double lat,
@@ -688,6 +696,7 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
     Object? addressDetail = freezed,
     Object? openTime = freezed,
     Object? closeTime = freezed,
+    Object? kakaoChatUrl = freezed,
     Object? phone = freezed,
     Object? distance = null,
     Object? lat = null,
@@ -723,6 +732,10 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
       closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kakaoChatUrl: freezed == kakaoChatUrl
+          ? _value.kakaoChatUrl
+          : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: freezed == phone
           ? _value.phone
@@ -763,6 +776,7 @@ class _$StoreDtoImpl implements _StoreDto {
       required this.addressDetail,
       required this.openTime,
       required this.closeTime,
+      required this.kakaoChatUrl,
       required this.phone,
       required this.distance,
       required this.lat,
@@ -789,6 +803,8 @@ class _$StoreDtoImpl implements _StoreDto {
   final String? openTime;
   @override
   final String? closeTime;
+  @override
+  final String? kakaoChatUrl;
   @override
   final String? phone;
   @override
@@ -819,7 +835,7 @@ class _$StoreDtoImpl implements _StoreDto {
 
   @override
   String toString() {
-    return 'StoreDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, phone: $phone, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMttItems: $gameMttItems)';
+    return 'StoreDto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, kakaoChatUrl: $kakaoChatUrl, phone: $phone, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMttItems: $gameMttItems)';
   }
 
   @override
@@ -837,6 +853,8 @@ class _$StoreDtoImpl implements _StoreDto {
                 other.openTime == openTime) &&
             (identical(other.closeTime, closeTime) ||
                 other.closeTime == closeTime) &&
+            (identical(other.kakaoChatUrl, kakaoChatUrl) ||
+                other.kakaoChatUrl == kakaoChatUrl) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
@@ -859,6 +877,7 @@ class _$StoreDtoImpl implements _StoreDto {
       addressDetail,
       openTime,
       closeTime,
+      kakaoChatUrl,
       phone,
       distance,
       lat,
@@ -889,6 +908,7 @@ abstract class _StoreDto implements StoreDto {
       required final String? addressDetail,
       required final String? openTime,
       required final String? closeTime,
+      required final String? kakaoChatUrl,
       required final String? phone,
       required final double distance,
       required final double lat,
@@ -913,6 +933,8 @@ abstract class _StoreDto implements StoreDto {
   String? get openTime;
   @override
   String? get closeTime;
+  @override
+  String? get kakaoChatUrl;
   @override
   String? get phone;
   @override

@@ -88,17 +88,17 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
           ),
           Container(
             padding: const EdgeInsets.only(top: 16, left: 16, bottom: 16),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: colorGrey100,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16),
                 topRight: Radius.circular(16),
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Color(0x33000000),
-                  blurRadius: 20,
-                  offset: Offset(0, 0),
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 10,
+                  offset: const Offset(0, 0),
                   spreadRadius: 0,
                 ),
               ],

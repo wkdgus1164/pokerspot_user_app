@@ -73,6 +73,7 @@ extension _StoreModelMapperExtension on StoreDto {
       addressDetail: addressDetail,
       openTime: openTime,
       closeTime: closeTime,
+      kakaoChatUrl: kakaoChatUrl,
       phone: phone,
       distance: distance,
       lat: lat,

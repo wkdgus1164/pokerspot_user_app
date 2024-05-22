@@ -24,6 +24,7 @@ mixin _$StoreModel {
   String? get addressDetail => throw _privateConstructorUsedError;
   String? get openTime => throw _privateConstructorUsedError;
   String? get closeTime => throw _privateConstructorUsedError;
+  String? get kakaoChatUrl => throw _privateConstructorUsedError;
   double? get distance => throw _privateConstructorUsedError;
   double? get lat => throw _privateConstructorUsedError;
   double? get lng => throw _privateConstructorUsedError;
@@ -50,6 +51,7 @@ abstract class $StoreModelCopyWith<$Res> {
       String? addressDetail,
       String? openTime,
       String? closeTime,
+      String? kakaoChatUrl,
       double? distance,
       double? lat,
       double? lng,
@@ -78,6 +80,7 @@ class _$StoreModelCopyWithImpl<$Res, $Val extends StoreModel>
     Object? addressDetail = freezed,
     Object? openTime = freezed,
     Object? closeTime = freezed,
+    Object? kakaoChatUrl = freezed,
     Object? distance = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
@@ -116,6 +119,10 @@ class _$StoreModelCopyWithImpl<$Res, $Val extends StoreModel>
       closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kakaoChatUrl: freezed == kakaoChatUrl
+          ? _value.kakaoChatUrl
+          : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       distance: freezed == distance
           ? _value.distance
@@ -158,6 +165,7 @@ abstract class _$$StoreModelImplCopyWith<$Res>
       String? addressDetail,
       String? openTime,
       String? closeTime,
+      String? kakaoChatUrl,
       double? distance,
       double? lat,
       double? lng,
@@ -184,6 +192,7 @@ class __$$StoreModelImplCopyWithImpl<$Res>
     Object? addressDetail = freezed,
     Object? openTime = freezed,
     Object? closeTime = freezed,
+    Object? kakaoChatUrl = freezed,
     Object? distance = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
@@ -223,6 +232,10 @@ class __$$StoreModelImplCopyWithImpl<$Res>
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
               as String?,
+      kakaoChatUrl: freezed == kakaoChatUrl
+          ? _value.kakaoChatUrl
+          : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
@@ -259,6 +272,7 @@ class _$StoreModelImpl implements _StoreModel {
       required this.addressDetail,
       required this.openTime,
       required this.closeTime,
+      required this.kakaoChatUrl,
       required this.distance,
       required this.lat,
       required this.lng,
@@ -283,6 +297,8 @@ class _$StoreModelImpl implements _StoreModel {
   final String? openTime;
   @override
   final String? closeTime;
+  @override
+  final String? kakaoChatUrl;
   @override
   final double? distance;
   @override
@@ -311,7 +327,7 @@ class _$StoreModelImpl implements _StoreModel {
 
   @override
   String toString() {
-    return 'StoreModel(id: $id, type: $type, name: $name, phone: $phone, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMTTItems: $gameMTTItems)';
+    return 'StoreModel(id: $id, type: $type, name: $name, phone: $phone, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, kakaoChatUrl: $kakaoChatUrl, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, gameMTTItems: $gameMTTItems)';
   }
 
   @override
@@ -330,6 +346,8 @@ class _$StoreModelImpl implements _StoreModel {
                 other.openTime == openTime) &&
             (identical(other.closeTime, closeTime) ||
                 other.closeTime == closeTime) &&
+            (identical(other.kakaoChatUrl, kakaoChatUrl) ||
+                other.kakaoChatUrl == kakaoChatUrl) &&
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
             (identical(other.lat, lat) || other.lat == lat) &&
@@ -351,6 +369,7 @@ class _$StoreModelImpl implements _StoreModel {
       addressDetail,
       openTime,
       closeTime,
+      kakaoChatUrl,
       distance,
       lat,
       lng,
@@ -374,6 +393,7 @@ abstract class _StoreModel implements StoreModel {
       required final String? addressDetail,
       required final String? openTime,
       required final String? closeTime,
+      required final String? kakaoChatUrl,
       required final double? distance,
       required final double? lat,
       required final double? lng,
@@ -396,6 +416,8 @@ abstract class _StoreModel implements StoreModel {
   String? get openTime;
   @override
   String? get closeTime;
+  @override
+  String? get kakaoChatUrl;
   @override
   double? get distance;
   @override

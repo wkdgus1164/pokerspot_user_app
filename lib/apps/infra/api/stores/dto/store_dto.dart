@@ -49,6 +49,7 @@ class StoreDto with _$StoreDto {
     required String? addressDetail,
     required String? openTime,
     required String? closeTime,
+    required String? kakaoChatUrl,
     required String? phone,
     required double distance,
     required double lat,
