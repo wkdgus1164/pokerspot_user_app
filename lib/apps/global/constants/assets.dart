@@ -31,6 +31,7 @@ enum Assets {
 
   kakao('$assetPath/kakao.svg'),
   apple('$assetPath/apple.svg'),
+  appleMaps('$assetPath/apple_maps.svg'),
   marker('$assetPath/marker.png'),
   kakaonavi('$assetPath/kakaonavi.svg'),
   kakaomap('$assetPath/kakaomap.png'),
