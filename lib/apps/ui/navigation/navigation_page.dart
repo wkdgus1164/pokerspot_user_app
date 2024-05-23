@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/navigation/helper.dart';
 
 class NavigationPage extends StatefulHookConsumerWidget {
@@ -10,7 +12,6 @@ class NavigationPage extends StatefulHookConsumerWidget {
 }
 
 class _NavigationPageState extends ConsumerState<NavigationPage> {
-  final PageController _pageViewController = PageController();
   int currentPageIndex = 0;
 
   @override
@@ -21,23 +22,18 @@ class _NavigationPageState extends ConsumerState<NavigationPage> {
         items: NavigationHelper().getBottomNavigationItems(),
         onTap: _handleMenuIndexChange,
       ),
-      body: PageView(
-        controller: _pageViewController,
-        physics: const BouncingScrollPhysics(),
-        allowImplicitScrolling: true,
-        onPageChanged: _handleMenuIndexChange,
-        children: NavigationHelper().pages,
-      ),
+      body: NavigationHelper().pages[currentPageIndex],
     );
   }
 
   void _handleMenuIndexChange(int index) {
-    _pageViewController.jumpToPage(index);
-    _pageViewController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 600),
-      curve: Curves.bounceInOut,
-    );
-    setState(() => currentPageIndex = index);
+    if (index == 1) {
+      context.push(CustomRouter.search.path);
+      return;
+    }
+
+    setState(() {
+      currentPageIndex = index;
+    });
   }
 }

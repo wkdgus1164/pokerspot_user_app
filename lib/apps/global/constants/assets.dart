@@ -35,6 +35,7 @@ enum Assets {
   marker('$assetPath/marker.png'),
   kakaonavi('$assetPath/kakaonavi.svg'),
   kakaomap('$assetPath/kakaomap.png'),
+  searchPrefix('$assetPath/search_prefix.svg'),
   ;
 
   const Assets(this.path);
