@@ -4,14 +4,27 @@ part 'search_dto.freezed.dart';
 part 'search_dto.g.dart';
 
 @freezed
-class SearchDto with _$SearchDto {
-  factory SearchDto({
-    required double id,
-    required String name,
-  }) = _SearchDto;
+class SearchResultListDto with _$SearchResultListDto {
+  factory SearchResultListDto({
+    required String search_term,
+    required List<SearchResultDto> results,
+  }) = _SearchResultListDto;
 
-  factory SearchDto.fromJson(
+  factory SearchResultListDto.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$SearchDtoFromJson(json);
+      _$SearchResultListDtoFromJson(json);
+}
+
+@freezed
+class SearchResultDto with _$SearchResultDto {
+  factory SearchResultDto({
+    required int position,
+    required String url,
+    required String title,
+    required String description,
+  }) = _SearchResultDto;
+
+  factory SearchResultDto.fromJson(Map<String, dynamic> json) =>
+      _$SearchResultDtoFromJson(json);
 }

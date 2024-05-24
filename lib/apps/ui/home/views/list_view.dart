@@ -1,12 +1,16 @@
+import 'package:drift/drift.dart' as d;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
+import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -71,7 +75,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                     closeTime: data[index].closeTime ?? "",
                     distance: data[index].distance ?? 0.0,
                     storeGames: data[index].gameMTTItems ?? [],
-                    handleClick: () => _handleClick(data[index].id),
+                    handleClick: () => _handleClick(model: data[index]),
                   );
                 },
                 separatorBuilder: (context, index) =>
@@ -114,10 +118,23 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
     _refreshController.refreshCompleted();
   }
 
-  void _handleClick(String id) {
+  void _handleClick({required StoreModel model}) {
+    final target = ref.read(recentSearchDataProvider.notifier).find(model.id);
+
+    if (target == null) {
+      ref.read(recentSearchDaoProvider).insert(
+            RecentSearchEntityCompanion(
+              id: d.Value(model.id),
+              name: d.Value(model.name!),
+              createdAt: d.Value(DateTime.now()),
+            ),
+          );
+    }
+
+    ref.invalidate(recentSearchDataProvider);
     context.pushNamed(
       CustomRouter.store.name,
-      pathParameters: {"id": id},
+      pathParameters: {"id": model.id},
     );
   }
 }

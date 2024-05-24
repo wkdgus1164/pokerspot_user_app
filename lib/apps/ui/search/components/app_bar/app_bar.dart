@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 
@@ -9,9 +8,11 @@ class SearchAppBar extends StatelessWidget {
   const SearchAppBar({
     super.key,
     required this.handleKeywordInputChanged,
+    required this.handleBackButtonClick,
   });
 
   final Function(String?) handleKeywordInputChanged;
+  final Function() handleBackButtonClick;
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +31,14 @@ class SearchAppBar extends StatelessWidget {
         children: [
           IconButton(
             icon: const Icon(Icons.arrow_back_rounded),
-            onPressed: () => context.pop(),
+            onPressed: handleBackButtonClick,
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                    ),
+                    padding: const EdgeInsets.only(left: 16),
                     decoration: BoxDecoration(
                       color: colorGrey98,
                       borderRadius: BorderRadius.circular(8),
@@ -53,7 +52,7 @@ class SearchAppBar extends StatelessWidget {
                             BlendMode.srcIn,
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        const SizedBox(width: 16),
                         Expanded(
                           child: TextField(
                             autofocus: true,
@@ -87,7 +86,7 @@ class SearchAppBar extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       hintText: '매장명을 검색해보세요.',
       hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-            color: colorGrey60,
+            color: colorGrey80,
             height: 1,
           ),
       border: InputBorder.none,

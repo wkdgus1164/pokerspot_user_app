@@ -1,10 +1,14 @@
+import 'package:drift/drift.dart' as d;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/nearby_store_item.dart';
+import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
 
 class NearbyStoresView extends StatefulHookConsumerWidget {
@@ -45,7 +49,8 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
                 return NearbyStoreItem(
                   name: data[index].name ?? "",
                   distance: data[index].distance ?? 0,
-                  handleClick: () => _handleNearbyStoreClick(data[index].id),
+                  handleClick: () =>
+                      _handleNearbyStoreClick(model: data[index]),
                 );
               },
               separatorBuilder: (context, index) => const Divider(),
@@ -79,10 +84,23 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
     );
   }
 
-  void _handleNearbyStoreClick(String storeId) {
+  void _handleNearbyStoreClick({required StoreModel model}) {
+    final target = ref.read(recentSearchDataProvider.notifier).find(model.id);
+
+    if (target == null) {
+      ref.read(recentSearchDaoProvider).insert(
+            RecentSearchEntityCompanion(
+              id: d.Value(model.id),
+              name: d.Value(model.name!),
+              createdAt: d.Value(DateTime.now()),
+            ),
+          );
+    }
+
+    ref.invalidate(recentSearchDataProvider);
     context.pushNamed(
       CustomRouter.store.name,
-      pathParameters: {"id": storeId},
+      pathParameters: {"id": model.id},
     );
   }
 }
