@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 
 class StoreDetailHeader extends StatelessWidget {
   const StoreDetailHeader({
@@ -15,10 +16,6 @@ class StoreDetailHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final distanceText = double.parse(distance.toString()) < 1000
-        ? '${distance.toStringAsFixed(0)}m 주변에 있어요.'
-        : '${(double.parse(distance.toString()) / 1000).toStringAsFixed(2)}km 주변에 있어요.';
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -61,7 +58,7 @@ class StoreDetailHeader extends StatelessWidget {
                     size: 14,
                   ),
                   Text(
-                    distanceText,
+                    '${Utils().getFormattedDistance(distance: distance)} 주변에 있어요.',
                     style: Theme.of(context).textTheme.labelMedium!.copyWith(
                           color: colorGrey60,
                         ),

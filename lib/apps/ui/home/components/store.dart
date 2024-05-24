@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/captions/image_load_failed.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
@@ -34,10 +35,6 @@ class HomeStore extends StatelessWidget {
     final openTimeCalculated = int.parse(openTime.substring(0, 2)) > 12
         ? '오후 ${int.parse(openTime.substring(0, 2)) - 12}'
         : '오후 ${int.parse(openTime.substring(0, 2))}';
-
-    final distanceText = distance < 1000
-        ? '${distance.toStringAsFixed(0)}m 주변에 있어요.'
-        : '${(distance / 1000).toStringAsFixed(2)}km 주변에 있어요.';
 
     return GestureDetector(
       onTap: handleClick,
@@ -95,7 +92,7 @@ class HomeStore extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        distanceText,
+                        '${Utils().getFormattedDistance(distance: distance)} 주변에 있어요.',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               color: Colors.white,
                             ),

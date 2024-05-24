@@ -26,4 +26,11 @@ class Utils {
       return;
     }
   }
+
+  /// [distance] 미터 단위의 거리
+  String getFormattedDistance({required double distance}) {
+    return distance < 1000
+        ? '${distance.toStringAsFixed(0)}m'
+        : '${(distance / 1000).toStringAsFixed(2)}km';
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
@@ -56,18 +57,8 @@ class SearchAppBar extends StatelessWidget {
                         Expanded(
                           child: TextField(
                             autofocus: true,
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.zero,
-                              hintText: '매장명을 검색해보세요.',
-                              hintStyle: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    color: colorGrey60,
-                                    height: 1,
-                                  ),
-                              border: InputBorder.none,
-                            ),
+                            inputFormatters: _textFieldInputFormatters,
+                            decoration: _textFieldDecoration(context),
                             maxLines: 1,
                             onChanged: handleKeywordInputChanged,
                           ),
@@ -81,6 +72,25 @@ class SearchAppBar extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  List<TextInputFormatter> get _textFieldInputFormatters {
+    return [
+      FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Zㄱ-ㅎ가-힣]')),
+      FilteringTextInputFormatter.deny(RegExp(r'[!@#$%^&*(),.?":{}|<>]')),
+    ];
+  }
+
+  InputDecoration _textFieldDecoration(BuildContext context) {
+    return InputDecoration(
+      contentPadding: EdgeInsets.zero,
+      hintText: '매장명을 검색해보세요.',
+      hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+            color: colorGrey60,
+            height: 1,
+          ),
+      border: InputBorder.none,
     );
   }
 }
