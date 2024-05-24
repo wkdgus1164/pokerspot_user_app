@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/ui/area/area_page.dart';
 import 'package:pokerspot_user_app/apps/ui/home/home_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/main/my_page.dart';
 
@@ -35,7 +36,7 @@ class NavigationHelper {
   List<Widget> pages = [
     const HomePage(),
     Container(),
-    const HomePage(),
+    const AreaPage(),
     const MyPage(),
   ];
 
