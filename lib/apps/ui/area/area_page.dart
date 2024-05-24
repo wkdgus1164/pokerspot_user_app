@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokerspot_user_app/apps/ui/area/components/main_category.dart';
-import 'package:pokerspot_user_app/apps/ui/area/components/sub_category.dart';
+import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/ui/area/providers/area_data.dart';
+import 'package:pokerspot_user_app/apps/ui/area/providers/area_service.dart';
+import 'package:pokerspot_user_app/apps/ui/area/views/main_category_vac.dart';
+import 'package:pokerspot_user_app/apps/ui/area/views/sub_category_view.dart';
 
 class AreaPage extends StatefulHookConsumerWidget {
   const AreaPage({super.key});
@@ -19,38 +22,17 @@ class _AreaPageState extends ConsumerState<AreaPage> {
       ),
       body: Row(
         children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.4,
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return AreaMainCategory(
-                  text: '서울',
-                  isSelected: true,
-                  handleClick: () {},
-                );
-              },
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: 20,
-            ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.6,
-            color: Colors.transparent,
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return AreaSubCategory(
-                  text: '강남구',
-                  handleClick: () {},
-                );
-              },
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: 20,
-            ),
-          ),
+          AreaMainCategoryVac(handleCityClick: _handleCityClick),
+          const AreaSubCategoryView(),
         ],
       ),
     );
+  }
+
+  void _handleCityClick(String cityCode) {
+    final newCityCode = '${cityCode.substring(0, 2)}*00000';
+    Logger().i('newCityCode : $newCityCode');
+    ref.read(areaProvider.notifier).setCityCode(cityCode: newCityCode);
+    ref.invalidate(areaServiceProvider);
   }
 }
