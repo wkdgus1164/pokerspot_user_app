@@ -14,16 +14,16 @@ class AreaMainCategoryVac extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
+        separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, index) {
           return AreaMainCategory(
             text: regcodes[index].entries.last.value,
-            isSelected: true,
+            isSelected: false,
             handleClick: () => handleCityClick(
               regcodes[index].entries.first.value,
             ),
           );
         },
-        separatorBuilder: (context, index) => const Divider(),
         itemCount: regcodes.length,
       ),
     );

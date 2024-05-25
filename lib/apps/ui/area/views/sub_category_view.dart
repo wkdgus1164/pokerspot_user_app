@@ -22,15 +22,15 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
         Logger().i('data : $data');
         return Container(
           width: MediaQuery.of(context).size.width * 0.6,
-          color: Colors.transparent,
+          color: Colors.white,
           child: ListView.separated(
+            separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
               return AreaSubCategory(
                 text: data[index].name,
                 handleClick: () {},
               );
             },
-            separatorBuilder: (context, index) => const Divider(),
             itemCount: data.length,
           ),
         );
@@ -49,21 +49,5 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
         );
       },
     );
-
-    // return Container(
-    //   width: MediaQuery.of(context).size.width * 0.6,
-    //   color: Colors.transparent,
-    //   child: ListView.separated(
-    //     shrinkWrap: true,
-    //     itemBuilder: (context, index) {
-    //       return AreaSubCategory(
-    //         text: areaModel[index].name,
-    //         handleClick: handleClick,
-    //       );
-    //     },
-    //     separatorBuilder: (context, index) => const Divider(),
-    //     itemCount: areaModel.length,
-    //   ),
-    // );
   }
 }

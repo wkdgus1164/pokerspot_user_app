@@ -17,14 +17,9 @@ class AreaMainCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: handleClick,
-      splashColor: colorBrand95,
+      splashColor: colorGrey95,
       child: Ink(
         decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: isSelected ? colorBrand80 : colorGrey95,
-            ),
-          ),
           gradient: isSelected
               ? LinearGradient(
                   colors: [
@@ -34,18 +29,26 @@ class AreaMainCategory extends StatelessWidget {
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                 )
-              : null,
-        ),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  fontWeight: FontWeight.normal,
-                  color: isSelected ? colorBrand20 : colorGrey60,
+              : const LinearGradient(
+                  colors: [colorGrey98, colorGrey98],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
                 ),
-          ),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                text,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: isSelected ? colorBrand20 : colorGrey60,
+                    ),
+              ),
+            ),
+            const Divider(color: colorGrey95),
+          ],
         ),
       ),
     );
