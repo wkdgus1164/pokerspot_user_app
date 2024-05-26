@@ -17,7 +17,7 @@ class AreaMainCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: handleClick,
-      splashColor: colorGrey95,
+      splashColor: colorBrand95,
       child: Ink(
         decoration: BoxDecoration(
           gradient: isSelected

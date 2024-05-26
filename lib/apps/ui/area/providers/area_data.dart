@@ -7,6 +7,7 @@ part 'area_data.freezed.dart';
 @freezed
 class AreaModel with _$AreaModel {
   factory AreaModel({
+    @Default("서울특별시") String cityName,
     @Default("11*00000") String regcodePattern,
   }) = _AreaDataModel;
 
@@ -22,6 +23,11 @@ class Area extends _$Area {
 
   void setCityCode({required String cityCode}) {
     state = state.copyWith(regcodePattern: cityCode);
+    ref.keepAlive();
+  }
+
+  void setCityName({required String cityName}) {
+    state = state.copyWith(cityName: cityName);
     ref.keepAlive();
   }
 }

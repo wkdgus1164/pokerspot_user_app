@@ -47,19 +47,11 @@ class _State extends ConsumerState<PermissionPage> {
         },
       );
     }
-    if (await Geolocator.checkPermission() == LocationPermission.denied) {
-      _routeHomePage();
-    }
-    if (await Geolocator.checkPermission() == LocationPermission.whileInUse) {
-      _routeHomePage();
-    }
-    if (await Geolocator.checkPermission() == LocationPermission.always) {
-      _routeHomePage();
-    }
-    await Geolocator.requestPermission();
+    _routeHomePage();
   }
 
-  void _routeHomePage() {
+  void _routeHomePage() async {
+    await Geolocator.requestPermission();
     context.go(CustomRouter.main.path);
   }
 }

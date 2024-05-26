@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AreaModel {
+  String get cityName => throw _privateConstructorUsedError;
   String get regcodePattern => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -28,7 +29,7 @@ abstract class $AreaModelCopyWith<$Res> {
   factory $AreaModelCopyWith(AreaModel value, $Res Function(AreaModel) then) =
       _$AreaModelCopyWithImpl<$Res, AreaModel>;
   @useResult
-  $Res call({String regcodePattern});
+  $Res call({String cityName, String regcodePattern});
 }
 
 /// @nodoc
@@ -44,9 +45,14 @@ class _$AreaModelCopyWithImpl<$Res, $Val extends AreaModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? cityName = null,
     Object? regcodePattern = null,
   }) {
     return _then(_value.copyWith(
+      cityName: null == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
       regcodePattern: null == regcodePattern
           ? _value.regcodePattern
           : regcodePattern // ignore: cast_nullable_to_non_nullable
@@ -63,7 +69,7 @@ abstract class _$$AreaDataModelImplCopyWith<$Res>
       __$$AreaDataModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String regcodePattern});
+  $Res call({String cityName, String regcodePattern});
 }
 
 /// @nodoc
@@ -77,9 +83,14 @@ class __$$AreaDataModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? cityName = null,
     Object? regcodePattern = null,
   }) {
     return _then(_$AreaDataModelImpl(
+      cityName: null == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
       regcodePattern: null == regcodePattern
           ? _value.regcodePattern
           : regcodePattern // ignore: cast_nullable_to_non_nullable
@@ -91,15 +102,20 @@ class __$$AreaDataModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AreaDataModelImpl extends _AreaDataModel {
-  _$AreaDataModelImpl({this.regcodePattern = "11*00000"}) : super._();
+  _$AreaDataModelImpl(
+      {this.cityName = "서울특별시", this.regcodePattern = "11*00000"})
+      : super._();
 
+  @override
+  @JsonKey()
+  final String cityName;
   @override
   @JsonKey()
   final String regcodePattern;
 
   @override
   String toString() {
-    return 'AreaModel(regcodePattern: $regcodePattern)';
+    return 'AreaModel(cityName: $cityName, regcodePattern: $regcodePattern)';
   }
 
   @override
@@ -107,12 +123,14 @@ class _$AreaDataModelImpl extends _AreaDataModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AreaDataModelImpl &&
+            (identical(other.cityName, cityName) ||
+                other.cityName == cityName) &&
             (identical(other.regcodePattern, regcodePattern) ||
                 other.regcodePattern == regcodePattern));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, regcodePattern);
+  int get hashCode => Object.hash(runtimeType, cityName, regcodePattern);
 
   @JsonKey(ignore: true)
   @override
@@ -122,9 +140,12 @@ class _$AreaDataModelImpl extends _AreaDataModel {
 }
 
 abstract class _AreaDataModel extends AreaModel {
-  factory _AreaDataModel({final String regcodePattern}) = _$AreaDataModelImpl;
+  factory _AreaDataModel({final String cityName, final String regcodePattern}) =
+      _$AreaDataModelImpl;
   _AreaDataModel._() : super._();
 
+  @override
+  String get cityName;
   @override
   String get regcodePattern;
   @override
