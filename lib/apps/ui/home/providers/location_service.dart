@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/infra/api/third_party/kakao_map/kakao_map_api.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/geolocation_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'location_service.freezed.dart';
@@ -26,22 +27,30 @@ class LocationService extends _$LocationService {
       Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.best,
         timeLimit: const Duration(seconds: 10),
+        forceAndroidLocationManager: true,
       );
 
+      ref
+          .read(geoLocationServiceProvider.notifier)
+          .setLatitude(position.latitude);
+
+      ref
+          .read(geoLocationServiceProvider.notifier)
+          .setLongitude(position.longitude);
+
       final address = await ref.read(kakaoMapApiProvider).fetchAddressName(
-            position.longitude,
-            position.latitude,
+            ref.read(geoLocationServiceProvider).longitude,
+            ref.read(geoLocationServiceProvider).latitude,
           );
 
-      Logger().i('''
-LocationService
-  position: $position
-  address: $address''');
+      Logger().i('Address: ${address.documents[0]?.address.address_name}');
+      Logger().i('Location: ${position.latitude}, ${position.longitude}');
 
       return LocationModel(
         latitude: position.latitude,
         longitude: position.longitude,
-        address: address.documents.firstOrNull?.address.address_name ?? "",
+        address:
+            address.documents.firstOrNull?.address.address_name ?? "현위치 정보 없음",
       );
     } catch (e, s) {
       Logger().e('LocationService', error: e, stackTrace: s);

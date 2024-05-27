@@ -6,7 +6,7 @@ import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_open_time.dart';
 import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/geolocation_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'store.g.dart';
@@ -19,14 +19,6 @@ class StoresItems extends _$StoresItems {
   }
 
   Future<List<StoreModel>> _fetch() async {
-    final locationModel = ref.read(locationServiceProvider);
-    if (locationModel.asData?.value.latitude == null ||
-        locationModel.asData?.value.longitude == null) {
-      throw Exception('Location is not available');
-    }
-
-    final latitude = locationModel.asData!.value.latitude;
-    final longitude = locationModel.asData!.value.longitude;
     final operationStatus =
         ref.read(filterByOperationStatusProvider).operationStatus;
 
@@ -41,8 +33,8 @@ class StoresItems extends _$StoresItems {
 
     final res = await ref.read(storesApiProvider).fetchStores(
           StoresQuery(
-            lat: latitude,
-            lng: longitude,
+            lat: ref.read(geoLocationServiceProvider).latitude,
+            lng: ref.read(geoLocationServiceProvider).longitude,
             perPage: 50,
             operationStatus: operationStatus,
             minOpenTime: getStringTime(minOpenTime),

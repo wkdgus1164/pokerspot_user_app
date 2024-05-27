@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
@@ -32,5 +33,13 @@ class Utils {
     return distance < 1000
         ? '${distance.toStringAsFixed(0)}m'
         : '${(distance / 1000).toStringAsFixed(2)}km';
+  }
+
+  Future<Position> getCurrentPosition() async {
+    return await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.best,
+      timeLimit: const Duration(seconds: 10),
+      forceAndroidLocationManager: true,
+    );
   }
 }
