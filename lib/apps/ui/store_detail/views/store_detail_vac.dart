@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
@@ -35,29 +34,31 @@ class StoreDetailVac extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: SmartRefresher(
-            controller: refreshController,
-            enablePullDown: true,
-            onRefresh: handleRefresh,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // 이미지
-                  StoreDetailImageSwiper(images: data.storeImages ?? []),
+    return SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            child: SmartRefresher(
+              controller: refreshController,
+              enablePullDown: true,
+              onRefresh: handleRefresh,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // 이미지
+                    StoreDetailImageSwiper(images: data.storeImages ?? []),
 
-                  // 일반 정보
-                  _buildInformation(context),
-                ],
+                    // 일반 정보
+                    _buildInformation(context),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-        _buildFooter(),
-      ],
+          _buildFooter(),
+        ],
+      ),
     );
   }
 

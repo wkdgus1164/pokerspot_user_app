@@ -17,27 +17,29 @@ class HomeSearchFilterSheet extends StatefulHookConsumerWidget {
 class _HomeSearchFilterSheetState extends ConsumerState<HomeSearchFilterSheet> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
-      child: const Wrap(
-        runSpacing: 32,
-        children: [
-          // 운영 상태
-          FilterByOperationStatusView(),
+    return SafeArea(
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(16),
+        child: const Wrap(
+          runSpacing: 32,
+          children: [
+            // 운영 상태
+            FilterByOperationStatusView(),
 
-          // 스타트 시간
-          FilterByOpenTimeView(),
+            // 스타트 시간
+            FilterByOpenTimeView(),
 
-          // 게임
-          FilterByGameTypeView(),
+            // 게임
+            FilterByGameTypeView(),
 
-          // 참가비
-          FilterByEntryPriecView(),
+            // 참가비
+            FilterByEntryPriecView(),
 
-          // 버튼 그룹
-          FilterButtonGroupView(),
-        ],
+            // 버튼 그룹
+            FilterButtonGroupView(),
+          ],
+        ),
       ),
     );
   }
