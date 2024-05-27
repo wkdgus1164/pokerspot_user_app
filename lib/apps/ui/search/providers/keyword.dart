@@ -30,6 +30,7 @@ class SearchKeyword extends _$SearchKeyword {
   }
 
   void clearSearchKeyword() {
+    Logger().i('Keyword clear');
     state = state.copyWith(keyword: "");
   }
 }

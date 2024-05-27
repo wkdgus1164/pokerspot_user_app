@@ -2,7 +2,6 @@ enum Secret {
   // servers
   mainServerOrigin('https://api.pokerspot.co.kr'),
   kakaomapServerOrigin('https://dapi.kakao.com'),
-  rapidapiServerOrigin('https://google-search74.p.rapidapi.com'),
   areaServerOrigin('https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app'),
 
   // third party

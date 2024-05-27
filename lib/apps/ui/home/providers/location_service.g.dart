@@ -6,7 +6,7 @@ part of 'location_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$locationServiceHash() => r'a092b04a15394b42d8de61c24171bf86a106825e';
+String _$locationServiceHash() => r'462fd316beabc38a0c6410e36cabe3ed3d01e787';
 
 /// See also [LocationService].
 @ProviderFor(LocationService)

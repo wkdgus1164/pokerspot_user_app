@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:drift/drift.dart' as d;
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/search_result_item.dart';
+import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
+import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/search.dart';
 import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
 
@@ -29,8 +34,9 @@ class _SearchResultListState extends ConsumerState<SearchResultList> {
             itemCount: data.length,
             itemBuilder: (context, index) {
               return SearchResultItem(
-                name: data[index].title,
-                handleClick: _routeToStoreDetail,
+                name: data[index].name ?? '',
+                handleClick: () => _routeToStoreDetail(model: data[index]),
+                distance: data[index].distance ?? 0.0,
               );
             },
           ),
@@ -66,10 +72,22 @@ class _SearchResultListState extends ConsumerState<SearchResultList> {
     );
   }
 
-  void _routeToStoreDetail() {
+  void _routeToStoreDetail({required StoreModel model}) {
+    final target = ref.read(recentSearchDataProvider.notifier).find(model.id);
+
+    if (target == null) {
+      ref.read(recentSearchDaoProvider).insert(
+            RecentSearchEntityCompanion(
+              id: d.Value(model.id),
+              name: d.Value(model.name!),
+              createdAt: d.Value(DateTime.now()),
+            ),
+          );
+    }
+    ref.read(searchKeywordProvider.notifier).clearSearchKeyword();
     context.pushNamed(
       CustomRouter.store.name,
-      extra: {'id': '9a9a5ca1-383e-42ea-938f-33ca96e2336d'},
+      pathParameters: {"id": model.id},
     );
   }
 }

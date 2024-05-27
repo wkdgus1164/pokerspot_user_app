@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/infra/api/third_party/kakao_map/kakao_map_api.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/geolocation_service.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/geolocation_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'location_service.freezed.dart';
@@ -47,8 +47,8 @@ class LocationService extends _$LocationService {
       Logger().i('Location: ${position.latitude}, ${position.longitude}');
 
       return LocationModel(
-        latitude: position.latitude,
-        longitude: position.longitude,
+        latitude: ref.read(geoLocationServiceProvider).latitude,
+        longitude: ref.read(geoLocationServiceProvider).longitude,
         address:
             address.documents.firstOrNull?.address.address_name ?? "현위치 정보 없음",
       );

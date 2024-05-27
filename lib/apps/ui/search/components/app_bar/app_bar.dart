@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
@@ -56,7 +55,6 @@ class SearchAppBar extends StatelessWidget {
                         Expanded(
                           child: TextField(
                             autofocus: true,
-                            inputFormatters: _textFieldInputFormatters,
                             decoration: _textFieldDecoration(context),
                             maxLines: 1,
                             onChanged: handleKeywordInputChanged,
@@ -72,13 +70,6 @@ class SearchAppBar extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  List<TextInputFormatter> get _textFieldInputFormatters {
-    return [
-      FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Zㄱ-ㅎ가-힣]')),
-      FilteringTextInputFormatter.deny(RegExp(r'[!@#$%^&*(),.?":{}|<>]')),
-    ];
   }
 
   InputDecoration _textFieldDecoration(BuildContext context) {

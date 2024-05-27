@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'geolocation_service.g.dart';
-part 'geolocation_service.freezed.dart';
+part 'geolocation_data.g.dart';
+part 'geolocation_data.freezed.dart';
 
 @freezed
 class GeoLocationModel with _$GeoLocationModel {

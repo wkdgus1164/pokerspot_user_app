@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 
 class SearchResultItem extends StatelessWidget {
   const SearchResultItem({
     super.key,
     required this.name,
     required this.handleClick,
+    required this.distance,
   });
 
   final String name;
   final Function() handleClick;
+  final double distance;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +38,12 @@ class SearchResultItem extends StatelessWidget {
           colorGrey70,
           BlendMode.srcIn,
         ),
+      ),
+      trailing: Text(
+        Utils().getFormattedDistance(distance: distance),
+        style: Theme.of(context).textTheme.labelLarge!.copyWith(
+              color: colorGrey60,
+            ),
       ),
     );
   }

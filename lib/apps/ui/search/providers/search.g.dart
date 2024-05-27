@@ -6,12 +6,12 @@ part of 'search.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$searchResultHash() => r'7b9a2aac54da0f651a7d4d31e87cc4a63a9bbbd6';
+String _$searchResultHash() => r'22668f39f489ead64fa5d4245c3f134b00fa2531';
 
 /// See also [SearchResult].
 @ProviderFor(SearchResult)
-final searchResultProvider = AutoDisposeAsyncNotifierProvider<SearchResult,
-    List<SearchResultModel>>.internal(
+final searchResultProvider =
+    AutoDisposeAsyncNotifierProvider<SearchResult, List<StoreModel>>.internal(
   SearchResult.new,
   name: r'searchResultProvider',
   debugGetCreateSourceHash:
@@ -20,6 +20,6 @@ final searchResultProvider = AutoDisposeAsyncNotifierProvider<SearchResult,
   allTransitiveDependencies: null,
 );
 
-typedef _$SearchResult = AutoDisposeAsyncNotifier<List<SearchResultModel>>;
+typedef _$SearchResult = AutoDisposeAsyncNotifier<List<StoreModel>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

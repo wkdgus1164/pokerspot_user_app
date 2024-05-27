@@ -2,7 +2,7 @@ import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/geolocation_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'store.g.dart';
@@ -15,20 +15,11 @@ class StoreData extends _$StoreData {
   }
 
   Future<StoreModel> _fetch({required String id}) async {
-    final locationModel = ref.read(locationServiceProvider);
-    if (locationModel.asData?.value.latitude == null ||
-        locationModel.asData?.value.longitude == null) {
-      throw Exception('Location is not available');
-    }
-
-    final latitude = locationModel.asData!.value.latitude;
-    final longitude = locationModel.asData!.value.longitude;
-
     final res = await ref.read(storesApiProvider).fetchStoreDetail(
           id,
           StoreQuery(
-            lat: latitude,
-            lng: longitude,
+            lat: ref.read(geoLocationServiceProvider).latitude,
+            lng: ref.read(geoLocationServiceProvider).longitude,
           ),
         );
 
