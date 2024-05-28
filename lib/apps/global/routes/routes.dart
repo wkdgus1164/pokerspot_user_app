@@ -1,6 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pokerspot_user_app/apps/ui/area_search_list/list_page.dart';
 import 'package:pokerspot_user_app/apps/ui/home/home_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/favorite/favorite_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/info/info_page.dart';
@@ -31,6 +32,7 @@ enum CustomRouter {
   photoView('/photo_view'),
   storeMap('/store_map'),
   search('/search'),
+  areaSearchList('/area_search_list'),
   ;
 
   const CustomRouter(this.path);
@@ -115,6 +117,14 @@ final router = GoRouter(
     GoRoute(
       path: CustomRouter.search.path,
       builder: (context, state) => const SearchPage(),
+    ),
+    GoRoute(
+      path: CustomRouter.areaSearchList.path,
+      name: CustomRouter.areaSearchList.name,
+      builder: (context, state) {
+        final args = state.extra as AreaSearchListPageArguments;
+        return AreaSearchListPage(args: args);
+      },
     ),
   ],
 );

@@ -129,7 +129,10 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
   void _refresh() {
     ref.invalidate(locationServiceProvider);
     ref.invalidate(storesItemsProvider);
-    _refreshController.refreshCompleted();
+
+    Future.delayed(const Duration(seconds: 1), () {
+      _refreshController.refreshCompleted();
+    });
   }
 
   void _handleClick({required StoreModel model}) {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/area/components/sub_category.dart';
 import 'package:pokerspot_user_app/apps/ui/area/providers/area_service.dart';
+import 'package:pokerspot_user_app/apps/ui/area_search_list/list_page.dart';
 
 class AreaSubCategoryView extends StatefulHookConsumerWidget {
   const AreaSubCategoryView({super.key});
@@ -32,6 +35,14 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
                   handleClick: () {
                     Logger().i(data[index].code);
                     Logger().i(data[index].name);
+
+                    context.push(
+                      CustomRouter.areaSearchList.path,
+                      extra: AreaSearchListPageArguments(
+                        areaCode: data[index].code,
+                        areaName: data[index].name,
+                      ),
+                    );
                   },
                 );
               }
@@ -40,6 +51,14 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
                 handleClick: () {
                   Logger().i(data[index].code);
                   Logger().i(data[index].name);
+
+                  context.push(
+                    CustomRouter.areaSearchList.path,
+                    extra: AreaSearchListPageArguments(
+                      areaCode: data[index].code,
+                      areaName: data[index].name,
+                    ),
+                  );
                 },
               );
             },

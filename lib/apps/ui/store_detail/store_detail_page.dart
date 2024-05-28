@@ -118,7 +118,10 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
 
   void _handleRefresh() {
     ref.invalidate(storeDataProvider.call(_storeId));
-    _refreshController.refreshCompleted();
+
+    Future.delayed(const Duration(seconds: 1), () {
+      _refreshController.refreshCompleted();
+    });
   }
 
   String _calculateOpenTime(String? openTime) {
