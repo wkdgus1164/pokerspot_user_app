@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
 import 'package:pokerspot_user_app/apps/ui/search/views/app_bar_view.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/search_result_list.dart';
@@ -18,6 +20,16 @@ class _SearchPageState extends ConsumerState<SearchPage> {
   @override
   Widget build(BuildContext context) {
     final searchKeyword = ref.watch(searchKeywordProvider).keyword;
+    ScrollController scrollController = ScrollController();
+
+    scrollController.addListener(
+      () {
+        if (scrollController.position.pixels ==
+            scrollController.position.maxScrollExtent) {
+          ref.read(storesItemsProvider.notifier).fetchNextData();
+        }
+      },
+    );
 
     Logger().d('Search keyword: $searchKeyword');
 
@@ -27,13 +39,36 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           children: [
             const SearchAppBarView(),
             if (searchKeyword.isEmpty) ...[
-              const Expanded(
+              Expanded(
                 child: SingleChildScrollView(
+                  controller: scrollController,
                   child: Column(
                     children: [
-                      RecentSearchView(),
-                      SizedBox(height: 16),
-                      NearbyStoresView(),
+                      const RecentSearchView(),
+                      const SizedBox(height: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 16,
+                              left: 16,
+                              right: 16,
+                              bottom: 8,
+                            ),
+                            child: Text(
+                              '주변 매장 리스트',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    color: colorGrey40,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const NearbyStoresView(),
                     ],
                   ),
                 ),

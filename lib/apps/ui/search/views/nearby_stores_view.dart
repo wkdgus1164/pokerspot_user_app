@@ -27,38 +27,19 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
     return result.when(
       data: (resData) {
         final data = resData.items;
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 16,
-                left: 16,
-                right: 16,
-                bottom: 8,
-              ),
-              child: Text(
-                '주변 매장 리스트',
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: colorGrey40,
-                    ),
-              ),
-            ),
-            ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return NearbyStoreItem(
-                  name: data?[index].name ?? "",
-                  distance: data?[index].distance ?? 0,
-                  handleClick: () =>
-                      _handleNearbyStoreClick(model: data![index]),
-                );
-              },
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: data?.length ?? 0,
-              shrinkWrap: true,
-            ),
-          ],
+
+        return ListView.separated(
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return NearbyStoreItem(
+              name: data?[index].name ?? "",
+              distance: data?[index].distance ?? 0,
+              handleClick: () => _handleNearbyStoreClick(model: data![index]),
+            );
+          },
+          separatorBuilder: (context, index) => const Divider(),
+          itemCount: data?.length ?? 0,
+          shrinkWrap: true,
         );
       },
       error: (error, _) {

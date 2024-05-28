@@ -1,4 +1,5 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
@@ -110,6 +111,9 @@ class StoresItems extends _$StoresItems {
       if (data == null) return old;
 
       final newItems = data.items.map((e) => e.toModels()).toList();
+
+      Logger().d('New items: $newItems');
+
       return WithOffsetPagination(
         items: items! + newItems,
         page: nextPage,
