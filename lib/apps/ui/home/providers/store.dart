@@ -106,12 +106,6 @@ class StoresItems extends _$StoresItems {
   }
 }
 
-extension _StoresModelMapperExtension on List<StoreDto> {
-  List<StoreModel> toModels() {
-    return map((it) => it.toModels()).toList();
-  }
-}
-
 extension _StoreModelMapperExtension on StoreDto {
   StoreModel toModels() {
     return StoreModel(
