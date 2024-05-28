@@ -16,14 +16,14 @@ class AreaMainCategoryView extends StatefulHookConsumerWidget {
 class _AreaMainCategoryViewState extends ConsumerState<AreaMainCategoryView> {
   @override
   Widget build(BuildContext context) {
+    final area = ref.watch(areaProvider);
+
     return Expanded(
-      child: ListView.separated(
-        separatorBuilder: (context, index) => const Divider(),
+      child: ListView.builder(
         itemBuilder: (context, index) {
           return AreaMainCategory(
             text: regcodes[index].entries.last.value,
-            isSelected: ref.read(areaProvider).cityName ==
-                regcodes[index].entries.last.value,
+            isSelected: area.cityName == regcodes[index].entries.last.value,
             handleClick: () => _handleCityClick(
               regcodes[index].entries.first.value,
               regcodes[index].entries.last.value,

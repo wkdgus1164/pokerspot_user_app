@@ -26,9 +26,21 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
           child: ListView.separated(
             separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
+              if (index == 0) {
+                return AreaSubCategory(
+                  text: '전체',
+                  handleClick: () {
+                    Logger().i(data[index].code);
+                    Logger().i(data[index].name);
+                  },
+                );
+              }
               return AreaSubCategory(
-                text: data[index].name,
-                handleClick: () {},
+                text: data[index].name.split(' ').skip(1).join(' '),
+                handleClick: () {
+                  Logger().i(data[index].code);
+                  Logger().i(data[index].name);
+                },
               );
             },
             itemCount: data.length,

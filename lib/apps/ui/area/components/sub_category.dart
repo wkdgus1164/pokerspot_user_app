@@ -19,11 +19,21 @@ class AreaSubCategory extends StatelessWidget {
       child: Ink(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Text(
-            text,
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: colorGrey50,
-                ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                text,
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: colorGrey50,
+                    ),
+              ),
+              const Icon(
+                Icons.keyboard_arrow_right_rounded,
+                color: colorGrey90,
+                size: 20,
+              ),
+            ],
           ),
         ),
       ),

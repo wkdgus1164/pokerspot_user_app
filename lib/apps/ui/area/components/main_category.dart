@@ -17,23 +17,10 @@ class AreaMainCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: handleClick,
-      splashColor: colorBrand95,
+      splashColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          gradient: isSelected
-              ? LinearGradient(
-                  colors: [
-                    colorBrand80.withOpacity(0.8),
-                    colorBrand95.withOpacity(0.5),
-                  ],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                )
-              : const LinearGradient(
-                  colors: [colorGrey98, colorGrey98],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                ),
+          color: isSelected ? Colors.white : colorGrey98,
         ),
         child: Column(
           children: [
@@ -43,7 +30,7 @@ class AreaMainCategory extends StatelessWidget {
                 text,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: isSelected ? colorBrand20 : colorGrey60,
+                      color: isSelected ? colorGrey20 : colorGrey60,
                     ),
               ),
             ),
