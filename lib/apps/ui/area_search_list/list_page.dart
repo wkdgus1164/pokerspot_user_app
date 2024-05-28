@@ -1,10 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
-import 'package:pokerspot_user_app/apps/ui/search/components/nearby_store_item.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class AreaSearchListPageArguments {
@@ -78,10 +75,8 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
   }
 
   void _refresh() {
-    // 1초 후
     Future.delayed(const Duration(seconds: 1), () {
       refreshController.refreshCompleted();
     });
-    // ref.read(areaSearchListProvider(_args.areaCode).refresh);
   }
 }
