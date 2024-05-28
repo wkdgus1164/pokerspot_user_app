@@ -1,3 +1,4 @@
+import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
@@ -11,14 +12,18 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'store.g.dart';
 
+const double PAGE_SIZE = 10;
+
+typedef Models = WithOffsetPagination<List<StoreModel>?>;
+
 @riverpod
 class StoresItems extends _$StoresItems {
   @override
-  FutureOr<List<StoreModel>> build() async {
+  FutureOr<Models> build() async {
     return _fetch();
   }
 
-  Future<List<StoreModel>> _fetch() async {
+  FutureOr<Models> _fetch() async {
     final operationStatus =
         ref.read(filterByOperationStatusProvider).operationStatus;
 
@@ -35,7 +40,8 @@ class StoresItems extends _$StoresItems {
           StoresQuery(
             lat: ref.read(geoLocationServiceProvider).latitude,
             lng: ref.read(geoLocationServiceProvider).longitude,
-            perPage: 50,
+            page: 1,
+            perPage: PAGE_SIZE,
             operationStatus: operationStatus,
             minOpenTime: getStringTime(minOpenTime),
             maxOpenTime: getStringTime(maxOpenTime),
@@ -45,7 +51,58 @@ class StoresItems extends _$StoresItems {
           ),
         );
 
-    return res.data?.items.toModels() ?? [];
+    return WithOffsetPagination(
+      page: res.data?.page ?? 1,
+      perPage: res.data?.perPage ?? 20,
+      totalPage: res.data?.totalPage ?? 0,
+      totalCount: res.data?.totalCount ?? 0,
+      items: res.data?.items.map((it) => it.toModels()).toList() ?? [],
+    );
+  }
+
+  Future fetchNextData() async {
+    final old = state.requireValue;
+    String getStringTime(int time) => time < 10 ? '0$time:00' : '$time:00';
+
+    final WithOffsetPagination(
+      page: page,
+      perPage: perPage,
+      items: items,
+    ) = old;
+
+    final nextPage = page + 1;
+    state = await AsyncValue.guard(() async {
+      final res = await ref.read(storesApiProvider).fetchStores(
+            StoresQuery(
+              gameType: ref.read(filterByGameTypeProvider).gameType,
+              minEntryPrice: ref.read(filterByEntryPriceProvider).minTicket,
+              maxEntryPrice: ref.read(filterByEntryPriceProvider).maxTicket,
+              minOpenTime:
+                  getStringTime(ref.read(filterByOpenTimeProvider).minTime),
+              maxOpenTime:
+                  getStringTime(ref.read(filterByOpenTimeProvider).maxTime),
+              operationStatus:
+                  ref.read(filterByOperationStatusProvider).operationStatus,
+              lat: ref.read(geoLocationServiceProvider).latitude,
+              lng: ref.read(geoLocationServiceProvider).longitude,
+              page: double.parse(nextPage.toString()),
+              perPage: PAGE_SIZE,
+            ),
+          );
+
+      final data = res.data;
+
+      if (data == null) return old;
+
+      final newItems = data.items.map((e) => e.toModels()).toList();
+      return WithOffsetPagination(
+        items: items! + newItems,
+        page: nextPage,
+        perPage: perPage,
+        totalPage: data.totalPage,
+        totalCount: data.totalCount,
+      );
+    });
   }
 }
 

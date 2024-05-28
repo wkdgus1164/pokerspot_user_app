@@ -10,6 +10,7 @@ _$StoresQueryImpl _$$StoresQueryImplFromJson(Map<String, dynamic> json) =>
     _$StoresQueryImpl(
       lat: (json['lat'] as num).toDouble(),
       lng: (json['lng'] as num).toDouble(),
+      page: (json['page'] as num?)?.toDouble(),
       perPage: (json['perPage'] as num?)?.toDouble(),
       operationStatus: $enumDecodeNullable(
           _$OperationStatusEnumMap, json['operationStatus']),
@@ -24,6 +25,7 @@ Map<String, dynamic> _$$StoresQueryImplToJson(_$StoresQueryImpl instance) =>
     <String, dynamic>{
       'lat': instance.lat,
       'lng': instance.lng,
+      'page': instance.page,
       'perPage': instance.perPage,
       'operationStatus': _$OperationStatusEnumMap[instance.operationStatus],
       'minOpenTime': instance.minOpenTime,

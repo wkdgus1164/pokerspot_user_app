@@ -22,6 +22,7 @@ StoresQuery _$StoresQueryFromJson(Map<String, dynamic> json) {
 mixin _$StoresQuery {
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
+  double? get page => throw _privateConstructorUsedError;
   double? get perPage => throw _privateConstructorUsedError;
   OperationStatus? get operationStatus => throw _privateConstructorUsedError;
   String? get minOpenTime => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $StoresQueryCopyWith<$Res> {
   $Res call(
       {double lat,
       double lng,
+      double? page,
       double? perPage,
       OperationStatus? operationStatus,
       String? minOpenTime,
@@ -69,6 +71,7 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
   $Res call({
     Object? lat = null,
     Object? lng = null,
+    Object? page = freezed,
     Object? perPage = freezed,
     Object? operationStatus = freezed,
     Object? minOpenTime = freezed,
@@ -86,6 +89,10 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
+      page: freezed == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as double?,
       perPage: freezed == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
@@ -129,6 +136,7 @@ abstract class _$$StoresQueryImplCopyWith<$Res>
   $Res call(
       {double lat,
       double lng,
+      double? page,
       double? perPage,
       OperationStatus? operationStatus,
       String? minOpenTime,
@@ -151,6 +159,7 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
   $Res call({
     Object? lat = null,
     Object? lng = null,
+    Object? page = freezed,
     Object? perPage = freezed,
     Object? operationStatus = freezed,
     Object? minOpenTime = freezed,
@@ -168,6 +177,10 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
+      page: freezed == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as double?,
       perPage: freezed == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
@@ -206,6 +219,7 @@ class _$StoresQueryImpl implements _StoresQuery {
   _$StoresQueryImpl(
       {required this.lat,
       required this.lng,
+      this.page,
       this.perPage,
       this.operationStatus,
       this.minOpenTime,
@@ -221,6 +235,8 @@ class _$StoresQueryImpl implements _StoresQuery {
   final double lat;
   @override
   final double lng;
+  @override
+  final double? page;
   @override
   final double? perPage;
   @override
@@ -238,7 +254,7 @@ class _$StoresQueryImpl implements _StoresQuery {
 
   @override
   String toString() {
-    return 'StoresQuery(lat: $lat, lng: $lng, perPage: $perPage, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice)';
+    return 'StoresQuery(lat: $lat, lng: $lng, page: $page, perPage: $perPage, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice)';
   }
 
   @override
@@ -248,6 +264,7 @@ class _$StoresQueryImpl implements _StoresQuery {
             other is _$StoresQueryImpl &&
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.lng, lng) || other.lng == lng) &&
+            (identical(other.page, page) || other.page == page) &&
             (identical(other.perPage, perPage) || other.perPage == perPage) &&
             (identical(other.operationStatus, operationStatus) ||
                 other.operationStatus == operationStatus) &&
@@ -269,6 +286,7 @@ class _$StoresQueryImpl implements _StoresQuery {
       runtimeType,
       lat,
       lng,
+      page,
       perPage,
       operationStatus,
       minOpenTime,
@@ -295,6 +313,7 @@ abstract class _StoresQuery implements StoresQuery {
   factory _StoresQuery(
       {required final double lat,
       required final double lng,
+      final double? page,
       final double? perPage,
       final OperationStatus? operationStatus,
       final String? minOpenTime,
@@ -310,6 +329,8 @@ abstract class _StoresQuery implements StoresQuery {
   double get lat;
   @override
   double get lng;
+  @override
+  double? get page;
   @override
   double? get perPage;
   @override

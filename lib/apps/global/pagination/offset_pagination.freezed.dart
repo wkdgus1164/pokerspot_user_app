@@ -15,150 +15,11 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$OffsetPaginationMetaData {
-  int get currentPage => throw _privateConstructorUsedError;
-  bool get isLast => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $OffsetPaginationMetaDataCopyWith<OffsetPaginationMetaData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $OffsetPaginationMetaDataCopyWith<$Res> {
-  factory $OffsetPaginationMetaDataCopyWith(OffsetPaginationMetaData value,
-          $Res Function(OffsetPaginationMetaData) then) =
-      _$OffsetPaginationMetaDataCopyWithImpl<$Res, OffsetPaginationMetaData>;
-  @useResult
-  $Res call({int currentPage, bool isLast});
-}
-
-/// @nodoc
-class _$OffsetPaginationMetaDataCopyWithImpl<$Res,
-        $Val extends OffsetPaginationMetaData>
-    implements $OffsetPaginationMetaDataCopyWith<$Res> {
-  _$OffsetPaginationMetaDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentPage = null,
-    Object? isLast = null,
-  }) {
-    return _then(_value.copyWith(
-      currentPage: null == currentPage
-          ? _value.currentPage
-          : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLast: null == isLast
-          ? _value.isLast
-          : isLast // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$OffsetPaginationMetaDataImplCopyWith<$Res>
-    implements $OffsetPaginationMetaDataCopyWith<$Res> {
-  factory _$$OffsetPaginationMetaDataImplCopyWith(
-          _$OffsetPaginationMetaDataImpl value,
-          $Res Function(_$OffsetPaginationMetaDataImpl) then) =
-      __$$OffsetPaginationMetaDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int currentPage, bool isLast});
-}
-
-/// @nodoc
-class __$$OffsetPaginationMetaDataImplCopyWithImpl<$Res>
-    extends _$OffsetPaginationMetaDataCopyWithImpl<$Res,
-        _$OffsetPaginationMetaDataImpl>
-    implements _$$OffsetPaginationMetaDataImplCopyWith<$Res> {
-  __$$OffsetPaginationMetaDataImplCopyWithImpl(
-      _$OffsetPaginationMetaDataImpl _value,
-      $Res Function(_$OffsetPaginationMetaDataImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentPage = null,
-    Object? isLast = null,
-  }) {
-    return _then(_$OffsetPaginationMetaDataImpl(
-      currentPage: null == currentPage
-          ? _value.currentPage
-          : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLast: null == isLast
-          ? _value.isLast
-          : isLast // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$OffsetPaginationMetaDataImpl implements _OffsetPaginationMetaData {
-  _$OffsetPaginationMetaDataImpl({this.currentPage = 1, this.isLast = false});
-
-  @override
-  @JsonKey()
-  final int currentPage;
-  @override
-  @JsonKey()
-  final bool isLast;
-
-  @override
-  String toString() {
-    return 'OffsetPaginationMetaData(currentPage: $currentPage, isLast: $isLast)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OffsetPaginationMetaDataImpl &&
-            (identical(other.currentPage, currentPage) ||
-                other.currentPage == currentPage) &&
-            (identical(other.isLast, isLast) || other.isLast == isLast));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, currentPage, isLast);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OffsetPaginationMetaDataImplCopyWith<_$OffsetPaginationMetaDataImpl>
-      get copyWith => __$$OffsetPaginationMetaDataImplCopyWithImpl<
-          _$OffsetPaginationMetaDataImpl>(this, _$identity);
-}
-
-abstract class _OffsetPaginationMetaData implements OffsetPaginationMetaData {
-  factory _OffsetPaginationMetaData(
-      {final int currentPage,
-      final bool isLast}) = _$OffsetPaginationMetaDataImpl;
-
-  @override
-  int get currentPage;
-  @override
-  bool get isLast;
-  @override
-  @JsonKey(ignore: true)
-  _$$OffsetPaginationMetaDataImplCopyWith<_$OffsetPaginationMetaDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$WithOffsetPagination<T> {
+  int get page => throw _privateConstructorUsedError;
+  int get perPage => throw _privateConstructorUsedError;
+  int get totalPage => throw _privateConstructorUsedError;
+  int get totalCount => throw _privateConstructorUsedError;
   T get items => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -172,7 +33,7 @@ abstract class $WithOffsetPaginationCopyWith<T, $Res> {
           $Res Function(WithOffsetPagination<T>) then) =
       _$WithOffsetPaginationCopyWithImpl<T, $Res, WithOffsetPagination<T>>;
   @useResult
-  $Res call({T items});
+  $Res call({int page, int perPage, int totalPage, int totalCount, T items});
 }
 
 /// @nodoc
@@ -189,9 +50,29 @@ class _$WithOffsetPaginationCopyWithImpl<T, $Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? page = null,
+    Object? perPage = null,
+    Object? totalPage = null,
+    Object? totalCount = null,
     Object? items = freezed,
   }) {
     return _then(_value.copyWith(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      perPage: null == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPage: null == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalCount: null == totalCount
+          ? _value.totalCount
+          : totalCount // ignore: cast_nullable_to_non_nullable
+              as int,
       items: freezed == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -209,7 +90,7 @@ abstract class _$$WithOffsetPaginationImplCopyWith<T, $Res>
       __$$WithOffsetPaginationImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({T items});
+  $Res call({int page, int perPage, int totalPage, int totalCount, T items});
 }
 
 /// @nodoc
@@ -224,9 +105,29 @@ class __$$WithOffsetPaginationImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? page = null,
+    Object? perPage = null,
+    Object? totalPage = null,
+    Object? totalCount = null,
     Object? items = freezed,
   }) {
     return _then(_$WithOffsetPaginationImpl<T>(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      perPage: null == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPage: null == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalCount: null == totalCount
+          ? _value.totalCount
+          : totalCount // ignore: cast_nullable_to_non_nullable
+              as int,
       items: freezed == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -238,14 +139,31 @@ class __$$WithOffsetPaginationImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$WithOffsetPaginationImpl<T> implements _WithOffsetPagination<T> {
-  _$WithOffsetPaginationImpl({required this.items});
+  _$WithOffsetPaginationImpl(
+      {this.page = 1,
+      this.perPage = 20,
+      this.totalPage = 100,
+      this.totalCount = 0,
+      required this.items});
 
+  @override
+  @JsonKey()
+  final int page;
+  @override
+  @JsonKey()
+  final int perPage;
+  @override
+  @JsonKey()
+  final int totalPage;
+  @override
+  @JsonKey()
+  final int totalCount;
   @override
   final T items;
 
   @override
   String toString() {
-    return 'WithOffsetPagination<$T>(items: $items)';
+    return 'WithOffsetPagination<$T>(page: $page, perPage: $perPage, totalPage: $totalPage, totalCount: $totalCount, items: $items)';
   }
 
   @override
@@ -253,12 +171,18 @@ class _$WithOffsetPaginationImpl<T> implements _WithOffsetPagination<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WithOffsetPaginationImpl<T> &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.perPage, perPage) || other.perPage == perPage) &&
+            (identical(other.totalPage, totalPage) ||
+                other.totalPage == totalPage) &&
+            (identical(other.totalCount, totalCount) ||
+                other.totalCount == totalCount) &&
             const DeepCollectionEquality().equals(other.items, items));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(items));
+  int get hashCode => Object.hash(runtimeType, page, perPage, totalPage,
+      totalCount, const DeepCollectionEquality().hash(items));
 
   @JsonKey(ignore: true)
   @override
@@ -269,9 +193,21 @@ class _$WithOffsetPaginationImpl<T> implements _WithOffsetPagination<T> {
 }
 
 abstract class _WithOffsetPagination<T> implements WithOffsetPagination<T> {
-  factory _WithOffsetPagination({required final T items}) =
-      _$WithOffsetPaginationImpl<T>;
+  factory _WithOffsetPagination(
+      {final int page,
+      final int perPage,
+      final int totalPage,
+      final int totalCount,
+      required final T items}) = _$WithOffsetPaginationImpl<T>;
 
+  @override
+  int get page;
+  @override
+  int get perPage;
+  @override
+  int get totalPage;
+  @override
+  int get totalCount;
   @override
   T get items;
   @override

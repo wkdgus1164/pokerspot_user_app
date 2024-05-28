@@ -25,7 +25,8 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
     final result = ref.watch(storesItemsProvider);
 
     return result.when(
-      data: (data) {
+      data: (resData) {
+        final data = resData.items;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -47,14 +48,14 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return NearbyStoreItem(
-                  name: data[index].name ?? "",
-                  distance: data[index].distance ?? 0,
+                  name: data?[index].name ?? "",
+                  distance: data?[index].distance ?? 0,
                   handleClick: () =>
-                      _handleNearbyStoreClick(model: data[index]),
+                      _handleNearbyStoreClick(model: data![index]),
                 );
               },
               separatorBuilder: (context, index) => const Divider(),
-              itemCount: data.length,
+              itemCount: data?.length ?? 0,
               shrinkWrap: true,
             ),
           ],

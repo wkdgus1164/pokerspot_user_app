@@ -9,6 +9,7 @@ class StoresQuery with _$StoresQuery {
   factory StoresQuery({
     required double lat,
     required double lng,
+    double? page,
     double? perPage,
     OperationStatus? operationStatus,
     String? minOpenTime,

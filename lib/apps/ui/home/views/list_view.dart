@@ -30,9 +30,22 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
     final res = ref.watch(storesItemsProvider);
 
     return res.when(
-      data: (data) {
+      data: (resData) {
+        final data = resData.items;
+        ScrollController scrollController = ScrollController();
+
+        scrollController.addListener(
+          () {
+            if (scrollController.position.pixels ==
+                scrollController.position.maxScrollExtent) {
+              ref.read(storesItemsProvider.notifier).fetchNextData();
+            }
+          },
+        );
+
         Logger().i('HomeListView\n  data: $data');
-        if (data.isEmpty) {
+
+        if (data!.isEmpty) {
           return Expanded(
             child: Center(
               child: Column(
@@ -63,6 +76,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
               enablePullDown: true,
               onRefresh: _refresh,
               child: ListView.separated(
+                controller: scrollController,
                 padding: const EdgeInsets.all(16),
                 itemCount: data.length,
                 itemBuilder: (context, index) {
