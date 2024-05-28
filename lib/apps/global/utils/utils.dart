@@ -37,7 +37,7 @@ class Utils {
 
   Future<Position> getCurrentPosition() async {
     return await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.best,
+      desiredAccuracy: LocationAccuracy.lowest,
       timeLimit: const Duration(seconds: 10),
       forceAndroidLocationManager: true,
     );
