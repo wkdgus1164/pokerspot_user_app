@@ -1,3 +1,4 @@
+import 'package:geolocator/geolocator.dart';
 import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
@@ -24,6 +25,20 @@ class StoresItems extends _$StoresItems {
   }
 
   FutureOr<Models> _fetch() async {
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.best,
+      timeLimit: const Duration(seconds: 10),
+      forceAndroidLocationManager: true,
+    );
+
+    ref
+        .read(geoLocationServiceProvider.notifier)
+        .setLatitude(position.latitude);
+
+    ref
+        .read(geoLocationServiceProvider.notifier)
+        .setLongitude(position.longitude);
+
     final operationStatus =
         ref.read(filterByOperationStatusProvider).operationStatus;
 
