@@ -15,7 +15,7 @@ class AreaService extends _$AreaService {
   }
 
   Future<List<AreaModel>> _fetchCategory() async {
-    final cityCode = ref.read(a.areaProvider).regcodePattern;
+    final cityCode = ref.read(a.areaProvider).regCode;
     final res = await ref.read(areaApiProvider).fetchArea(cityCode);
     Logger().i('res : $res');
     return res.regcodes.toModels();

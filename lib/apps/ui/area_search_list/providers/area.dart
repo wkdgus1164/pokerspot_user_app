@@ -24,7 +24,7 @@ class AreaStoreItems extends _$AreaStoreItems {
     final res = await ref.read(storesApiProvider).fetchStoresByArea(
           ref.read(geoLocationServiceProvider).latitude,
           ref.read(geoLocationServiceProvider).longitude,
-          ref.read(areaProvider).regcodePattern,
+          ref.read(areaProvider).regCode,
           1,
           PAGE_SIZE,
         );
@@ -54,7 +54,7 @@ class AreaStoreItems extends _$AreaStoreItems {
       final res = await ref.read(storesApiProvider).fetchStoresByArea(
             ref.read(geoLocationServiceProvider).latitude,
             ref.read(geoLocationServiceProvider).longitude,
-            ref.read(areaProvider).regcodePattern,
+            ref.read(areaProvider).regCode,
             page,
             perPage,
           );

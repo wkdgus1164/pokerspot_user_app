@@ -37,53 +37,35 @@ class StoreGameList extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Wrap(
-                    direction: Axis.horizontal,
-                    spacing: 12,
-                    children: [
-                      if (it.eventType == EventType.FIRST_GAME) ...[
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(4),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Wrap(
+                      direction: Axis.horizontal,
+                      spacing: 12,
+                      children: [
+                        if (it.eventType == EventType.FIRST_GAME) ...[
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
                             ),
-                            color: Colors.blue.shade50,
-                          ),
-                          child: Text(
-                            '첫 게임',
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelSmall!
-                                .copyWith(
-                                  color: Colors.blue.shade700,
-                                ),
-                          ),
-                        ),
-                      ],
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(4),
-                          ),
-                          color: Colors.red.shade50,
-                        ),
-                        child: Text(
-                          it.type?.kr ?? "",
-                          style:
-                              Theme.of(context).textTheme.labelSmall!.copyWith(
-                                    color: Colors.red.shade700,
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(4),
+                              ),
+                              color: Colors.blue.shade50,
+                            ),
+                            child: Text(
+                              '첫 게임',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelSmall!
+                                  .copyWith(
+                                    color: Colors.blue.shade700,
                                   ),
-                        ),
-                      ),
-                      if (it.isDaily) ...[
+                            ),
+                          ),
+                        ],
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 8,
@@ -93,20 +75,43 @@ class StoreGameList extends StatelessWidget {
                             borderRadius: const BorderRadius.all(
                               Radius.circular(4),
                             ),
-                            color: Colors.green.shade50,
+                            color: Colors.red.shade50,
                           ),
                           child: Text(
-                            '매일 진행',
+                            it.type?.kr ?? "",
                             style: Theme.of(context)
                                 .textTheme
                                 .labelSmall!
                                 .copyWith(
-                                  color: Colors.green.shade700,
+                                  color: Colors.red.shade700,
                                 ),
                           ),
                         ),
+                        if (it.isDaily) ...[
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(4),
+                              ),
+                              color: Colors.green.shade50,
+                            ),
+                            child: Text(
+                              '매일 진행',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelSmall!
+                                  .copyWith(
+                                    color: Colors.green.shade700,
+                                  ),
+                            ),
+                          ),
+                        ],
                       ],
-                    ],
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(

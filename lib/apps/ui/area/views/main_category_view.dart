@@ -22,7 +22,7 @@ class _AreaMainCategoryViewState extends ConsumerState<AreaMainCategoryView> {
       itemBuilder: (context, index) {
         return AreaMainCategory(
           text: regcodes[index].entries.last.value,
-          isSelected: area.cityName == regcodes[index].entries.last.value,
+          isSelected: area.name == regcodes[index].entries.last.value,
           handleClick: () => _handleCityClick(
             regcodes[index].entries.first.value,
             regcodes[index].entries.last.value,
@@ -35,8 +35,8 @@ class _AreaMainCategoryViewState extends ConsumerState<AreaMainCategoryView> {
 
   void _handleCityClick(String cityCode, String cityName) {
     final newCityCode = '${cityCode.substring(0, 2)}*00000';
-    ref.read(areaProvider.notifier).setCityCode(cityCode: newCityCode);
-    ref.read(areaProvider.notifier).setCityName(cityName: cityName);
+    ref.read(areaProvider.notifier).setCityCode(regCode: newCityCode);
+    ref.read(areaProvider.notifier).setCityName(name: cityName);
     ref.invalidate(areaServiceProvider);
   }
 }

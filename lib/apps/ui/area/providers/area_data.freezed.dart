@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AreaModel {
-  String get cityName => throw _privateConstructorUsedError;
-  String get regcodePattern => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get regCode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AreaModelCopyWith<AreaModel> get copyWith =>
@@ -29,7 +29,7 @@ abstract class $AreaModelCopyWith<$Res> {
   factory $AreaModelCopyWith(AreaModel value, $Res Function(AreaModel) then) =
       _$AreaModelCopyWithImpl<$Res, AreaModel>;
   @useResult
-  $Res call({String cityName, String regcodePattern});
+  $Res call({String name, String regCode});
 }
 
 /// @nodoc
@@ -45,17 +45,17 @@ class _$AreaModelCopyWithImpl<$Res, $Val extends AreaModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cityName = null,
-    Object? regcodePattern = null,
+    Object? name = null,
+    Object? regCode = null,
   }) {
     return _then(_value.copyWith(
-      cityName: null == cityName
-          ? _value.cityName
-          : cityName // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      regcodePattern: null == regcodePattern
-          ? _value.regcodePattern
-          : regcodePattern // ignore: cast_nullable_to_non_nullable
+      regCode: null == regCode
+          ? _value.regCode
+          : regCode // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -69,7 +69,7 @@ abstract class _$$AreaDataModelImplCopyWith<$Res>
       __$$AreaDataModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cityName, String regcodePattern});
+  $Res call({String name, String regCode});
 }
 
 /// @nodoc
@@ -83,17 +83,17 @@ class __$$AreaDataModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cityName = null,
-    Object? regcodePattern = null,
+    Object? name = null,
+    Object? regCode = null,
   }) {
     return _then(_$AreaDataModelImpl(
-      cityName: null == cityName
-          ? _value.cityName
-          : cityName // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      regcodePattern: null == regcodePattern
-          ? _value.regcodePattern
-          : regcodePattern // ignore: cast_nullable_to_non_nullable
+      regCode: null == regCode
+          ? _value.regCode
+          : regCode // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -102,19 +102,18 @@ class __$$AreaDataModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AreaDataModelImpl extends _AreaDataModel {
-  _$AreaDataModelImpl({this.cityName = "서울특별시", this.regcodePattern = "11*"})
-      : super._();
+  _$AreaDataModelImpl({this.name = "서울특별시", this.regCode = "11*"}) : super._();
 
   @override
   @JsonKey()
-  final String cityName;
+  final String name;
   @override
   @JsonKey()
-  final String regcodePattern;
+  final String regCode;
 
   @override
   String toString() {
-    return 'AreaModel(cityName: $cityName, regcodePattern: $regcodePattern)';
+    return 'AreaModel(name: $name, regCode: $regCode)';
   }
 
   @override
@@ -122,14 +121,12 @@ class _$AreaDataModelImpl extends _AreaDataModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AreaDataModelImpl &&
-            (identical(other.cityName, cityName) ||
-                other.cityName == cityName) &&
-            (identical(other.regcodePattern, regcodePattern) ||
-                other.regcodePattern == regcodePattern));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.regCode, regCode) || other.regCode == regCode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cityName, regcodePattern);
+  int get hashCode => Object.hash(runtimeType, name, regCode);
 
   @JsonKey(ignore: true)
   @override
@@ -139,14 +136,14 @@ class _$AreaDataModelImpl extends _AreaDataModel {
 }
 
 abstract class _AreaDataModel extends AreaModel {
-  factory _AreaDataModel({final String cityName, final String regcodePattern}) =
+  factory _AreaDataModel({final String name, final String regCode}) =
       _$AreaDataModelImpl;
   _AreaDataModel._() : super._();
 
   @override
-  String get cityName;
+  String get name;
   @override
-  String get regcodePattern;
+  String get regCode;
   @override
   @JsonKey(ignore: true)
   _$$AreaDataModelImplCopyWith<_$AreaDataModelImpl> get copyWith =>

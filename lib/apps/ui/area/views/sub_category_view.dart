@@ -35,7 +35,7 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
                   Logger().i(data[index].name);
 
                   ref.read(areaProvider.notifier).setCityCode(
-                        cityCode: '${data[index].code.substring(0, 2)}*',
+                        regCode: '${data[index].code.substring(0, 2)}*',
                       );
 
                   context.push(
@@ -51,17 +51,17 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
             return AreaSubCategory(
               text: data[index].name.split(' ').skip(1).join(' '),
               handleClick: () {
-                Logger().i('${data[index].code.substring(0, 4)}*');
+                Logger().i('${data[index].code.substring(0, 5)}*');
                 Logger().i(data[index].name);
 
                 ref.read(areaProvider.notifier).setCityCode(
-                      cityCode: '${data[index].code.substring(0, 4)}*',
+                      regCode: '${data[index].code.substring(0, 5)}*',
                     );
 
                 context.push(
                   CustomRouter.areaSearchList.path,
                   extra: AreaSearchListPageArguments(
-                    areaCode: '${data[index].code.substring(0, 4)}*',
+                    areaCode: '${data[index].code.substring(0, 5)}*',
                     areaName: data[index].name,
                   ),
                 );

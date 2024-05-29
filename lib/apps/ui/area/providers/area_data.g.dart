@@ -6,7 +6,7 @@ part of 'area_data.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$areaHash() => r'9faacfe3da7de258eaa96a869e14a2973d68b786';
+String _$areaHash() => r'4c4fa9960863d988350a1cf04167d7d6f618453b';
 
 /// See also [Area].
 @ProviderFor(Area)
