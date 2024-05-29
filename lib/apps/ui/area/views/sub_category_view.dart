@@ -24,55 +24,51 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
     return res.when(
       data: (data) {
         Logger().i('data : $data');
-        return Container(
-          width: MediaQuery.of(context).size.width * 0.6,
-          color: Colors.white,
-          child: ListView.separated(
-            separatorBuilder: (context, index) => const Divider(),
-            itemBuilder: (context, index) {
-              if (index == 0) {
-                return AreaSubCategory(
-                  text: '전체',
-                  handleClick: () {
-                    Logger().i(data[index].code);
-                    Logger().i(data[index].name);
-
-                    ref.read(areaProvider.notifier).setCityCode(
-                          cityCode: '${data[index].code.substring(0, 2)}*',
-                        );
-
-                    context.push(
-                      CustomRouter.areaSearchList.path,
-                      extra: AreaSearchListPageArguments(
-                        areaCode: '${data[index].code.substring(0, 2)}*',
-                        areaName: data[index].name,
-                      ),
-                    );
-                  },
-                );
-              }
+        return ListView.separated(
+          separatorBuilder: (context, index) => const Divider(),
+          itemBuilder: (context, index) {
+            if (index == 0) {
               return AreaSubCategory(
-                text: data[index].name.split(' ').skip(1).join(' '),
+                text: '전체',
                 handleClick: () {
-                  Logger().i('${data[index].code.substring(0, 4)}*');
+                  Logger().i(data[index].code);
                   Logger().i(data[index].name);
 
                   ref.read(areaProvider.notifier).setCityCode(
-                        cityCode: '${data[index].code.substring(0, 4)}*',
+                        cityCode: '${data[index].code.substring(0, 2)}*',
                       );
 
                   context.push(
                     CustomRouter.areaSearchList.path,
                     extra: AreaSearchListPageArguments(
-                      areaCode: '${data[index].code.substring(0, 4)}*',
+                      areaCode: '${data[index].code.substring(0, 2)}*',
                       areaName: data[index].name,
                     ),
                   );
                 },
               );
-            },
-            itemCount: data.length,
-          ),
+            }
+            return AreaSubCategory(
+              text: data[index].name.split(' ').skip(1).join(' '),
+              handleClick: () {
+                Logger().i('${data[index].code.substring(0, 4)}*');
+                Logger().i(data[index].name);
+
+                ref.read(areaProvider.notifier).setCityCode(
+                      cityCode: '${data[index].code.substring(0, 4)}*',
+                    );
+
+                context.push(
+                  CustomRouter.areaSearchList.path,
+                  extra: AreaSearchListPageArguments(
+                    areaCode: '${data[index].code.substring(0, 4)}*',
+                    areaName: data[index].name,
+                  ),
+                );
+              },
+            );
+          },
+          itemCount: data.length,
         );
       },
       error: (error, _) {

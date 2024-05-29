@@ -17,11 +17,14 @@ class _AreaPageState extends ConsumerState<AreaPage> {
       appBar: AppBar(
         title: const Text('지역으로 찾기'),
       ),
-      body: const Row(
+      body: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          AreaMainCategoryView(),
-          AreaSubCategoryView(),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.4,
+            child: const AreaMainCategoryView(),
+          ),
+          const Expanded(child: AreaSubCategoryView()),
         ],
       ),
     );
