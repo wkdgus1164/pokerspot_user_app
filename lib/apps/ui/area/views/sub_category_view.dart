@@ -80,7 +80,7 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
       loading: () {
         return const Expanded(
           child: Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator.adaptive(),
           ),
         );
       },
