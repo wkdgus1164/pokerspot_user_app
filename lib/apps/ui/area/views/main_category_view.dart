@@ -18,20 +18,18 @@ class _AreaMainCategoryViewState extends ConsumerState<AreaMainCategoryView> {
   Widget build(BuildContext context) {
     final area = ref.watch(areaProvider);
 
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return AreaMainCategory(
-            text: regcodes[index].entries.last.value,
-            isSelected: area.cityName == regcodes[index].entries.last.value,
-            handleClick: () => _handleCityClick(
-              regcodes[index].entries.first.value,
-              regcodes[index].entries.last.value,
-            ),
-          );
-        },
-        itemCount: regcodes.length,
-      ),
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return AreaMainCategory(
+          text: regcodes[index].entries.last.value,
+          isSelected: area.cityName == regcodes[index].entries.last.value,
+          handleClick: () => _handleCityClick(
+            regcodes[index].entries.first.value,
+            regcodes[index].entries.last.value,
+          ),
+        );
+      },
+      itemCount: regcodes.length,
     );
   }
 
