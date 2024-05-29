@@ -25,6 +25,15 @@ abstract class StoresApi {
     @Query('searchText') String searchText,
   );
 
+  @GET('/api/v1/stores')
+  Future<ApiResponse<StoresDto>> fetchStoresByArea(
+    @Query('lat') double lat,
+    @Query('lng') double lng,
+    @Query('regCode') String regCode,
+    @Query('page') int page,
+    @Query('perPage') int perPage,
+  );
+
   @GET('/api/v1/stores/{storeId}')
   Future<ApiResponse<StoreDto>> fetchStoreDetail(
     @Path('storeId') String storeId,

@@ -102,8 +102,7 @@ class __$$AreaDataModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AreaDataModelImpl extends _AreaDataModel {
-  _$AreaDataModelImpl(
-      {this.cityName = "서울특별시", this.regcodePattern = "11*00000"})
+  _$AreaDataModelImpl({this.cityName = "서울특별시", this.regcodePattern = "11*"})
       : super._();
 
   @override

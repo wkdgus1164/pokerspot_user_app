@@ -88,6 +88,48 @@ class _StoresApi implements StoresApi {
   }
 
   @override
+  Future<ApiResponse<StoresDto>> fetchStoresByArea(
+    double lat,
+    double lng,
+    String regCode,
+    int page,
+    int perPage,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'lat': lat,
+      r'lng': lng,
+      r'regCode': regCode,
+      r'page': page,
+      r'perPage': perPage,
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<StoresDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/v1/stores',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<StoresDto>.fromJson(
+      _result.data!,
+      (json) => StoresDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
   Future<ApiResponse<StoreDto>> fetchStoreDetail(
     String storeId,
     StoreQuery query,

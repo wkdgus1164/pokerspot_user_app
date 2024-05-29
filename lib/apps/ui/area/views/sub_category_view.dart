@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/area/components/sub_category.dart';
+import 'package:pokerspot_user_app/apps/ui/area/providers/area_data.dart';
 import 'package:pokerspot_user_app/apps/ui/area/providers/area_service.dart';
 import 'package:pokerspot_user_app/apps/ui/area_search_list/list_page.dart';
 
@@ -36,10 +37,14 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
                     Logger().i(data[index].code);
                     Logger().i(data[index].name);
 
+                    ref.read(areaProvider.notifier).setCityCode(
+                          cityCode: '${data[index].code.substring(0, 2)}*',
+                        );
+
                     context.push(
                       CustomRouter.areaSearchList.path,
                       extra: AreaSearchListPageArguments(
-                        areaCode: data[index].code,
+                        areaCode: '${data[index].code.substring(0, 2)}*',
                         areaName: data[index].name,
                       ),
                     );
@@ -49,13 +54,17 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
               return AreaSubCategory(
                 text: data[index].name.split(' ').skip(1).join(' '),
                 handleClick: () {
-                  Logger().i(data[index].code);
+                  Logger().i('${data[index].code.substring(0, 4)}*');
                   Logger().i(data[index].name);
+
+                  ref.read(areaProvider.notifier).setCityCode(
+                        cityCode: '${data[index].code.substring(0, 4)}*',
+                      );
 
                   context.push(
                     CustomRouter.areaSearchList.path,
                     extra: AreaSearchListPageArguments(
-                      areaCode: data[index].code,
+                      areaCode: '${data[index].code.substring(0, 4)}*',
                       areaName: data[index].name,
                     ),
                   );
