@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/navigation/helper.dart';
 
 class NavigationPage extends StatefulHookConsumerWidget {
@@ -27,11 +25,6 @@ class _NavigationPageState extends ConsumerState<NavigationPage> {
   }
 
   void _handleMenuIndexChange(int index) {
-    if (index == 1) {
-      context.push(CustomRouter.search.path);
-      return;
-    }
-
     setState(() {
       currentPageIndex = index;
     });

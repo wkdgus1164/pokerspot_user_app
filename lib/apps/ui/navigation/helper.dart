@@ -8,23 +8,20 @@ import 'package:pokerspot_user_app/apps/ui/my/main/my_page.dart';
 
 final List<String> _defaultIcons = [
   Assets.bnHomeOff.path,
-  Assets.bnSearchOff.path,
   Assets.bnLocOff.path,
   Assets.bnMyOff.path,
 ];
 
 final List<String> _selectedIcons = [
   Assets.bnHomeOn.path,
-  Assets.bnSearchOn.path,
   Assets.bnLocOn.path,
   Assets.bnMyOn.path,
 ];
 
 final List<String> _labels = [
   '홈',
-  '검색',
   '지역',
-  '내정보',
+  '더보기',
 ];
 
 class NavigationHelper {
@@ -35,7 +32,6 @@ class NavigationHelper {
 
   List<Widget> pages = [
     const HomePage(),
-    Container(),
     const AreaPage(),
     const MyPage(),
   ];
