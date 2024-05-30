@@ -19,7 +19,10 @@ class AreaDataModel with _$AreaDataModel {
 class AreaDataService extends _$AreaDataService {
   @override
   AreaDataModel build() {
-    return AreaDataModel();
+    return AreaDataModel(
+      name: '서울특별시',
+      regCode: '11*00000',
+    );
   }
 
   void setCityCode({required String regCode}) {
