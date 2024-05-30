@@ -9,13 +9,13 @@ import 'package:pokerspot_user_app/apps/ui/my/main/my_page.dart';
 final List<String> _defaultIcons = [
   Assets.bnHomeOff.path,
   Assets.bnLocOff.path,
-  Assets.bnMyOff.path,
+  Assets.bnMoreOff.path,
 ];
 
 final List<String> _selectedIcons = [
   Assets.bnHomeOn.path,
   Assets.bnLocOn.path,
-  Assets.bnMyOn.path,
+  Assets.bnMoreOn.path,
 ];
 
 final List<String> _labels = [

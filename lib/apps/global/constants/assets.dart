@@ -12,7 +12,7 @@ enum Assets {
   bnHomeOff('$assetPath/bn_home_off.svg'),
   bnNearOff('$assetPath/bn_near_off.svg'),
   searchOff('$assetPath/bn_search_off.svg'),
-  searchOn('$assetPath/bn_search_on.svg'),
+  searchOn('$assetPath/search.svg'),
   bnNearOn('$assetPath/bn_near_on.svg'),
   bnLocOff('$assetPath/bn_loc_off.svg'),
   bnFavOff('$assetPath/bn_fav_off.svg'),
@@ -20,6 +20,8 @@ enum Assets {
   bnLocOn('$assetPath/bn_loc_on.svg'),
   bnMyOff('$assetPath/bn_my_off.svg'),
   bnMyOn('$assetPath/bn_my_on.svg'),
+  bnMoreOff('$assetPath/bn_more_off.svg'),
+  bnMoreOn('$assetPath/bn_more_on.svg'),
 
   myRecentView('$assetPath/my_recent_view.svg'),
   myFavorite('$assetPath/my_favorite.svg'),
