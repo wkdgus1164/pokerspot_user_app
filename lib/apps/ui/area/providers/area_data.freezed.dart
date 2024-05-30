@@ -15,27 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AreaModel {
+mixin _$AreaDataModel {
   String get name => throw _privateConstructorUsedError;
   String get regCode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AreaModelCopyWith<AreaModel> get copyWith =>
+  $AreaDataModelCopyWith<AreaDataModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AreaModelCopyWith<$Res> {
-  factory $AreaModelCopyWith(AreaModel value, $Res Function(AreaModel) then) =
-      _$AreaModelCopyWithImpl<$Res, AreaModel>;
+abstract class $AreaDataModelCopyWith<$Res> {
+  factory $AreaDataModelCopyWith(
+          AreaDataModel value, $Res Function(AreaDataModel) then) =
+      _$AreaDataModelCopyWithImpl<$Res, AreaDataModel>;
   @useResult
   $Res call({String name, String regCode});
 }
 
 /// @nodoc
-class _$AreaModelCopyWithImpl<$Res, $Val extends AreaModel>
-    implements $AreaModelCopyWith<$Res> {
-  _$AreaModelCopyWithImpl(this._value, this._then);
+class _$AreaDataModelCopyWithImpl<$Res, $Val extends AreaDataModel>
+    implements $AreaDataModelCopyWith<$Res> {
+  _$AreaDataModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,7 +64,7 @@ class _$AreaModelCopyWithImpl<$Res, $Val extends AreaModel>
 
 /// @nodoc
 abstract class _$$AreaDataModelImplCopyWith<$Res>
-    implements $AreaModelCopyWith<$Res> {
+    implements $AreaDataModelCopyWith<$Res> {
   factory _$$AreaDataModelImplCopyWith(
           _$AreaDataModelImpl value, $Res Function(_$AreaDataModelImpl) then) =
       __$$AreaDataModelImplCopyWithImpl<$Res>;
@@ -74,7 +75,7 @@ abstract class _$$AreaDataModelImplCopyWith<$Res>
 
 /// @nodoc
 class __$$AreaDataModelImplCopyWithImpl<$Res>
-    extends _$AreaModelCopyWithImpl<$Res, _$AreaDataModelImpl>
+    extends _$AreaDataModelCopyWithImpl<$Res, _$AreaDataModelImpl>
     implements _$$AreaDataModelImplCopyWith<$Res> {
   __$$AreaDataModelImplCopyWithImpl(
       _$AreaDataModelImpl _value, $Res Function(_$AreaDataModelImpl) _then)
@@ -114,7 +115,7 @@ class _$AreaDataModelImpl extends _AreaDataModel {
 
   @override
   String toString() {
-    return 'AreaModel(name: $name, regCode: $regCode)';
+    return 'AreaDataModel(name: $name, regCode: $regCode)';
   }
 
   @override
@@ -136,7 +137,7 @@ class _$AreaDataModelImpl extends _AreaDataModel {
       __$$AreaDataModelImplCopyWithImpl<_$AreaDataModelImpl>(this, _$identity);
 }
 
-abstract class _AreaDataModel extends AreaModel {
+abstract class _AreaDataModel extends AreaDataModel {
   factory _AreaDataModel({final String name, final String regCode}) =
       _$AreaDataModelImpl;
   _AreaDataModel._() : super._();

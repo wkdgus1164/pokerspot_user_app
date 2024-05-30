@@ -6,20 +6,20 @@ part 'area_data.g.dart';
 part 'area_data.freezed.dart';
 
 @freezed
-class AreaModel with _$AreaModel {
-  factory AreaModel({
+class AreaDataModel with _$AreaDataModel {
+  factory AreaDataModel({
     @Default("서울특별시") String name,
     @Default("11*00000") String regCode,
   }) = _AreaDataModel;
 
-  AreaModel._();
+  AreaDataModel._();
 }
 
 @riverpod
-class Area extends _$Area {
+class AreaDataService extends _$AreaDataService {
   @override
-  AreaModel build() {
-    return AreaModel();
+  AreaDataModel build() {
+    return AreaDataModel();
   }
 
   void setCityCode({required String regCode}) {

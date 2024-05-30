@@ -34,7 +34,7 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
                   Logger().i(data[index].code);
                   Logger().i(data[index].name);
 
-                  ref.read(areaProvider.notifier).setCityCode(
+                  ref.read(areaDataServiceProvider.notifier).setCityCode(
                         regCode: '${data[index].code.substring(0, 2)}*',
                       );
 
@@ -54,7 +54,7 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
                 Logger().i('${data[index].code.substring(0, 5)}*');
                 Logger().i(data[index].name);
 
-                ref.read(areaProvider.notifier).setCityCode(
+                ref.read(areaDataServiceProvider.notifier).setCityCode(
                       regCode: '${data[index].code.substring(0, 5)}*',
                     );
 

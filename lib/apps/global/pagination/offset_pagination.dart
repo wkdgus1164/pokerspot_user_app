@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'offset_pagination.freezed.dart';
 
+const int PAGE_SIZE = 10;
+
 @Freezed(genericArgumentFactories: true)
 class WithOffsetPagination<T> with _$WithOffsetPagination<T> {
   factory WithOffsetPagination({

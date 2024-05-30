@@ -16,7 +16,7 @@ class AreaMainCategoryView extends StatefulHookConsumerWidget {
 class _AreaMainCategoryViewState extends ConsumerState<AreaMainCategoryView> {
   @override
   Widget build(BuildContext context) {
-    final area = ref.watch(areaProvider);
+    final area = ref.watch(areaDataServiceProvider);
 
     return ListView.builder(
       itemBuilder: (context, index) {
@@ -35,8 +35,10 @@ class _AreaMainCategoryViewState extends ConsumerState<AreaMainCategoryView> {
 
   void _handleCityClick(String cityCode, String cityName) {
     final newCityCode = '${cityCode.substring(0, 2)}*00000';
-    ref.read(areaProvider.notifier).setCityCode(regCode: newCityCode);
-    ref.read(areaProvider.notifier).setCityName(name: cityName);
+    ref
+        .read(areaDataServiceProvider.notifier)
+        .setCityCode(regCode: newCityCode);
+    ref.read(areaDataServiceProvider.notifier).setCityName(name: cityName);
     ref.invalidate(areaServiceProvider);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/utils/extensions.dart';
 import 'package:pokerspot_user_app/apps/infra/api/address/area_api.dart';
-import 'package:pokerspot_user_app/apps/infra/api/address/dto/area_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/area/models/area.dart';
 import 'package:pokerspot_user_app/apps/ui/area/providers/area_data.dart' as a;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -15,24 +15,9 @@ class AreaService extends _$AreaService {
   }
 
   Future<List<AreaModel>> _fetchCategory() async {
-    final cityCode = ref.read(a.areaProvider).regCode;
+    final cityCode = ref.read(a.areaDataServiceProvider).regCode;
     final res = await ref.read(areaApiProvider).fetchArea(cityCode);
     Logger().i('res : $res');
-    return res.regcodes.toModels();
-  }
-}
-
-extension _AreaListModelMapperExtension on List<AreaDto> {
-  List<AreaModel> toModels() {
-    return map((e) => e.toModel()).toList();
-  }
-}
-
-extension _AreaModelMapperExtension on AreaDto {
-  AreaModel toModel() {
-    return AreaModel(
-      code: code,
-      name: name,
-    );
+    return res.regcodes.toAreaListModel();
   }
 }
