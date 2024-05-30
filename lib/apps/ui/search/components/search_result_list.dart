@@ -27,9 +27,29 @@ class _SearchResultListState extends ConsumerState<SearchResultList> {
     final searchResult = ref.watch(searchResultProvider);
 
     return searchResult.when(
-      data: (data) {
+      data: (resData) {
+        final data = resData.items;
+        ScrollController scrollController = ScrollController();
+
+        scrollController.addListener(
+          () {
+            if (scrollController.position.pixels ==
+                scrollController.position.maxScrollExtent) {
+              ref.read(searchResultProvider.notifier).fetchNextData();
+            }
+          },
+        );
+
+        if (data!.isEmpty) {
+          return const Expanded(
+            child: ErrorPlaceholder(
+              caption: '검색어와 일치하는 매장명이 없어요.\n다른 검색어로 시도해주세요.',
+            ),
+          );
+        }
         return Expanded(
           child: ListView.builder(
+            controller: scrollController,
             shrinkWrap: true,
             itemCount: data.length,
             itemBuilder: (context, index) {
@@ -65,7 +85,7 @@ class _SearchResultListState extends ConsumerState<SearchResultList> {
         Logger().e(error.toString());
         return const Expanded(
           child: ErrorPlaceholder(
-            caption: '검색어와 일치하는 매장명이 없어요.',
+            caption: '검색어와 일치하는 매장명이 없어요.\n다른 검색어로 시도해주세요.',
           ),
         );
       },

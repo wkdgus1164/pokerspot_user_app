@@ -72,7 +72,7 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
               itemCount: data.length,
               itemBuilder: (context, index) {
                 return HomeStore(
-                  storeImages: data[index].storeImages ?? [],
+                  storeImages: data[index].storeImages,
                   name: data[index].name ?? "",
                   address: data[index].address ?? "",
                   addressDetail: data[index].addressDetail ?? "",

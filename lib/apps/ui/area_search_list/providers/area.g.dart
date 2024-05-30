@@ -6,7 +6,7 @@ part of 'area.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$areaStoreItemsHash() => r'f6bff88ccbdd199c179d032136a3d0691d40f3fc';
+String _$areaStoreItemsHash() => r'f6d5e667d3d235c8f74054f533e37967a808cfb9';
 
 /// See also [AreaStoreItems].
 @ProviderFor(AreaStoreItems)

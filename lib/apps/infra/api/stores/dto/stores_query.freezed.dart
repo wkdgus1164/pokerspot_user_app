@@ -22,8 +22,8 @@ StoresQuery _$StoresQueryFromJson(Map<String, dynamic> json) {
 mixin _$StoresQuery {
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
-  double? get page => throw _privateConstructorUsedError;
-  double? get perPage => throw _privateConstructorUsedError;
+  int? get page => throw _privateConstructorUsedError;
+  int? get perPage => throw _privateConstructorUsedError;
   OperationStatus? get operationStatus => throw _privateConstructorUsedError;
   String? get minOpenTime => throw _privateConstructorUsedError;
   String? get maxOpenTime => throw _privateConstructorUsedError;
@@ -46,8 +46,8 @@ abstract class $StoresQueryCopyWith<$Res> {
   $Res call(
       {double lat,
       double lng,
-      double? page,
-      double? perPage,
+      int? page,
+      int? perPage,
       OperationStatus? operationStatus,
       String? minOpenTime,
       String? maxOpenTime,
@@ -92,11 +92,11 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       perPage: freezed == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       operationStatus: freezed == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
@@ -136,8 +136,8 @@ abstract class _$$StoresQueryImplCopyWith<$Res>
   $Res call(
       {double lat,
       double lng,
-      double? page,
-      double? perPage,
+      int? page,
+      int? perPage,
       OperationStatus? operationStatus,
       String? minOpenTime,
       String? maxOpenTime,
@@ -180,11 +180,11 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       perPage: freezed == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       operationStatus: freezed == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
@@ -236,9 +236,9 @@ class _$StoresQueryImpl implements _StoresQuery {
   @override
   final double lng;
   @override
-  final double? page;
+  final int? page;
   @override
-  final double? perPage;
+  final int? perPage;
   @override
   final OperationStatus? operationStatus;
   @override
@@ -313,8 +313,8 @@ abstract class _StoresQuery implements StoresQuery {
   factory _StoresQuery(
       {required final double lat,
       required final double lng,
-      final double? page,
-      final double? perPage,
+      final int? page,
+      final int? perPage,
       final OperationStatus? operationStatus,
       final String? minOpenTime,
       final String? maxOpenTime,
@@ -330,9 +330,9 @@ abstract class _StoresQuery implements StoresQuery {
   @override
   double get lng;
   @override
-  double? get page;
+  int? get page;
   @override
-  double? get perPage;
+  int? get perPage;
   @override
   OperationStatus? get operationStatus;
   @override

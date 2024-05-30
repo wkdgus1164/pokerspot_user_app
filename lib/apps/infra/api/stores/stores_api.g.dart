@@ -54,12 +54,16 @@ class _StoresApi implements StoresApi {
     double lat,
     double lng,
     String searchText,
+    int page,
+    int perPage,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'lat': lat,
       r'lng': lng,
       r'searchText': searchText,
+      r'page': page,
+      r'perPage': perPage,
     };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;

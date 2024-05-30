@@ -14,8 +14,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'store.g.dart';
 
-const double PAGE_SIZE = 10;
-
 typedef Models = WithOffsetPagination<List<StoreModel>?>;
 
 @riverpod
@@ -72,7 +70,7 @@ class StoresItems extends _$StoresItems {
       perPage: res.data?.perPage ?? 20,
       totalPage: res.data?.totalPage ?? 0,
       totalCount: res.data?.totalCount ?? 0,
-      items: res.data?.items.map((it) => it.toStoreModel()).toList() ?? [],
+      items: res.data?.items.toStoreListModel(),
     );
   }
 
@@ -101,7 +99,7 @@ class StoresItems extends _$StoresItems {
                   ref.read(filterByOperationStatusProvider).operationStatus,
               lat: ref.read(geoLocationServiceProvider).latitude,
               lng: ref.read(geoLocationServiceProvider).longitude,
-              page: double.parse(nextPage.toString()),
+              page: nextPage,
               perPage: PAGE_SIZE,
             ),
           );
@@ -110,7 +108,7 @@ class StoresItems extends _$StoresItems {
 
       if (data == null) return old;
 
-      final newItems = data.items.map((e) => e.toStoreModel()).toList();
+      final newItems = data.items.toStoreListModel();
 
       Logger().d('New items: $newItems');
 

@@ -25,6 +25,7 @@ class ErrorPlaceholder extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             caption!,
+            textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: colorGrey60,
                 ),

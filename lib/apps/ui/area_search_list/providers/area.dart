@@ -34,7 +34,7 @@ class AreaStoreItems extends _$AreaStoreItems {
       perPage: res.data?.perPage ?? 20,
       totalPage: res.data?.totalPage ?? 0,
       totalCount: res.data?.totalCount ?? 0,
-      items: res.data?.items.map((it) => it.toStoreModel()).toList(),
+      items: res.data?.items.toStoreListModel(),
     );
   }
 
