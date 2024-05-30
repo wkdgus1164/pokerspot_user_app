@@ -9,7 +9,7 @@ part 'area_data.freezed.dart';
 class AreaModel with _$AreaModel {
   factory AreaModel({
     @Default("서울특별시") String name,
-    @Default("11*") String regCode,
+    @Default("11*00000") String regCode,
   }) = _AreaDataModel;
 
   AreaModel._();
