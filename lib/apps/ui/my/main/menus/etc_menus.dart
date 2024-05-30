@@ -6,13 +6,12 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
-class MyMenus extends StatelessWidget {
-  const MyMenus({super.key});
+class EtcMenusView extends StatelessWidget {
+  const EtcMenusView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: colorGrey90),
@@ -26,18 +25,26 @@ class MyMenus extends StatelessWidget {
               context.push(CustomRouter.notice.path);
             },
           ),
-          const Divider(),
-          _buildItem(
-            Assets.myEvent.path,
-            '이벤트',
-            () {},
-          ),
+          // const Divider(),
+          // _buildItem(
+          //   Assets.myEvent.path,
+          //   '이벤트',
+          //   () {},
+          // ),
           const Divider(),
           _buildItem(
             Assets.myTerms.path,
             '약관 및 정책',
             () {
               context.push(CustomRouter.policy.path);
+            },
+          ),
+          const Divider(),
+          _buildItem(
+            Assets.code.path,
+            '소프트웨어 라이선스',
+            () {
+              showLicensePage(context: context);
             },
           ),
         ],

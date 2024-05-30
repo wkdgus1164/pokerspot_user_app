@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/ui/my/main/login_required/login_required.dart';
-import 'package:pokerspot_user_app/apps/ui/my/main/menus/menus.dart';
-import 'package:pokerspot_user_app/apps/ui/my/main/profile_card/profile_card.dart';
-import 'package:pokerspot_user_app/apps/ui/my/main/toolbar/toolbar.dart';
+import 'package:pokerspot_user_app/apps/ui/my/main/menus/etc_menus.dart';
 
 class MyPage extends StatefulHookConsumerWidget {
   const MyPage({super.key});
@@ -19,35 +14,39 @@ class _MyPageState extends ConsumerState<MyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('내정보'),
+        title: const Text('더보기'),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
+        padding: EdgeInsets.all(16),
         child: Column(
           children: [
             // 프로필 카드
-            MyProfileCard(
-              name: '홍길동',
-              createdAt: DateTime.now(),
-              handleEditClick: () {
-                context.push(CustomRouter.myInfo.path);
-              },
-            ),
+            // MyProfileCard(
+            //   name: '홍길동',
+            //   createdAt: DateTime.now(),
+            //   handleEditClick: () {
+            //     context.push(CustomRouter.myInfo.path);
+            //   },
+            // ),
 
             // 툴바
-            MyToolbar(
-              handleRecentViewClick: () {
-                context.push(CustomRouter.recent.path);
-              },
-              handleFavoriteClick: () {
-                context.push(CustomRouter.favorite.path);
-              },
-            ),
+            // MyToolbar(
+            //   handleRecentViewClick: () {
+            //     context.push(CustomRouter.recent.path);
+            //   },
+            //   handleFavoriteClick: () {
+            //     context.push(CustomRouter.favorite.path);
+            //   },
+            // ),
 
             // 로그인 필요
-            const MyLoginRequired(),
+            // const MyLoginRequired(),
+
+            // 내 메뉴
+            // MyMenusView(),
 
             // 기타
-            const MyMenus(),
+            EtcMenusView(),
           ],
         ),
       ),

@@ -30,6 +30,8 @@ enum Assets {
   myTerms('$assetPath/my_terms.svg'),
 
   arrowRight('$assetPath/arrow_right.svg'),
+  code('$assetPath/code.svg'),
+  info('$assetPath/info.svg'),
 
   kakao('$assetPath/kakao.svg'),
   apple('$assetPath/apple.svg'),
