@@ -109,10 +109,22 @@ final router = GoRouter(
     ),
     GoRoute(
       path: CustomRouter.storeMap.path,
-      builder: (context, state) {
-        final args = state.extra as StoreMapPageArguments;
-        return StoreMapPage(args: args);
-      },
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: StoreMapPage(args: state.extra as StoreMapPageArguments),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(1, 0),
+              end: Offset.zero,
+            ).animate(animation),
+            child: child,
+          );
+        },
+      ),
+      // builder: (context, state) {
+      //   final args = state.extra as StoreMapPageArguments;
+      //   return StoreMapPage(args: args);
+      // },
     ),
     GoRoute(
       path: CustomRouter.search.path,
