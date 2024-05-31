@@ -59,7 +59,6 @@ class EtcMenusView extends StatelessWidget {
   ) {
     return InkWell(
       onTap: handleClick,
-      splashColor: colorGrey95,
       child: Ink(
         child: Padding(
           padding: const EdgeInsets.symmetric(

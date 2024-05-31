@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 
 SliderThemeData sliderThemeData = const SliderThemeData(
-    // overlayShape: SliderComponentShape.noOverlay,
-    );
+  thumbColor: Colors.white,
+  rangeThumbShape: RoundRangeSliderThumbShape(
+    enabledThumbRadius: 14,
+    disabledThumbRadius: 14,
+    elevation: 4,
+  ),
+  activeTrackColor: colorBrand60,
+);

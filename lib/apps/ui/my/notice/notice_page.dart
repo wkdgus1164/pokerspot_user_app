@@ -22,7 +22,6 @@ class _MyNoticePageState extends ConsumerState<MyNoticePage> {
         itemBuilder: (context, index) {
           return Ink(
             child: InkWell(
-              splashColor: colorGrey95,
               onTap: _handleItemClick,
               child: Container(
                 padding: const EdgeInsets.all(16),

@@ -19,7 +19,6 @@ class ClickableListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Ink(
       child: InkWell(
-        splashColor: colorGrey95,
         onTap: handleClick,
         child: Container(
           padding: const EdgeInsets.all(16),

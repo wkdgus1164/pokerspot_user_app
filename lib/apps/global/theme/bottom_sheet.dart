@@ -7,4 +7,5 @@ BottomSheetThemeData bottomSheetThemeData = const BottomSheetThemeData(
   showDragHandle: true,
   surfaceTintColor: Colors.black,
   dragHandleColor: colorGrey80,
+  modalBackgroundColor: Colors.white,
 );

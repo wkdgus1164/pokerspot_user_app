@@ -15,7 +15,6 @@ class AreaSubCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: handleClick,
-      splashColor: colorGrey90,
       child: Ink(
         child: Padding(
           padding: const EdgeInsets.all(16),

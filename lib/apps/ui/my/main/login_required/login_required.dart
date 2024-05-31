@@ -21,7 +21,6 @@ class MyLoginRequired extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 16),
           child: InkWell(
             onTap: () {},
-            splashColor: colorGrey95,
             child: Ink(
               child: Padding(
                 padding: const EdgeInsets.symmetric(

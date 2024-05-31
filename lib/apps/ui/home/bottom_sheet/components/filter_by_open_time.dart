@@ -33,7 +33,7 @@ class _FilterByOpenTimeViewState extends ConsumerState<FilterByOpenTimeView> {
                   ),
             ),
             Text(
-              '${minTime.ceil()}:00 ~ ${maxTime.ceil()}:00',
+              '${minTime.ceil()}시 ~ ${maxTime.ceil()}시',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: colorBrand40,
                     fontWeight: FontWeight.normal,
@@ -60,24 +60,26 @@ class _FilterByOpenTimeViewState extends ConsumerState<FilterByOpenTimeView> {
                 .setMaxTime(int.parse(newValues.end.ceil().toString()));
           },
         ),
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              '00:00',
-              style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                    color: colorGrey60,
-                  ),
-            ),
-            Text(
-              '23:00',
-              style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                    color: colorGrey60,
-                  ),
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                '0시',
+                style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                      color: colorGrey60,
+                    ),
+              ),
+              Text(
+                '23시',
+                style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                      color: colorGrey60,
+                    ),
+              ),
+            ],
+          ),
         ),
       ],
     );
