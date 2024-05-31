@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list_detail.dart';
 
 class StoreDetailGameList extends StatelessWidget {
   const StoreDetailGameList({super.key, required this.games});
@@ -11,12 +10,7 @@ class StoreDetailGameList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: colorGrey95),
-        color: colorGrey98,
-      ),
+      margin: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -27,7 +21,7 @@ class StoreDetailGameList extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 16),
-          StoreGameList(games: games),
+          StoreGameListDetail(games: games),
         ],
       ),
     );

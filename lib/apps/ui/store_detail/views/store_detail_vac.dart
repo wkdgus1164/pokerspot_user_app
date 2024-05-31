@@ -4,7 +4,6 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/components/basic_information.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/games.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
@@ -62,54 +61,42 @@ class StoreDetailVac extends StatelessWidget {
     );
   }
 
-  Padding _buildInformation(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 헤더
-          StoreDetailHeader(
-            type: data.type ?? "",
-            title: data.name ?? "-",
-            distance: data.distance ?? 0.0,
-          ),
-          const SizedBox(height: 16),
+  Widget _buildInformation(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // 헤더
+        StoreDetailHeader(
+          type: data.type ?? "",
+          title: data.name ?? "-",
+          distance: data.distance ?? 0.0,
+          runningTime: '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
+        ),
 
-          // 기본 정보
-          StoreDetailBasicInformation(
-            address: data.address ?? "-",
-            addressDetail: data.addressDetail ?? "-",
-            runningTime: '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
-          ),
-          const SizedBox(height: 16),
+        // 지도 정보
+        StoreDetailMap(
+          name: data.name ?? "-",
+          lat: data.lat ?? 0.0,
+          lng: data.lng ?? 0.0,
+          address: '${data.address}, ${data.addressDetail}',
+          handleButtonClick: () {
+            context.push(
+              CustomRouter.storeMap.path,
+              extra: StoreMapPageArguments(
+                name: data.name ?? "-",
+                address: '${data.address}, ${data.addressDetail}',
+                lat: data.lat ?? 0.0,
+                lng: data.lng ?? 0.0,
+              ),
+            );
+          },
+        ),
 
-          // 지도 정보
-          StoreDetailMap(
-              name: data.name ?? "-",
-              lat: data.lat ?? 0.0,
-              lng: data.lng ?? 0.0,
-              address: '${data.address},\n${data.addressDetail}',
-              handleButtonClick: () {
-                context.push(
-                  CustomRouter.storeMap.path,
-                  extra: StoreMapPageArguments(
-                    name: data.name ?? "-",
-                    address: '${data.address}, ${data.addressDetail}',
-                    lat: data.lat ?? 0.0,
-                    lng: data.lng ?? 0.0,
-                  ),
-                );
-              }),
-          const SizedBox(height: 16),
-
-          // 토너먼트 정보
-          StoreDetailGameList(
-            games: data.gameMTTItems ?? [],
-          ),
-          const SizedBox(height: 16),
-        ],
-      ),
+        // 토너먼트 정보
+        StoreDetailGameList(
+          games: data.gameMTTItems ?? [],
+        ),
+      ],
     );
   }
 

@@ -49,10 +49,10 @@ class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 160,
+      height: 180,
       clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: GoogleMap(
         onMapCreated: _onMapCreated,
@@ -61,7 +61,7 @@ class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
         myLocationButtonEnabled: Platform.isAndroid,
         initialCameraPosition: CameraPosition(
           target: LatLng(widget.lat, widget.lng),
-          zoom: 16,
+          zoom: 15,
         ),
         markers: {
           Marker(

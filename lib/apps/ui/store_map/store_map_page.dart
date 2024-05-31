@@ -87,7 +87,8 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
             },
           ),
           Container(
-            padding: const EdgeInsets.only(top: 16, left: 16, bottom: 16),
+            width: double.infinity,
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: colorGrey100,
               borderRadius: const BorderRadius.only(
@@ -103,25 +104,24 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
                 ),
               ],
             ),
-            child: Row(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Expanded(
-                  child: Text(
-                    _args.address,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: colorGrey30,
-                        ),
+                Text(
+                  _args.address,
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: colorGrey30,
+                      ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  child: FilledButton(
+                    onPressed: () =>
+                        Utils().copyToClipboard(text: _args.address),
+                    child: const Text('주소복사'),
                   ),
                 ),
-                const SizedBox(width: 10),
-                IconButton(
-                  onPressed: () => Utils().copyToClipboard(text: _args.address),
-                  icon: const Icon(
-                    Icons.copy_rounded,
-                    color: colorGrey80,
-                  ),
-                ),
-                const SizedBox(width: 16),
               ],
             ),
           ),
