@@ -35,10 +35,15 @@ class _AreaMainCategoryViewState extends ConsumerState<AreaMainCategoryView> {
 
   void _handleCityClick(String cityCode, String cityName) {
     final newCityCode = '${cityCode.substring(0, 2)}*00000';
-    ref
-        .read(areaDataServiceProvider.notifier)
-        .setCityCode(regCode: newCityCode);
-    ref.read(areaDataServiceProvider.notifier).setCityName(name: cityName);
+
+    ref.read(areaDataServiceProvider.notifier).setCityCode(
+          regCode: newCityCode,
+        );
+
+    ref.read(areaDataServiceProvider.notifier).setCityName(
+          name: cityName,
+        );
+
     ref.invalidate(areaServiceProvider);
   }
 }

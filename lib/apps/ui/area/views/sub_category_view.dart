@@ -54,8 +54,12 @@ class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
                 Logger().i('${data[index].code.substring(0, 5)}*');
                 Logger().i(data[index].name);
 
+                final codeSubstring = data[index].name.split(' ').length == 2
+                    ? '${data[index].code.substring(0, 4)}*'
+                    : '${data[index].code.substring(0, 5)}*';
+
                 ref.read(areaDataServiceProvider.notifier).setCityCode(
-                      regCode: '${data[index].code.substring(0, 5)}*',
+                      regCode: codeSubstring,
                     );
 
                 context.push(
