@@ -26,7 +26,7 @@ enum CustomRouter {
   policy('/policy'),
   myInfo('/my_info'),
   notice('/notice'),
-  noticeDetail('/notice_detail'),
+  noticeDetail('/notice/:id'),
   favorite('/favorite'),
   recent('/recent'),
   photoView('/photo_view'),
@@ -90,7 +90,12 @@ final router = GoRouter(
     ),
     GoRoute(
       path: CustomRouter.noticeDetail.path,
-      builder: (context, state) => const MyNoticeDetailPage(),
+      name: CustomRouter.noticeDetail.name,
+      builder: (context, state) {
+        final id = state.pathParameters['id'] ?? "";
+
+        return MyNoticeDetailPage(id: id);
+      },
     ),
     GoRoute(
       path: CustomRouter.favorite.path,
@@ -109,22 +114,10 @@ final router = GoRouter(
     ),
     GoRoute(
       path: CustomRouter.storeMap.path,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        child: StoreMapPage(args: state.extra as StoreMapPageArguments),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return SlideTransition(
-            position: Tween<Offset>(
-              begin: const Offset(1, 0),
-              end: Offset.zero,
-            ).animate(animation),
-            child: child,
-          );
-        },
-      ),
-      // builder: (context, state) {
-      //   final args = state.extra as StoreMapPageArguments;
-      //   return StoreMapPage(args: args);
-      // },
+      builder: (context, state) {
+        final args = state.extra as StoreMapPageArguments;
+        return StoreMapPage(args: args);
+      },
     ),
     GoRoute(
       path: CustomRouter.search.path,

@@ -1,7 +1,9 @@
 import 'package:pokerspot_user_app/apps/infra/api/address/dto/area_dto.dart';
+import 'package:pokerspot_user_app/apps/infra/api/notices/dto/notice_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/area/models/area.dart';
+import 'package:pokerspot_user_app/apps/ui/my/notice/models/notice.dart';
 
 extension StoresModelMapperExtension on List<StoreDto> {
   List<StoreModel> toStoreListModel() {
@@ -79,6 +81,23 @@ extension AreaDto2ModelExtension on AreaDto {
     return AreaModel(
       code: code,
       name: name,
+    );
+  }
+}
+
+extension NoticeListDto2ModelExtension on List<NoticeDto> {
+  List<NoticeModel> toNoticeListModel() {
+    return map((e) => e.toNoticeModel()).toList();
+  }
+}
+
+extension NoticeDto2ModelExtension on NoticeDto {
+  NoticeModel toNoticeModel() {
+    return NoticeModel(
+      id: id,
+      title: title,
+      description: description,
+      createdAt: createdAt,
     );
   }
 }
