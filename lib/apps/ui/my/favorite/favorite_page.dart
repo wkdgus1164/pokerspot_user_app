@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/common/components/list_footer/custom_list_footer.dart';
 
 class MyFavoritePage extends StatefulHookConsumerWidget {
   const MyFavoritePage({super.key});
@@ -24,27 +23,25 @@ class _MyFavoritePageState extends ConsumerState<MyFavoritePage> {
         padding: const EdgeInsets.all(16),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return WithListFooter(
-            child: HomeStore(
-              storeImages: [
-                StoreImagesModel(
-                  id: "1",
-                  url:
-                      'https://plus.unsplash.com/premium_photo-1700268374954-f06052915608',
-                ),
-              ],
-              name: "asdf",
-              address: "asdf",
-              addressDetail: "asdf",
-              openTime: "10:00:00",
-              closeTime: "10:00:00",
-              distance: 1234.1234,
-              storeGames: const [],
-              handleClick: () => _handleClick(
-                "1234",
-                1234.2134,
-                123.41234,
+          return HomeStore(
+            storeImages: [
+              StoreImagesModel(
+                id: "1",
+                url:
+                    'https://plus.unsplash.com/premium_photo-1700268374954-f06052915608',
               ),
+            ],
+            name: "asdf",
+            address: "asdf",
+            addressDetail: "asdf",
+            openTime: "10:00:00",
+            closeTime: "10:00:00",
+            distance: 1234.1234,
+            storeGames: const [],
+            handleClick: () => _handleClick(
+              "1234",
+              1234.2134,
+              123.41234,
             ),
           );
         },

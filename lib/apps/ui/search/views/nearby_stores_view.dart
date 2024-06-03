@@ -9,7 +9,7 @@ import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dar
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/nearby_store_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
-import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 
 class NearbyStoresView extends StatefulHookConsumerWidget {
   const NearbyStoresView({super.key});

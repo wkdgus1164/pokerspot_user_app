@@ -5,7 +5,9 @@ import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/area_search_list/providers/area.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
-import 'package:pokerspot_user_app/common/components/empty_list_placeholder/empty_list_placeholder.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class AreaSearchListPageArguments {
@@ -46,65 +48,60 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
       },
     );
 
-    return res.when(
-      data: (resData) {
-        final data = resData.items;
-        Logger().i('data : $data');
+    return res.when(data: (resData) {
+      final data = resData.items;
+      Logger().i('data : $data');
 
-        if (data!.isEmpty) {
-          return Scaffold(
-            appBar: AppBar(title: Text(_args.areaName)),
-            body: const EmptyListPlaceHolder(
-              iconData: Icons.error_rounded,
-              message: '이 지역에는 등록된 홀덤펍이 없어요.',
-            ),
-          );
-        }
-        return Scaffold(
-          appBar: AppBar(title: Text(_args.areaName)),
-          body: SmartRefresher(
-            controller: refreshController,
-            enablePullDown: true,
-            onRefresh: _refresh,
-            child: ListView.separated(
-              controller: scrollController,
-              padding: const EdgeInsets.all(16),
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return HomeStore(
-                  storeImages: data[index].storeImages,
-                  name: data[index].name ?? "",
-                  address: data[index].address ?? "",
-                  addressDetail: data[index].addressDetail ?? "",
-                  openTime: data[index].openTime ?? '',
-                  closeTime: data[index].closeTime ?? '',
-                  distance: data[index].distance ?? 0,
-                  storeGames: data[index].gameMTTItems ?? [],
-                  handleClick: () {
-                    context.pushNamed(
-                      CustomRouter.store.name,
-                      pathParameters: {'id': data[index].id},
-                    );
-                  },
-                );
-              },
-              separatorBuilder: (context, index) => const SizedBox(height: 16),
-            ),
-          ),
+      if (data!.isEmpty) {
+        return EmptyListPlaceHolder(
+          appBarTitle: Text(_args.areaName),
+          iconData: Icons.error_rounded,
+          message: '이 지역에는 등록된 홀덤펍이 없어요.',
         );
-      },
-      loading: () {
-        return Scaffold(
-          appBar: AppBar(title: Text(_args.areaName)),
-          body: const Center(
-            child: CircularProgressIndicator.adaptive(),
+      }
+      return Scaffold(
+        appBar: AppBar(title: Text(_args.areaName)),
+        body: SmartRefresher(
+          controller: refreshController,
+          enablePullDown: true,
+          onRefresh: _refresh,
+          child: ListView.separated(
+            controller: scrollController,
+            padding: const EdgeInsets.all(16),
+            itemCount: data.length,
+            itemBuilder: (context, index) {
+              return HomeStore(
+                storeImages: data[index].storeImages,
+                name: data[index].name ?? "",
+                address: data[index].address ?? "",
+                addressDetail: data[index].addressDetail ?? "",
+                openTime: data[index].openTime ?? '',
+                closeTime: data[index].closeTime ?? '',
+                distance: data[index].distance ?? 0,
+                storeGames: data[index].gameMTTItems ?? [],
+                handleClick: () {
+                  context.pushNamed(
+                    CustomRouter.store.name,
+                    pathParameters: {'id': data[index].id},
+                  );
+                },
+              );
+            },
+            separatorBuilder: (context, index) => const SizedBox(height: 16),
           ),
-        );
-      },
-      error: (error, stackTrace) => Center(
-        child: Text('Error: $error'),
-      ),
-    );
+        ),
+      );
+    }, loading: () {
+      return const LoadingPlaceholder();
+    }, error: (error, stackTrace) {
+      return Scaffold(
+        appBar: AppBar(title: const Icon(Icons.error_rounded)),
+        body: ErrorPlaceholder(
+          caption: '잠시 후 다시 시도해 주세요.',
+          error: error.toString(),
+        ),
+      );
+    });
   }
 
   void _refresh() {

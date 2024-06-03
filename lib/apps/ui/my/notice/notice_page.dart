@@ -5,6 +5,9 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/my/notice/models/notice.dart';
 import 'package:pokerspot_user_app/apps/ui/my/notice/providers/notice.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
 
 class MyNoticePage extends StatefulHookConsumerWidget {
   const MyNoticePage({super.key});
@@ -31,22 +34,22 @@ class _MyNoticePageState extends ConsumerState<MyNoticePage> {
 
     return res.when(
       data: (data) {
+        if (data.items!.isEmpty) {
+          return const EmptyListPlaceHolder(
+            appBarTitle: Icon(Icons.info_rounded),
+            iconData: Icons.error_rounded,
+            message: '아직 공지사항이 없어요.',
+          );
+        }
         return buildList(data: data.items!);
       },
       loading: () {
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text('공지사항'),
-          ),
-          body: const Center(
-            child: CircularProgressIndicator(),
-          ),
+        return const LoadingPlaceholder(
+          loadingHeaderText: '공지사항',
         );
       },
       error: (error, _) {
-        return Center(
-          child: Text('Error: $error'),
-        );
+        return ErrorPlaceholder(error: error.toString());
       },
     );
   }

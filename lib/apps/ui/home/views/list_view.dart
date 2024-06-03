@@ -11,7 +11,7 @@ import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
 import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
-import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeListView extends StatefulHookConsumerWidget {

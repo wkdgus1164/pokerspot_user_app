@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/components/captions/data_loading.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/navi_bottom_sheet.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_vac.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class StoreDetailPage extends StatefulHookConsumerWidget {
@@ -67,23 +67,13 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         );
       },
       error: (error, stackTrace) {
-        Logger().e(error);
-
-        return Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: const Icon(Icons.error_rounded, color: colorGrey80),
-          ),
-          body: const StoreDetailDataLoading(),
+        return ErrorPlaceholder(
+          error: error.toString(),
         );
       },
       loading: () {
-        return Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: const CircularProgressIndicator.adaptive(),
-          ),
-          body: const StoreDetailDataLoading(),
+        return const LoadingPlaceholder(
+          loadingHeaderText: '-',
         );
       },
     );

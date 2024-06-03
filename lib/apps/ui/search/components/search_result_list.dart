@@ -11,7 +11,7 @@ import 'package:pokerspot_user_app/apps/ui/search/components/search_result_item.
 import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/search.dart';
-import 'package:pokerspot_user_app/common/components/error_placeholder/error_placeholder.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 
 class SearchResultList extends StatefulHookConsumerWidget {
   const SearchResultList({super.key});

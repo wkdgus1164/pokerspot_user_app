@@ -3,6 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/my/notice/models/notice.dart';
 import 'package:pokerspot_user_app/apps/ui/my/notice_detail/providers/notice_detail.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
 
 class MyNoticeDetailPage extends StatefulHookConsumerWidget {
   const MyNoticeDetailPage({super.key, required this.id});
@@ -26,19 +28,12 @@ class _MyNoticeDetailPageState extends ConsumerState<MyNoticeDetailPage> {
         return _buildNoticeDetail(data: data);
       },
       loading: () {
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text('공지사항 상세'),
-          ),
-          body: const Center(
-            child: CircularProgressIndicator(),
-          ),
+        return const LoadingPlaceholder(
+          loadingHeaderText: '공지사항 상세',
         );
       },
       error: (error, _) {
-        return Center(
-          child: Text('Error: $error'),
-        );
+        return ErrorPlaceholder(error: error.toString());
       },
     );
   }
