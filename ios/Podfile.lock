@@ -9,14 +9,14 @@ PODS:
   - Firebase/Crashlytics (10.25.0):
     - Firebase/CoreOnly
     - FirebaseCrashlytics (~> 10.25.0)
-  - firebase_analytics (10.10.5):
+  - firebase_analytics (10.10.7):
     - Firebase/Analytics (= 10.25.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.31.0):
+  - firebase_core (2.32.0):
     - Firebase/CoreOnly (= 10.25.0)
     - Flutter
-  - firebase_crashlytics (3.5.5):
+  - firebase_crashlytics (3.5.7):
     - Firebase/Crashlytics (= 10.25.0)
     - firebase_core
     - Flutter
@@ -143,7 +143,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.13.3):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
-  - kakao_flutter_sdk_common (1.9.1-2):
+  - kakao_flutter_sdk_common (1.9.2):
     - Flutter
   - nanopb (2.30910.0):
     - nanopb/decode (= 2.30910.0)
@@ -257,9 +257,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 0312a2352584f782ea56f66d91606891d4607f06
-  firebase_analytics: 0b2b459312872129295c3f9c44225eda552fd8f3
-  firebase_core: 0b39f4f424e02eecabb2356ddf331fa07b772af8
-  firebase_crashlytics: 5adb9a5ac7858811cef7a9447a011bb4dcb540c3
+  firebase_analytics: cc06e24d6a2343c44f845b3112143db72d10ef78
+  firebase_core: a626d00494efa398e7c54f25f1454a64c8abf197
+  firebase_crashlytics: 17e856fabec68d993662abaf2f6fe2413f0abece
   FirebaseAnalytics: ec00fe8b93b41dc6fe4a28784b8e51da0647a248
   FirebaseCore: 7ec4d0484817f12c3373955bc87762d96842d483
   FirebaseCoreExtension: 8a47811d0b155501559ef05d089518152a0a1677
@@ -277,7 +277,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  kakao_flutter_sdk_common: ac22d95194585407db3fbc5f838d67ced11ea0f0
+  kakao_flutter_sdk_common: 049c9341e325da17ac75751a35646dbbcfa06891
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
