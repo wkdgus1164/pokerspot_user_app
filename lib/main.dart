@@ -21,8 +21,10 @@ import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/secret/secret.dart';
 
 import 'firebase_options.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 void main() async {
+  timeago.setLocaleMessages('ko', timeago.KoMessages());
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
