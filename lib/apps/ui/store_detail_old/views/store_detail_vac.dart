@@ -74,6 +74,7 @@ class StoreDetailVac extends StatelessWidget {
             title: data.name ?? "-",
             distance: data.distance ?? 0.0,
             runningTime: openTimeCalculated,
+            updatedAt: data.updatedAt,
           ),
           const SizedBox(height: 16),
 

@@ -38,6 +38,7 @@ class StoreData extends _$StoreData {
       openTime: data.openTime,
       closeTime: data.closeTime,
       kakaoChatUrl: data.kakaoChatUrl,
+      updatedAt: data.updatedAt,
       distance: data.distance,
       lat: data.lat,
       lng: data.lng,

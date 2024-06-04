@@ -2,6 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class Utils {
   /// [text] 클립보드에 복사할 텍스트
@@ -41,5 +42,9 @@ class Utils {
       timeLimit: const Duration(seconds: 10),
       forceAndroidLocationManager: true,
     );
+  }
+
+  String getFormattedTimeAgo({required DateTime dateTime}) {
+    return timeago.format(dateTime, locale: 'ko');
   }
 }

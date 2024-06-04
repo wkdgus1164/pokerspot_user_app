@@ -9,12 +9,14 @@ class StoreDetailHeader extends StatelessWidget {
     required this.title,
     required this.distance,
     required this.runningTime,
+    required this.updatedAt,
   });
 
   final String type;
   final String title;
   final double distance;
   final String runningTime;
+  final DateTime updatedAt;
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +83,12 @@ class StoreDetailHeader extends StatelessWidget {
           ),
           Text(
             runningTime,
+            style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                  color: colorGrey50,
+                ),
+          ),
+          Text(
+            '${Utils().getFormattedTimeAgo(dateTime: updatedAt)} 최종 업데이트',
             style: Theme.of(context).textTheme.labelMedium!.copyWith(
                   color: colorGrey50,
                 ),

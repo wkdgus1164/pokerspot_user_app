@@ -24,6 +24,7 @@ extension StoreDto2StoreModelExtension on StoreDto {
       kakaoChatUrl: kakaoChatUrl,
       phone: phone,
       distance: distance,
+      updatedAt: updatedAt,
       lat: lat,
       lng: lng,
       storeImages: storeImages?.toImageListModel(),

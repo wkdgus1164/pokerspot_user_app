@@ -37,6 +37,7 @@ class _MyFavoritePageState extends ConsumerState<MyFavoritePage> {
             openTime: "10:00:00",
             closeTime: "10:00:00",
             distance: 1234.1234,
+            updatedAt: DateTime.now(),
             storeGames: const [],
             handleClick: () => _handleClick(
               "1234",

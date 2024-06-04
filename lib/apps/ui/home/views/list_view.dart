@@ -89,6 +89,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                     closeTime: data[index].closeTime ?? "",
                     distance: data[index].distance ?? 0.0,
                     storeGames: data[index].gameMTTItems ?? [],
+                    updatedAt: data[index].updatedAt,
                     handleClick: () => _handleClick(model: data[index]),
                   );
                 },

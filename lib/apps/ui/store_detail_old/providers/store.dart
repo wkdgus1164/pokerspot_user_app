@@ -39,6 +39,7 @@ class StoreData extends _$StoreData {
       closeTime: data.closeTime,
       kakaoChatUrl: data.kakaoChatUrl,
       distance: data.distance,
+      updatedAt: data.updatedAt,
       lat: data.lat,
       lng: data.lng,
       storeImages: data.storeImages?.toImageListModel(),

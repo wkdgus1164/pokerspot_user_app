@@ -18,6 +18,7 @@ class HomeStore extends StatelessWidget {
     required this.distance,
     required this.storeGames,
     required this.handleClick,
+    required this.updatedAt,
   });
 
   final List<StoreImagesModel>? storeImages;
@@ -27,6 +28,7 @@ class HomeStore extends StatelessWidget {
   final String openTime;
   final String closeTime;
   final double distance;
+  final DateTime updatedAt;
   final List<StoreGamesModel> storeGames;
   final Function() handleClick;
 
@@ -110,7 +112,7 @@ class HomeStore extends StatelessWidget {
                   Text(name, style: Theme.of(context).textTheme.titleLarge),
                   const SizedBox(height: 4),
                   Text(
-                    '$address · $openTimeCalculated시 오픈',
+                    '$address · $openTimeCalculated시 오픈\n${Utils().getFormattedTimeAgo(dateTime: updatedAt)} 최종 업데이트',
                     style: Theme.of(context).textTheme.labelMedium!.copyWith(
                           color: colorGrey60,
                         ),

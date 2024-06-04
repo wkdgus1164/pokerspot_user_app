@@ -15,6 +15,7 @@ class StoreModel with _$StoreModel {
     required String? openTime,
     required String? closeTime,
     required String? kakaoChatUrl,
+    required DateTime updatedAt,
     required double? distance,
     required double? lat,
     required double? lng,

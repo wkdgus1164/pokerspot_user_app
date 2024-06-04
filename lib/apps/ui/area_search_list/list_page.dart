@@ -78,6 +78,7 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
                 openTime: data[index].openTime ?? '',
                 closeTime: data[index].closeTime ?? '',
                 distance: data[index].distance ?? 0,
+                updatedAt: data[index].updatedAt,
                 storeGames: data[index].gameMTTItems ?? [],
                 handleClick: () {
                   context.pushNamed(

@@ -71,6 +71,7 @@ class StoreDetailVac extends StatelessWidget {
           title: data.name ?? "-",
           distance: data.distance ?? 0.0,
           runningTime: '$openTimeCalculated ~ ${data.closeTime ?? '마감 시'}까지',
+          updatedAt: data.updatedAt,
         ),
 
         // 지도 정보
