@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kakao_flutter_sdk_share/kakao_flutter_sdk_share.dart';
@@ -81,22 +80,8 @@ ThemeData _createThemeData({required BuildContext context}) {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  // static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(
-  //   analytics: analytics,
-  // );
-
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-          // statusBarColor: Colors.transparent,
-          // statusBarIconBrightness: Brightness.dark,
-          // systemNavigationBarColor: Colors.white,
-          // systemNavigationBarDividerColor: Colors.white,
-          ),
-    );
-
     return GlobalLoaderOverlay(
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
