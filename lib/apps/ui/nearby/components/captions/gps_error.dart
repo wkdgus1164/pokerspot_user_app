@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 
-class HomeGpsLoading extends StatelessWidget {
-  const HomeGpsLoading({super.key});
+class NearbyGpsError extends StatelessWidget {
+  const NearbyGpsError({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,16 +15,15 @@ class HomeGpsLoading extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
-            width: 10,
-            height: 10,
-            child: CircularProgressIndicator.adaptive(),
+          GestureDetector(
+            child: const Icon(Icons.error, color: colorGrey80, size: 20),
+            onTap: () => Geolocator.openAppSettings(),
           ),
           const SizedBox(width: 10),
           Text(
-            '위치 정보 수집 중...',
+            '위치 정보 수집에 실패했어요.',
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: colorGrey50,
+                  color: colorGrey60,
                 ),
           ),
         ],

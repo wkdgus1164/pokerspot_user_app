@@ -3,7 +3,7 @@ import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart
 import 'package:pokerspot_user_app/apps/global/utils/extensions.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/geolocation_data.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/providers/geolocation_data.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

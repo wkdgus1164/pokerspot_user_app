@@ -4,12 +4,12 @@ import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart
 import 'package:pokerspot_user_app/apps/global/utils/extensions.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_entry_price.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_game_type.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_open_time.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/providers/filter_by_operation_status.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_game_type.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_open_time.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/geolocation_data.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/providers/geolocation_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'store.g.dart';

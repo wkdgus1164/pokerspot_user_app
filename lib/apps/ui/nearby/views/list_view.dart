@@ -7,21 +7,21 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
-import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/components/store.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/providers/location_service.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class HomeListView extends StatefulHookConsumerWidget {
-  const HomeListView({super.key});
+class NearbyListView extends StatefulHookConsumerWidget {
+  const NearbyListView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _HomeListViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _NearbyListViewState();
 }
 
-class _HomeListViewState extends ConsumerState<HomeListView> {
+class _NearbyListViewState extends ConsumerState<NearbyListView> {
   final RefreshController _refreshController =
       RefreshController(initialRefresh: false);
 
@@ -43,7 +43,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
           },
         );
 
-        Logger().i('HomeListView\n  data: $data');
+        Logger().i('NearbyListView\n  data: $data');
 
         if (data!.isEmpty) {
           return Expanded(
@@ -80,7 +80,7 @@ class _HomeListViewState extends ConsumerState<HomeListView> {
                 padding: const EdgeInsets.all(16),
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  return HomeStore(
+                  return Store(
                     storeImages: data[index].storeImages ?? [],
                     name: data[index].name ?? "",
                     address: data[index].address ?? "",

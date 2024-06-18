@@ -5,18 +5,18 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/filter.dart';
-import 'package:pokerspot_user_app/apps/ui/home/views/list_view.dart';
-import 'package:pokerspot_user_app/apps/ui/home/views/location_vac.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/filter.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/views/list_view.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/views/location_vac.dart';
 
-class HomePage extends StatefulHookConsumerWidget {
-  const HomePage({super.key});
+class NearbyPage extends StatefulHookConsumerWidget {
+  const NearbyPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _HomePageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _NearbyPageState();
 }
 
-class _HomePageState extends ConsumerState<HomePage> {
+class _NearbyPageState extends ConsumerState<NearbyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +38,8 @@ class _HomePageState extends ConsumerState<HomePage> {
       ),
       body: const Column(
         children: [
-          HomeLocationView(),
-          HomeListView(),
+          NearbyLocationView(),
+          NearbyListView(),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -52,7 +52,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             enableDrag: true,
             backgroundColor: colorGrey100,
             builder: (context) {
-              return const HomeSearchFilterSheet();
+              return const NearbySearchFilterSheet();
             },
           );
         },

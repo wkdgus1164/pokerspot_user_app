@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/area_search_list/providers/area.dart';
-import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/components/store.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -70,7 +70,7 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
             padding: const EdgeInsets.all(16),
             itemCount: data.length,
             itemBuilder: (context, index) {
-              return HomeStore(
+              return Store(
                 storeImages: data[index].storeImages,
                 name: data[index].name ?? "",
                 address: data[index].address ?? "",

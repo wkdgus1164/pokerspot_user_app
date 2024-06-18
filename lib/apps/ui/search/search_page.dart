@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
 import 'package:pokerspot_user_app/apps/ui/search/views/app_bar_view.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/search_result_list.dart';

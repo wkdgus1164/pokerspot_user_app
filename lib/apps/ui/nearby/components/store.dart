@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list.dart';
-import 'package:pokerspot_user_app/apps/ui/home/components/captions/image_load_failed.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/components/captions/image_load_failed.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 
-class HomeStore extends StatelessWidget {
-  const HomeStore({
+class Store extends StatelessWidget {
+  const Store({
     super.key,
     this.storeImages,
     required this.name,

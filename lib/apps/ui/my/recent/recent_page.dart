@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/components/store.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 
 class MyRecentPage extends StatefulHookConsumerWidget {
@@ -23,7 +23,7 @@ class _MyRecentPageState extends ConsumerState<MyRecentPage> {
         padding: const EdgeInsets.all(16),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return HomeStore(
+          return Store(
             storeImages: [
               StoreImagesModel(
                 id: "1",

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/location_service.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/providers/location_service.dart';
 
-class HomeLocationView extends StatefulHookConsumerWidget {
-  const HomeLocationView({super.key});
+class NearbyLocationView extends StatefulHookConsumerWidget {
+  const NearbyLocationView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _HomeLocationViewState();
+      _NearbyLocationViewState();
 }
 
-class _HomeLocationViewState extends ConsumerState<HomeLocationView> {
+class _NearbyLocationViewState extends ConsumerState<NearbyLocationView> {
   @override
   Widget build(BuildContext context) {
     final locationModel = ref.watch(locationServiceProvider);
