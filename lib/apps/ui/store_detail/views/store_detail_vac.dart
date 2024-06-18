@@ -28,7 +28,7 @@ class StoreDetailVac extends StatelessWidget {
   final Function() handleRefresh;
   final StoreModel data;
   final String openTimeCalculated;
-  final Function(String?, String?) call;
+  final Function(String, String) call;
   final Function() showNaviBottomSheet;
 
   @override
@@ -150,7 +150,7 @@ class StoreDetailVac extends StatelessWidget {
           const SizedBox(width: 16),
           Expanded(
             child: FilledButton.icon(
-              onPressed: () => call(data.name, data.phone),
+              onPressed: () => call(data.name!, data.phone!),
               icon: const Icon(Icons.call_rounded),
               label: const Text('전화 걸기'),
             ),

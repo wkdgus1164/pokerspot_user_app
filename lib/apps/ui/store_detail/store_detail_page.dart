@@ -80,8 +80,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   }
 
   void _call(
-    String? storeName,
-    String? phone,
+    String storeName,
+    String phone,
   ) {
     Utils().callTo(phone: phone);
 
