@@ -1,10 +1,15 @@
+import 'package:drift/drift.dart' as d;
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/area_search_list/providers/area.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/components/store.dart';
+import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -80,12 +85,7 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
                 distance: data[index].distance ?? 0,
                 updatedAt: data[index].updatedAt,
                 storeGames: data[index].gameMTTItems ?? [],
-                handleClick: () {
-                  context.pushNamed(
-                    CustomRouter.store.name,
-                    pathParameters: {'id': data[index].id},
-                  );
-                },
+                handleClick: () => _handleClick(model: data[index]),
               );
             },
             separatorBuilder: (context, index) => const SizedBox(height: 16),
@@ -109,5 +109,28 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
     Future.delayed(const Duration(seconds: 1), () {
       refreshController.refreshCompleted();
     });
+  }
+
+  void _handleClick({required StoreModel model}) {
+    final target = ref.read(recentSearchDataProvider.notifier).find(model.id);
+
+    if (target == null) {
+      ref.read(recentSearchDaoProvider).insert(
+            RecentSearchEntityCompanion(
+              id: d.Value(model.id),
+              name: d.Value(model.name!),
+              createdAt: d.Value(DateTime.now()),
+              image: d.Value(model.storeImages!.first.url!),
+              address: d.Value(model.address!),
+              openTime: d.Value(model.openTime!),
+            ),
+          );
+    }
+
+    ref.invalidate(recentSearchDataProvider);
+    context.pushNamed(
+      CustomRouter.store.name,
+      pathParameters: {'id': model.id},
+    );
   }
 }

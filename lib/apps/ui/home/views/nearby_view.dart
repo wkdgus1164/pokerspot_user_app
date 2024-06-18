@@ -68,7 +68,7 @@ class HomeNearbyStoresListViewState
         );
       },
       error: (error, _) {
-        return const SizedBox();
+        return Text(error.toString());
       },
       loading: () {
         return const SizedBox();
@@ -85,6 +85,9 @@ class HomeNearbyStoresListViewState
               id: d.Value(model.id),
               name: d.Value(model.name!),
               createdAt: d.Value(DateTime.now()),
+              image: d.Value(model.storeImages!.first.url!),
+              address: d.Value(model.address!),
+              openTime: d.Value(model.openTime!),
             ),
           );
     }

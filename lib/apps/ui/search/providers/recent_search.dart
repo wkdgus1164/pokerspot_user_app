@@ -11,6 +11,9 @@ class RecentSearchModel with _$RecentSearchModel {
   factory RecentSearchModel({
     required String id,
     required String name,
+    required String image,
+    required String address,
+    required String openTime,
     required DateTime createdAt,
   }) = _RecentSearchModel;
 }
@@ -26,6 +29,9 @@ class RecentSearchData extends _$RecentSearchData {
               id: e.id,
               name: e.name,
               createdAt: e.createdAt,
+              image: e.image,
+              address: e.address,
+              openTime: e.openTime,
             ))
         .toList();
   }

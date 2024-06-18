@@ -19,6 +19,23 @@ class $RecentSearchEntityTable extends RecentSearchEntity
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
       'name', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _imageMeta = const VerificationMeta('image');
+  @override
+  late final GeneratedColumn<String> image = GeneratedColumn<String>(
+      'image', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _addressMeta =
+      const VerificationMeta('address');
+  @override
+  late final GeneratedColumn<String> address = GeneratedColumn<String>(
+      'address', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _openTimeMeta =
+      const VerificationMeta('openTime');
+  @override
+  late final GeneratedColumn<String> openTime = GeneratedColumn<String>(
+      'open_time', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
   static const VerificationMeta _createdAtMeta =
       const VerificationMeta('createdAt');
   @override
@@ -26,7 +43,8 @@ class $RecentSearchEntityTable extends RecentSearchEntity
       'created_at', aliasedName, false,
       type: DriftSqlType.dateTime, requiredDuringInsert: true);
   @override
-  List<GeneratedColumn> get $columns => [id, name, createdAt];
+  List<GeneratedColumn> get $columns =>
+      [id, name, image, address, openTime, createdAt];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -49,6 +67,24 @@ class $RecentSearchEntityTable extends RecentSearchEntity
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
+    if (data.containsKey('image')) {
+      context.handle(
+          _imageMeta, image.isAcceptableOrUnknown(data['image']!, _imageMeta));
+    } else if (isInserting) {
+      context.missing(_imageMeta);
+    }
+    if (data.containsKey('address')) {
+      context.handle(_addressMeta,
+          address.isAcceptableOrUnknown(data['address']!, _addressMeta));
+    } else if (isInserting) {
+      context.missing(_addressMeta);
+    }
+    if (data.containsKey('open_time')) {
+      context.handle(_openTimeMeta,
+          openTime.isAcceptableOrUnknown(data['open_time']!, _openTimeMeta));
+    } else if (isInserting) {
+      context.missing(_openTimeMeta);
+    }
     if (data.containsKey('created_at')) {
       context.handle(_createdAtMeta,
           createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
@@ -68,6 +104,12 @@ class $RecentSearchEntityTable extends RecentSearchEntity
           .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
       name: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
+      image: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}image'])!,
+      address: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}address'])!,
+      openTime: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}open_time'])!,
       createdAt: attachedDatabase.typeMapping
           .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
     );
@@ -83,14 +125,25 @@ class RecentSearchEntityData extends DataClass
     implements Insertable<RecentSearchEntityData> {
   final String id;
   final String name;
+  final String image;
+  final String address;
+  final String openTime;
   final DateTime createdAt;
   const RecentSearchEntityData(
-      {required this.id, required this.name, required this.createdAt});
+      {required this.id,
+      required this.name,
+      required this.image,
+      required this.address,
+      required this.openTime,
+      required this.createdAt});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
     map['name'] = Variable<String>(name);
+    map['image'] = Variable<String>(image);
+    map['address'] = Variable<String>(address);
+    map['open_time'] = Variable<String>(openTime);
     map['created_at'] = Variable<DateTime>(createdAt);
     return map;
   }
@@ -99,6 +152,9 @@ class RecentSearchEntityData extends DataClass
     return RecentSearchEntityCompanion(
       id: Value(id),
       name: Value(name),
+      image: Value(image),
+      address: Value(address),
+      openTime: Value(openTime),
       createdAt: Value(createdAt),
     );
   }
@@ -109,6 +165,9 @@ class RecentSearchEntityData extends DataClass
     return RecentSearchEntityData(
       id: serializer.fromJson<String>(json['id']),
       name: serializer.fromJson<String>(json['name']),
+      image: serializer.fromJson<String>(json['image']),
+      address: serializer.fromJson<String>(json['address']),
+      openTime: serializer.fromJson<String>(json['openTime']),
       createdAt: serializer.fromJson<DateTime>(json['createdAt']),
     );
   }
@@ -118,15 +177,26 @@ class RecentSearchEntityData extends DataClass
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
       'name': serializer.toJson<String>(name),
+      'image': serializer.toJson<String>(image),
+      'address': serializer.toJson<String>(address),
+      'openTime': serializer.toJson<String>(openTime),
       'createdAt': serializer.toJson<DateTime>(createdAt),
     };
   }
 
   RecentSearchEntityData copyWith(
-          {String? id, String? name, DateTime? createdAt}) =>
+          {String? id,
+          String? name,
+          String? image,
+          String? address,
+          String? openTime,
+          DateTime? createdAt}) =>
       RecentSearchEntityData(
         id: id ?? this.id,
         name: name ?? this.name,
+        image: image ?? this.image,
+        address: address ?? this.address,
+        openTime: openTime ?? this.openTime,
         createdAt: createdAt ?? this.createdAt,
       );
   @override
@@ -134,19 +204,26 @@ class RecentSearchEntityData extends DataClass
     return (StringBuffer('RecentSearchEntityData(')
           ..write('id: $id, ')
           ..write('name: $name, ')
+          ..write('image: $image, ')
+          ..write('address: $address, ')
+          ..write('openTime: $openTime, ')
           ..write('createdAt: $createdAt')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, name, createdAt);
+  int get hashCode =>
+      Object.hash(id, name, image, address, openTime, createdAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is RecentSearchEntityData &&
           other.id == this.id &&
           other.name == this.name &&
+          other.image == this.image &&
+          other.address == this.address &&
+          other.openTime == this.openTime &&
           other.createdAt == this.createdAt);
 }
 
@@ -154,31 +231,49 @@ class RecentSearchEntityCompanion
     extends UpdateCompanion<RecentSearchEntityData> {
   final Value<String> id;
   final Value<String> name;
+  final Value<String> image;
+  final Value<String> address;
+  final Value<String> openTime;
   final Value<DateTime> createdAt;
   final Value<int> rowid;
   const RecentSearchEntityCompanion({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
+    this.image = const Value.absent(),
+    this.address = const Value.absent(),
+    this.openTime = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   RecentSearchEntityCompanion.insert({
     required String id,
     required String name,
+    required String image,
+    required String address,
+    required String openTime,
     required DateTime createdAt,
     this.rowid = const Value.absent(),
   })  : id = Value(id),
         name = Value(name),
+        image = Value(image),
+        address = Value(address),
+        openTime = Value(openTime),
         createdAt = Value(createdAt);
   static Insertable<RecentSearchEntityData> custom({
     Expression<String>? id,
     Expression<String>? name,
+    Expression<String>? image,
+    Expression<String>? address,
+    Expression<String>? openTime,
     Expression<DateTime>? createdAt,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (name != null) 'name': name,
+      if (image != null) 'image': image,
+      if (address != null) 'address': address,
+      if (openTime != null) 'open_time': openTime,
       if (createdAt != null) 'created_at': createdAt,
       if (rowid != null) 'rowid': rowid,
     });
@@ -187,11 +282,17 @@ class RecentSearchEntityCompanion
   RecentSearchEntityCompanion copyWith(
       {Value<String>? id,
       Value<String>? name,
+      Value<String>? image,
+      Value<String>? address,
+      Value<String>? openTime,
       Value<DateTime>? createdAt,
       Value<int>? rowid}) {
     return RecentSearchEntityCompanion(
       id: id ?? this.id,
       name: name ?? this.name,
+      image: image ?? this.image,
+      address: address ?? this.address,
+      openTime: openTime ?? this.openTime,
       createdAt: createdAt ?? this.createdAt,
       rowid: rowid ?? this.rowid,
     );
@@ -205,6 +306,15 @@ class RecentSearchEntityCompanion
     }
     if (name.present) {
       map['name'] = Variable<String>(name.value);
+    }
+    if (image.present) {
+      map['image'] = Variable<String>(image.value);
+    }
+    if (address.present) {
+      map['address'] = Variable<String>(address.value);
+    }
+    if (openTime.present) {
+      map['open_time'] = Variable<String>(openTime.value);
     }
     if (createdAt.present) {
       map['created_at'] = Variable<DateTime>(createdAt.value);
@@ -220,6 +330,9 @@ class RecentSearchEntityCompanion
     return (StringBuffer('RecentSearchEntityCompanion(')
           ..write('id: $id, ')
           ..write('name: $name, ')
+          ..write('image: $image, ')
+          ..write('address: $address, ')
+          ..write('openTime: $openTime, ')
           ..write('createdAt: $createdAt, ')
           ..write('rowid: $rowid')
           ..write(')'))
@@ -244,6 +357,9 @@ typedef $$RecentSearchEntityTableInsertCompanionBuilder
     = RecentSearchEntityCompanion Function({
   required String id,
   required String name,
+  required String image,
+  required String address,
+  required String openTime,
   required DateTime createdAt,
   Value<int> rowid,
 });
@@ -251,6 +367,9 @@ typedef $$RecentSearchEntityTableUpdateCompanionBuilder
     = RecentSearchEntityCompanion Function({
   Value<String> id,
   Value<String> name,
+  Value<String> image,
+  Value<String> address,
+  Value<String> openTime,
   Value<DateTime> createdAt,
   Value<int> rowid,
 });
@@ -278,24 +397,36 @@ class $$RecentSearchEntityTableTableManager extends RootTableManager<
           getUpdateCompanionBuilder: ({
             Value<String> id = const Value.absent(),
             Value<String> name = const Value.absent(),
+            Value<String> image = const Value.absent(),
+            Value<String> address = const Value.absent(),
+            Value<String> openTime = const Value.absent(),
             Value<DateTime> createdAt = const Value.absent(),
             Value<int> rowid = const Value.absent(),
           }) =>
               RecentSearchEntityCompanion(
             id: id,
             name: name,
+            image: image,
+            address: address,
+            openTime: openTime,
             createdAt: createdAt,
             rowid: rowid,
           ),
           getInsertCompanionBuilder: ({
             required String id,
             required String name,
+            required String image,
+            required String address,
+            required String openTime,
             required DateTime createdAt,
             Value<int> rowid = const Value.absent(),
           }) =>
               RecentSearchEntityCompanion.insert(
             id: id,
             name: name,
+            image: image,
+            address: address,
+            openTime: openTime,
             createdAt: createdAt,
             rowid: rowid,
           ),
@@ -328,6 +459,21 @@ class $$RecentSearchEntityTableFilterComposer
       builder: (column, joinBuilders) =>
           ColumnFilters(column, joinBuilders: joinBuilders));
 
+  ColumnFilters<String> get image => $state.composableBuilder(
+      column: $state.table.image,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get address => $state.composableBuilder(
+      column: $state.table.address,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get openTime => $state.composableBuilder(
+      column: $state.table.openTime,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
   ColumnFilters<DateTime> get createdAt => $state.composableBuilder(
       column: $state.table.createdAt,
       builder: (column, joinBuilders) =>
@@ -344,6 +490,21 @@ class $$RecentSearchEntityTableOrderingComposer
 
   ColumnOrderings<String> get name => $state.composableBuilder(
       column: $state.table.name,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get image => $state.composableBuilder(
+      column: $state.table.image,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get address => $state.composableBuilder(
+      column: $state.table.address,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get openTime => $state.composableBuilder(
+      column: $state.table.openTime,
       builder: (column, joinBuilders) =>
           ColumnOrderings(column, joinBuilders: joinBuilders));
 

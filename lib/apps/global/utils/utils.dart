@@ -36,6 +36,7 @@ class Utils {
         : '${(distance / 1000).toStringAsFixed(2)}km';
   }
 
+  /// 현재 위치를 가져옵니다.
   Future<Position> getCurrentPosition() async {
     return await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.lowest,
@@ -44,7 +45,19 @@ class Utils {
     );
   }
 
+  /// 시간을 현재 시간으로부터 얼마나 지났는지 표시합니다.
+  /// [dateTime] 계산할 DateTime 시간
   String getFormattedTimeAgo({required DateTime dateTime}) {
     return timeago.format(dateTime, locale: 'ko');
+  }
+
+  ///  DateTime 을 한국 시간으로 표시합니다.
+  /// [dateTime] 표시할 DateTime 시간
+  String getFormattedTime({required String time}) {
+    final openTimeCalculated = int.parse(time.substring(0, 2)) > 12
+        ? '오후 ${int.parse(time.substring(0, 2)) - 12}시'
+        : '오전 ${int.parse(time.substring(0, 2))}시';
+
+    return openTimeCalculated;
   }
 }

@@ -145,6 +145,9 @@ class _NearbyListViewState extends ConsumerState<NearbyListView> {
               id: d.Value(model.id),
               name: d.Value(model.name!),
               createdAt: d.Value(DateTime.now()),
+              image: d.Value(model.storeImages!.first.url!),
+              address: d.Value(model.address!),
+              openTime: d.Value(model.openTime!),
             ),
           );
     }

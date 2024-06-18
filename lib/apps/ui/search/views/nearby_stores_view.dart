@@ -75,6 +75,9 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
               id: d.Value(model.id),
               name: d.Value(model.name!),
               createdAt: d.Value(DateTime.now()),
+              image: d.Value(model.storeImages!.first.url!),
+              address: d.Value(model.address!),
+              openTime: d.Value(model.openTime!),
             ),
           );
     }

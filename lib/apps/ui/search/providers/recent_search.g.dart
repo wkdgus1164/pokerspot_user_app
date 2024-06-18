@@ -6,7 +6,7 @@ part of 'recent_search.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$recentSearchDataHash() => r'6b66b22d093ce1cc7437b6b2b1dc93600914c8eb';
+String _$recentSearchDataHash() => r'78742b26e3ea1340f01d50571d6a71a7598f92c5';
 
 /// See also [RecentSearchData].
 @ProviderFor(RecentSearchData)
