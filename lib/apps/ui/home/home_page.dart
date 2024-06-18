@@ -4,9 +4,10 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/ui/home/components/notice_view.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/notice_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/banner_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/nearby_view.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/recent_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/selection_view.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/views/location_vac.dart';
 
@@ -60,8 +61,11 @@ class _HomePageState extends ConsumerState<HomePage> {
               ),
             ),
 
+            // 최근 방문한 펍
+            const HomeRecentStoresListview(),
+
             // 내 주변 추천 펍
-            const HomeNearbyView(),
+            const HomeNearbyStoresListView(),
           ],
         ),
       ),

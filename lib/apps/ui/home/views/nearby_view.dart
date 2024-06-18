@@ -10,14 +10,16 @@ import 'package:pokerspot_user_app/apps/ui/nearby/components/store.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 
-class HomeNearbyView extends StatefulHookConsumerWidget {
-  const HomeNearbyView({super.key});
+class HomeNearbyStoresListView extends StatefulHookConsumerWidget {
+  const HomeNearbyStoresListView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => HomeNearbyViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      HomeNearbyStoresListViewState();
 }
 
-class HomeNearbyViewState extends ConsumerState<HomeNearbyView> {
+class HomeNearbyStoresListViewState
+    extends ConsumerState<HomeNearbyStoresListView> {
   @override
   Widget build(BuildContext context) {
     final res = ref.watch(storesItemsProvider);
@@ -33,7 +35,7 @@ class HomeNearbyViewState extends ConsumerState<HomeNearbyView> {
             children: [
               Text(
                 '내 주변 추천 펍',
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontWeight: FontWeight.bold,
                       color: colorGrey20,
                     ),
