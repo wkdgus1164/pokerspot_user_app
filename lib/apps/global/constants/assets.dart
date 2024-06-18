@@ -40,6 +40,9 @@ enum Assets {
   kakaonavi('$assetPath/kakaonavi.svg'),
   kakaomap('$assetPath/kakaomap.png'),
   searchPrefix('$assetPath/search_prefix.svg'),
+
+  gameDaily('$assetPath/game_daily.svg'),
+  gameGTD('$assetPath/game_gtd.svg'),
   ;
 
   const Assets(this.path);

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/area/area_page.dart';
+import 'package:pokerspot_user_app/apps/ui/home/home_page.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/nearby_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my/main/my_page.dart';
 
@@ -34,7 +35,7 @@ class NavigationHelper {
   factory NavigationHelper() => _instance;
 
   List<Widget> pages = [
-    const NearbyPage(),
+    const HomePage(),
     const NearbyPage(),
     const AreaPage(),
     const MyPage(),
