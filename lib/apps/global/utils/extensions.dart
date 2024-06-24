@@ -1,8 +1,10 @@
 import 'package:pokerspot_user_app/apps/infra/api/address/dto/area_dto.dart';
+import 'package:pokerspot_user_app/apps/infra/api/banners/dto/banner_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/notices/dto/notice_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/area/models/area.dart';
+import 'package:pokerspot_user_app/apps/ui/home/models/banner.dart';
 import 'package:pokerspot_user_app/apps/ui/my/notice/models/notice.dart';
 
 extension StoresModelMapperExtension on List<StoreDto> {
@@ -99,6 +101,21 @@ extension NoticeDto2ModelExtension on NoticeDto {
       title: title,
       description: description,
       createdAt: createdAt,
+    );
+  }
+}
+
+extension BannerListDto2ModelExtension on List<BannerDto> {
+  List<BannerModel> toBannerListModel() {
+    return map((e) => e.toBannerModel()).toList();
+  }
+}
+
+extension BannerDto2ModelExtension on BannerDto {
+  BannerModel toBannerModel() {
+    return BannerModel(
+      id: id,
+      imageUrl: imageUrl,
     );
   }
 }
