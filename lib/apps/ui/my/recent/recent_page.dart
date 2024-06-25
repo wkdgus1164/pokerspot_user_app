@@ -7,7 +7,7 @@ import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/recent_list_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
-import 'package:pokerspot_user_app/common/components/adaptive_button/adaptive_button.dart';
+import 'package:pokerspot_user_app/common/components/dialog/dialog_utils.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -39,35 +39,7 @@ class _MyRecentPageState extends ConsumerState<MyRecentPage> {
             actions: [
               IconButton(
                 onPressed: () {
-                  showAdaptiveDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog.adaptive(
-                        title: const Text('최근 본 펍 전체 삭제'),
-                        content: const Text(
-                          '최근 본 펍을 모두 삭제하시겠어요?\n삭제된 내용은 복구할 수 없어요.',
-                        ),
-                        actions: [
-                          CustomAdaptiveDialogButton(
-                            context: context,
-                            onPressed: () => Navigator.pop(context, '취소'),
-                            child: const Text('취소'),
-                          ),
-                          CustomAdaptiveDialogButton(
-                            context: context,
-                            onPressed: () {
-                              Fluttertoast.showToast(msg: '최근 본 매장을 모두 삭제했어요.');
-                              ref.read(recentSearchDaoProvider).deleteAll();
-                              ref.invalidate(recentSearchDataProvider);
-                              Navigator.pop(context);
-                              Navigator.pop(context);
-                            },
-                            child: const Text('삭제하기'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
+                  _showDeleteRecentStoreDialog(context);
                 },
                 icon: const Text('전체 삭제'),
               ),
@@ -117,6 +89,22 @@ class _MyRecentPageState extends ConsumerState<MyRecentPage> {
           ),
         );
       },
+    );
+  }
+
+  void _showDeleteRecentStoreDialog(BuildContext context) {
+    return context.showCustomDialog(
+      title: '최근 본 펍 전체 삭제',
+      content: '최근 본 펍을 모두 삭제하시겠어요?\n삭제된 내용은 복구할 수 없어요.',
+      confirmText: '삭제하기',
+      onConfirm: () {
+        Fluttertoast.showToast(msg: '최근 본 매장을 모두 삭제했어요.');
+        ref.read(recentSearchDaoProvider).deleteAll();
+        ref.invalidate(recentSearchDataProvider);
+        Navigator.pop(context);
+      },
+      cancelText: '취소',
+      onCancel: () => Navigator.pop(context),
     );
   }
 
