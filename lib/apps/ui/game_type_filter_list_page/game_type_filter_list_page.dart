@@ -106,8 +106,7 @@ class _GameTypeFilterListPageState
       },
       loading: () {
         return LoadingPlaceholder(
-          message: '내 주변 ${_args.gameType.kr} 홀덤펍',
-          loadingHeaderText: '주변 ${_args.gameType.kr} 홀덤펍을 찾고 있어요.',
+          message: '내 주변 ${_args.gameType.kr} 홀덤펍을 찾고 있어요.',
         );
       },
     );
