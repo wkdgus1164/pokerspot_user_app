@@ -6,7 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/game_type_filter_list_page/providers/game_type_fillter.dart';
@@ -15,6 +14,7 @@ import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
 
 class GameTypeFilterListPageArguments {
   final GameType gameType;
@@ -105,27 +105,9 @@ class _GameTypeFilterListPageState
         );
       },
       loading: () {
-        return Scaffold(
-          appBar: AppBar(
-            title: Text('내 주변 ${_args.gameType.kr}'),
-          ),
-          body: Expanded(
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const CircularProgressIndicator.adaptive(),
-                  const SizedBox(height: 16),
-                  Text(
-                    '주변 ${_args.gameType.kr} 홀덤펍을 빠르게 찾고 있어요.',
-                    style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                          color: colorGrey70,
-                        ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+        return LoadingPlaceholder(
+          message: '내 주변 ${_args.gameType.kr} 홀덤펍',
+          loadingHeaderText: '주변 ${_args.gameType.kr} 홀덤펍을 찾고 있어요.',
         );
       },
     );
