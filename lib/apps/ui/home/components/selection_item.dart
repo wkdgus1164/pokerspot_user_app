@@ -34,7 +34,7 @@ class HomeSelectionItem extends StatelessWidget {
             child: Column(
               children: [
                 SvgPicture.asset(iconPath),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
                 Text(
                   title,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(

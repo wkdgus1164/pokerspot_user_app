@@ -59,13 +59,14 @@ class HomeRecentListItem extends StatelessWidget {
                 children: [
                   Text(
                     name,
+                    overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '$address · $openTime',
+                    '$address\n$openTime',
                     style: Theme.of(context).textTheme.labelMedium!.copyWith(
                           color: colorGrey60,
                         ),
@@ -73,6 +74,7 @@ class HomeRecentListItem extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(width: 16),
           ],
         ),
       ),
