@@ -61,7 +61,7 @@ class _HomePageState extends ConsumerState<HomePage> {
               ),
             ),
 
-            // 최근 방문한 펍
+            // 최근 본 펍
             const HomeRecentStoresListview(),
 
             // 내 주변 추천 펍

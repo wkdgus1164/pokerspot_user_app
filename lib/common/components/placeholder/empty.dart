@@ -16,28 +16,27 @@ class EmptyListPlaceHolder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: appBarTitle),
-      body: Container(
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              iconData,
-              size: 36,
-              color: Colors.grey.shade800.withOpacity(0.5),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Text(
-              message,
-              style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                    color: Colors.grey.shade800.withOpacity(0.5),
-                  ),
-            ),
-          ],
-        ),
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Icon(
+            iconData,
+            size: 36,
+            color: Colors.grey.shade800.withOpacity(0.5),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Text(
+            message,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                  color: Colors.grey.shade800.withOpacity(0.5),
+                ),
+          ),
+        ],
       ),
     );
   }

@@ -41,7 +41,7 @@ class _HomeRecentStoresListviewState
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '최근 방문한 펍',
+                        '최근 본 펍',
                         style:
                             Theme.of(context).textTheme.titleMedium!.copyWith(
                                   fontWeight: FontWeight.bold,
@@ -117,7 +117,7 @@ class _HomeRecentStoresListviewState
   }
 
   void _handleRemoveAll() {
-    Fluttertoast.showToast(msg: '최근 방문한 매장을 모두 삭제했어요.');
+    Fluttertoast.showToast(msg: '최근 본 매장을 모두 삭제했어요.');
     ref.read(recentSearchDaoProvider).deleteAll();
     ref.invalidate(recentSearchDataProvider);
   }

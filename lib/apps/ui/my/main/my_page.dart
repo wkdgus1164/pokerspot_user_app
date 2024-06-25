@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/my/main/menus/etc_menus.dart';
+import 'package:pokerspot_user_app/apps/ui/my/main/toolbar/toolbar.dart';
 
 class MyPage extends StatefulHookConsumerWidget {
   const MyPage({super.key});
@@ -16,8 +19,8 @@ class _MyPageState extends ConsumerState<MyPage> {
       appBar: AppBar(
         title: const Text('더보기'),
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             // 프로필 카드
@@ -30,14 +33,15 @@ class _MyPageState extends ConsumerState<MyPage> {
             // ),
 
             // 툴바
-            // MyToolbar(
-            //   handleRecentViewClick: () {
-            //     context.push(CustomRouter.recent.path);
-            //   },
-            //   handleFavoriteClick: () {
-            //     context.push(CustomRouter.favorite.path);
-            //   },
-            // ),
+            MyToolbar(
+              handleRecentViewClick: () {
+                context.push(CustomRouter.recent.path);
+              },
+              handleFavoriteClick: () {
+                context.push(CustomRouter.favorite.path);
+              },
+            ),
+            const SizedBox(height: 16),
 
             // 로그인 필요
             // const MyLoginRequired(),
@@ -46,7 +50,7 @@ class _MyPageState extends ConsumerState<MyPage> {
             // MyMenusView(),
 
             // 기타
-            EtcMenusView(),
+            const EtcMenusView(),
           ],
         ),
       ),

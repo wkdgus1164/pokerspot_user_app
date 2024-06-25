@@ -36,7 +36,7 @@ class _RecentSearchViewState extends ConsumerState<RecentSearchView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '최근 방문한 매장',
+                    '최근 본 펍',
                     style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           color: colorGrey40,
                         ),
@@ -61,7 +61,7 @@ class _RecentSearchViewState extends ConsumerState<RecentSearchView> {
                 padding: const EdgeInsets.all(16),
                 child: Center(
                   child: Text(
-                    '최근 방문한 매장이 없어요.',
+                    '최근 본 매장이 없어요.',
                     style: Theme.of(context).textTheme.labelLarge!.copyWith(
                           color: colorGrey60,
                         ),
@@ -93,7 +93,7 @@ class _RecentSearchViewState extends ConsumerState<RecentSearchView> {
       },
       error: (error, stackTrace) {
         return const Center(
-          child: Text('최근 방문한 매장이 없어요.'),
+          child: Text('최근 본 매장이 없어요.'),
         );
       },
     );
@@ -107,7 +107,7 @@ class _RecentSearchViewState extends ConsumerState<RecentSearchView> {
   }
 
   void _handleRemoveAll() {
-    Fluttertoast.showToast(msg: '최근 방문한 매장을 모두 삭제했어요.');
+    Fluttertoast.showToast(msg: '최근 본 매장을 모두 삭제했어요.');
     ref.read(recentSearchDaoProvider).deleteAll();
     ref.invalidate(recentSearchDataProvider);
   }

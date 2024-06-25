@@ -16,28 +16,57 @@ class MyToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 0,
+    return InkWell(
+      onTap: handleRecentViewClick,
+      splashColor: colorBrand90,
+      borderRadius: const BorderRadius.all(
+        Radius.circular(12),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildItem(
-            Assets.myRecentView.path,
-            '최근 본 펍',
-            handleRecentViewClick,
+      child: Ink(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
           ),
-          const SizedBox(width: 16),
-          _buildItem(
-            Assets.myFavorite.path,
-            '찜한 펍',
-            handleFavoriteClick,
+          color: colorBrand95,
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(12),
+            ),
           ),
-        ],
+          child: Row(
+            children: [
+              SvgPicture.asset(Assets.myRecentView.path),
+              const SizedBox(width: 12),
+              Text(
+                "최근 본 펍",
+                style: textTheme.bodyLarge!.copyWith(
+                  color: colorBrand50,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
+    // Row(
+    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //   children: [
+    //     _buildItem(
+    //       Assets.myRecentView.path,
+    //       '최근 본 펍',
+    //       handleRecentViewClick,
+    //     ),
+    //     const SizedBox(width: 16),
+    //     _buildItem(
+    //       Assets.myFavorite.path,
+    //       '찜한 펍',
+    //       handleFavoriteClick,
+    //     ),
+    //   ],
+    // );
   }
 
   Expanded _buildItem(
