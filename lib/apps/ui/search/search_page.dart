@@ -39,44 +39,49 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           children: [
             const SearchAppBarView(),
             if (searchKeyword.isEmpty) ...[
-              Expanded(
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  child: Column(
-                    children: [
-                      const RecentSearchView(),
-                      const SizedBox(height: 16),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 16,
-                              left: 16,
-                              right: 16,
-                              bottom: 8,
-                            ),
-                            child: Text(
-                              '주변 매장 리스트',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(
-                                    color: colorGrey40,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const NearbyStoresView(),
-                    ],
-                  ),
-                ),
+              _renderSearchKeywordEmpty(
+                scrollController,
+                context,
               ),
             ],
             if (searchKeyword.isNotEmpty) ...[
               const SearchResultList(),
             ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Expanded _renderSearchKeywordEmpty(
+      ScrollController scrollController, BuildContext context) {
+    return Expanded(
+      child: SingleChildScrollView(
+        controller: scrollController,
+        child: Column(
+          children: [
+            const RecentSearchView(),
+            const SizedBox(height: 16),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 16,
+                    left: 16,
+                    right: 16,
+                    bottom: 8,
+                  ),
+                  child: Text(
+                    '주변 매장 리스트',
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: colorGrey40,
+                        ),
+                  ),
+                ),
+              ],
+            ),
+            const NearbyStoresView(),
           ],
         ),
       ),
