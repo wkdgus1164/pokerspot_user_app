@@ -7,7 +7,7 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby/components/store.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/location_service.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
