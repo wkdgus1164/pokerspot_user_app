@@ -76,17 +76,9 @@ class _MyRecentPageState extends ConsumerState<MyRecentPage> {
         );
       },
       loading: () {
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text('최근 본 펍'),
-          ),
-          body: const Expanded(
-            child: Center(
-              child: LoadingPlaceholder(
-                loadingHeaderText: '최근 본 펍을 찾고 있어요.',
-              ),
-            ),
-          ),
+        return const LoadingPlaceholder(
+          loadingHeaderText: '최근 본 펍',
+          message: '최근 본 펍을 불러오는 중이에요.',
         );
       },
     );
