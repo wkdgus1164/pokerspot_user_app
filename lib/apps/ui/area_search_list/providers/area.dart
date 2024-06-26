@@ -1,10 +1,12 @@
 import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
 import 'package:pokerspot_user_app/apps/global/utils/extensions.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/area/providers/area_data.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/geolocation_data.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/providers/geolocation_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'area.g.dart';
@@ -19,12 +21,20 @@ class AreaStoreItems extends _$AreaStoreItems {
   }
 
   FutureOr<Models> _fetch() async {
-    final res = await ref.read(storesApiProvider).fetchStoresByArea(
-          ref.read(geoLocationServiceProvider).latitude,
-          ref.read(geoLocationServiceProvider).longitude,
-          ref.read(areaDataServiceProvider).regCode,
-          1,
-          PAGE_SIZE,
+    final res = await ref.read(storesApiProvider).fetchStores(
+          StoresQuery(
+            lat: ref.read(geoLocationServiceProvider).latitude,
+            lng: ref.read(geoLocationServiceProvider).longitude,
+            operationStatus: OperationStatus.ALL,
+            minOpenTime: "00:00",
+            maxOpenTime: "23:30",
+            gameType: GameType.ALL,
+            minEntryPrice: 0,
+            maxEntryPrice: 100,
+            regCode: ref.read(areaDataServiceProvider).regCode,
+            page: 1,
+            perPage: PAGE_SIZE,
+          ),
         );
 
     Logger().i('res : ${res.data}');
@@ -49,12 +59,20 @@ class AreaStoreItems extends _$AreaStoreItems {
 
     final nextPage = page + 1;
     state = await AsyncValue.guard(() async {
-      final res = await ref.read(storesApiProvider).fetchStoresByArea(
-            ref.read(geoLocationServiceProvider).latitude,
-            ref.read(geoLocationServiceProvider).longitude,
-            ref.read(areaDataServiceProvider).regCode,
-            page,
-            perPage,
+      final res = await ref.read(storesApiProvider).fetchStores(
+            StoresQuery(
+              lat: ref.read(geoLocationServiceProvider).latitude,
+              lng: ref.read(geoLocationServiceProvider).longitude,
+              operationStatus: OperationStatus.ALL,
+              minOpenTime: "00:00",
+              maxOpenTime: "23:30",
+              gameType: GameType.ALL,
+              minEntryPrice: 0,
+              maxEntryPrice: 100,
+              regCode: ref.read(areaDataServiceProvider).regCode,
+              page: page,
+              perPage: PAGE_SIZE,
+            ),
           );
 
       final data = res.data;

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/ui/home/components/store.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
+import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
+import 'package:pokerspot_user_app/apps/ui/home/components/recent_list_item.dart';
+import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
+import 'package:pokerspot_user_app/common/components/dialog/dialog_utils.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
+import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
 
 class MyRecentPage extends StatefulHookConsumerWidget {
   const MyRecentPage({super.key});
@@ -15,46 +22,109 @@ class MyRecentPage extends StatefulHookConsumerWidget {
 class _MyRecentPageState extends ConsumerState<MyRecentPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('최근 본 펍'),
-      ),
-      body: ListView.separated(
-        padding: const EdgeInsets.all(16),
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return HomeStore(
-            storeImages: [
-              StoreImagesModel(
-                id: "1",
-                url:
-                    'https://plus.unsplash.com/premium_photo-1700268374954-f06052915608',
+    final res = ref.watch(recentSearchDataProvider);
+
+    return res.when(
+      data: (data) {
+        if (data.isEmpty) {
+          return const EmptyListPlaceHolder(
+            appBarTitle: Text('최근 본 펍'),
+            message: '최근 본 펍이 없어요.',
+          );
+        }
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('최근 본 펍'),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  _showDeleteRecentStoreDialog(context);
+                },
+                icon: const Text('전체 삭제'),
               ),
             ],
-            name: "asdf",
-            address: "asdf",
-            addressDetail: "asdf",
-            openTime: "10:00:00",
-            closeTime: "10:00:00",
-            distance: 1234.1234,
-            updatedAt: DateTime.now(),
-            storeGames: const [],
-            handleClick: () => _handleClick(
-              "1234",
-              1234.2134,
-              123.41234,
+          ),
+          body: ListView.separated(
+            padding: const EdgeInsets.all(16),
+            itemCount: data.length,
+            itemBuilder: (context, index) {
+              return HomeRecentListItem(
+                id: data[index].id,
+                handleclick: _handleItemClick,
+                image: data[index].image,
+                name: data[index].name,
+                address: extractFirstTwoWords(data[index].address),
+                openTime:
+                    '${Utils().getFormattedTime(time: data[index].openTime)} 오픈',
+              );
+            },
+            separatorBuilder: (context, index) => const SizedBox(height: 16),
+          ),
+        );
+      },
+      error: (error, _) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('최근 본 펍'),
+          ),
+          body: const Expanded(
+            child: Center(
+              child: ErrorPlaceholder(),
             ),
-          );
-        },
-        separatorBuilder: (context, index) => const SizedBox(height: 16),
-      ),
+          ),
+        );
+      },
+      loading: () {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('최근 본 펍'),
+          ),
+          body: const Expanded(
+            child: Center(
+              child: LoadingPlaceholder(
+                loadingHeaderText: '최근 본 펍을 찾고 있어요.',
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
-  void _handleClick(String storeId, double lat, double lng) {
-    context.pushNamed(
-      CustomRouter.store.path,
-      pathParameters: {"storeId": storeId},
+  void _showDeleteRecentStoreDialog(BuildContext context) {
+    return context.showCustomDialog(
+      title: '최근 본 펍 전체 삭제',
+      content: '최근 본 펍을 모두 삭제하시겠어요?\n삭제된 내용은 복구할 수 없어요.',
+      confirmText: '삭제하기',
+      onConfirm: () {
+        Fluttertoast.showToast(msg: '최근 본 매장을 모두 삭제했어요.');
+        ref.read(recentSearchDaoProvider).deleteAll();
+        ref.invalidate(recentSearchDataProvider);
+        Navigator.pop(context);
+      },
+      cancelText: '취소',
+      onCancel: () => Navigator.pop(context),
     );
+  }
+
+  _handleItemClick(String id) {
+    context.pushNamed(
+      CustomRouter.store.name,
+      pathParameters: {"id": id},
+    );
+  }
+
+  String extractFirstTwoWords(String sentence) {
+    // 1. 문장을 공백을 기준으로 단어로 분리
+    List<String> words = sentence.split(' ');
+
+    // 2. 앞의 2개 단어 선택
+    List<String> firstTwoWords = words.take(2).toList();
+
+    // 3. 선택된 단어들을 하나의 문자열로 결합
+    String result = firstTwoWords.join(' ');
+
+    return result;
   }
 }

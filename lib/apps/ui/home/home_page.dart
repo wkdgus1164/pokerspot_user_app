@@ -4,10 +4,12 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/home/bottom_sheet/filter.dart';
-import 'package:pokerspot_user_app/apps/ui/home/views/list_view.dart';
-import 'package:pokerspot_user_app/apps/ui/home/views/location_vac.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/notice_view.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/banner_view.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/nearby_view.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/recent_view.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/selection_view.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/views/location_vac.dart';
 
 class HomePage extends StatefulHookConsumerWidget {
   const HomePage({super.key});
@@ -36,28 +38,36 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
         ],
       ),
-      body: const Column(
-        children: [
-          HomeLocationView(),
-          HomeListView(),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            showDragHandle: true,
-            isScrollControlled: true,
-            isDismissible: true,
-            enableDrag: true,
-            backgroundColor: colorGrey100,
-            builder: (context) {
-              return const HomeSearchFilterSheet();
-            },
-          );
-        },
-        icon: const Icon(Icons.tune_rounded),
-        label: const Text('상세 검색'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // 주소
+            const NearbyLocationView(),
+
+            // 메인 배너
+            const HomeBannerView(),
+
+            Container(
+              padding: const EdgeInsets.all(16),
+              child: const Column(
+                children: [
+                  // 공지사항
+                  HomeNoticeView(),
+                  SizedBox(height: 16),
+
+                  // 토너 선택
+                  HomeSelectionView(),
+                ],
+              ),
+            ),
+
+            // 최근 본 펍
+            const HomeRecentStoresListview(),
+
+            // 내 주변 추천 펍
+            const HomeNearbyStoresListView(),
+          ],
+        ),
       ),
     );
   }

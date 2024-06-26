@@ -11,9 +11,9 @@ enum Assets {
   bnHomeOn('$assetPath/bn_home_on.svg'),
   bnHomeOff('$assetPath/bn_home_off.svg'),
   bnNearOff('$assetPath/bn_near_off.svg'),
+  bnNearOn('$assetPath/bn_near_on.svg'),
   searchOff('$assetPath/bn_search_off.svg'),
   searchOn('$assetPath/search.svg'),
-  bnNearOn('$assetPath/bn_near_on.svg'),
   bnLocOff('$assetPath/bn_loc_off.svg'),
   bnFavOff('$assetPath/bn_fav_off.svg'),
   bnFavOn('$assetPath/bn_fav_on.svg'),
@@ -40,6 +40,9 @@ enum Assets {
   kakaonavi('$assetPath/kakaonavi.svg'),
   kakaomap('$assetPath/kakaomap.png'),
   searchPrefix('$assetPath/search_prefix.svg'),
+
+  gameDaily('$assetPath/game_daily.svg'),
+  gameGTD('$assetPath/game_gtd.svg'),
   ;
 
   const Assets(this.path);

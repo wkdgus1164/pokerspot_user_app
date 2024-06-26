@@ -22,14 +22,16 @@ StoresQuery _$StoresQueryFromJson(Map<String, dynamic> json) {
 mixin _$StoresQuery {
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
-  int? get page => throw _privateConstructorUsedError;
-  int? get perPage => throw _privateConstructorUsedError;
   OperationStatus? get operationStatus => throw _privateConstructorUsedError;
   String? get minOpenTime => throw _privateConstructorUsedError;
   String? get maxOpenTime => throw _privateConstructorUsedError;
   GameType? get gameType => throw _privateConstructorUsedError;
   int? get minEntryPrice => throw _privateConstructorUsedError;
   int? get maxEntryPrice => throw _privateConstructorUsedError;
+  String? get searchText => throw _privateConstructorUsedError;
+  String? get regCode => throw _privateConstructorUsedError;
+  int? get page => throw _privateConstructorUsedError;
+  int? get perPage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,14 +48,16 @@ abstract class $StoresQueryCopyWith<$Res> {
   $Res call(
       {double lat,
       double lng,
-      int? page,
-      int? perPage,
       OperationStatus? operationStatus,
       String? minOpenTime,
       String? maxOpenTime,
       GameType? gameType,
       int? minEntryPrice,
-      int? maxEntryPrice});
+      int? maxEntryPrice,
+      String? searchText,
+      String? regCode,
+      int? page,
+      int? perPage});
 }
 
 /// @nodoc
@@ -71,14 +75,16 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
   $Res call({
     Object? lat = null,
     Object? lng = null,
-    Object? page = freezed,
-    Object? perPage = freezed,
     Object? operationStatus = freezed,
     Object? minOpenTime = freezed,
     Object? maxOpenTime = freezed,
     Object? gameType = freezed,
     Object? minEntryPrice = freezed,
     Object? maxEntryPrice = freezed,
+    Object? searchText = freezed,
+    Object? regCode = freezed,
+    Object? page = freezed,
+    Object? perPage = freezed,
   }) {
     return _then(_value.copyWith(
       lat: null == lat
@@ -89,14 +95,6 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      page: freezed == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      perPage: freezed == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
       operationStatus: freezed == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
@@ -120,6 +118,22 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
       maxEntryPrice: freezed == maxEntryPrice
           ? _value.maxEntryPrice
           : maxEntryPrice // ignore: cast_nullable_to_non_nullable
+              as int?,
+      searchText: freezed == searchText
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String?,
+      regCode: freezed == regCode
+          ? _value.regCode
+          : regCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      page: freezed == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
+      perPage: freezed == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -136,14 +150,16 @@ abstract class _$$StoresQueryImplCopyWith<$Res>
   $Res call(
       {double lat,
       double lng,
-      int? page,
-      int? perPage,
       OperationStatus? operationStatus,
       String? minOpenTime,
       String? maxOpenTime,
       GameType? gameType,
       int? minEntryPrice,
-      int? maxEntryPrice});
+      int? maxEntryPrice,
+      String? searchText,
+      String? regCode,
+      int? page,
+      int? perPage});
 }
 
 /// @nodoc
@@ -159,14 +175,16 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
   $Res call({
     Object? lat = null,
     Object? lng = null,
-    Object? page = freezed,
-    Object? perPage = freezed,
     Object? operationStatus = freezed,
     Object? minOpenTime = freezed,
     Object? maxOpenTime = freezed,
     Object? gameType = freezed,
     Object? minEntryPrice = freezed,
     Object? maxEntryPrice = freezed,
+    Object? searchText = freezed,
+    Object? regCode = freezed,
+    Object? page = freezed,
+    Object? perPage = freezed,
   }) {
     return _then(_$StoresQueryImpl(
       lat: null == lat
@@ -177,14 +195,6 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      page: freezed == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      perPage: freezed == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
       operationStatus: freezed == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
@@ -209,6 +219,22 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
           ? _value.maxEntryPrice
           : maxEntryPrice // ignore: cast_nullable_to_non_nullable
               as int?,
+      searchText: freezed == searchText
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String?,
+      regCode: freezed == regCode
+          ? _value.regCode
+          : regCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      page: freezed == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
+      perPage: freezed == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -219,14 +245,16 @@ class _$StoresQueryImpl implements _StoresQuery {
   _$StoresQueryImpl(
       {required this.lat,
       required this.lng,
-      this.page,
-      this.perPage,
       this.operationStatus,
       this.minOpenTime,
       this.maxOpenTime,
       this.gameType,
       this.minEntryPrice,
-      this.maxEntryPrice});
+      this.maxEntryPrice,
+      this.searchText,
+      this.regCode,
+      this.page,
+      this.perPage});
 
   factory _$StoresQueryImpl.fromJson(Map<String, dynamic> json) =>
       _$$StoresQueryImplFromJson(json);
@@ -235,10 +263,6 @@ class _$StoresQueryImpl implements _StoresQuery {
   final double lat;
   @override
   final double lng;
-  @override
-  final int? page;
-  @override
-  final int? perPage;
   @override
   final OperationStatus? operationStatus;
   @override
@@ -251,10 +275,18 @@ class _$StoresQueryImpl implements _StoresQuery {
   final int? minEntryPrice;
   @override
   final int? maxEntryPrice;
+  @override
+  final String? searchText;
+  @override
+  final String? regCode;
+  @override
+  final int? page;
+  @override
+  final int? perPage;
 
   @override
   String toString() {
-    return 'StoresQuery(lat: $lat, lng: $lng, page: $page, perPage: $perPage, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice)';
+    return 'StoresQuery(lat: $lat, lng: $lng, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, searchText: $searchText, regCode: $regCode, page: $page, perPage: $perPage)';
   }
 
   @override
@@ -264,8 +296,6 @@ class _$StoresQueryImpl implements _StoresQuery {
             other is _$StoresQueryImpl &&
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.lng, lng) || other.lng == lng) &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.perPage, perPage) || other.perPage == perPage) &&
             (identical(other.operationStatus, operationStatus) ||
                 other.operationStatus == operationStatus) &&
             (identical(other.minOpenTime, minOpenTime) ||
@@ -277,7 +307,12 @@ class _$StoresQueryImpl implements _StoresQuery {
             (identical(other.minEntryPrice, minEntryPrice) ||
                 other.minEntryPrice == minEntryPrice) &&
             (identical(other.maxEntryPrice, maxEntryPrice) ||
-                other.maxEntryPrice == maxEntryPrice));
+                other.maxEntryPrice == maxEntryPrice) &&
+            (identical(other.searchText, searchText) ||
+                other.searchText == searchText) &&
+            (identical(other.regCode, regCode) || other.regCode == regCode) &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.perPage, perPage) || other.perPage == perPage));
   }
 
   @JsonKey(ignore: true)
@@ -286,14 +321,16 @@ class _$StoresQueryImpl implements _StoresQuery {
       runtimeType,
       lat,
       lng,
-      page,
-      perPage,
       operationStatus,
       minOpenTime,
       maxOpenTime,
       gameType,
       minEntryPrice,
-      maxEntryPrice);
+      maxEntryPrice,
+      searchText,
+      regCode,
+      page,
+      perPage);
 
   @JsonKey(ignore: true)
   @override
@@ -313,14 +350,16 @@ abstract class _StoresQuery implements StoresQuery {
   factory _StoresQuery(
       {required final double lat,
       required final double lng,
-      final int? page,
-      final int? perPage,
       final OperationStatus? operationStatus,
       final String? minOpenTime,
       final String? maxOpenTime,
       final GameType? gameType,
       final int? minEntryPrice,
-      final int? maxEntryPrice}) = _$StoresQueryImpl;
+      final int? maxEntryPrice,
+      final String? searchText,
+      final String? regCode,
+      final int? page,
+      final int? perPage}) = _$StoresQueryImpl;
 
   factory _StoresQuery.fromJson(Map<String, dynamic> json) =
       _$StoresQueryImpl.fromJson;
@@ -329,10 +368,6 @@ abstract class _StoresQuery implements StoresQuery {
   double get lat;
   @override
   double get lng;
-  @override
-  int? get page;
-  @override
-  int? get perPage;
   @override
   OperationStatus? get operationStatus;
   @override
@@ -345,6 +380,14 @@ abstract class _StoresQuery implements StoresQuery {
   int? get minEntryPrice;
   @override
   int? get maxEntryPrice;
+  @override
+  String? get searchText;
+  @override
+  String? get regCode;
+  @override
+  int? get page;
+  @override
+  int? get perPage;
   @override
   @JsonKey(ignore: true)
   _$$StoresQueryImplCopyWith<_$StoresQueryImpl> get copyWith =>

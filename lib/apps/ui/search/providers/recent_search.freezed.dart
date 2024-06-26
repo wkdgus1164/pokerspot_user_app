@@ -18,6 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RecentSearchModel {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  String get openTime => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +34,13 @@ abstract class $RecentSearchModelCopyWith<$Res> {
           RecentSearchModel value, $Res Function(RecentSearchModel) then) =
       _$RecentSearchModelCopyWithImpl<$Res, RecentSearchModel>;
   @useResult
-  $Res call({String id, String name, DateTime createdAt});
+  $Res call(
+      {String id,
+      String name,
+      String image,
+      String address,
+      String openTime,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -49,6 +58,9 @@ class _$RecentSearchModelCopyWithImpl<$Res, $Val extends RecentSearchModel>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? image = null,
+    Object? address = null,
+    Object? openTime = null,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -59,6 +71,18 @@ class _$RecentSearchModelCopyWithImpl<$Res, $Val extends RecentSearchModel>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      openTime: null == openTime
+          ? _value.openTime
+          : openTime // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: null == createdAt
           ? _value.createdAt
@@ -76,7 +100,13 @@ abstract class _$$RecentSearchModelImplCopyWith<$Res>
       __$$RecentSearchModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, DateTime createdAt});
+  $Res call(
+      {String id,
+      String name,
+      String image,
+      String address,
+      String openTime,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -92,6 +122,9 @@ class __$$RecentSearchModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? image = null,
+    Object? address = null,
+    Object? openTime = null,
     Object? createdAt = null,
   }) {
     return _then(_$RecentSearchModelImpl(
@@ -102,6 +135,18 @@ class __$$RecentSearchModelImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      openTime: null == openTime
+          ? _value.openTime
+          : openTime // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: null == createdAt
           ? _value.createdAt
@@ -115,18 +160,29 @@ class __$$RecentSearchModelImplCopyWithImpl<$Res>
 
 class _$RecentSearchModelImpl implements _RecentSearchModel {
   _$RecentSearchModelImpl(
-      {required this.id, required this.name, required this.createdAt});
+      {required this.id,
+      required this.name,
+      required this.image,
+      required this.address,
+      required this.openTime,
+      required this.createdAt});
 
   @override
   final String id;
   @override
   final String name;
   @override
+  final String image;
+  @override
+  final String address;
+  @override
+  final String openTime;
+  @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'RecentSearchModel(id: $id, name: $name, createdAt: $createdAt)';
+    return 'RecentSearchModel(id: $id, name: $name, image: $image, address: $address, openTime: $openTime, createdAt: $createdAt)';
   }
 
   @override
@@ -136,12 +192,17 @@ class _$RecentSearchModelImpl implements _RecentSearchModel {
             other is _$RecentSearchModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.openTime, openTime) ||
+                other.openTime == openTime) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, createdAt);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, image, address, openTime, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -155,12 +216,21 @@ abstract class _RecentSearchModel implements RecentSearchModel {
   factory _RecentSearchModel(
       {required final String id,
       required final String name,
+      required final String image,
+      required final String address,
+      required final String openTime,
       required final DateTime createdAt}) = _$RecentSearchModelImpl;
 
   @override
   String get id;
   @override
   String get name;
+  @override
+  String get image;
+  @override
+  String get address;
+  @override
+  String get openTime;
   @override
   DateTime get createdAt;
   @override

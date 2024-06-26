@@ -6,7 +6,7 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
-import 'package:pokerspot_user_app/apps/ui/home/providers/store.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/nearby_store_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
@@ -75,6 +75,9 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
               id: d.Value(model.id),
               name: d.Value(model.name!),
               createdAt: d.Value(DateTime.now()),
+              image: d.Value(model.storeImages!.first.url!),
+              address: d.Value(model.address!),
+              openTime: d.Value(model.openTime!),
             ),
           );
     }

@@ -9,14 +9,16 @@ class StoresQuery with _$StoresQuery {
   factory StoresQuery({
     required double lat,
     required double lng,
-    int? page,
-    int? perPage,
     OperationStatus? operationStatus,
     String? minOpenTime,
     String? maxOpenTime,
     GameType? gameType,
     int? minEntryPrice,
     int? maxEntryPrice,
+    String? searchText,
+    String? regCode,
+    int? page,
+    int? perPage,
   }) = _StoresQuery;
 
   factory StoresQuery.fromJson(
