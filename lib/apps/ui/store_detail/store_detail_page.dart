@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -10,6 +13,7 @@ import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/navi_bottom_sheet.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/views/navi_cupertino.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_vac.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -125,17 +129,31 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     required double x,
     required double y,
   }) {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return StoreDetailNaviBottomSheet(
-          name: name,
-          address: address,
-          x: x,
-          y: y,
-        );
-      },
-    );
+    if (Platform.isAndroid) {
+      showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return StoreDetailNaviBottomSheet(
+            name: name,
+            address: address,
+            x: x,
+            y: y,
+          );
+        },
+      );
+    } else {
+      showCupertinoModalPopup(
+        context: context,
+        builder: (context) {
+          return StoreDetailCupertinoActionSheet(
+            name: name,
+            address: address,
+            x: x,
+            y: y,
+          );
+        },
+      );
+    }
   }
 
   Widget _kakaoChatUrl(String? url) {
