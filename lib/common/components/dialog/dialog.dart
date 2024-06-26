@@ -64,14 +64,13 @@ class CustomDialog extends StatelessWidget {
                     ),
                   ],
                   if (Platform.isIOS) ...[
-                    CupertinoDialogAction(
+                    CupertinoButton(
                       onPressed: onCancel,
                       child: Text(
                         cancelText,
                         style:
                             Theme.of(context).textTheme.titleMedium!.copyWith(
                                   fontWeight: FontWeight.bold,
-                                  color: colorGrey70,
                                 ),
                       ),
                     ),
@@ -90,13 +89,12 @@ class CustomDialog extends StatelessWidget {
                   ),
                 ],
                 if (Platform.isIOS) ...[
-                  CupertinoDialogAction(
+                  CupertinoButton(
                     onPressed: onConfirm,
                     child: Text(
                       confirmText,
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: colorBrand50,
                           ),
                     ),
                   ),
