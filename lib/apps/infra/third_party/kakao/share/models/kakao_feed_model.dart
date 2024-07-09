@@ -15,10 +15,13 @@ class KakaoFeedModel with _$KakaoFeedModel {
   KakaoFeedModel._();
 
   Map<String, String> buildQueryParams() {
-    return {"path": 'https://app.pokerspot.co.kr/store/$id'};
+    return {"path": '/store/$id'};
   }
 
-  FeedTemplate buildFeedTemplate(String url) {
+  FeedTemplate buildFeedTemplate({
+    required String url,
+    required String id,
+  }) {
     final params = buildQueryParams();
 
     return FeedTemplate(
@@ -27,6 +30,7 @@ class KakaoFeedModel with _$KakaoFeedModel {
         description: description,
         imageUrl: Uri.parse(thumbnail),
         link: Link(
+          mobileWebUrl: Uri.parse('/store/$id'),
           androidExecutionParams: params,
           iosExecutionParams: params,
         ),
@@ -35,6 +39,7 @@ class KakaoFeedModel with _$KakaoFeedModel {
         Button(
           title: '자세히 보기',
           link: Link(
+            mobileWebUrl: Uri.parse('/store/$id'),
             androidExecutionParams: params,
             iosExecutionParams: params,
           ),
