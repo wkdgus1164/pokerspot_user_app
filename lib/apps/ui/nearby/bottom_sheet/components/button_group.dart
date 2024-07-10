@@ -27,7 +27,7 @@ class _FilterButtonGroupViewState extends ConsumerState<FilterButtonGroupView> {
             ref.read(filterByOpenTimeProvider.notifier).setMaxTime(23);
             ref.read(filterByGameTypeProvider.notifier).setAll();
             ref.read(filterByEntryPriceProvider.notifier).setMinTicket(1);
-            ref.read(filterByEntryPriceProvider.notifier).setMaxTicket(100);
+            ref.read(filterByEntryPriceProvider.notifier).setMaxTicket(30);
             ref.invalidate(storesItemsProvider);
             context.pop();
           },

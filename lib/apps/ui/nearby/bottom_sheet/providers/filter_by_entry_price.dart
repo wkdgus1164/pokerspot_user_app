@@ -8,7 +8,7 @@ part 'filter_by_entry_price.freezed.dart';
 class FilterByEntryPriceModel with _$FilterByEntryPriceModel {
   factory FilterByEntryPriceModel({
     @Default(1) int minTicket,
-    @Default(100) int maxTicket,
+    @Default(30) int maxTicket,
   }) = _FilterByEntryPriceModel;
 
   FilterByEntryPriceModel._();

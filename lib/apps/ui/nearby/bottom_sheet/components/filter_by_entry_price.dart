@@ -47,8 +47,7 @@ class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
             double.parse(maxTicket.toString()),
           ),
           min: 1,
-          max: 100,
-          divisions: 1000,
+          max: 30,
           onChanged: (RangeValues newValues) {
             ref
                 .watch(filterByEntryPriceProvider.notifier)
@@ -70,7 +69,7 @@ class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
                   ),
             ),
             Text(
-              '100 Ticket',
+              '30 Ticket',
               style: Theme.of(context).textTheme.labelMedium!.copyWith(
                     color: colorGrey60,
                   ),

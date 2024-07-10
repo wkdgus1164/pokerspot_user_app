@@ -46,11 +46,9 @@ class _NearbyPageState extends ConsumerState<NearbyPage> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            showDragHandle: true,
             isScrollControlled: true,
-            isDismissible: true,
-            enableDrag: true,
             backgroundColor: colorGrey100,
+            useSafeArea: true,
             builder: (context) {
               return const NearbySearchFilterSheet();
             },
