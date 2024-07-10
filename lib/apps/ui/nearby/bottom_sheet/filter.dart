@@ -36,6 +36,9 @@ class _NearbySearchFilterSheetState
           // 참가비
           FilterByEntryPriecView(),
 
+          // GTD 최소 상금
+          // FilterByMinRewardView(),
+
           // 버튼 그룹
           FilterButtonGroupView(),
         ],
