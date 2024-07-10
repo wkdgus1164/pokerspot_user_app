@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/ui/navigation/helper.dart';
 
 class NavigationPage extends StatefulHookConsumerWidget {
@@ -14,6 +15,8 @@ class _NavigationPageState extends ConsumerState<NavigationPage> {
 
   @override
   Widget build(BuildContext context) {
+    KakaoLinkHelper().listenKakaoLink();
+
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentPageIndex,

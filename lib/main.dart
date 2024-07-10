@@ -83,8 +83,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    KakaoLinkHelper().listenKakaoLink();
-
     return GlobalLoaderOverlay(
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
