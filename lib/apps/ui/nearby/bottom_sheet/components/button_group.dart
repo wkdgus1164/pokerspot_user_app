@@ -19,35 +19,38 @@ class FilterButtonGroupView extends StatefulHookConsumerWidget {
 class _FilterButtonGroupViewState extends ConsumerState<FilterButtonGroupView> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        OutlinedButton.icon(
-          onPressed: () {
-            ref.read(filterByOperationStatusProvider.notifier).setAll();
-            ref.read(filterByOpenTimeProvider.notifier).setMinTime(0);
-            ref.read(filterByOpenTimeProvider.notifier).setMaxTime(23);
-            ref.read(filterByGameTypeProvider.notifier).setAll();
-            ref.read(filterByEntryPriceProvider.notifier).setMinTicket(1);
-            ref.read(filterByEntryPriceProvider.notifier).setMaxTicket(30);
-            ref.read(filterByMinRewardDataProvider.notifier).setMinReward(50);
-            ref.invalidate(storesItemsProvider);
-            context.pop();
-          },
-          icon: const Icon(Icons.refresh_rounded),
-          label: const Text('초기화'),
-        ),
-        const SizedBox(width: 16),
-        Expanded(
-          child: FilledButton.icon(
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        children: [
+          OutlinedButton.icon(
             onPressed: () {
+              ref.read(filterByOperationStatusProvider.notifier).setAll();
+              ref.read(filterByOpenTimeProvider.notifier).setMinTime(0);
+              ref.read(filterByOpenTimeProvider.notifier).setMaxTime(23);
+              ref.read(filterByGameTypeProvider.notifier).setAll();
+              ref.read(filterByEntryPriceProvider.notifier).setMinTicket(1);
+              ref.read(filterByEntryPriceProvider.notifier).setMaxTicket(30);
+              ref.read(filterByMinRewardDataProvider.notifier).setMinReward(50);
               ref.invalidate(storesItemsProvider);
               context.pop();
             },
-            icon: const Icon(Icons.search_rounded),
-            label: const Text('검색하기'),
+            icon: const Icon(Icons.refresh_rounded),
+            label: const Text('초기화'),
           ),
-        ),
-      ],
+          const SizedBox(width: 16),
+          Expanded(
+            child: FilledButton.icon(
+              onPressed: () {
+                ref.invalidate(storesItemsProvider);
+                context.pop();
+              },
+              icon: const Icon(Icons.search_rounded),
+              label: const Text('검색하기'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -34,65 +34,55 @@ class _FilterByOperationStatusState
         Row(
           children: [
             Expanded(
-              child: Ink(
-                color: isOnlyRunning ? Colors.transparent : colorBrand90,
-                child: InkWell(
-                  splashColor: colorBrand95,
-                  onTap: _handleClickAll,
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(8),
-                        bottomLeft: Radius.circular(8),
+              child: GestureDetector(
+                onTap: _handleClickAll,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                    ),
+                    border: Border.fromBorderSide(
+                      BorderSide(
+                        color: isOnlyRunning ? colorGrey80 : colorBrand40,
                       ),
-                      border: Border.fromBorderSide(
-                        BorderSide(
-                          color: isOnlyRunning ? colorGrey80 : colorBrand40,
+                    ),
+                    color: isOnlyRunning ? Colors.transparent : colorBrand90,
+                  ),
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    '전체',
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: isOnlyRunning ? colorGrey40 : colorBrand40,
                         ),
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      '전체',
-                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                            color: isOnlyRunning ? colorGrey40 : colorBrand40,
-                          ),
-                    ),
                   ),
                 ),
               ),
             ),
             Expanded(
-              child: Ink(
-                color: !isOnlyRunning ? Colors.transparent : colorBrand90,
-                child: InkWell(
-                  onTap: _handleClickRunning,
-                  splashColor: colorBrand95,
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomRight: Radius.circular(8),
+              child: GestureDetector(
+                onTap: _handleClickRunning,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                    ),
+                    border: Border.fromBorderSide(
+                      BorderSide(
+                        color: !isOnlyRunning ? colorGrey80 : colorBrand40,
+                      ),
+                    ),
+                    color: !isOnlyRunning ? Colors.transparent : colorBrand90,
                   ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(8),
-                        bottomRight: Radius.circular(8),
-                      ),
-                      border: Border.fromBorderSide(
-                        BorderSide(
-                          color: !isOnlyRunning ? colorGrey80 : colorBrand40,
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    '운영 중',
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: !isOnlyRunning ? colorGrey40 : colorBrand40,
                         ),
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      '운영 중',
-                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                            color: !isOnlyRunning ? colorGrey40 : colorBrand40,
-                          ),
-                    ),
                   ),
                 ),
               ),

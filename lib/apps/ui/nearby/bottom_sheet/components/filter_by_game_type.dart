@@ -19,7 +19,6 @@ class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
 
     final isAll = gameTypeFilter.gameType == GameType.ALL;
     final isDaily = gameTypeFilter.gameType == GameType.DAILY;
-    // final isSeed = gameTypeFilter.gameType == GameType.seed;
     final isGTD = gameTypeFilter.gameType == GameType.GTD;
 
     return Column(
@@ -36,125 +35,78 @@ class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
         Row(
           children: [
             Expanded(
-              child: Ink(
-                color: isAll ? colorBrand90 : Colors.transparent,
-                child: InkWell(
-                  splashColor: colorBrand95,
-                  onTap: _handleAllClick,
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(8),
-                        bottomLeft: Radius.circular(8),
+              child: GestureDetector(
+                onTap: _handleAllClick,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                    ),
+                    border: Border.fromBorderSide(
+                      BorderSide(
+                        color: isAll ? colorBrand40 : colorGrey80,
                       ),
-                      border: Border.fromBorderSide(
-                        BorderSide(
-                          color: isAll ? colorBrand40 : colorGrey80,
+                    ),
+                    color: isAll ? colorBrand90 : Colors.transparent,
+                  ),
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    '전체',
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: isAll ? colorBrand40 : colorGrey40,
                         ),
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      '전체',
-                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                            color: isAll ? colorBrand40 : colorGrey40,
-                          ),
-                    ),
                   ),
                 ),
               ),
             ),
             Expanded(
-              child: Ink(
-                color: isDaily ? colorBrand90 : Colors.transparent,
-                child: InkWell(
-                  onTap: _handleDailyClick,
-                  splashColor: colorBrand95,
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomRight: Radius.circular(8),
-                  ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      border: Border.fromBorderSide(
-                        BorderSide(
-                          color: isDaily ? colorBrand40 : colorGrey80,
-                        ),
+              child: GestureDetector(
+                onTap: _handleDailyClick,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.fromBorderSide(
+                      BorderSide(
+                        color: isDaily ? colorBrand40 : colorGrey80,
                       ),
                     ),
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      '데일리',
-                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                            color: isDaily ? colorBrand40 : colorGrey40,
-                          ),
-                    ),
+                    color: isDaily ? colorBrand90 : Colors.transparent,
+                  ),
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    '데일리',
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: isDaily ? colorBrand40 : colorGrey40,
+                        ),
                   ),
                 ),
               ),
             ),
-            // Expanded(
-            //   child: Ink(
-            //     color: isSeed ? colorBrand90 : Colors.transparent,
-            //     child: InkWell(
-            //       onTap: _handleSeedClick,
-            //       splashColor: colorBrand95,
-            //       borderRadius: const BorderRadius.only(
-            //         topRight: Radius.circular(8),
-            //         bottomRight: Radius.circular(8),
-            //       ),
-            //       child: Container(
-            //         alignment: Alignment.center,
-            //         decoration: BoxDecoration(
-            //           border: Border.fromBorderSide(
-            //             BorderSide(
-            //               color: isSeed ? colorBrand40 : colorGrey80,
-            //             ),
-            //           ),
-            //         ),
-            //         padding: const EdgeInsets.all(16),
-            //         child: Text(
-            //           '시드권',
-            //           style: Theme.of(context).textTheme.labelLarge!.copyWith(
-            //                 color: isSeed ? colorBrand40 : colorGrey40,
-            //               ),
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
             Expanded(
-              child: Ink(
-                color: isGTD ? colorBrand90 : Colors.transparent,
-                child: InkWell(
-                  onTap: _handleGTDClick,
-                  splashColor: colorBrand95,
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomRight: Radius.circular(8),
+              child: GestureDetector(
+                onTap: _handleGTDClick,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                    ),
+                    border: Border.fromBorderSide(
+                      BorderSide(
+                        color: isGTD ? colorBrand40 : colorGrey80,
+                      ),
+                    ),
+                    color: isGTD ? colorBrand90 : Colors.transparent,
                   ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(8),
-                        bottomRight: Radius.circular(8),
-                      ),
-                      border: Border.fromBorderSide(
-                        BorderSide(
-                          color: isGTD ? colorBrand40 : colorGrey80,
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    'GTD',
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: isGTD ? colorBrand40 : colorGrey40,
                         ),
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      'GTD',
-                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                            color: isGTD ? colorBrand40 : colorGrey40,
-                          ),
-                    ),
                   ),
                 ),
               ),
@@ -172,11 +124,6 @@ class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
   void _handleDailyClick() {
     ref.read(filterByGameTypeProvider.notifier).setDaily();
   }
-
-  // void _handleSeedClick() {
-  //   ref.read(filterByGameTypeProvider.notifier).setSeed();
-  //   ref.invalidate(storesItemsProvider);
-  // }
 
   void _handleGTDClick() {
     ref.read(filterByGameTypeProvider.notifier).setGTD();

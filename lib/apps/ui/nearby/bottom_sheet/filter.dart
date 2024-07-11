@@ -23,33 +23,43 @@ class _NearbySearchFilterSheetState
   Widget build(BuildContext context) {
     final gameType = ref.watch(filterByGameTypeProvider).gameType;
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
-      child: Wrap(
-        runSpacing: 32,
-        children: [
-          // 운영 상태
-          const FilterByOperationStatusView(),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                // 운영 상태
+                const FilterByOperationStatusView(),
+                const SizedBox(height: 32),
 
-          // 스타트 시간
-          const FilterByOpenTimeView(),
+                // 스타트 시간
+                const FilterByOpenTimeView(),
+                const SizedBox(height: 32),
 
-          // 참가비
-          const FilterByEntryPriecView(),
+                // 참가비
+                const FilterByEntryPriecView(),
+                const SizedBox(height: 32),
 
-          // 게임
-          const FilterByGameTypeView(),
+                // 게임
+                const FilterByGameTypeView(),
+                const SizedBox(height: 32),
 
-          // GTD 최소 상금
-          if (gameType == GameType.GTD) ...[
-            const FilterByMinRewardView(),
-          ],
+                // GTD 최소 상금
+                if (gameType == GameType.GTD) ...[
+                  const FilterByMinRewardView(),
+                  const SizedBox(height: 32),
+                ],
+              ],
+            ),
+          ),
+        ),
 
-          // 버튼 그룹
-          const FilterButtonGroupView(),
-        ],
-      ),
+        // 버튼 그룹
+        const FilterButtonGroupView(),
+      ],
     );
   }
 }
