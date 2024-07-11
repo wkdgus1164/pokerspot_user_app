@@ -142,4 +142,14 @@ final router = GoRouter(
       },
     ),
   ],
+  observers: [
+    FirebaseAnalyticsObserver(analytics: analytics),
+  ],
+  redirect: (context, state) {
+    analytics.logEvent(
+      name: 'screen_view',
+      parameters: {'screen_name': state.matchedLocation},
+    );
+    return null;
+  },
 );
