@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_open_time.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_game_type.dart';
@@ -19,6 +20,7 @@ class FilterServiceModel with _$FilterServiceModel {
     required GameType gameType,
     required int minEntryPrice,
     required int maxEntryPrice,
+    required int minReward,
   }) = _FilterServiceModel;
 
   FilterServiceModel._();
@@ -35,6 +37,7 @@ class FilterService extends _$FilterService {
     final GameType gameType = ref.read(filterByGameTypeProvider).gameType;
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
+    final minReward = ref.read(filterByMinRewardDataProvider).minReward;
 
     Logger().i('''
 FilterService
@@ -43,7 +46,8 @@ FilterService
   maxOpenTime: $maxOpenTime
   gameType: $gameType
   minEntryPrice: $minEntryPrice
-  maxEntryPrice: $maxEntryPrice''');
+  maxEntryPrice: $maxEntryPrice
+  minReward: $minReward''');
 
     return FilterServiceModel(
       operationStatus: operationStatus,
@@ -52,6 +56,7 @@ FilterService
       gameType: gameType,
       minEntryPrice: minEntryPrice,
       maxEntryPrice: maxEntryPrice,
+      minReward: minReward,
     );
   }
 }

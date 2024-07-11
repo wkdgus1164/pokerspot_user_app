@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_game_type.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_open_time.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
@@ -28,6 +29,7 @@ class _FilterButtonGroupViewState extends ConsumerState<FilterButtonGroupView> {
             ref.read(filterByGameTypeProvider.notifier).setAll();
             ref.read(filterByEntryPriceProvider.notifier).setMinTicket(1);
             ref.read(filterByEntryPriceProvider.notifier).setMaxTicket(30);
+            ref.read(filterByMinRewardDataProvider.notifier).setMinReward(50);
             ref.invalidate(storesItemsProvider);
             context.pop();
           },

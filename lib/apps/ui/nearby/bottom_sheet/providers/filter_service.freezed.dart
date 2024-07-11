@@ -22,6 +22,7 @@ mixin _$FilterServiceModel {
   GameType get gameType => throw _privateConstructorUsedError;
   int get minEntryPrice => throw _privateConstructorUsedError;
   int get maxEntryPrice => throw _privateConstructorUsedError;
+  int get minReward => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterServiceModelCopyWith<FilterServiceModel> get copyWith =>
@@ -40,7 +41,8 @@ abstract class $FilterServiceModelCopyWith<$Res> {
       int maxOpenTime,
       GameType gameType,
       int minEntryPrice,
-      int maxEntryPrice});
+      int maxEntryPrice,
+      int minReward});
 }
 
 /// @nodoc
@@ -62,6 +64,7 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
     Object? gameType = null,
     Object? minEntryPrice = null,
     Object? maxEntryPrice = null,
+    Object? minReward = null,
   }) {
     return _then(_value.copyWith(
       operationStatus: null == operationStatus
@@ -88,6 +91,10 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
           ? _value.maxEntryPrice
           : maxEntryPrice // ignore: cast_nullable_to_non_nullable
               as int,
+      minReward: null == minReward
+          ? _value.minReward
+          : minReward // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -106,7 +113,8 @@ abstract class _$$FilterServiceModelImplCopyWith<$Res>
       int maxOpenTime,
       GameType gameType,
       int minEntryPrice,
-      int maxEntryPrice});
+      int maxEntryPrice,
+      int minReward});
 }
 
 /// @nodoc
@@ -126,6 +134,7 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
     Object? gameType = null,
     Object? minEntryPrice = null,
     Object? maxEntryPrice = null,
+    Object? minReward = null,
   }) {
     return _then(_$FilterServiceModelImpl(
       operationStatus: null == operationStatus
@@ -152,6 +161,10 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
           ? _value.maxEntryPrice
           : maxEntryPrice // ignore: cast_nullable_to_non_nullable
               as int,
+      minReward: null == minReward
+          ? _value.minReward
+          : minReward // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -165,7 +178,8 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
       required this.maxOpenTime,
       required this.gameType,
       required this.minEntryPrice,
-      required this.maxEntryPrice})
+      required this.maxEntryPrice,
+      required this.minReward})
       : super._();
 
   @override
@@ -180,10 +194,12 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
   final int minEntryPrice;
   @override
   final int maxEntryPrice;
+  @override
+  final int minReward;
 
   @override
   String toString() {
-    return 'FilterServiceModel(operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice)';
+    return 'FilterServiceModel(operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, minReward: $minReward)';
   }
 
   @override
@@ -202,12 +218,14 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
             (identical(other.minEntryPrice, minEntryPrice) ||
                 other.minEntryPrice == minEntryPrice) &&
             (identical(other.maxEntryPrice, maxEntryPrice) ||
-                other.maxEntryPrice == maxEntryPrice));
+                other.maxEntryPrice == maxEntryPrice) &&
+            (identical(other.minReward, minReward) ||
+                other.minReward == minReward));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, operationStatus, minOpenTime,
-      maxOpenTime, gameType, minEntryPrice, maxEntryPrice);
+      maxOpenTime, gameType, minEntryPrice, maxEntryPrice, minReward);
 
   @JsonKey(ignore: true)
   @override
@@ -224,7 +242,8 @@ abstract class _FilterServiceModel extends FilterServiceModel {
       required final int maxOpenTime,
       required final GameType gameType,
       required final int minEntryPrice,
-      required final int maxEntryPrice}) = _$FilterServiceModelImpl;
+      required final int maxEntryPrice,
+      required final int minReward}) = _$FilterServiceModelImpl;
   _FilterServiceModel._() : super._();
 
   @override
@@ -239,6 +258,8 @@ abstract class _FilterServiceModel extends FilterServiceModel {
   int get minEntryPrice;
   @override
   int get maxEntryPrice;
+  @override
+  int get minReward;
   @override
   @JsonKey(ignore: true)
   _$$FilterServiceModelImplCopyWith<_$FilterServiceModelImpl> get copyWith =>

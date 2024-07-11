@@ -17,7 +17,6 @@ import 'package:pokerspot_user_app/apps/global/theme/fab.dart';
 import 'package:pokerspot_user_app/apps/global/theme/list_tile.dart';
 import 'package:pokerspot_user_app/apps/global/theme/slider.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
-import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/secret/secret.dart';
 
 import 'firebase_options.dart';

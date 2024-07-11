@@ -7,7 +7,7 @@ part of 'filter_by_min_reward.dart';
 // **************************************************************************
 
 String _$filterByMinRewardDataHash() =>
-    r'6175b5dc9459cee968e8c91ce407e4dcdb58f5bf';
+    r'b851a2b85e67554eae89c5f265fcb3db41c871b8';
 
 /// See also [FilterByMinRewardData].
 @ProviderFor(FilterByMinRewardData)

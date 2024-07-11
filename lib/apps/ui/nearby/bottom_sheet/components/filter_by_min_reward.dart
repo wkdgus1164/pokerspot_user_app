@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/slider.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
 
 class FilterByMinRewardView extends StatefulHookConsumerWidget {
@@ -16,7 +17,6 @@ class _FilterByMinRewardState extends ConsumerState<FilterByMinRewardView> {
   Widget build(BuildContext context) {
     final minRewardFilter = ref.watch(filterByMinRewardDataProvider);
     final int minReward = minRewardFilter.minReward;
-    final int maxReward = minRewardFilter.maxReward;
 
     return Column(
       children: [
@@ -32,7 +32,7 @@ class _FilterByMinRewardState extends ConsumerState<FilterByMinRewardView> {
                   ),
             ),
             Text(
-              '${minReward.ceil()} ~ ${maxReward.ceil()}',
+              '${minReward.ceil()}',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: colorBrand40,
                     fontWeight: FontWeight.normal,
@@ -41,22 +41,20 @@ class _FilterByMinRewardState extends ConsumerState<FilterByMinRewardView> {
           ],
         ),
         const SizedBox(height: 8),
-        RangeSlider(
-          values: RangeValues(
-            double.parse(minReward.toString()),
-            double.parse(maxReward.toString()),
+        SliderTheme(
+          data: sliderThemeData,
+          child: Slider(
+            value:
+                ref.watch(filterByMinRewardDataProvider).minReward.toDouble(),
+            min: 50,
+            max: 5000,
+            onChanged: (value) {
+              final min = int.parse((value / 50).ceil().toString()) * 50;
+              ref
+                  .read(filterByMinRewardDataProvider.notifier)
+                  .setMinReward(min);
+            },
           ),
-          min: 50,
-          max: 5000,
-          onChanged: (RangeValues newValues) {
-            final min =
-                int.parse((newValues.start.ceil() / 50).ceil().toString()) * 50;
-            final max =
-                int.parse((newValues.end.ceil() / 50).ceil().toString()) * 50;
-
-            ref.watch(filterByMinRewardDataProvider.notifier).setMinReward(min);
-            ref.watch(filterByMinRewardDataProvider.notifier).setMaxReward(max);
-          },
         ),
         const SizedBox(height: 8),
         Row(

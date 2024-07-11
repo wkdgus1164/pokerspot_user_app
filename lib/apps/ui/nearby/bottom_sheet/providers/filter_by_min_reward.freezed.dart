@@ -17,7 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FilterByMinRewardModel {
   int get minReward => throw _privateConstructorUsedError;
-  int get maxReward => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterByMinRewardModelCopyWith<FilterByMinRewardModel> get copyWith =>
@@ -30,7 +29,7 @@ abstract class $FilterByMinRewardModelCopyWith<$Res> {
           $Res Function(FilterByMinRewardModel) then) =
       _$FilterByMinRewardModelCopyWithImpl<$Res, FilterByMinRewardModel>;
   @useResult
-  $Res call({int minReward, int maxReward});
+  $Res call({int minReward});
 }
 
 /// @nodoc
@@ -48,16 +47,11 @@ class _$FilterByMinRewardModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? minReward = null,
-    Object? maxReward = null,
   }) {
     return _then(_value.copyWith(
       minReward: null == minReward
           ? _value.minReward
           : minReward // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxReward: null == maxReward
-          ? _value.maxReward
-          : maxReward // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -72,7 +66,7 @@ abstract class _$$FilterByMinRewardModelImplCopyWith<$Res>
       __$$FilterByMinRewardModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int minReward, int maxReward});
+  $Res call({int minReward});
 }
 
 /// @nodoc
@@ -89,16 +83,11 @@ class __$$FilterByMinRewardModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? minReward = null,
-    Object? maxReward = null,
   }) {
     return _then(_$FilterByMinRewardModelImpl(
       minReward: null == minReward
           ? _value.minReward
           : minReward // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxReward: null == maxReward
-          ? _value.maxReward
-          : maxReward // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -107,19 +96,15 @@ class __$$FilterByMinRewardModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterByMinRewardModelImpl extends _FilterByMinRewardModel {
-  _$FilterByMinRewardModelImpl({this.minReward = 50, this.maxReward = 5000})
-      : super._();
+  _$FilterByMinRewardModelImpl({this.minReward = 50}) : super._();
 
   @override
   @JsonKey()
   final int minReward;
-  @override
-  @JsonKey()
-  final int maxReward;
 
   @override
   String toString() {
-    return 'FilterByMinRewardModel(minReward: $minReward, maxReward: $maxReward)';
+    return 'FilterByMinRewardModel(minReward: $minReward)';
   }
 
   @override
@@ -128,13 +113,11 @@ class _$FilterByMinRewardModelImpl extends _FilterByMinRewardModel {
         (other.runtimeType == runtimeType &&
             other is _$FilterByMinRewardModelImpl &&
             (identical(other.minReward, minReward) ||
-                other.minReward == minReward) &&
-            (identical(other.maxReward, maxReward) ||
-                other.maxReward == maxReward));
+                other.minReward == minReward));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, minReward, maxReward);
+  int get hashCode => Object.hash(runtimeType, minReward);
 
   @JsonKey(ignore: true)
   @override
@@ -145,14 +128,12 @@ class _$FilterByMinRewardModelImpl extends _FilterByMinRewardModel {
 }
 
 abstract class _FilterByMinRewardModel extends FilterByMinRewardModel {
-  factory _FilterByMinRewardModel({final int minReward, final int maxReward}) =
+  factory _FilterByMinRewardModel({final int minReward}) =
       _$FilterByMinRewardModelImpl;
   _FilterByMinRewardModel._() : super._();
 
   @override
   int get minReward;
-  @override
-  int get maxReward;
   @override
   @JsonKey(ignore: true)
   _$$FilterByMinRewardModelImplCopyWith<_$FilterByMinRewardModelImpl>

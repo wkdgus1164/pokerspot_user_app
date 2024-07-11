@@ -6,7 +6,7 @@ part of 'filter_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$filterServiceHash() => r'971ce3d845b3e08b7730c88bd32c3f016b18a32e';
+String _$filterServiceHash() => r'7ce88d33748c46f41da9d1a9e2c243cb8648b819';
 
 /// See also [FilterService].
 @ProviderFor(FilterService)
