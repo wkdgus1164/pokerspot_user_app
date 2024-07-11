@@ -132,6 +132,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     if (Platform.isAndroid) {
       showModalBottomSheet(
         context: context,
+        useSafeArea: true,
         builder: (context) {
           return StoreDetailNaviBottomSheet(
             name: name,

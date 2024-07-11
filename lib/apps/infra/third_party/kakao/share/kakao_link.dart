@@ -46,7 +46,7 @@ class KakaoLinkHelper {
     final context = rootNavKey.currentContext;
     if (context == null) return;
 
-    _lazyFunc(() => context.go(path));
+    _lazyFunc(() => context.push(path));
   }
 
   Future<AsyncValue> shareKakaoFeed(KakaoFeedModel feedModel) async {

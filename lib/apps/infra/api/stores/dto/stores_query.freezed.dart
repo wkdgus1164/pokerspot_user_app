@@ -28,6 +28,7 @@ mixin _$StoresQuery {
   GameType? get gameType => throw _privateConstructorUsedError;
   int? get minEntryPrice => throw _privateConstructorUsedError;
   int? get maxEntryPrice => throw _privateConstructorUsedError;
+  int? get gtdMinReward => throw _privateConstructorUsedError;
   String? get searchText => throw _privateConstructorUsedError;
   String? get regCode => throw _privateConstructorUsedError;
   int? get page => throw _privateConstructorUsedError;
@@ -54,6 +55,7 @@ abstract class $StoresQueryCopyWith<$Res> {
       GameType? gameType,
       int? minEntryPrice,
       int? maxEntryPrice,
+      int? gtdMinReward,
       String? searchText,
       String? regCode,
       int? page,
@@ -81,6 +83,7 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
     Object? gameType = freezed,
     Object? minEntryPrice = freezed,
     Object? maxEntryPrice = freezed,
+    Object? gtdMinReward = freezed,
     Object? searchText = freezed,
     Object? regCode = freezed,
     Object? page = freezed,
@@ -119,6 +122,10 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
           ? _value.maxEntryPrice
           : maxEntryPrice // ignore: cast_nullable_to_non_nullable
               as int?,
+      gtdMinReward: freezed == gtdMinReward
+          ? _value.gtdMinReward
+          : gtdMinReward // ignore: cast_nullable_to_non_nullable
+              as int?,
       searchText: freezed == searchText
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
@@ -156,6 +163,7 @@ abstract class _$$StoresQueryImplCopyWith<$Res>
       GameType? gameType,
       int? minEntryPrice,
       int? maxEntryPrice,
+      int? gtdMinReward,
       String? searchText,
       String? regCode,
       int? page,
@@ -181,6 +189,7 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
     Object? gameType = freezed,
     Object? minEntryPrice = freezed,
     Object? maxEntryPrice = freezed,
+    Object? gtdMinReward = freezed,
     Object? searchText = freezed,
     Object? regCode = freezed,
     Object? page = freezed,
@@ -219,6 +228,10 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
           ? _value.maxEntryPrice
           : maxEntryPrice // ignore: cast_nullable_to_non_nullable
               as int?,
+      gtdMinReward: freezed == gtdMinReward
+          ? _value.gtdMinReward
+          : gtdMinReward // ignore: cast_nullable_to_non_nullable
+              as int?,
       searchText: freezed == searchText
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
@@ -251,6 +264,7 @@ class _$StoresQueryImpl implements _StoresQuery {
       this.gameType,
       this.minEntryPrice,
       this.maxEntryPrice,
+      this.gtdMinReward,
       this.searchText,
       this.regCode,
       this.page,
@@ -276,6 +290,8 @@ class _$StoresQueryImpl implements _StoresQuery {
   @override
   final int? maxEntryPrice;
   @override
+  final int? gtdMinReward;
+  @override
   final String? searchText;
   @override
   final String? regCode;
@@ -286,7 +302,7 @@ class _$StoresQueryImpl implements _StoresQuery {
 
   @override
   String toString() {
-    return 'StoresQuery(lat: $lat, lng: $lng, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, searchText: $searchText, regCode: $regCode, page: $page, perPage: $perPage)';
+    return 'StoresQuery(lat: $lat, lng: $lng, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, gtdMinReward: $gtdMinReward, searchText: $searchText, regCode: $regCode, page: $page, perPage: $perPage)';
   }
 
   @override
@@ -308,6 +324,8 @@ class _$StoresQueryImpl implements _StoresQuery {
                 other.minEntryPrice == minEntryPrice) &&
             (identical(other.maxEntryPrice, maxEntryPrice) ||
                 other.maxEntryPrice == maxEntryPrice) &&
+            (identical(other.gtdMinReward, gtdMinReward) ||
+                other.gtdMinReward == gtdMinReward) &&
             (identical(other.searchText, searchText) ||
                 other.searchText == searchText) &&
             (identical(other.regCode, regCode) || other.regCode == regCode) &&
@@ -327,6 +345,7 @@ class _$StoresQueryImpl implements _StoresQuery {
       gameType,
       minEntryPrice,
       maxEntryPrice,
+      gtdMinReward,
       searchText,
       regCode,
       page,
@@ -356,6 +375,7 @@ abstract class _StoresQuery implements StoresQuery {
       final GameType? gameType,
       final int? minEntryPrice,
       final int? maxEntryPrice,
+      final int? gtdMinReward,
       final String? searchText,
       final String? regCode,
       final int? page,
@@ -380,6 +400,8 @@ abstract class _StoresQuery implements StoresQuery {
   int? get minEntryPrice;
   @override
   int? get maxEntryPrice;
+  @override
+  int? get gtdMinReward;
   @override
   String? get searchText;
   @override

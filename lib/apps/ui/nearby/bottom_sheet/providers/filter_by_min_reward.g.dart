@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'filter_service.dart';
+part of 'filter_by_min_reward.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$filterServiceHash() => r'7ce88d33748c46f41da9d1a9e2c243cb8648b819';
+String _$filterByMinRewardDataHash() =>
+    r'b851a2b85e67554eae89c5f265fcb3db41c871b8';
 
-/// See also [FilterService].
-@ProviderFor(FilterService)
-final filterServiceProvider =
-    AutoDisposeNotifierProvider<FilterService, FilterServiceModel>.internal(
-  FilterService.new,
-  name: r'filterServiceProvider',
+/// See also [FilterByMinRewardData].
+@ProviderFor(FilterByMinRewardData)
+final filterByMinRewardDataProvider = AutoDisposeNotifierProvider<
+    FilterByMinRewardData, FilterByMinRewardModel>.internal(
+  FilterByMinRewardData.new,
+  name: r'filterByMinRewardDataProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$filterServiceHash,
+      : _$filterByMinRewardDataHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$FilterService = AutoDisposeNotifier<FilterServiceModel>;
+typedef _$FilterByMinRewardData = AutoDisposeNotifier<FilterByMinRewardModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

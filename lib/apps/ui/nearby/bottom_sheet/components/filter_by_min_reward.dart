@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
+import 'package:pokerspot_user_app/apps/global/theme/slider.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
 
-class FilterByEntryPriecView extends StatefulHookConsumerWidget {
-  const FilterByEntryPriecView({super.key});
+class FilterByMinRewardView extends StatefulHookConsumerWidget {
+  const FilterByMinRewardView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByEntryPriceState();
+      _FilterByMinRewardState();
 }
 
-class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
+class _FilterByMinRewardState extends ConsumerState<FilterByMinRewardView> {
   @override
   Widget build(BuildContext context) {
-    final entryPriceFilter = ref.watch(filterByEntryPriceProvider);
-    final int minTicket = entryPriceFilter.minTicket;
-    final int maxTicket = entryPriceFilter.maxTicket;
+    final minRewardFilter = ref.watch(filterByMinRewardDataProvider);
+    final int minReward = minRewardFilter.minReward;
 
     return Column(
       children: [
@@ -25,14 +25,14 @@ class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              '참가비',
+              '최소 상금',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: colorGrey40,
                     fontWeight: FontWeight.normal,
                   ),
             ),
             Text(
-              '${minTicket.ceil()} Ticket ~ ${maxTicket.ceil()} Ticket',
+              '${minReward.ceil()}',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: colorBrand40,
                     fontWeight: FontWeight.normal,
@@ -41,21 +41,20 @@ class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
           ],
         ),
         const SizedBox(height: 8),
-        RangeSlider(
-          values: RangeValues(
-            double.parse(minTicket.toString()),
-            double.parse(maxTicket.toString()),
+        SliderTheme(
+          data: sliderThemeData,
+          child: Slider(
+            value:
+                ref.watch(filterByMinRewardDataProvider).minReward.toDouble(),
+            min: 50,
+            max: 5000,
+            onChanged: (value) {
+              final min = int.parse((value / 50).ceil().toString()) * 50;
+              ref
+                  .read(filterByMinRewardDataProvider.notifier)
+                  .setMinReward(min);
+            },
           ),
-          min: 1,
-          max: 30,
-          onChanged: (RangeValues newValues) {
-            ref
-                .watch(filterByEntryPriceProvider.notifier)
-                .setMinTicket(int.parse(newValues.start.ceil().toString()));
-            ref
-                .watch(filterByEntryPriceProvider.notifier)
-                .setMaxTicket(int.parse(newValues.end.ceil().toString()));
-          },
         ),
         const SizedBox(height: 8),
         Row(
@@ -63,13 +62,13 @@ class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              '1 Ticket',
+              '50',
               style: Theme.of(context).textTheme.labelMedium!.copyWith(
                     color: colorGrey60,
                   ),
             ),
             Text(
-              '30 Ticket',
+              '5000',
               style: Theme.of(context).textTheme.labelMedium!.copyWith(
                     color: colorGrey60,
                   ),

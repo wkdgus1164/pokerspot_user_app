@@ -15,6 +15,7 @@ class StoresQuery with _$StoresQuery {
     GameType? gameType,
     int? minEntryPrice,
     int? maxEntryPrice,
+    int? gtdMinReward,
     String? searchText,
     String? regCode,
     int? page,

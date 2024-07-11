@@ -107,7 +107,7 @@ class __$$FilterByEntryPriceModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterByEntryPriceModelImpl extends _FilterByEntryPriceModel {
-  _$FilterByEntryPriceModelImpl({this.minTicket = 1, this.maxTicket = 100})
+  _$FilterByEntryPriceModelImpl({this.minTicket = 1, this.maxTicket = 30})
       : super._();
 
   @override
