@@ -14,6 +14,8 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/navi_bottom_sheet.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/navi_cupertino.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/views/share_bottom_sheet.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/views/share_cupertino.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_vac.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -48,7 +50,10 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
             title: Text(data.name ?? "-"),
             actions: [
               IconButton(
-                onPressed: () => _handleKakaoShare(data),
+                onPressed: () {
+                  _showShareBottomSheet(data);
+                },
+                // onPressed: () => _handleKakaoShare(data),
                 icon: const Icon(Icons.share_rounded),
               ),
             ],
@@ -121,6 +126,31 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   String _calculateOpenTime(String? openTime) {
     final int time = int.parse(openTime.toString().substring(0, 2));
     return time > 12 ? '오후 ${time - 12}시' : '오후 $time시';
+  }
+
+  void _showShareBottomSheet(StoreModel model) {
+    if (Platform.isAndroid) {
+      showModalBottomSheet(
+        context: context,
+        useSafeArea: true,
+        builder: (context) {
+          return StoreDetailShareBottomSheet(
+            handleKakaoShare: () => _handleKakaoShare(model),
+            model: model,
+          );
+        },
+      );
+    } else {
+      showCupertinoModalPopup(
+        context: context,
+        builder: (context) {
+          return StoreDetailShareCupertinoActionSheet(
+            handleKakaoShare: () => _handleKakaoShare(model),
+            model: model,
+          );
+        },
+      );
+    }
   }
 
   void _showNaviBottomSheet({
