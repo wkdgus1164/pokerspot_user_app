@@ -1,6 +1,6 @@
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -8,8 +8,7 @@ class Utils {
   /// [text] 클립보드에 복사할 텍스트
   void copyToClipboard({String? text}) {
     if (text != null) {
-      Clipboard.setData(ClipboardData(text: text));
-      Fluttertoast.showToast(msg: '주소가 복사되었어요.');
+      Share.share(text);
     } else {
       Fluttertoast.showToast(msg: '주소 정보가 없어요.');
       return;
