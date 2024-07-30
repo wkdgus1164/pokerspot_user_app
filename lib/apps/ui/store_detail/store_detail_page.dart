@@ -12,10 +12,10 @@ import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kak
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/views/navi_bottom_sheet.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/views/navi_cupertino.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/views/share_bottom_sheet.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/views/share_cupertino.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_android.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_ios.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/share/share_android.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/share/share_ios.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_vac.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -134,7 +134,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         context: context,
         useSafeArea: true,
         builder: (context) {
-          return StoreDetailShareBottomSheet(
+          return StoreDetailShareAndroid(
             handleKakaoShare: () => _handleKakaoShare(model),
             model: model,
           );
@@ -164,7 +164,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         context: context,
         useSafeArea: true,
         builder: (context) {
-          return StoreDetailNaviBottomSheet(
+          return StoreDetailNaviAndroid(
             name: name,
             address: address,
             x: x,

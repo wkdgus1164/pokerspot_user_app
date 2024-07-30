@@ -4,8 +4,8 @@ import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 
-class StoreDetailShareBottomSheet extends StatelessWidget {
-  const StoreDetailShareBottomSheet({
+class StoreDetailShareAndroid extends StatelessWidget {
+  const StoreDetailShareAndroid({
     super.key,
     required this.handleKakaoShare,
     required this.model,
