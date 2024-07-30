@@ -2,7 +2,7 @@ name: pokerspot_user_app
 description: 'A new Flutter project.'
 
 publish_to: 'none'
-version: 1.1.4+37
+version: 1.1.5+38
 
 environment:
   sdk: '>=3.2.4 <4.0.0'
