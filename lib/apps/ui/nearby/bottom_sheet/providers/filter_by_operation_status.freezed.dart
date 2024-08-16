@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FilterByOperationStatusModel {
   OperationStatus get operationStatus => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FilterByOperationStatusModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FilterByOperationStatusModelCopyWith<FilterByOperationStatusModel>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$FilterByOperationStatusModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FilterByOperationStatusModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +85,8 @@ class __$$FilterByOperationStatusModelImplCopyWithImpl<$Res>
       $Res Function(_$FilterByOperationStatusModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FilterByOperationStatusModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,7 +129,9 @@ class _$FilterByOperationStatusModelImpl extends _FilterByOperationStatusModel {
   @override
   int get hashCode => Object.hash(runtimeType, operationStatus);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FilterByOperationStatusModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FilterByOperationStatusModelImplCopyWith<
@@ -141,8 +149,11 @@ abstract class _FilterByOperationStatusModel
 
   @override
   OperationStatus get operationStatus;
+
+  /// Create a copy of FilterByOperationStatusModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FilterByOperationStatusModelImplCopyWith<
           _$FilterByOperationStatusModelImpl>
       get copyWith => throw _privateConstructorUsedError;

@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SearchKeywordModel {
   String get keyword => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SearchKeywordModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SearchKeywordModelCopyWith<SearchKeywordModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -42,6 +44,8 @@ class _$SearchKeywordModelCopyWithImpl<$Res, $Val extends SearchKeywordModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SearchKeywordModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -75,6 +79,8 @@ class __$$SearchKeywordModelImplCopyWithImpl<$Res>
       $Res Function(_$SearchKeywordModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SearchKeywordModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,7 +120,9 @@ class _$SearchKeywordModelImpl extends _SearchKeywordModel {
   @override
   int get hashCode => Object.hash(runtimeType, keyword);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SearchKeywordModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SearchKeywordModelImplCopyWith<_$SearchKeywordModelImpl> get copyWith =>
@@ -129,8 +137,11 @@ abstract class _SearchKeywordModel extends SearchKeywordModel {
 
   @override
   String get keyword;
+
+  /// Create a copy of SearchKeywordModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SearchKeywordModelImplCopyWith<_$SearchKeywordModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

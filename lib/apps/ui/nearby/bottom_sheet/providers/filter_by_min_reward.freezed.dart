@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FilterByMinRewardModel {
   int get minReward => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FilterByMinRewardModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FilterByMinRewardModelCopyWith<FilterByMinRewardModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$FilterByMinRewardModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FilterByMinRewardModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,6 +83,8 @@ class __$$FilterByMinRewardModelImplCopyWithImpl<$Res>
       $Res Function(_$FilterByMinRewardModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FilterByMinRewardModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,7 +125,9 @@ class _$FilterByMinRewardModelImpl extends _FilterByMinRewardModel {
   @override
   int get hashCode => Object.hash(runtimeType, minReward);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FilterByMinRewardModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FilterByMinRewardModelImplCopyWith<_$FilterByMinRewardModelImpl>
@@ -134,8 +142,11 @@ abstract class _FilterByMinRewardModel extends FilterByMinRewardModel {
 
   @override
   int get minReward;
+
+  /// Create a copy of FilterByMinRewardModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FilterByMinRewardModelImplCopyWith<_$FilterByMinRewardModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

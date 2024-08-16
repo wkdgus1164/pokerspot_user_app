@@ -22,7 +22,9 @@ mixin _$WithOffsetPagination<T> {
   int get totalCount => throw _privateConstructorUsedError;
   T get items => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WithOffsetPagination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WithOffsetPaginationCopyWith<T, WithOffsetPagination<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +49,8 @@ class _$WithOffsetPaginationCopyWithImpl<T, $Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of WithOffsetPagination
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -102,6 +106,8 @@ class __$$WithOffsetPaginationImplCopyWithImpl<T, $Res>
       $Res Function(_$WithOffsetPaginationImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of WithOffsetPagination
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -184,7 +190,9 @@ class _$WithOffsetPaginationImpl<T> implements _WithOffsetPagination<T> {
   int get hashCode => Object.hash(runtimeType, page, perPage, totalPage,
       totalCount, const DeepCollectionEquality().hash(items));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WithOffsetPagination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WithOffsetPaginationImplCopyWith<T, _$WithOffsetPaginationImpl<T>>
@@ -210,8 +218,11 @@ abstract class _WithOffsetPagination<T> implements WithOffsetPagination<T> {
   int get totalCount;
   @override
   T get items;
+
+  /// Create a copy of WithOffsetPagination
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WithOffsetPaginationImplCopyWith<T, _$WithOffsetPaginationImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

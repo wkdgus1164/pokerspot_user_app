@@ -24,8 +24,12 @@ mixin _$AddressDto {
   List<AddressDocumentsDto?> get documents =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this AddressDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AddressDtoCopyWith<AddressDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$AddressDtoCopyWithImpl<$Res, $Val extends AddressDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -69,6 +75,8 @@ class _$AddressDtoCopyWithImpl<$Res, $Val extends AddressDto>
     ) as $Val);
   }
 
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressMetaDtoCopyWith<$Res>? get meta {
@@ -104,6 +112,8 @@ class __$$AddressDtoImplCopyWithImpl<$Res>
       _$AddressDtoImpl _value, $Res Function(_$AddressDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -158,12 +168,14 @@ class _$AddressDtoImpl implements _AddressDto {
                 .equals(other._documents, _documents));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, meta, const DeepCollectionEquality().hash(_documents));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressDtoImplCopyWith<_$AddressDtoImpl> get copyWith =>
@@ -189,8 +201,11 @@ abstract class _AddressDto implements AddressDto {
   AddressMetaDto? get meta;
   @override
   List<AddressDocumentsDto?> get documents;
+
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddressDtoImplCopyWith<_$AddressDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -203,8 +218,12 @@ AddressMetaDto _$AddressMetaDtoFromJson(Map<String, dynamic> json) {
 mixin _$AddressMetaDto {
   int? get total_count => throw _privateConstructorUsedError;
 
+  /// Serializes this AddressMetaDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddressMetaDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AddressMetaDtoCopyWith<AddressMetaDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -228,6 +247,8 @@ class _$AddressMetaDtoCopyWithImpl<$Res, $Val extends AddressMetaDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AddressMetaDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -261,6 +282,8 @@ class __$$AddressMetaDtoImplCopyWithImpl<$Res>
       _$AddressMetaDtoImpl _value, $Res Function(_$AddressMetaDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddressMetaDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -300,11 +323,13 @@ class _$AddressMetaDtoImpl implements _AddressMetaDto {
                 other.total_count == total_count));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, total_count);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddressMetaDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressMetaDtoImplCopyWith<_$AddressMetaDtoImpl> get copyWith =>
@@ -328,8 +353,11 @@ abstract class _AddressMetaDto implements AddressMetaDto {
 
   @override
   int? get total_count;
+
+  /// Create a copy of AddressMetaDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddressMetaDtoImplCopyWith<_$AddressMetaDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -344,8 +372,12 @@ mixin _$AddressDocumentsDto {
       throw _privateConstructorUsedError;
   AddressDocumentsAddressDto get address => throw _privateConstructorUsedError;
 
+  /// Serializes this AddressDocumentsDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddressDocumentsDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AddressDocumentsDtoCopyWith<AddressDocumentsDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -374,6 +406,8 @@ class _$AddressDocumentsDtoCopyWithImpl<$Res, $Val extends AddressDocumentsDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AddressDocumentsDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -392,6 +426,8 @@ class _$AddressDocumentsDtoCopyWithImpl<$Res, $Val extends AddressDocumentsDto>
     ) as $Val);
   }
 
+  /// Create a copy of AddressDocumentsDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressDocumentsRoadAddressDtoCopyWith<$Res>? get road_address {
@@ -405,6 +441,8 @@ class _$AddressDocumentsDtoCopyWithImpl<$Res, $Val extends AddressDocumentsDto>
     });
   }
 
+  /// Create a copy of AddressDocumentsDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressDocumentsAddressDtoCopyWith<$Res> get address {
@@ -440,6 +478,8 @@ class __$$AddressDocumentsDtoImplCopyWithImpl<$Res>
       $Res Function(_$AddressDocumentsDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddressDocumentsDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -488,11 +528,13 @@ class _$AddressDocumentsDtoImpl implements _AddressDocumentsDto {
             (identical(other.address, address) || other.address == address));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, road_address, address);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddressDocumentsDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressDocumentsDtoImplCopyWith<_$AddressDocumentsDtoImpl> get copyWith =>
@@ -520,8 +562,11 @@ abstract class _AddressDocumentsDto implements AddressDocumentsDto {
   AddressDocumentsRoadAddressDto? get road_address;
   @override
   AddressDocumentsAddressDto get address;
+
+  /// Create a copy of AddressDocumentsDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddressDocumentsDtoImplCopyWith<_$AddressDocumentsDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -544,8 +589,12 @@ mixin _$AddressDocumentsRoadAddressDto {
   String? get building_name => throw _privateConstructorUsedError;
   String? get zone_no => throw _privateConstructorUsedError;
 
+  /// Serializes this AddressDocumentsRoadAddressDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddressDocumentsRoadAddressDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AddressDocumentsRoadAddressDtoCopyWith<AddressDocumentsRoadAddressDto>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -582,6 +631,8 @@ class _$AddressDocumentsRoadAddressDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AddressDocumentsRoadAddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -673,6 +724,8 @@ class __$$AddressDocumentsRoadAddressDtoImplCopyWithImpl<$Res>
       $Res Function(_$AddressDocumentsRoadAddressDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddressDocumentsRoadAddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -804,7 +857,7 @@ class _$AddressDocumentsRoadAddressDtoImpl
             (identical(other.zone_no, zone_no) || other.zone_no == zone_no));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -819,7 +872,9 @@ class _$AddressDocumentsRoadAddressDtoImpl
       building_name,
       zone_no);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddressDocumentsRoadAddressDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressDocumentsRoadAddressDtoImplCopyWith<
@@ -872,8 +927,11 @@ abstract class _AddressDocumentsRoadAddressDto
   String? get building_name;
   @override
   String? get zone_no;
+
+  /// Create a copy of AddressDocumentsRoadAddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddressDocumentsRoadAddressDtoImplCopyWith<
           _$AddressDocumentsRoadAddressDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -895,8 +953,12 @@ mixin _$AddressDocumentsAddressDto {
   String? get sub_address_no => throw _privateConstructorUsedError;
   String? get zip_code => throw _privateConstructorUsedError;
 
+  /// Serializes this AddressDocumentsAddressDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddressDocumentsAddressDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AddressDocumentsAddressDtoCopyWith<AddressDocumentsAddressDto>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -930,6 +992,8 @@ class _$AddressDocumentsAddressDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AddressDocumentsAddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1009,6 +1073,8 @@ class __$$AddressDocumentsAddressDtoImplCopyWithImpl<$Res>
       $Res Function(_$AddressDocumentsAddressDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddressDocumentsAddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1120,7 +1186,7 @@ class _$AddressDocumentsAddressDtoImpl implements _AddressDocumentsAddressDto {
                 other.zip_code == zip_code));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1133,7 +1199,9 @@ class _$AddressDocumentsAddressDtoImpl implements _AddressDocumentsAddressDto {
       sub_address_no,
       zip_code);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddressDocumentsAddressDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressDocumentsAddressDtoImplCopyWith<_$AddressDocumentsAddressDtoImpl>
@@ -1179,8 +1247,11 @@ abstract class _AddressDocumentsAddressDto
   String? get sub_address_no;
   @override
   String? get zip_code;
+
+  /// Create a copy of AddressDocumentsAddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddressDocumentsAddressDtoImplCopyWith<_$AddressDocumentsAddressDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

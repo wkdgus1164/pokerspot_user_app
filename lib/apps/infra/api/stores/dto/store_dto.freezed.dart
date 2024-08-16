@@ -23,8 +23,12 @@ mixin _$StoreImagesDto {
   String get id => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
 
+  /// Serializes this StoreImagesDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoreImagesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StoreImagesDtoCopyWith<StoreImagesDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$StoreImagesDtoCopyWithImpl<$Res, $Val extends StoreImagesDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StoreImagesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$StoreImageDtoImplCopyWithImpl<$Res>
       _$StoreImageDtoImpl _value, $Res Function(_$StoreImageDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoreImagesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$StoreImageDtoImpl implements _StoreImageDto {
             (identical(other.url, url) || other.url == url));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, url);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreImagesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoreImageDtoImplCopyWith<_$StoreImageDtoImpl> get copyWith =>
@@ -162,8 +172,11 @@ abstract class _StoreImageDto implements StoreImagesDto {
   String get id;
   @override
   String get url;
+
+  /// Create a copy of StoreImagesDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreImageDtoImplCopyWith<_$StoreImageDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -186,8 +199,12 @@ mixin _$GameMTTDto {
   bool get isDaily => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  /// Serializes this GameMTTDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GameMTTDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GameMTTDtoCopyWith<GameMTTDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -222,6 +239,8 @@ class _$GameMTTDtoCopyWithImpl<$Res, $Val extends GameMTTDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GameMTTDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -316,6 +335,8 @@ class __$$GameMTTDtoImplCopyWithImpl<$Res>
       _$GameMTTDtoImpl _value, $Res Function(_$GameMTTDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GameMTTDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -451,12 +472,14 @@ class _$GameMTTDtoImpl implements _GameMTTDto {
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, type, entryPrice, entryMax,
       reEntryMax, duration, prize, gtdMinReward, eventType, isDaily, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GameMTTDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GameMTTDtoImplCopyWith<_$GameMTTDtoImpl> get copyWith =>
@@ -509,8 +532,11 @@ abstract class _GameMTTDto implements GameMTTDto {
   bool get isDaily;
   @override
   String get name;
+
+  /// Create a copy of GameMTTDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GameMTTDtoImplCopyWith<_$GameMTTDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -537,8 +563,12 @@ mixin _$StoreDto {
   List<StoreImagesDto>? get storeImages => throw _privateConstructorUsedError;
   List<GameMTTDto>? get gameMttItems => throw _privateConstructorUsedError;
 
+  /// Serializes this StoreDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoreDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StoreDtoCopyWith<StoreDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -576,6 +606,8 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StoreDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -694,6 +726,8 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
       _$StoreDtoImpl _value, $Res Function(_$StoreDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoreDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -884,7 +918,7 @@ class _$StoreDtoImpl implements _StoreDto {
                 .equals(other._gameMttItems, _gameMttItems));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -904,7 +938,9 @@ class _$StoreDtoImpl implements _StoreDto {
       const DeepCollectionEquality().hash(_storeImages),
       const DeepCollectionEquality().hash(_gameMttItems));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoreDtoImplCopyWith<_$StoreDtoImpl> get copyWith =>
@@ -969,8 +1005,11 @@ abstract class _StoreDto implements StoreDto {
   List<StoreImagesDto>? get storeImages;
   @override
   List<GameMTTDto>? get gameMttItems;
+
+  /// Create a copy of StoreDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreDtoImplCopyWith<_$StoreDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -26,8 +26,12 @@ mixin _$StoresDto {
   int get totalCount => throw _privateConstructorUsedError;
   List<StoreDto> get items => throw _privateConstructorUsedError;
 
+  /// Serializes this StoresDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoresDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StoresDtoCopyWith<StoresDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$StoresDtoCopyWithImpl<$Res, $Val extends StoresDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StoresDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -113,6 +119,8 @@ class __$$StoresDtoImplCopyWithImpl<$Res>
       _$StoresDtoImpl _value, $Res Function(_$StoresDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoresDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -196,12 +204,14 @@ class _$StoresDtoImpl implements _StoresDto {
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, page, perPage, totalPage,
       totalCount, const DeepCollectionEquality().hash(_items));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoresDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoresDtoImplCopyWith<_$StoresDtoImpl> get copyWith =>
@@ -236,8 +246,11 @@ abstract class _StoresDto implements StoresDto {
   int get totalCount;
   @override
   List<StoreDto> get items;
+
+  /// Create a copy of StoresDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoresDtoImplCopyWith<_$StoresDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

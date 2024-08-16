@@ -21,7 +21,9 @@ mixin _$KakaoFeedModel {
   String? get description => throw _privateConstructorUsedError;
   String get thumbnail => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of KakaoFeedModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $KakaoFeedModelCopyWith<KakaoFeedModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$KakaoFeedModelCopyWithImpl<$Res, $Val extends KakaoFeedModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of KakaoFeedModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +97,8 @@ class __$$KakaoFeedModelImplCopyWithImpl<$Res>
       _$KakaoFeedModelImpl _value, $Res Function(_$KakaoFeedModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of KakaoFeedModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -163,7 +169,9 @@ class _$KakaoFeedModelImpl extends _KakaoFeedModel {
   int get hashCode =>
       Object.hash(runtimeType, id, title, description, thumbnail);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of KakaoFeedModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$KakaoFeedModelImplCopyWith<_$KakaoFeedModelImpl> get copyWith =>
@@ -187,8 +195,11 @@ abstract class _KakaoFeedModel extends KakaoFeedModel {
   String? get description;
   @override
   String get thumbnail;
+
+  /// Create a copy of KakaoFeedModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$KakaoFeedModelImplCopyWith<_$KakaoFeedModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

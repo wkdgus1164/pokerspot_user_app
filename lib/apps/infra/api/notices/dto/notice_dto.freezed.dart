@@ -25,8 +25,12 @@ mixin _$NoticeDto {
   String get description => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this NoticeDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of NoticeDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $NoticeDtoCopyWith<NoticeDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$NoticeDtoCopyWithImpl<$Res, $Val extends NoticeDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of NoticeDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -97,6 +103,8 @@ class __$$NoticeDtoImplCopyWithImpl<$Res>
       _$NoticeDtoImpl _value, $Res Function(_$NoticeDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NoticeDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,12 +173,14 @@ class _$NoticeDtoImpl implements _NoticeDto {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, title, description, createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NoticeDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NoticeDtoImplCopyWith<_$NoticeDtoImpl> get copyWith =>
@@ -202,8 +212,11 @@ abstract class _NoticeDto implements NoticeDto {
   String get description;
   @override
   DateTime get createdAt;
+
+  /// Create a copy of NoticeDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NoticeDtoImplCopyWith<_$NoticeDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

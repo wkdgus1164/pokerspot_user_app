@@ -19,7 +19,9 @@ mixin _$AreaDataModel {
   String get name => throw _privateConstructorUsedError;
   String get regCode => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AreaDataModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AreaDataModelCopyWith<AreaDataModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$AreaDataModelCopyWithImpl<$Res, $Val extends AreaDataModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AreaDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +85,8 @@ class __$$AreaDataModelImplCopyWithImpl<$Res>
       _$AreaDataModelImpl _value, $Res Function(_$AreaDataModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AreaDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,7 +136,9 @@ class _$AreaDataModelImpl extends _AreaDataModel {
   @override
   int get hashCode => Object.hash(runtimeType, name, regCode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AreaDataModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AreaDataModelImplCopyWith<_$AreaDataModelImpl> get copyWith =>
@@ -146,8 +154,11 @@ abstract class _AreaDataModel extends AreaDataModel {
   String get name;
   @override
   String get regCode;
+
+  /// Create a copy of AreaDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AreaDataModelImplCopyWith<_$AreaDataModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

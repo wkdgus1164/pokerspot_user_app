@@ -21,7 +21,9 @@ mixin _$NoticeModel {
   String get description => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NoticeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $NoticeModelCopyWith<NoticeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$NoticeModelCopyWithImpl<$Res, $Val extends NoticeModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of NoticeModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +97,8 @@ class __$$NoticeModelImplCopyWithImpl<$Res>
       _$NoticeModelImpl _value, $Res Function(_$NoticeModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NoticeModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,7 +168,9 @@ class _$NoticeModelImpl implements _NoticeModel {
   int get hashCode =>
       Object.hash(runtimeType, id, title, description, createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NoticeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NoticeModelImplCopyWith<_$NoticeModelImpl> get copyWith =>
@@ -184,8 +192,11 @@ abstract class _NoticeModel implements NoticeModel {
   String get description;
   @override
   DateTime get createdAt;
+
+  /// Create a copy of NoticeModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NoticeModelImplCopyWith<_$NoticeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -23,8 +23,12 @@ mixin _$AddressSearchQuery {
   double get x => throw _privateConstructorUsedError;
   double get y => throw _privateConstructorUsedError;
 
+  /// Serializes this AddressSearchQuery to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddressSearchQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AddressSearchQueryCopyWith<AddressSearchQuery> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$AddressSearchQueryCopyWithImpl<$Res, $Val extends AddressSearchQuery>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AddressSearchQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$AddressSearchQueryImplCopyWithImpl<$Res>
       $Res Function(_$AddressSearchQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddressSearchQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$AddressSearchQueryImpl implements _AddressSearchQuery {
             (identical(other.y, y) || other.y == y));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, x, y);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddressSearchQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressSearchQueryImplCopyWith<_$AddressSearchQueryImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _AddressSearchQuery implements AddressSearchQuery {
   double get x;
   @override
   double get y;
+
+  /// Create a copy of AddressSearchQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddressSearchQueryImplCopyWith<_$AddressSearchQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

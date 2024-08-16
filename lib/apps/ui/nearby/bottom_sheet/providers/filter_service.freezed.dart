@@ -24,7 +24,9 @@ mixin _$FilterServiceModel {
   int get maxEntryPrice => throw _privateConstructorUsedError;
   int get minReward => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FilterServiceModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FilterServiceModelCopyWith<FilterServiceModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +57,8 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FilterServiceModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -125,6 +129,8 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
       $Res Function(_$FilterServiceModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FilterServiceModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -227,7 +233,9 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
   int get hashCode => Object.hash(runtimeType, operationStatus, minOpenTime,
       maxOpenTime, gameType, minEntryPrice, maxEntryPrice, minReward);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FilterServiceModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FilterServiceModelImplCopyWith<_$FilterServiceModelImpl> get copyWith =>
@@ -260,8 +268,11 @@ abstract class _FilterServiceModel extends FilterServiceModel {
   int get maxEntryPrice;
   @override
   int get minReward;
+
+  /// Create a copy of FilterServiceModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FilterServiceModelImplCopyWith<_$FilterServiceModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
