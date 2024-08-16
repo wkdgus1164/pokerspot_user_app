@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -42,6 +43,22 @@ class _FilterButtonGroupViewState extends ConsumerState<FilterButtonGroupView> {
           Expanded(
             child: FilledButton.icon(
               onPressed: () {
+                FirebaseAnalytics.instance.logEvent(
+                  name: 'NEARBY_FILTER_SUBMIT',
+                  parameters: {
+                    '운영 상태': ref
+                        .read(filterByOperationStatusProvider)
+                        .operationStatus,
+                    '스타트 시간 최소': ref.read(filterByOpenTimeProvider).minTime,
+                    '스타트 시간 최대': ref.read(filterByOpenTimeProvider).maxTime,
+                    '토너먼트 종류': ref.read(filterByGameTypeProvider).gameType,
+                    '참가비 최소': ref.read(filterByEntryPriceProvider).minTicket,
+                    '참가비 최대': ref.read(filterByEntryPriceProvider).maxTicket,
+                    'GTD 최소 상금':
+                        ref.read(filterByMinRewardDataProvider).minReward,
+                  },
+                );
+
                 ref.invalidate(storesItemsProvider);
                 context.pop();
               },
