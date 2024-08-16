@@ -26,8 +26,12 @@ mixin _$NoticesDto {
   int get totalCount => throw _privateConstructorUsedError;
   List<NoticeDto> get items => throw _privateConstructorUsedError;
 
+  /// Serializes this NoticesDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of NoticesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $NoticesDtoCopyWith<NoticesDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$NoticesDtoCopyWithImpl<$Res, $Val extends NoticesDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of NoticesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$NoticesDtoImplCopyWithImpl<$Res>
       _$NoticesDtoImpl _value, $Res Function(_$NoticesDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NoticesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -197,12 +205,14 @@ class _$NoticesDtoImpl implements _NoticesDto {
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, page, perPage, totalPage,
       totalCount, const DeepCollectionEquality().hash(_items));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NoticesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NoticesDtoImplCopyWith<_$NoticesDtoImpl> get copyWith =>
@@ -237,8 +247,11 @@ abstract class _NoticesDto implements NoticesDto {
   int get totalCount;
   @override
   List<NoticeDto> get items;
+
+  /// Create a copy of NoticesDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NoticesDtoImplCopyWith<_$NoticesDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

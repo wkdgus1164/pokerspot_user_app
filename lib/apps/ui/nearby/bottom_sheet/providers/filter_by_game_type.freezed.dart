@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FilterByGameTypeModel {
   GameType get gameType => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FilterByGameTypeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FilterByGameTypeModelCopyWith<FilterByGameTypeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$FilterByGameTypeModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FilterByGameTypeModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +82,8 @@ class __$$FilterByGameTypeModelImplCopyWithImpl<$Res>
       $Res Function(_$FilterByGameTypeModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FilterByGameTypeModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,7 +124,9 @@ class _$FilterByGameTypeModelImpl extends _FilterByGameTypeModel {
   @override
   int get hashCode => Object.hash(runtimeType, gameType);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FilterByGameTypeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FilterByGameTypeModelImplCopyWith<_$FilterByGameTypeModelImpl>
@@ -133,8 +141,11 @@ abstract class _FilterByGameTypeModel extends FilterByGameTypeModel {
 
   @override
   GameType get gameType;
+
+  /// Create a copy of FilterByGameTypeModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FilterByGameTypeModelImplCopyWith<_$FilterByGameTypeModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

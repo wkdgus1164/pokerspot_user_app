@@ -23,7 +23,9 @@ mixin _$RecentSearchModel {
   String get openTime => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RecentSearchModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RecentSearchModelCopyWith<RecentSearchModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +55,8 @@ class _$RecentSearchModelCopyWithImpl<$Res, $Val extends RecentSearchModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RecentSearchModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,6 +121,8 @@ class __$$RecentSearchModelImplCopyWithImpl<$Res>
       $Res Function(_$RecentSearchModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RecentSearchModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -204,7 +210,9 @@ class _$RecentSearchModelImpl implements _RecentSearchModel {
   int get hashCode =>
       Object.hash(runtimeType, id, name, image, address, openTime, createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RecentSearchModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RecentSearchModelImplCopyWith<_$RecentSearchModelImpl> get copyWith =>
@@ -233,8 +241,11 @@ abstract class _RecentSearchModel implements RecentSearchModel {
   String get openTime;
   @override
   DateTime get createdAt;
+
+  /// Create a copy of RecentSearchModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RecentSearchModelImplCopyWith<_$RecentSearchModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

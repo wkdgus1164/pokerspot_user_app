@@ -22,8 +22,12 @@ AreaListDto _$AreaListDtoFromJson(Map<String, dynamic> json) {
 mixin _$AreaListDto {
   List<AreaDto> get regcodes => throw _privateConstructorUsedError;
 
+  /// Serializes this AreaListDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AreaListDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AreaListDtoCopyWith<AreaListDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$AreaListDtoCopyWithImpl<$Res, $Val extends AreaListDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AreaListDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$AreaListDtoImplCopyWithImpl<$Res>
       _$AreaListDtoImpl _value, $Res Function(_$AreaListDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AreaListDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,12 +132,14 @@ class _$AreaListDtoImpl implements _AreaListDto {
             const DeepCollectionEquality().equals(other._regcodes, _regcodes));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_regcodes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AreaListDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AreaListDtoImplCopyWith<_$AreaListDtoImpl> get copyWith =>
@@ -152,8 +162,11 @@ abstract class _AreaListDto implements AreaListDto {
 
   @override
   List<AreaDto> get regcodes;
+
+  /// Create a copy of AreaListDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AreaListDtoImplCopyWith<_$AreaListDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -167,8 +180,12 @@ mixin _$AreaDto {
   String get code => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  /// Serializes this AreaDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AreaDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AreaDtoCopyWith<AreaDto> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -190,6 +207,8 @@ class _$AreaDtoCopyWithImpl<$Res, $Val extends AreaDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AreaDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -227,6 +246,8 @@ class __$$AreaDtoImplCopyWithImpl<$Res>
       _$AreaDtoImpl _value, $Res Function(_$AreaDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AreaDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -273,11 +294,13 @@ class _$AreaDtoImpl implements _AreaDto {
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, code, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AreaDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AreaDtoImplCopyWith<_$AreaDtoImpl> get copyWith =>
@@ -301,8 +324,11 @@ abstract class _AreaDto implements AreaDto {
   String get code;
   @override
   String get name;
+
+  /// Create a copy of AreaDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AreaDtoImplCopyWith<_$AreaDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

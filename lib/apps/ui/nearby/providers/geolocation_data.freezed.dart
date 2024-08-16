@@ -19,7 +19,9 @@ mixin _$GeoLocationModel {
   double get latitude => throw _privateConstructorUsedError;
   double get longitude => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GeoLocationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GeoLocationModelCopyWith<GeoLocationModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$GeoLocationModelCopyWithImpl<$Res, $Val extends GeoLocationModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GeoLocationModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +85,8 @@ class __$$GeoLocationModelImplCopyWithImpl<$Res>
       $Res Function(_$GeoLocationModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GeoLocationModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,7 +139,9 @@ class _$GeoLocationModelImpl extends _GeoLocationModel {
   @override
   int get hashCode => Object.hash(runtimeType, latitude, longitude);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GeoLocationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GeoLocationModelImplCopyWith<_$GeoLocationModelImpl> get copyWith =>
@@ -150,8 +158,11 @@ abstract class _GeoLocationModel extends GeoLocationModel {
   double get latitude;
   @override
   double get longitude;
+
+  /// Create a copy of GeoLocationModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GeoLocationModelImplCopyWith<_$GeoLocationModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

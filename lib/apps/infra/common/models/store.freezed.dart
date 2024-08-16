@@ -32,7 +32,9 @@ mixin _$StoreModel {
   List<StoreImagesModel>? get storeImages => throw _privateConstructorUsedError;
   List<StoreGamesModel>? get gameMTTItems => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StoreModelCopyWith<StoreModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -71,6 +73,8 @@ class _$StoreModelCopyWithImpl<$Res, $Val extends StoreModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StoreModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -189,6 +193,8 @@ class __$$StoreModelImplCopyWithImpl<$Res>
       _$StoreModelImpl _value, $Res Function(_$StoreModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoreModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -395,7 +401,9 @@ class _$StoreModelImpl implements _StoreModel {
       const DeepCollectionEquality().hash(_storeImages),
       const DeepCollectionEquality().hash(_gameMTTItems));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoreModelImplCopyWith<_$StoreModelImpl> get copyWith =>
@@ -450,8 +458,11 @@ abstract class _StoreModel implements StoreModel {
   List<StoreImagesModel>? get storeImages;
   @override
   List<StoreGamesModel>? get gameMTTItems;
+
+  /// Create a copy of StoreModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreModelImplCopyWith<_$StoreModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -461,7 +472,9 @@ mixin _$StoreImagesModel {
   String? get id => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreImagesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StoreImagesModelCopyWith<StoreImagesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -485,6 +498,8 @@ class _$StoreImagesModelCopyWithImpl<$Res, $Val extends StoreImagesModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StoreImagesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -523,6 +538,8 @@ class __$$StoreImagesModelImplCopyWithImpl<$Res>
       $Res Function(_$StoreImagesModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoreImagesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -569,7 +586,9 @@ class _$StoreImagesModelImpl implements _StoreImagesModel {
   @override
   int get hashCode => Object.hash(runtimeType, id, url);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreImagesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoreImagesModelImplCopyWith<_$StoreImagesModelImpl> get copyWith =>
@@ -586,8 +605,11 @@ abstract class _StoreImagesModel implements StoreImagesModel {
   String? get id;
   @override
   String? get url;
+
+  /// Create a copy of StoreImagesModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreImagesModelImplCopyWith<_$StoreImagesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -606,7 +628,9 @@ mixin _$StoreGamesModel {
   EventType? get eventType => throw _privateConstructorUsedError;
   bool get isDaily => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreGamesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StoreGamesModelCopyWith<StoreGamesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -641,6 +665,8 @@ class _$StoreGamesModelCopyWithImpl<$Res, $Val extends StoreGamesModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StoreGamesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -735,6 +761,8 @@ class __$$StoreGamesModelImplCopyWithImpl<$Res>
       _$StoreGamesModelImpl _value, $Res Function(_$StoreGamesModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoreGamesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -871,7 +899,9 @@ class _$StoreGamesModelImpl implements _StoreGamesModel {
   int get hashCode => Object.hash(runtimeType, id, name, type, entryPrice,
       entryMax, reEntryMax, duration, prize, gtdMinReward, eventType, isDaily);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreGamesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoreGamesModelImplCopyWith<_$StoreGamesModelImpl> get copyWith =>
@@ -915,8 +945,11 @@ abstract class _StoreGamesModel implements StoreGamesModel {
   EventType? get eventType;
   @override
   bool get isDaily;
+
+  /// Create a copy of StoreGamesModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreGamesModelImplCopyWith<_$StoreGamesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

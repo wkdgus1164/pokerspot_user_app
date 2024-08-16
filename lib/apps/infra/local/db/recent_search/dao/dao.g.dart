@@ -199,6 +199,17 @@ class RecentSearchEntityData extends DataClass
         openTime: openTime ?? this.openTime,
         createdAt: createdAt ?? this.createdAt,
       );
+  RecentSearchEntityData copyWithCompanion(RecentSearchEntityCompanion data) {
+    return RecentSearchEntityData(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      image: data.image.present ? data.image.value : this.image,
+      address: data.address.present ? data.address.value : this.address,
+      openTime: data.openTime.present ? data.openTime.value : this.openTime,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('RecentSearchEntityData(')
@@ -342,8 +353,7 @@ class RecentSearchEntityCompanion
 
 abstract class _$RecentSearchDaoImpl extends GeneratedDatabase {
   _$RecentSearchDaoImpl(QueryExecutor e) : super(e);
-  _$RecentSearchDaoImplManager get managers =>
-      _$RecentSearchDaoImplManager(this);
+  $RecentSearchDaoImplManager get managers => $RecentSearchDaoImplManager(this);
   late final $RecentSearchEntityTable recentSearchEntity =
       $RecentSearchEntityTable(this);
   @override
@@ -353,7 +363,7 @@ abstract class _$RecentSearchDaoImpl extends GeneratedDatabase {
   List<DatabaseSchemaEntity> get allSchemaEntities => [recentSearchEntity];
 }
 
-typedef $$RecentSearchEntityTableInsertCompanionBuilder
+typedef $$RecentSearchEntityTableCreateCompanionBuilder
     = RecentSearchEntityCompanion Function({
   required String id,
   required String name,
@@ -380,8 +390,7 @@ class $$RecentSearchEntityTableTableManager extends RootTableManager<
     RecentSearchEntityData,
     $$RecentSearchEntityTableFilterComposer,
     $$RecentSearchEntityTableOrderingComposer,
-    $$RecentSearchEntityTableProcessedTableManager,
-    $$RecentSearchEntityTableInsertCompanionBuilder,
+    $$RecentSearchEntityTableCreateCompanionBuilder,
     $$RecentSearchEntityTableUpdateCompanionBuilder> {
   $$RecentSearchEntityTableTableManager(
       _$RecentSearchDaoImpl db, $RecentSearchEntityTable table)
@@ -392,9 +401,7 @@ class $$RecentSearchEntityTableTableManager extends RootTableManager<
               $$RecentSearchEntityTableFilterComposer(ComposerState(db, table)),
           orderingComposer: $$RecentSearchEntityTableOrderingComposer(
               ComposerState(db, table)),
-          getChildManagerBuilder: (p) =>
-              $$RecentSearchEntityTableProcessedTableManager(p),
-          getUpdateCompanionBuilder: ({
+          updateCompanionCallback: ({
             Value<String> id = const Value.absent(),
             Value<String> name = const Value.absent(),
             Value<String> image = const Value.absent(),
@@ -412,7 +419,7 @@ class $$RecentSearchEntityTableTableManager extends RootTableManager<
             createdAt: createdAt,
             rowid: rowid,
           ),
-          getInsertCompanionBuilder: ({
+          createCompanionCallback: ({
             required String id,
             required String name,
             required String image,
@@ -431,19 +438,6 @@ class $$RecentSearchEntityTableTableManager extends RootTableManager<
             rowid: rowid,
           ),
         ));
-}
-
-class $$RecentSearchEntityTableProcessedTableManager
-    extends ProcessedTableManager<
-        _$RecentSearchDaoImpl,
-        $RecentSearchEntityTable,
-        RecentSearchEntityData,
-        $$RecentSearchEntityTableFilterComposer,
-        $$RecentSearchEntityTableOrderingComposer,
-        $$RecentSearchEntityTableProcessedTableManager,
-        $$RecentSearchEntityTableInsertCompanionBuilder,
-        $$RecentSearchEntityTableUpdateCompanionBuilder> {
-  $$RecentSearchEntityTableProcessedTableManager(super.$state);
 }
 
 class $$RecentSearchEntityTableFilterComposer
@@ -514,9 +508,9 @@ class $$RecentSearchEntityTableOrderingComposer
           ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
-class _$RecentSearchDaoImplManager {
+class $RecentSearchDaoImplManager {
   final _$RecentSearchDaoImpl _db;
-  _$RecentSearchDaoImplManager(this._db);
+  $RecentSearchDaoImplManager(this._db);
   $$RecentSearchEntityTableTableManager get recentSearchEntity =>
       $$RecentSearchEntityTableTableManager(_db, _db.recentSearchEntity);
 }

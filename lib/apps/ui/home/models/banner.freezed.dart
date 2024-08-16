@@ -19,7 +19,9 @@ mixin _$BannerModel {
   String get id => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BannerModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BannerModelCopyWith<BannerModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$BannerModelCopyWithImpl<$Res, $Val extends BannerModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BannerModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +85,8 @@ class __$$BannerModelImplCopyWithImpl<$Res>
       _$BannerModelImpl _value, $Res Function(_$BannerModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BannerModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,7 +134,9 @@ class _$BannerModelImpl implements _BannerModel {
   @override
   int get hashCode => Object.hash(runtimeType, id, imageUrl);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BannerModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BannerModelImplCopyWith<_$BannerModelImpl> get copyWith =>
@@ -144,8 +152,11 @@ abstract class _BannerModel implements BannerModel {
   String get id;
   @override
   String get imageUrl;
+
+  /// Create a copy of BannerModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BannerModelImplCopyWith<_$BannerModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

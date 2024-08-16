@@ -4,8 +4,8 @@ import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/navi/kakao_navi.dart';
 
-class StoreDetailNaviBottomSheet extends StatelessWidget {
-  const StoreDetailNaviBottomSheet({
+class StoreDetailNaviAndroid extends StatelessWidget {
+  const StoreDetailNaviAndroid({
     super.key,
     required this.name,
     required this.address,

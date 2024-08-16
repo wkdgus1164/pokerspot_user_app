@@ -34,8 +34,12 @@ mixin _$StoresQuery {
   int? get page => throw _privateConstructorUsedError;
   int? get perPage => throw _privateConstructorUsedError;
 
+  /// Serializes this StoresQuery to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoresQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StoresQueryCopyWith<StoresQuery> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StoresQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -178,6 +184,8 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
       _$StoresQueryImpl _value, $Res Function(_$StoresQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoresQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -333,7 +341,7 @@ class _$StoresQueryImpl implements _StoresQuery {
             (identical(other.perPage, perPage) || other.perPage == perPage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -351,7 +359,9 @@ class _$StoresQueryImpl implements _StoresQuery {
       page,
       perPage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoresQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoresQueryImplCopyWith<_$StoresQueryImpl> get copyWith =>
@@ -410,8 +420,11 @@ abstract class _StoresQuery implements StoresQuery {
   int? get page;
   @override
   int? get perPage;
+
+  /// Create a copy of StoresQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoresQueryImplCopyWith<_$StoresQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -425,8 +438,12 @@ mixin _$StoreQuery {
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
 
+  /// Serializes this StoreQuery to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StoreQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StoreQueryCopyWith<StoreQuery> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -450,6 +467,8 @@ class _$StoreQueryCopyWithImpl<$Res, $Val extends StoreQuery>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StoreQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -488,6 +507,8 @@ class __$$StoreQueryImplCopyWithImpl<$Res>
       _$StoreQueryImpl _value, $Res Function(_$StoreQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StoreQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -534,11 +555,13 @@ class _$StoreQueryImpl implements _StoreQuery {
             (identical(other.lng, lng) || other.lng == lng));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, lat, lng);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StoreQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoreQueryImplCopyWith<_$StoreQueryImpl> get copyWith =>
@@ -563,8 +586,11 @@ abstract class _StoreQuery implements StoreQuery {
   double get lat;
   @override
   double get lng;
+
+  /// Create a copy of StoreQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreQueryImplCopyWith<_$StoreQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
