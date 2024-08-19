@@ -44,17 +44,18 @@ class _FilterButtonGroupViewState extends ConsumerState<FilterButtonGroupView> {
             child: FilledButton.icon(
               onPressed: () {
                 FirebaseAnalytics.instance.logEvent(
-                  name: 'NEARBY_FILTER_SUBMIT',
+                  name: 'nearby_filter_submit',
                   parameters: {
-                    '운영 상태': ref
+                    'operation_status': ref
                         .read(filterByOperationStatusProvider)
-                        .operationStatus,
-                    '스타트 시간 최소': ref.read(filterByOpenTimeProvider).minTime,
-                    '스타트 시간 최대': ref.read(filterByOpenTimeProvider).maxTime,
-                    '토너먼트 종류': ref.read(filterByGameTypeProvider).gameType,
-                    '참가비 최소': ref.read(filterByEntryPriceProvider).minTicket,
-                    '참가비 최대': ref.read(filterByEntryPriceProvider).maxTicket,
-                    'GTD 최소 상금':
+                        .operationStatus
+                        .kr,
+                    'open_time_min': ref.read(filterByOpenTimeProvider).minTime,
+                    'open_time_max': ref.read(filterByOpenTimeProvider).maxTime,
+                    'game_type': ref.read(filterByGameTypeProvider).gameType.kr,
+                    'entry_min': ref.read(filterByEntryPriceProvider).minTicket,
+                    'entry_max': ref.read(filterByEntryPriceProvider).maxTicket,
+                    'gtd_min_reward':
                         ref.read(filterByMinRewardDataProvider).minReward,
                   },
                 );
