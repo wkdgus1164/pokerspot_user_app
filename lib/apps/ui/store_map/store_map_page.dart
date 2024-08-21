@@ -44,7 +44,7 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
   Future<void> _loadMarkerIcon() async {
     final byteData = await rootBundle.load(Assets.marker.path);
     final bytes = byteData.buffer.asUint8List();
-    final bitmapDescriptor = BitmapDescriptor.bytes(bytes);
+    final bitmapDescriptor = BitmapDescriptor.bytes(bytes, width: 36);
     setState(() {
       markerIcon = bitmapDescriptor;
     });
