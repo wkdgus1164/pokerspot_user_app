@@ -4,12 +4,12 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
+import 'package:pokerspot_user_app/apps/ui/home/views/cta_button.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/notice_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/banner_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/nearby_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/recent_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/selection_view.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby/views/location_vac.dart';
 
 class HomePage extends StatefulHookConsumerWidget {
   const HomePage({super.key});
@@ -41,9 +41,6 @@ class _HomePageState extends ConsumerState<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // 주소
-            const NearbyLocationView(),
-
             // 메인 배너
             const HomeBannerView(),
 
@@ -57,6 +54,10 @@ class _HomePageState extends ConsumerState<HomePage> {
 
                   // 토너 선택
                   HomeSelectionView(),
+                  SizedBox(height: 16),
+
+                  // CTA 버튼
+                  HomeCTAButtonView(),
                 ],
               ),
             ),

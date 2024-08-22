@@ -6,6 +6,7 @@ import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/filter.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby/views/filter_view.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/views/list_view.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/views/location_vac.dart';
 
@@ -38,7 +39,13 @@ class _NearbyPageState extends ConsumerState<NearbyPage> {
       ),
       body: const Column(
         children: [
+          // 위치 정보
           NearbyLocationView(),
+
+          // 필터
+          NearbyFilterView(),
+
+          // 리스트
           NearbyListView(),
         ],
       ),

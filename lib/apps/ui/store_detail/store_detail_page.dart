@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -58,7 +59,10 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
               ),
             ],
           ),
-          floatingActionButton: _kakaoChatUrl(data.kakaoChatUrl),
+          floatingActionButton: _kakaoChatUrl(
+            name: data.name ?? "",
+            url: data.kakaoChatUrl,
+          ),
           body: StoreDetailVac(
             data: data,
             storeId: _storeId,
@@ -94,13 +98,15 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   ) {
     Utils().callTo(phone: phone);
 
-    FirebaseAnalytics.instance.logEvent(
-      name: 'PHONE_CALL',
-      parameters: {
-        '업소명': storeName,
-        '연락처': phone,
-      },
-    );
+    if (kReleaseMode) {
+      FirebaseAnalytics.instance.logEvent(
+        name: 'phone_call',
+        parameters: {
+          '업소명': storeName,
+          '연락처': phone,
+        },
+      );
+    }
   }
 
   void _handleKakaoShare(StoreModel model) async {
@@ -187,11 +193,14 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     }
   }
 
-  Widget _kakaoChatUrl(String? url) {
+  Widget _kakaoChatUrl({
+    required String name,
+    required String? url,
+  }) {
     if (url == null) {
       return const SizedBox();
     } else {
-      return StoreDetailFab(url: url);
+      return StoreDetailFab(name: name, url: url);
     }
   }
 }
