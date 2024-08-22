@@ -1,3 +1,5 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
@@ -24,6 +26,18 @@ class _HomeCTAButtonViewState extends ConsumerState<HomeCTAButtonView> {
         ref
             .read(bottomNavigationPageIndexDataProvider.notifier)
             .setPageIndex(1);
+
+        if (kReleaseMode) {
+          FirebaseAnalytics.instance.logEvent(
+            name: 'home_cta_button_click',
+            parameters: {
+              'tab_index': ref
+                  .read(bottomNavigationPageIndexDataProvider)
+                  .index
+                  .toString()
+            },
+          );
+        }
       },
       child: Ink(
         decoration: const BoxDecoration(
