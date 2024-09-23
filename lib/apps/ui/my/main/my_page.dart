@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/ui/my/main/menus/etc_menus.dart';
 import 'package:pokerspot_user_app/apps/ui/my/main/toolbar/toolbar.dart';
+import 'package:pokerspot_user_app/common/components/business_info/business_info.dart';
 
 class MyPage extends StatefulHookConsumerWidget {
   const MyPage({super.key});
@@ -19,7 +20,7 @@ class _MyPageState extends ConsumerState<MyPage> {
       appBar: AppBar(
         title: const Text('더보기'),
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
@@ -33,24 +34,33 @@ class _MyPageState extends ConsumerState<MyPage> {
             // ),
 
             // 툴바
-            MyToolbar(
-              handleRecentViewClick: () {
-                context.push(CustomRouter.recent.path);
-              },
-              handleFavoriteClick: () {
-                context.push(CustomRouter.favorite.path);
-              },
+            Expanded(
+              child: Column(
+                children: [
+                  MyToolbar(
+                    handleRecentViewClick: () {
+                      context.push(CustomRouter.recent.path);
+                    },
+                    handleFavoriteClick: () {
+                      context.push(CustomRouter.favorite.path);
+                    },
+                  ),
+                  const SizedBox(height: 16),
+
+                  // 로그인 필요
+                  // const MyLoginRequired(),
+
+                  // 내 메뉴
+                  // MyMenusView(),
+
+                  // 기타
+                  const EtcMenusView(),
+                ],
+              ),
             ),
-            const SizedBox(height: 16),
 
-            // 로그인 필요
-            // const MyLoginRequired(),
-
-            // 내 메뉴
-            // MyMenusView(),
-
-            // 기타
-            const EtcMenusView(),
+            // 사업자 정보
+            const BusinessInfo(),
           ],
         ),
       ),
