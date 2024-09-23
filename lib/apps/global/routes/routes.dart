@@ -1,4 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/ui/area_search_list/list_page.dart';
@@ -146,10 +147,12 @@ final router = GoRouter(
     FirebaseAnalyticsObserver(analytics: analytics),
   ],
   redirect: (context, state) {
-    analytics.logEvent(
-      name: 'screen_view',
-      parameters: {'screen_name': state.matchedLocation},
-    );
+    if (kReleaseMode) {
+      analytics.logEvent(
+        name: 'screen_view',
+        parameters: {'screen_name': state.matchedLocation},
+      );
+    }
     return null;
   },
 );

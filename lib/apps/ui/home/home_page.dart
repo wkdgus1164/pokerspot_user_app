@@ -10,6 +10,7 @@ import 'package:pokerspot_user_app/apps/ui/home/views/banner_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/nearby_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/recent_view.dart';
 import 'package:pokerspot_user_app/apps/ui/home/views/selection_view.dart';
+import 'package:pokerspot_user_app/common/components/business_info/business_info.dart';
 
 class HomePage extends StatefulHookConsumerWidget {
   const HomePage({super.key});
@@ -67,6 +68,9 @@ class _HomePageState extends ConsumerState<HomePage> {
 
             // 내 주변 추천 펍
             const HomeNearbyStoresListView(),
+
+            // 사업자 정보
+            const BusinessInfo(),
           ],
         ),
       ),

@@ -384,62 +384,6 @@ typedef $$RecentSearchEntityTableUpdateCompanionBuilder
   Value<int> rowid,
 });
 
-class $$RecentSearchEntityTableTableManager extends RootTableManager<
-    _$RecentSearchDaoImpl,
-    $RecentSearchEntityTable,
-    RecentSearchEntityData,
-    $$RecentSearchEntityTableFilterComposer,
-    $$RecentSearchEntityTableOrderingComposer,
-    $$RecentSearchEntityTableCreateCompanionBuilder,
-    $$RecentSearchEntityTableUpdateCompanionBuilder> {
-  $$RecentSearchEntityTableTableManager(
-      _$RecentSearchDaoImpl db, $RecentSearchEntityTable table)
-      : super(TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              $$RecentSearchEntityTableFilterComposer(ComposerState(db, table)),
-          orderingComposer: $$RecentSearchEntityTableOrderingComposer(
-              ComposerState(db, table)),
-          updateCompanionCallback: ({
-            Value<String> id = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<String> image = const Value.absent(),
-            Value<String> address = const Value.absent(),
-            Value<String> openTime = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              RecentSearchEntityCompanion(
-            id: id,
-            name: name,
-            image: image,
-            address: address,
-            openTime: openTime,
-            createdAt: createdAt,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String id,
-            required String name,
-            required String image,
-            required String address,
-            required String openTime,
-            required DateTime createdAt,
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              RecentSearchEntityCompanion.insert(
-            id: id,
-            name: name,
-            image: image,
-            address: address,
-            openTime: openTime,
-            createdAt: createdAt,
-            rowid: rowid,
-          ),
-        ));
-}
-
 class $$RecentSearchEntityTableFilterComposer
     extends FilterComposer<_$RecentSearchDaoImpl, $RecentSearchEntityTable> {
   $$RecentSearchEntityTableFilterComposer(super.$state);
@@ -507,6 +451,89 @@ class $$RecentSearchEntityTableOrderingComposer
       builder: (column, joinBuilders) =>
           ColumnOrderings(column, joinBuilders: joinBuilders));
 }
+
+class $$RecentSearchEntityTableTableManager extends RootTableManager<
+    _$RecentSearchDaoImpl,
+    $RecentSearchEntityTable,
+    RecentSearchEntityData,
+    $$RecentSearchEntityTableFilterComposer,
+    $$RecentSearchEntityTableOrderingComposer,
+    $$RecentSearchEntityTableCreateCompanionBuilder,
+    $$RecentSearchEntityTableUpdateCompanionBuilder,
+    (
+      RecentSearchEntityData,
+      BaseReferences<_$RecentSearchDaoImpl, $RecentSearchEntityTable,
+          RecentSearchEntityData>
+    ),
+    RecentSearchEntityData,
+    PrefetchHooks Function()> {
+  $$RecentSearchEntityTableTableManager(
+      _$RecentSearchDaoImpl db, $RecentSearchEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer:
+              $$RecentSearchEntityTableFilterComposer(ComposerState(db, table)),
+          orderingComposer: $$RecentSearchEntityTableOrderingComposer(
+              ComposerState(db, table)),
+          updateCompanionCallback: ({
+            Value<String> id = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<String> image = const Value.absent(),
+            Value<String> address = const Value.absent(),
+            Value<String> openTime = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              RecentSearchEntityCompanion(
+            id: id,
+            name: name,
+            image: image,
+            address: address,
+            openTime: openTime,
+            createdAt: createdAt,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String id,
+            required String name,
+            required String image,
+            required String address,
+            required String openTime,
+            required DateTime createdAt,
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              RecentSearchEntityCompanion.insert(
+            id: id,
+            name: name,
+            image: image,
+            address: address,
+            openTime: openTime,
+            createdAt: createdAt,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$RecentSearchEntityTableProcessedTableManager = ProcessedTableManager<
+    _$RecentSearchDaoImpl,
+    $RecentSearchEntityTable,
+    RecentSearchEntityData,
+    $$RecentSearchEntityTableFilterComposer,
+    $$RecentSearchEntityTableOrderingComposer,
+    $$RecentSearchEntityTableCreateCompanionBuilder,
+    $$RecentSearchEntityTableUpdateCompanionBuilder,
+    (
+      RecentSearchEntityData,
+      BaseReferences<_$RecentSearchDaoImpl, $RecentSearchEntityTable,
+          RecentSearchEntityData>
+    ),
+    RecentSearchEntityData,
+    PrefetchHooks Function()>;
 
 class $RecentSearchDaoImplManager {
   final _$RecentSearchDaoImpl _db;
