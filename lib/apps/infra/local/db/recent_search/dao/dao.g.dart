@@ -385,71 +385,87 @@ typedef $$RecentSearchEntityTableUpdateCompanionBuilder
 });
 
 class $$RecentSearchEntityTableFilterComposer
-    extends FilterComposer<_$RecentSearchDaoImpl, $RecentSearchEntityTable> {
-  $$RecentSearchEntityTableFilterComposer(super.$state);
-  ColumnFilters<String> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+    extends Composer<_$RecentSearchDaoImpl, $RecentSearchEntityTable> {
+  $$RecentSearchEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get image => $state.composableBuilder(
-      column: $state.table.image,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get address => $state.composableBuilder(
-      column: $state.table.address,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<String> get address => $composableBuilder(
+      column: $table.address, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get openTime => $state.composableBuilder(
-      column: $state.table.openTime,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<String> get openTime => $composableBuilder(
+      column: $table.openTime, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<DateTime> get createdAt => $state.composableBuilder(
-      column: $state.table.createdAt,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
 }
 
 class $$RecentSearchEntityTableOrderingComposer
-    extends OrderingComposer<_$RecentSearchDaoImpl, $RecentSearchEntityTable> {
-  $$RecentSearchEntityTableOrderingComposer(super.$state);
-  ColumnOrderings<String> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+    extends Composer<_$RecentSearchDaoImpl, $RecentSearchEntityTable> {
+  $$RecentSearchEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get image => $state.composableBuilder(
-      column: $state.table.image,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get address => $state.composableBuilder(
-      column: $state.table.address,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<String> get address => $composableBuilder(
+      column: $table.address, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get openTime => $state.composableBuilder(
-      column: $state.table.openTime,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<String> get openTime => $composableBuilder(
+      column: $table.openTime, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<DateTime> get createdAt => $state.composableBuilder(
-      column: $state.table.createdAt,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$RecentSearchEntityTableAnnotationComposer
+    extends Composer<_$RecentSearchDaoImpl, $RecentSearchEntityTable> {
+  $$RecentSearchEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get image =>
+      $composableBuilder(column: $table.image, builder: (column) => column);
+
+  GeneratedColumn<String> get address =>
+      $composableBuilder(column: $table.address, builder: (column) => column);
+
+  GeneratedColumn<String> get openTime =>
+      $composableBuilder(column: $table.openTime, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
 }
 
 class $$RecentSearchEntityTableTableManager extends RootTableManager<
@@ -458,6 +474,7 @@ class $$RecentSearchEntityTableTableManager extends RootTableManager<
     RecentSearchEntityData,
     $$RecentSearchEntityTableFilterComposer,
     $$RecentSearchEntityTableOrderingComposer,
+    $$RecentSearchEntityTableAnnotationComposer,
     $$RecentSearchEntityTableCreateCompanionBuilder,
     $$RecentSearchEntityTableUpdateCompanionBuilder,
     (
@@ -472,10 +489,13 @@ class $$RecentSearchEntityTableTableManager extends RootTableManager<
       : super(TableManagerState(
           db: db,
           table: table,
-          filteringComposer:
-              $$RecentSearchEntityTableFilterComposer(ComposerState(db, table)),
-          orderingComposer: $$RecentSearchEntityTableOrderingComposer(
-              ComposerState(db, table)),
+          createFilteringComposer: () =>
+              $$RecentSearchEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$RecentSearchEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$RecentSearchEntityTableAnnotationComposer(
+                  $db: db, $table: table),
           updateCompanionCallback: ({
             Value<String> id = const Value.absent(),
             Value<String> name = const Value.absent(),
@@ -525,6 +545,7 @@ typedef $$RecentSearchEntityTableProcessedTableManager = ProcessedTableManager<
     RecentSearchEntityData,
     $$RecentSearchEntityTableFilterComposer,
     $$RecentSearchEntityTableOrderingComposer,
+    $$RecentSearchEntityTableAnnotationComposer,
     $$RecentSearchEntityTableCreateCompanionBuilder,
     $$RecentSearchEntityTableUpdateCompanionBuilder,
     (
@@ -560,6 +581,8 @@ final recentSearchDaoProvider = AutoDisposeProvider<RecentSearchDao>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef RecentSearchDaoRef = AutoDisposeProviderRef<RecentSearchDao>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

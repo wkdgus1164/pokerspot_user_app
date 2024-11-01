@@ -25,7 +25,7 @@ dependencies:
   logger: ^2.0.2+1
   intl:
   json_annotation: ^4.8.1
-  geolocator: ^12.0.0
+  geolocator: ^13.0.1
   permission_handler: ^11.3.1
   sqlite3_flutter_libs: ^0.5.0
   drift: ^2.18.0
@@ -44,7 +44,7 @@ dependencies:
   card_swiper: ^3.0.1
   timeago: ^3.6.1
   url_launcher: ^6.2.5
-  flutter_inappwebview: ^5.8.0
+  flutter_inappwebview: ^6.1.5
   photo_view: ^0.15.0
   share_plus: ^10.0.0
 
@@ -63,16 +63,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
   riverpod_generator: ^2.2.3
   drift_dev: ^2.18.0
   build_runner: ^2.4.9
-  custom_lint: ^0.6.2
+  custom_lint: ^0.7.0
   riverpod_lint: ^2.3.9
-  retrofit_generator: ^8.1.0
+  retrofit_generator: ^9.1.4
   json_serializable: ^6.7.1
   freezed: ^2.3.2
-  flutter_launcher_icons: '^0.13.1'
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   assets:

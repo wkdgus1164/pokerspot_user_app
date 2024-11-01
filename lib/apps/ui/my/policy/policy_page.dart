@@ -22,7 +22,7 @@ class _PolicyPageState extends ConsumerState<PolicyPage> {
         ),
         body: InAppWebView(
           initialUrlRequest: URLRequest(
-            url: Uri.parse(Secret.privacyPolicy.key),
+            url: WebUri.uri(Uri.parse(Secret.privacyPolicy.key)),
           ),
           initialOptions: WebviewHelper.initialOptions,
           onConsoleMessage: _handleConsoleMessage,
