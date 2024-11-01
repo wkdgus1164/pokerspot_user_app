@@ -133,7 +133,7 @@ class _StoresApi implements StoresApi {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$storesApiHash() => r'd4eb147e96abdab7b2b7f35fbd74439735cee965';
+String _$storesApiHash() => r'01bbc2d92a00b71049d28a8ed61480d74f7db869';
 
 /// See also [storesApi].
 @ProviderFor(storesApi)

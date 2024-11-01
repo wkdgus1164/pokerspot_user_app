@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/secret/secret.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -26,7 +27,7 @@ Interceptor _interceptor = InterceptorsWrapper(
 
 /// 특별한 설정이 안된 Dio Client
 @riverpod
-Dio kakaomapDio(KakaomapDioRef ref) {
+Dio kakaomapDio(Ref ref) {
   Dio kakaomapDio = Dio(_options);
   kakaomapDio.interceptors.add(_interceptor);
   return kakaomapDio;

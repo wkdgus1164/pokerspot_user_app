@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/infra/api/address/dto/area_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/common/dio/area_dio_pr.dart';
 import 'package:retrofit/retrofit.dart';
@@ -17,6 +18,6 @@ abstract class AreaApi {
 }
 
 @riverpod
-AreaApi areaApi(AreaApiRef ref) {
+AreaApi areaApi(Ref ref) {
   return AreaApi(ref.watch(areaApiDioProvider));
 }

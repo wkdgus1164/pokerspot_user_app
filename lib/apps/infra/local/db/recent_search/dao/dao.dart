@@ -1,4 +1,5 @@
 import 'package:drift/drift.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/base/db_connection.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/entity/recent_search_entity.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -45,7 +46,7 @@ class RecentSearchDaoImpl extends _$RecentSearchDaoImpl
 }
 
 @riverpod
-RecentSearchDao recentSearchDao(RecentSearchDaoRef ref) {
+RecentSearchDao recentSearchDao(Ref ref) {
   ref.keepAlive();
   return RecentSearchDaoImpl();
 }

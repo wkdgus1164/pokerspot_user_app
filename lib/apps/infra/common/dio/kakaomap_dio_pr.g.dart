@@ -6,7 +6,7 @@ part of 'kakaomap_dio_pr.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$kakaomapDioHash() => r'ab979e9781669c31d6b8686ae805c18e278a4a8c';
+String _$kakaomapDioHash() => r'6973af8096f28ac55743f4ace9c8ff85e5678bdc';
 
 /// 특별한 설정이 안된 Dio Client
 ///

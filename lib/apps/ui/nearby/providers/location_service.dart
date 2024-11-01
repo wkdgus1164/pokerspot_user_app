@@ -24,11 +24,7 @@ class LocationService extends _$LocationService {
   @override
   Future<LocationModel> build() async {
     try {
-      Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.lowest,
-        timeLimit: const Duration(seconds: 10),
-        forceAndroidLocationManager: true,
-      );
+      Position position = await Geolocator.getCurrentPosition();
 
       ref
           .read(geoLocationServiceProvider.notifier)

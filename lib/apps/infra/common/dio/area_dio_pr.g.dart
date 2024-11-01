@@ -6,7 +6,7 @@ part of 'area_dio_pr.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$areaApiDioHash() => r'b9bb5d372e567803a2631b7e20e0eefdcd0222e6';
+String _$areaApiDioHash() => r'eacfd7ba87f8f0dd2f41cbd2773d7dfe96481cba';
 
 /// See also [areaApiDio].
 @ProviderFor(areaApiDio)

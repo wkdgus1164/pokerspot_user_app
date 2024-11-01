@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/secret/secret.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -22,7 +23,7 @@ Interceptor _interceptor = InterceptorsWrapper(
 );
 
 @riverpod
-Dio areaApiDio(AreaApiDioRef ref) {
+Dio areaApiDio(Ref ref) {
   Dio areaApiDio = Dio(_options);
   areaApiDio.interceptors.add(_interceptor);
   return areaApiDio;

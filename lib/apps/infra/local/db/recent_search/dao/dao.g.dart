@@ -567,7 +567,7 @@ class $RecentSearchDaoImplManager {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$recentSearchDaoHash() => r'622d0d1844865946fe842d35558bc1d990336730';
+String _$recentSearchDaoHash() => r'481a9d012ca39a09986cd210ab1d4c794f18a272';
 
 /// See also [recentSearchDao].
 @ProviderFor(recentSearchDao)

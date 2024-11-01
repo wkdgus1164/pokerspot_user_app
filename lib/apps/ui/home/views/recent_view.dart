@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/recent_list_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
@@ -69,19 +68,12 @@ class _HomeRecentStoresListviewState
               scrollDirection: Axis.horizontal,
               child: Wrap(
                 spacing: 16,
-                children: data.map(
-                  (it) {
-                    return HomeRecentListItem(
-                      id: it.id,
-                      handleclick: _handleItemClick,
-                      image: it.image,
-                      name: it.name,
-                      address: extractFirstTwoWords(it.address),
-                      openTime:
-                          '${Utils().getFormattedTime(time: it.openTime)} 오픈',
-                    );
-                  },
-                ).toList(),
+                children: data.map((it) {
+                  return HomeRecentListItem(
+                    handleclick: _handleItemClick,
+                    store: it,
+                  );
+                }).toList(),
               ),
             ),
           ],
@@ -94,19 +86,6 @@ class _HomeRecentStoresListviewState
         return const SizedBox();
       },
     );
-  }
-
-  String extractFirstTwoWords(String sentence) {
-    // 1. 문장을 공백을 기준으로 단어로 분리
-    List<String> words = sentence.split(' ');
-
-    // 2. 앞의 2개 단어 선택
-    List<String> firstTwoWords = words.take(2).toList();
-
-    // 3. 선택된 단어들을 하나의 문자열로 결합
-    String result = firstTwoWords.join(' ');
-
-    return result;
   }
 
   void _handleItemClick(String id) {

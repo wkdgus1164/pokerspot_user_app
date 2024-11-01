@@ -1,29 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
+import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 
 class HomeRecentListItem extends StatelessWidget {
   const HomeRecentListItem({
     super.key,
-    required this.id,
     required this.handleclick,
-    required this.image,
-    required this.name,
-    required this.address,
-    required this.openTime,
+    required this.store,
   });
 
-  final String id;
   final Function(String id) handleclick;
-  final String image;
-  final String name;
-  final String address;
-  final String openTime;
+  final RecentSearchModel store;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => handleclick(id),
+      onTap: () => handleclick(store.id),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.8,
         decoration: BoxDecoration(
@@ -47,7 +41,7 @@ class HomeRecentListItem extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 1 / 1,
                 child: CachedNetworkImage(
-                  imageUrl: image,
+                  imageUrl: store.image,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -58,7 +52,7 @@ class HomeRecentListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    name,
+                    store.name,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
@@ -66,7 +60,7 @@ class HomeRecentListItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '$address\n$openTime',
+                    '${store.address}\n${Utils().getFormattedTime(time: store.openTime)} 오픈',
                     style: Theme.of(context).textTheme.labelMedium!.copyWith(
                           color: colorGrey60,
                         ),

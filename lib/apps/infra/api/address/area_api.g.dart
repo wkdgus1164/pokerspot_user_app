@@ -91,7 +91,7 @@ class _AreaApi implements AreaApi {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$areaApiHash() => r'80af1afd5debe0e619776be74479d18c549c0319';
+String _$areaApiHash() => r'9679aab3124b9fb05636861a2fff0a47ce0aacc2';
 
 /// See also [areaApi].
 @ProviderFor(areaApi)

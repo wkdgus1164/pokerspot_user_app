@@ -26,11 +26,7 @@ class StoresItems extends _$StoresItems {
   }
 
   FutureOr<Models> _fetch() async {
-    Position position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.lowest,
-      timeLimit: const Duration(seconds: 10),
-      forceAndroidLocationManager: true,
-    );
+    Position position = await Geolocator.getCurrentPosition();
 
     String getStringTime(int time) => time < 10 ? '0$time:00' : '$time:00';
 

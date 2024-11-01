@@ -95,7 +95,7 @@ class _KakaoMapApi implements KakaoMapApi {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$kakaoMapApiHash() => r'28c154bfadbc6c0450533eb7c323e8f8b8e8c0bd';
+String _$kakaoMapApiHash() => r'd5577633782cb360ecc613ec58d524188ba0e171';
 
 /// See also [kakaoMapApi].
 @ProviderFor(kakaoMapApi)

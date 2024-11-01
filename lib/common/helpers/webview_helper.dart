@@ -5,16 +5,12 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WebviewHelper {
-  static final initialOptions = InAppWebViewGroupOptions(
-    crossPlatform: InAppWebViewOptions(
-      javaScriptCanOpenWindowsAutomatically: true,
-      useShouldOverrideUrlLoading: true,
-      useOnDownloadStart: true,
-      supportZoom: false,
-    ),
-    ios: IOSInAppWebViewOptions(
-      allowsBackForwardNavigationGestures: false,
-    ),
+  static final initialSettings = InAppWebViewSettings(
+    javaScriptCanOpenWindowsAutomatically: true,
+    useShouldOverrideUrlLoading: true,
+    useOnDownloadStart: true,
+    supportZoom: false,
+    allowsBackForwardNavigationGestures: false,
   );
 
   static Future<NavigationActionPolicy?> handleWebViewUrlLoading(

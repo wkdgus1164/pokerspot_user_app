@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/infra/api/common/models/api_res.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_dto.dart';
@@ -26,7 +27,7 @@ abstract class StoresApi {
 }
 
 @riverpod
-StoresApi storesApi(StoresApiRef ref) {
+StoresApi storesApi(Ref ref) {
   final dio = ref.watch(dioProvider);
   return StoresApi(dio);
 }

@@ -134,7 +134,7 @@ class _NoticesApi implements NoticesApi {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noticesApiHash() => r'7cb506780698b7b66d6d234f93eee98a0078c6bf';
+String _$noticesApiHash() => r'1983810e346e338e02ff31f48c2b7b480badca1f';
 
 /// See also [noticesApi].
 @ProviderFor(noticesApi)

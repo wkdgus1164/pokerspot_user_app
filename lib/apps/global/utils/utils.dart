@@ -37,11 +37,7 @@ class Utils {
 
   /// 현재 위치를 가져옵니다.
   Future<Position> getCurrentPosition() async {
-    return await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.lowest,
-      timeLimit: const Duration(seconds: 10),
-      forceAndroidLocationManager: true,
-    );
+    return await Geolocator.getCurrentPosition();
   }
 
   /// 시간을 현재 시간으로부터 얼마나 지났는지 표시합니다.

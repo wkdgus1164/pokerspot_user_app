@@ -97,7 +97,7 @@ class _BannersApi implements BannersApi {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bannerApiHash() => r'38e2920e7c94a0dcc672dc044aee3ec6d38a50c4';
+String _$bannerApiHash() => r'4b5c823315a2b05b653ea019da0c9fd821cc01c3';
 
 /// See also [bannerApi].
 @ProviderFor(bannerApi)

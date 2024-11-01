@@ -24,7 +24,7 @@ class _PolicyPageState extends ConsumerState<PolicyPage> {
           initialUrlRequest: URLRequest(
             url: WebUri.uri(Uri.parse(Secret.privacyPolicy.key)),
           ),
-          initialOptions: WebviewHelper.initialOptions,
+          initialSettings: WebviewHelper.initialSettings,
           onConsoleMessage: _handleConsoleMessage,
           shouldOverrideUrlLoading: WebviewHelper.handleWebViewUrlLoading,
         ),

@@ -3,7 +3,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/home/components/recent_list_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
@@ -49,13 +48,8 @@ class _MyRecentPageState extends ConsumerState<MyRecentPage> {
             itemCount: data.length,
             itemBuilder: (context, index) {
               return HomeRecentListItem(
-                id: data[index].id,
                 handleclick: _handleItemClick,
-                image: data[index].image,
-                name: data[index].name,
-                address: extractFirstTwoWords(data[index].address),
-                openTime:
-                    '${Utils().getFormattedTime(time: data[index].openTime)} 오픈',
+                store: data[index],
               );
             },
             separatorBuilder: (context, index) => const SizedBox(height: 16),
