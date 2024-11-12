@@ -10,6 +10,7 @@ class StoreDetailHeader extends StatelessWidget {
     required this.distance,
     required this.runningTime,
     required this.updatedAt,
+    required this.scrollEffectTargetKey,
   });
 
   final String type;
@@ -17,12 +18,14 @@ class StoreDetailHeader extends StatelessWidget {
   final double distance;
   final String runningTime;
   final DateTime updatedAt;
+  final GlobalKey scrollEffectTargetKey;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
+        key: scrollEffectTargetKey,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
