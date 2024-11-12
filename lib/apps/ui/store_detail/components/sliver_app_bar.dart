@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
@@ -46,6 +47,15 @@ class StoreDetailSliverAppBar extends StatelessWidget {
         ),
       ),
       actions: [
+        IconButton(
+          onPressed: () {
+            Utils().callTo(phone: data.phone);
+          },
+          icon: Icon(
+            Icons.call_rounded,
+            color: showTitle ? Colors.black : Colors.white,
+          ),
+        ),
         IconButton(
           onPressed: () {
             _showShareBottomSheet(data, context);
