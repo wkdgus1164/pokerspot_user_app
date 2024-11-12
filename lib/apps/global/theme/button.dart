@@ -6,29 +6,56 @@ FilledButtonThemeData filledButtonThemeData = FilledButtonThemeData(
     foregroundColor: colorBrand100,
     backgroundColor: colorBrand50,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(16),
     ),
     elevation: 0,
     padding: const EdgeInsets.symmetric(
-      vertical: 12,
+      vertical: 16,
       horizontal: 16,
+    ),
+    textStyle: const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
     ),
   ),
 );
 
 OutlinedButtonThemeData outlinedButtonThemeData = OutlinedButtonThemeData(
   style: OutlinedButton.styleFrom(
-    side: const BorderSide(color: colorBrand60),
-    foregroundColor: colorBrand60,
+    side: const BorderSide(color: colorBrand50),
+    foregroundColor: colorBrand50,
     backgroundColor: Colors.transparent,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
-      side: const BorderSide(color: colorBrand60),
+      borderRadius: BorderRadius.circular(16),
+      side: const BorderSide(color: colorBrand50),
+    ),
+    elevation: 0,
+    textStyle: const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
+    padding: const EdgeInsets.symmetric(
+      vertical: 16,
+      horizontal: 16,
+    ),
+  ),
+);
+
+FilledButtonThemeData filledTonalButtonThemeData = FilledButtonThemeData(
+  style: FilledButton.styleFrom(
+    foregroundColor: colorBrand50,
+    backgroundColor: colorBrand10,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16),
     ),
     elevation: 0,
     padding: const EdgeInsets.symmetric(
-      vertical: 12,
+      vertical: 16,
       horizontal: 16,
+    ),
+    textStyle: const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
     ),
   ),
 );
