@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/map_view.dart';
+import 'package:pokerspot_user_app/common/components/tonal_button.dart';
 
 class StoreDetailMap extends StatelessWidget {
   const StoreDetailMap({
@@ -11,12 +12,14 @@ class StoreDetailMap extends StatelessWidget {
     required this.name,
     required this.handleButtonClick,
     required this.address,
+    required this.addressDetail,
   });
 
   final String name;
   final double lat;
   final double lng;
   final String address;
+  final String addressDetail;
   final Function() handleButtonClick;
 
   @override
@@ -67,21 +70,16 @@ class StoreDetailMap extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  address,
+                  "$address\n$addressDetail",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: colorGrey50,
                       ),
                 ),
               ),
-              const SizedBox(width: 32),
-              TextButton.icon(
+              const SizedBox(width: 16),
+              TonalButton(
                 onPressed: () => Utils().copyToClipboard(text: address),
-                label: const Text('복사'),
-                icon: const Icon(Icons.copy_rounded, size: 20),
-                style: TextButton.styleFrom(
-                  iconColor: colorGrey80,
-                  foregroundColor: colorGrey80,
-                ),
+                child: Text('주소 복사'),
               ),
             ],
           ),

@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
@@ -25,7 +26,8 @@ class StoreDetailSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: MediaQuery.of(context).size.width * 9 / 16,
+      expandedHeight:
+          MediaQuery.of(context).size.width * 10 / 16 - kToolbarHeight,
       pinned: true,
       backgroundColor: showTitle ? Colors.white : Colors.transparent,
       systemOverlayStyle: SystemUiOverlayStyle(
@@ -42,24 +44,56 @@ class StoreDetailSliverAppBar extends StatelessWidget {
         child: Text(data.name ?? ""),
       ),
       flexibleSpace: FlexibleSpaceBar(
-        background: StoreDetailImageSwiperV2(
-          images: data.storeImages ?? [],
+        background: Stack(
+          alignment: Alignment.bottomRight,
+          children: [
+            StoreDetailImageSwiperV2(
+              images: data.storeImages ?? [],
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: 4,
+              ),
+              margin: const EdgeInsets.only(
+                right: 16,
+                bottom: 16,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Colors.white.withOpacity(0.7),
+              ),
+              child: Wrap(
+                spacing: 4,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.gps_fixed_rounded,
+                    color: colorGrey20,
+                    size: 14,
+                  ),
+                  Text(
+                    '여기에서 ${Utils().getFormattedDistance(distance: data.distance ?? 0)}',
+                    style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                          color: colorGrey20,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
       actions: [
         IconButton(
-          onPressed: () {
-            Utils().callTo(phone: data.phone);
-          },
+          onPressed: () => Utils().callTo(phone: data.phone),
           icon: Icon(
             Icons.call_rounded,
             color: showTitle ? Colors.black : Colors.white,
           ),
         ),
         IconButton(
-          onPressed: () {
-            _showShareBottomSheet(data, context);
-          },
+          onPressed: () => _showShareBottomSheet(data, context),
           icon: Icon(
             Icons.share_rounded,
             color: showTitle ? Colors.black : Colors.white,

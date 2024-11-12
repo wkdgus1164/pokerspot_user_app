@@ -22,6 +22,7 @@ class StoreDetailVac extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      key: scrollEffectTargetKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -38,7 +39,6 @@ class StoreDetailVac extends StatelessWidget {
       children: [
         // 헤더
         StoreDetailHeader(
-          scrollEffectTargetKey: scrollEffectTargetKey,
           type: data.type ?? "",
           title: data.name ?? "-",
           distance: data.distance ?? 0.0,
@@ -51,13 +51,15 @@ class StoreDetailVac extends StatelessWidget {
           name: data.name ?? "-",
           lat: data.lat ?? 0.0,
           lng: data.lng ?? 0.0,
-          address: '${data.address}, ${data.addressDetail}',
+          address: data.address ?? "-",
+          addressDetail: data.addressDetail ?? "",
           handleButtonClick: () {
             context.push(
               CustomRouter.storeMap.path,
               extra: StoreMapPageArguments(
                 name: data.name ?? "-",
-                address: '${data.address}, ${data.addressDetail}',
+                addressDetail: data.addressDetail ?? "",
+                address: data.address ?? "",
                 lat: data.lat ?? 0.0,
                 lng: data.lng ?? 0.0,
               ),

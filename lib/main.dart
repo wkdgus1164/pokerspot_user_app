@@ -49,6 +49,7 @@ ThemeData _createThemeData({required BuildContext context}) {
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
       seedColor: colorBrand50,
+      secondary: colorBrand95,
     ),
     appBarTheme: appBarTheme,
     scaffoldBackgroundColor: colorBrand100,

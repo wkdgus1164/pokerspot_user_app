@@ -25,22 +25,8 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   String get _storeId => widget.id;
   bool _showTitle = false;
 
-  final GlobalKey _scrollEffectTargetKey = GlobalKey();
+  final GlobalKey _scrollEffectTargetWidgetKey = GlobalKey();
   final ScrollController _scrollController = ScrollController();
-
-  void _scrollListener() {
-    final RenderBox scrollEffectTargetBox =
-        _scrollEffectTargetKey.currentContext!.findRenderObject() as RenderBox;
-
-    final double scrollEffectTargetPosition =
-        scrollEffectTargetBox.localToGlobal(Offset.zero).dy;
-
-    if (scrollEffectTargetPosition <= kToolbarHeight && !_showTitle) {
-      setState(() => _showTitle = true);
-    } else if (scrollEffectTargetPosition > kToolbarHeight && _showTitle) {
-      setState(() => _showTitle = false);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +41,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
             data: data,
             showTitle: _showTitle,
             scrollController: _scrollController,
-            scrollEffectTargetKey: _scrollEffectTargetKey,
+            scrollEffectTargetKey: _scrollEffectTargetWidgetKey,
           ),
         );
       },
@@ -89,12 +75,27 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(_scrollListener);
+    _scrollController.addListener(_handleRenderWhiteAppBar);
   }
 
   @override
   void dispose() {
-    _scrollController.removeListener(_scrollListener);
+    _scrollController.removeListener(_handleRenderWhiteAppBar);
     super.dispose();
+  }
+
+  void _handleRenderWhiteAppBar() {
+    // 스크롤 이펙트 타겟이 헤더의 바로 아래에 위치하면 타이틀을 보여준다.
+    final double whiteAppBarEffectTarget =
+        (_scrollEffectTargetWidgetKey.currentContext!.findRenderObject()
+                as RenderBox)
+            .localToGlobal(Offset.zero)
+            .dy;
+
+    if (whiteAppBarEffectTarget <= kToolbarHeight + 40 && !_showTitle) {
+      setState(() => _showTitle = true);
+    } else if (whiteAppBarEffectTarget > kToolbarHeight + 40 && _showTitle) {
+      setState(() => _showTitle = false);
+    }
   }
 }

@@ -40,22 +40,3 @@ OutlinedButtonThemeData outlinedButtonThemeData = OutlinedButtonThemeData(
     ),
   ),
 );
-
-FilledButtonThemeData filledTonalButtonThemeData = FilledButtonThemeData(
-  style: FilledButton.styleFrom(
-    foregroundColor: colorBrand50,
-    backgroundColor: colorBrand10,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16),
-    ),
-    elevation: 0,
-    padding: const EdgeInsets.symmetric(
-      vertical: 16,
-      horizontal: 16,
-    ),
-    textStyle: const TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
-);

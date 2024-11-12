@@ -9,12 +9,14 @@ import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 class StoreMapPageArguments {
   String name;
   String address;
+  String addressDetail;
   double lat;
   double lng;
 
   StoreMapPageArguments({
     required this.name,
     required this.address,
+    required this.addressDetail,
     required this.lat,
     required this.lng,
   });

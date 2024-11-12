@@ -15,39 +15,40 @@ class StoreDetailImageSwiperV2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: AspectRatio(
-        aspectRatio: 16 / 9,
-        child: Swiper(
-          itemCount: images.length,
-          autoplay: true,
-          loop: true,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () => _handleImageClick(context, images[index].url ?? ""),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  CachedNetworkImage(
+      height: MediaQuery.of(context).size.width * 9 / 16,
+      child: Swiper(
+        itemCount: images.length,
+        autoplay: true,
+        loop: true,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () => _handleImageClick(context, images[index].url ?? ""),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: CachedNetworkImage(
                     fit: BoxFit.cover,
                     imageUrl: images[index].url ?? "",
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.black.withOpacity(0.4),
-                          Colors.transparent,
-                        ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.black.withOpacity(0.4),
+                        Colors.transparent,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                     ),
                   ),
-                ],
-              ),
-            );
-          },
-        ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

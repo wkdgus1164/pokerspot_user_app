@@ -48,8 +48,8 @@ class StoreDetailBody extends StatelessWidget {
 
   Widget _buildContent() {
     return StoreDetailVac(
-      data: data,
       scrollEffectTargetKey: scrollEffectTargetKey,
+      data: data,
       openTimeCalculated: _calculateOpenTime(data.openTime),
     );
   }
