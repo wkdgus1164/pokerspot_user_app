@@ -14,12 +14,12 @@ part 'stores_api.g.dart';
 abstract class StoresApi {
   factory StoresApi(Dio dio) = _StoresApi;
 
-  @GET('/api/v1/stores')
+  @GET('/api/v2/stores')
   Future<ApiResponse<StoresDto>> fetchStores(
     @Queries() StoresQuery query,
   );
 
-  @GET('/api/v1/stores/{storeId}')
+  @GET('/api/v2/stores/{storeId}')
   Future<ApiResponse<StoreDto>> fetchStoreDetail(
     @Path('storeId') String storeId,
     @Queries() StoreQuery query,

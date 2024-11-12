@@ -35,7 +35,7 @@ class _StoresApi implements StoresApi {
     )
         .compose(
           _dio.options,
-          '/api/v1/stores',
+          '/api/v2/stores',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -75,7 +75,7 @@ class _StoresApi implements StoresApi {
     )
         .compose(
           _dio.options,
-          '/api/v1/stores/${storeId}',
+          '/api/v2/stores/${storeId}',
           queryParameters: queryParameters,
           data: _data,
         )

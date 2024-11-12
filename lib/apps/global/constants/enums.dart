@@ -26,3 +26,23 @@ enum OperationStatus {
   const OperationStatus(this.kr);
   final String kr;
 }
+
+enum EntryType {
+  CASH('현금'),
+  TICKET('티켓'),
+  POINT('포인트'),
+  ;
+
+  const EntryType(this.kr);
+  final String kr;
+}
+
+enum PrizeType {
+  CASH('현금'),
+  TICKET('티켓'),
+  POINT('포인트'),
+  ;
+
+  const PrizeType(this.kr);
+  final String kr;
+}
