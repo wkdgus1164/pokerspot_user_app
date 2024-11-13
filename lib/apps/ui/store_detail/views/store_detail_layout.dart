@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/sliver_app_bar.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/footer_toolbar.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_vac.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_v2_vac.dart';
 
 class StoreDetailLayout extends StatelessWidget {
   const StoreDetailLayout({
@@ -13,7 +13,8 @@ class StoreDetailLayout extends StatelessWidget {
     required this.scrollEffectTargetKey,
   });
 
-  final StoreModel data;
+  final StoreV2Model data;
+  // final StoreModel data;
   final bool showTitle;
   final ScrollController scrollController;
   final GlobalKey scrollEffectTargetKey;
@@ -36,7 +37,7 @@ class StoreDetailLayout extends StatelessWidget {
       slivers: [
         StoreDetailSliverAppBar(showTitle: showTitle, data: data),
         SliverToBoxAdapter(
-          child: StoreDetailVac(
+          child: StoreDetailV2Vac(
             data: data,
             scrollEffectTargetKey: scrollEffectTargetKey,
             openTimeCalculated: _calculateOpenTime(data.openTime),

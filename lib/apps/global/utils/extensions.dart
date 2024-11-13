@@ -2,7 +2,9 @@ import 'package:pokerspot_user_app/apps/infra/api/address/dto/area_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/banners/dto/banner_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/notices/dto/notice_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/area/models/area.dart';
 import 'package:pokerspot_user_app/apps/ui/home/models/banner.dart';
 import 'package:pokerspot_user_app/apps/ui/my/notice/models/notice.dart';
@@ -46,6 +48,37 @@ extension StoreImagesDto2ModelExtension on StoreImagesDto {
     return StoreImagesModel(
       id: id,
       url: url,
+    );
+  }
+}
+
+extension StoreBenefitsListDto2ModelExtension on List<StoreBenefitsDto> {
+  List<StoreBenefitsModel> toStoreBenefitsModel() {
+    return map((it) => it.toStoreBenefitsModel()).toList();
+  }
+}
+
+extension StoreBenefitsDto2ModelExtension on StoreBenefitsDto {
+  StoreBenefitsModel toStoreBenefitsModel() {
+    return StoreBenefitsModel(
+      type: type,
+      description: description,
+    );
+  }
+}
+
+// store tags model
+extension StoreTagsListDto2ModelExtension on List<StoreTagDto> {
+  List<StoreTagModel> toStoreTagsModel() {
+    return map((it) => it.toStoreTagsModel()).toList();
+  }
+}
+
+// store tags extension
+extension StoreTagsDto2ModelExtension on StoreTagDto {
+  StoreTagModel toStoreTagsModel() {
+    return StoreTagModel(
+      name: name,
     );
   }
 }

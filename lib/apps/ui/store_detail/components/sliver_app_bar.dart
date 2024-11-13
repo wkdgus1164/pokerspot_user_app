@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/share/share_android.dart';
@@ -21,7 +21,7 @@ class StoreDetailSliverAppBar extends StatelessWidget {
   });
 
   final bool showTitle;
-  final StoreModel data;
+  final StoreV2Model data;
 
   @override
   Widget build(BuildContext context) {
@@ -86,16 +86,16 @@ class StoreDetailSliverAppBar extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () => Utils().callTo(phone: data.phone),
+          onPressed: () => _showShareBottomSheet(data, context),
           icon: Icon(
-            Icons.call_rounded,
+            Icons.share_rounded,
             color: showTitle ? Colors.black : Colors.white,
           ),
         ),
         IconButton(
-          onPressed: () => _showShareBottomSheet(data, context),
+          onPressed: () => Utils().callTo(phone: data.phone),
           icon: Icon(
-            Icons.share_rounded,
+            Icons.call_rounded,
             color: showTitle ? Colors.black : Colors.white,
           ),
         ),
@@ -103,7 +103,7 @@ class StoreDetailSliverAppBar extends StatelessWidget {
     );
   }
 
-  void _showShareBottomSheet(StoreModel model, BuildContext context) {
+  void _showShareBottomSheet(StoreV2Model model, BuildContext context) {
     if (Platform.isAndroid) {
       showModalBottomSheet(
         context: context,
@@ -128,7 +128,7 @@ class StoreDetailSliverAppBar extends StatelessWidget {
     }
   }
 
-  void _handleKakaoShare(StoreModel model) async {
+  void _handleKakaoShare(StoreV2Model model) async {
     Fluttertoast.showToast(msg: '카카오톡으로 공유할게요.');
     KakaoLinkHelper().shareKakaoFeed(
       KakaoFeedModel(

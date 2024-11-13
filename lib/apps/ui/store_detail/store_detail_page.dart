@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_layout.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
 
@@ -31,7 +31,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   @override
   Widget build(BuildContext context) {
     Logger().i('StoreDetailPage\n  store id: $_storeId');
-    final res = ref.watch(storeDataProvider.call(_storeId));
+    final res = ref.watch(storeV2DataProvider.call(_storeId));
 
     return res.when(
       data: (data) {
@@ -54,7 +54,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     );
   }
 
-  Widget _buildKakaoChat(StoreModel data) {
+  Widget _buildKakaoChat(StoreV2Model data) {
     return _kakaoChatUrl(
       name: data.name ?? "",
       url: data.kakaoChatUrl,

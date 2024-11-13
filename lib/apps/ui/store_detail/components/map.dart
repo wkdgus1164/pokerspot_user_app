@@ -65,7 +65,7 @@ class StoreDetailMap extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 16),
           Row(
             children: [
               Expanded(

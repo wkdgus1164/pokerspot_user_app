@@ -43,6 +43,9 @@ enum Assets {
 
   gameDaily('$assetPath/game_daily.svg'),
   gameGTD('$assetPath/game_gtd.svg'),
+
+  firstGameBenefits('$assetPath/first_game_benefits.png'),
+  newGameBenefits('$assetPath/new_game_benefits.png'),
   ;
 
   const Assets(this.path);

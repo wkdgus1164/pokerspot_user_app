@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/sliver_app_bar.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/footer_toolbar.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_vac.dart';
@@ -13,7 +13,7 @@ class StoreDetailBody extends StatelessWidget {
     required this.scrollEffectTargetKey,
   });
 
-  final StoreModel data;
+  final StoreV2Model data;
   final bool showTitle;
   final ScrollController scrollController;
   final GlobalKey scrollEffectTargetKey;

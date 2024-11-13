@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 
 class StoreDetailShareCupertinoActionSheet extends StatelessWidget {
   const StoreDetailShareCupertinoActionSheet({
@@ -10,7 +10,7 @@ class StoreDetailShareCupertinoActionSheet extends StatelessWidget {
   });
 
   final Function() handleKakaoShare;
-  final StoreModel model;
+  final StoreV2Model model;
 
   @override
   Widget build(BuildContext context) {

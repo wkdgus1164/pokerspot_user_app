@@ -1134,7 +1134,7 @@ StoreTagDto _$StoreTagDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StoreTagDto {
-  String get tag => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   /// Serializes this StoreTagDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1152,7 +1152,7 @@ abstract class $StoreTagDtoCopyWith<$Res> {
           StoreTagDto value, $Res Function(StoreTagDto) then) =
       _$StoreTagDtoCopyWithImpl<$Res, StoreTagDto>;
   @useResult
-  $Res call({String tag});
+  $Res call({String name});
 }
 
 /// @nodoc
@@ -1170,12 +1170,12 @@ class _$StoreTagDtoCopyWithImpl<$Res, $Val extends StoreTagDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tag = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      tag: null == tag
-          ? _value.tag
-          : tag // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -1189,7 +1189,7 @@ abstract class _$$StoreTagDtoImplCopyWith<$Res>
       __$$StoreTagDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String tag});
+  $Res call({String name});
 }
 
 /// @nodoc
@@ -1205,12 +1205,12 @@ class __$$StoreTagDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tag = null,
+    Object? name = null,
   }) {
     return _then(_$StoreTagDtoImpl(
-      tag: null == tag
-          ? _value.tag
-          : tag // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -1219,17 +1219,17 @@ class __$$StoreTagDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StoreTagDtoImpl implements _StoreTagDto {
-  _$StoreTagDtoImpl({required this.tag});
+  _$StoreTagDtoImpl({required this.name});
 
   factory _$StoreTagDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$StoreTagDtoImplFromJson(json);
 
   @override
-  final String tag;
+  final String name;
 
   @override
   String toString() {
-    return 'StoreTagDto(tag: $tag)';
+    return 'StoreTagDto(name: $name)';
   }
 
   @override
@@ -1237,12 +1237,12 @@ class _$StoreTagDtoImpl implements _StoreTagDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StoreTagDtoImpl &&
-            (identical(other.tag, tag) || other.tag == tag));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, tag);
+  int get hashCode => Object.hash(runtimeType, name);
 
   /// Create a copy of StoreTagDto
   /// with the given fields replaced by the non-null parameter values.
@@ -1261,13 +1261,13 @@ class _$StoreTagDtoImpl implements _StoreTagDto {
 }
 
 abstract class _StoreTagDto implements StoreTagDto {
-  factory _StoreTagDto({required final String tag}) = _$StoreTagDtoImpl;
+  factory _StoreTagDto({required final String name}) = _$StoreTagDtoImpl;
 
   factory _StoreTagDto.fromJson(Map<String, dynamic> json) =
       _$StoreTagDtoImpl.fromJson;
 
   @override
-  String get tag;
+  String get name;
 
   /// Create a copy of StoreTagDto
   /// with the given fields replaced by the non-null parameter values.

@@ -18,7 +18,7 @@ class StoreDetailFab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 86),
+      padding: const EdgeInsets.only(bottom: 120),
       child: FloatingActionButton.extended(
         backgroundColor: const Color(0xffffdf00),
         onPressed: () {

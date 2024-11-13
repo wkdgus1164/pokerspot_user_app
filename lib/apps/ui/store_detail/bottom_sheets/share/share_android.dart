@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 
 class StoreDetailShareAndroid extends StatelessWidget {
   const StoreDetailShareAndroid({
@@ -12,7 +12,7 @@ class StoreDetailShareAndroid extends StatelessWidget {
   });
 
   final Function() handleKakaoShare;
-  final StoreModel model;
+  final StoreV2Model model;
 
   @override
   Widget build(BuildContext context) {

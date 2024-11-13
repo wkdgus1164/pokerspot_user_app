@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/components/benefits.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/games.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/map.dart';
 import 'package:pokerspot_user_app/apps/ui/store_map/store_map_page.dart';
 
-class StoreDetailVac extends StatelessWidget {
-  const StoreDetailVac({
+class StoreDetailV2Vac extends StatelessWidget {
+  const StoreDetailV2Vac({
     super.key,
     required this.data,
     required this.openTimeCalculated,
@@ -65,6 +66,11 @@ class StoreDetailVac extends StatelessWidget {
               ),
             );
           },
+        ),
+
+        // 혜택 정보
+        StoreDetailBenefits(
+          benefits: data.storeBenefits ?? [],
         ),
 
         // 토너먼트 정보

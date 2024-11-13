@@ -74,7 +74,7 @@ class StoreBenefitsDto with _$StoreBenefitsDto {
 @freezed
 class StoreTagDto with _$StoreTagDto {
   factory StoreTagDto({
-    required String tag,
+    required String name,
   }) = _StoreTagDto;
 
   factory StoreTagDto.fromJson(Map<String, dynamic> json) =>

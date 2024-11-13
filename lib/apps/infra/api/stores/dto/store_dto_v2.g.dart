@@ -137,10 +137,10 @@ const _$StoreBenefitTypeEnumMap = {
 
 _$StoreTagDtoImpl _$$StoreTagDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreTagDtoImpl(
-      tag: json['tag'] as String,
+      name: json['name'] as String,
     );
 
 Map<String, dynamic> _$$StoreTagDtoImplToJson(_$StoreTagDtoImpl instance) =>
     <String, dynamic>{
-      'tag': instance.tag,
+      'name': instance.name,
     };

@@ -6,9 +6,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_android.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_ios.dart';
+import 'package:pokerspot_user_app/common/components/tonal_button.dart';
 
 class StoreDetailFooterToolbar extends StatelessWidget {
   const StoreDetailFooterToolbar({
@@ -16,7 +17,7 @@ class StoreDetailFooterToolbar extends StatelessWidget {
     required this.data,
   });
 
-  final StoreModel data;
+  final StoreV2Model data;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,6 @@ class StoreDetailFooterToolbar extends StatelessWidget {
 
               // 주소 복사 버튼
               _buildCopyAddressButton(),
-              const SizedBox(width: 16),
             ],
           ),
           const SizedBox(height: 16),
@@ -64,35 +64,26 @@ class StoreDetailFooterToolbar extends StatelessWidget {
   }
 
   Widget _buildNavigationButton(BuildContext context) {
-    return FilledButton.tonal(
-      onPressed: () => _showNaviBottomSheet(
-        name: data.name ?? "",
-        address: data.address ?? "",
-        x: data.lng ?? 0,
-        y: data.lat ?? 0,
-        context: context,
-      ),
-      style: _buildIconButtonStyle(),
-      child: const Text('길안내'),
-    );
-  }
-
-  ButtonStyle _buildIconButtonStyle() {
-    return ButtonStyle(
-      iconColor: WidgetStateProperty.all(colorBrand60),
-      padding: const WidgetStatePropertyAll(EdgeInsets.all(12)),
-      side: WidgetStateProperty.all(const BorderSide(color: colorBrand60)),
-      shape: WidgetStateProperty.all(
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    return Expanded(
+      child: TonalButton(
+        onPressed: () => _showNaviBottomSheet(
+          name: data.name ?? "",
+          address: data.address ?? "",
+          x: data.lng ?? 0,
+          y: data.lat ?? 0,
+          context: context,
+        ),
+        child: const Text('길안내'),
       ),
     );
   }
 
   Widget _buildCopyAddressButton() {
-    return OutlinedButton.icon(
-      onPressed: () => Utils().copyToClipboard(text: data.address),
-      icon: const Icon(Icons.content_copy_rounded),
-      label: const Text('주소복사'),
+    return Expanded(
+      child: TonalButton(
+        onPressed: () => Utils().copyToClipboard(text: data.address),
+        child: const Text('주소 복사'),
+      ),
     );
   }
 
