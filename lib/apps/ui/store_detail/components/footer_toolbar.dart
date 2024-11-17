@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_android.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_ios.dart';
 import 'package:pokerspot_user_app/common/components/tonal_button.dart';
@@ -13,18 +14,10 @@ import 'package:pokerspot_user_app/common/components/tonal_button.dart';
 class StoreDetailFooterToolbar extends StatelessWidget {
   const StoreDetailFooterToolbar({
     super.key,
-    required this.name,
-    required this.address,
-    required this.lat,
-    required this.lng,
-    required this.phone,
+    required this.model,
   });
 
-  final String name;
-  final String address;
-  final double lat;
-  final double lng;
-  final String phone;
+  final StoreV2Model model;
 
   @override
   Widget build(BuildContext context) {
@@ -74,10 +67,10 @@ class StoreDetailFooterToolbar extends StatelessWidget {
     return Expanded(
       child: TonalButton(
         onPressed: () => _showNaviBottomSheet(
-          name: name,
-          address: address,
-          x: lng,
-          y: lat,
+          name: model.name,
+          address: model.address,
+          x: model.lng,
+          y: model.lat,
           context: context,
         ),
         child: const Text('길안내'),
@@ -88,7 +81,7 @@ class StoreDetailFooterToolbar extends StatelessWidget {
   Widget _buildCopyAddressButton() {
     return Expanded(
       child: TonalButton(
-        onPressed: () => Utils().copyToClipboard(text: address),
+        onPressed: () => Utils().copyToClipboard(text: model.address),
         child: const Text('주소 복사'),
       ),
     );
@@ -98,7 +91,7 @@ class StoreDetailFooterToolbar extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: FilledButton(
-        onPressed: () => _call(name, phone),
+        onPressed: () => _call(model.name, model.phone),
         child: const Text('전화 걸기'),
       ),
     );

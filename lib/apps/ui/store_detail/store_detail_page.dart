@@ -35,26 +35,12 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     return res.when(
       data: (data) {
         return Scaffold(
-          floatingActionButton: _buildKakaoChat(
-            name: data.name ?? "",
-            url: data.kakaoChatUrl!,
+          floatingActionButton: _kakaoChatUrl(
+            name: data.name,
+            url: data.kakaoChatUrl,
           ),
           body: StoreDetailLayout(
-            id: data.id,
-            type: data.type,
-            name: data.name ?? "",
-            address: data.address ?? "",
-            addressDetail: data.addressDetail ?? "",
-            lat: data.lat ?? 0,
-            lng: data.lng ?? 0,
-            phone: data.phone ?? "",
-            distance: data.distance ?? 0,
-            openTime: data.openTime ?? "",
-            closeTime: data.closeTime ?? "마감 시",
-            updatedAt: data.updatedAt ?? DateTime.now(),
-            storeImages: data.storeImages ?? [],
-            storeBenefits: data.storeBenefits ?? [],
-            games: data.gameMTTItems ?? [],
+            model: data,
             showTitle: _showTitle,
             scrollController: _scrollController,
             scrollEffectTargetKey: _scrollEffectTargetWidgetKey,
@@ -70,18 +56,11 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     );
   }
 
-  Widget _buildKakaoChat({
-    required String name,
-    required String url,
-  }) {
-    return _kakaoChatUrl(name: name, url: url);
-  }
-
   Widget _kakaoChatUrl({
     required String name,
     required String? url,
   }) {
-    if (url == null) {
+    if (url == null || url.isEmpty || url == "") {
       return const SizedBox();
     } else {
       return StoreDetailFab(name: name, url: url);

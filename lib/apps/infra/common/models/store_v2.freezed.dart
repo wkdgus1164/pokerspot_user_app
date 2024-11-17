@@ -18,22 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$StoreV2Model {
   String get id => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  String? get addressDetail => throw _privateConstructorUsedError;
-  String? get openTime => throw _privateConstructorUsedError;
-  String? get closeTime => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  String? get kakaoChatUrl => throw _privateConstructorUsedError;
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
-  double? get distance => throw _privateConstructorUsedError;
-  double? get lat => throw _privateConstructorUsedError;
-  double? get lng => throw _privateConstructorUsedError;
-  List<StoreImagesModel>? get storeImages => throw _privateConstructorUsedError;
-  List<StoreBenefitsModel>? get storeBenefits =>
+  String get name => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  String get addressDetail => throw _privateConstructorUsedError;
+  String get openTime => throw _privateConstructorUsedError;
+  String get closeTime => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
+  String get kakaoChatUrl => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  double get distance => throw _privateConstructorUsedError;
+  double get lat => throw _privateConstructorUsedError;
+  double get lng => throw _privateConstructorUsedError;
+  List<StoreImagesModel> get storeImages => throw _privateConstructorUsedError;
+  List<StoreBenefitsModel> get storeBenefits =>
       throw _privateConstructorUsedError;
-  List<StoreTagModel>? get storeTags => throw _privateConstructorUsedError;
-  List<StoreGamesModel>? get gameMTTItems => throw _privateConstructorUsedError;
+  List<StoreTagModel> get storeTags => throw _privateConstructorUsedError;
+  List<StoreGamesModel> get gameMTTItems => throw _privateConstructorUsedError;
 
   /// Create a copy of StoreV2Model
   /// with the given fields replaced by the non-null parameter values.
@@ -51,21 +51,21 @@ abstract class $StoreV2ModelCopyWith<$Res> {
   $Res call(
       {String id,
       String type,
-      String? name,
-      String? address,
-      String? addressDetail,
-      String? openTime,
-      String? closeTime,
-      String? phone,
-      String? kakaoChatUrl,
-      DateTime? updatedAt,
-      double? distance,
-      double? lat,
-      double? lng,
-      List<StoreImagesModel>? storeImages,
-      List<StoreBenefitsModel>? storeBenefits,
-      List<StoreTagModel>? storeTags,
-      List<StoreGamesModel>? gameMTTItems});
+      String name,
+      String address,
+      String addressDetail,
+      String openTime,
+      String closeTime,
+      String phone,
+      String kakaoChatUrl,
+      DateTime updatedAt,
+      double distance,
+      double lat,
+      double lng,
+      List<StoreImagesModel> storeImages,
+      List<StoreBenefitsModel> storeBenefits,
+      List<StoreTagModel> storeTags,
+      List<StoreGamesModel> gameMTTItems});
 }
 
 /// @nodoc
@@ -85,21 +85,21 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
   $Res call({
     Object? id = null,
     Object? type = null,
-    Object? name = freezed,
-    Object? address = freezed,
-    Object? addressDetail = freezed,
-    Object? openTime = freezed,
-    Object? closeTime = freezed,
-    Object? phone = freezed,
-    Object? kakaoChatUrl = freezed,
-    Object? updatedAt = freezed,
-    Object? distance = freezed,
-    Object? lat = freezed,
-    Object? lng = freezed,
-    Object? storeImages = freezed,
-    Object? storeBenefits = freezed,
-    Object? storeTags = freezed,
-    Object? gameMTTItems = freezed,
+    Object? name = null,
+    Object? address = null,
+    Object? addressDetail = null,
+    Object? openTime = null,
+    Object? closeTime = null,
+    Object? phone = null,
+    Object? kakaoChatUrl = null,
+    Object? updatedAt = null,
+    Object? distance = null,
+    Object? lat = null,
+    Object? lng = null,
+    Object? storeImages = null,
+    Object? storeBenefits = null,
+    Object? storeTags = null,
+    Object? gameMTTItems = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -110,66 +110,66 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
+              as String,
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addressDetail: freezed == addressDetail
+              as String,
+      addressDetail: null == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      openTime: freezed == openTime
+              as String,
+      openTime: null == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      closeTime: freezed == closeTime
+              as String,
+      closeTime: null == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
+              as String,
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      kakaoChatUrl: freezed == kakaoChatUrl
+              as String,
+      kakaoChatUrl: null == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updatedAt: freezed == updatedAt
+              as String,
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      distance: freezed == distance
+              as DateTime,
+      distance: null == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as double?,
-      lat: freezed == lat
+              as double,
+      lat: null == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double?,
-      lng: freezed == lng
+              as double,
+      lng: null == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
-              as double?,
-      storeImages: freezed == storeImages
+              as double,
+      storeImages: null == storeImages
           ? _value.storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
-              as List<StoreImagesModel>?,
-      storeBenefits: freezed == storeBenefits
+              as List<StoreImagesModel>,
+      storeBenefits: null == storeBenefits
           ? _value.storeBenefits
           : storeBenefits // ignore: cast_nullable_to_non_nullable
-              as List<StoreBenefitsModel>?,
-      storeTags: freezed == storeTags
+              as List<StoreBenefitsModel>,
+      storeTags: null == storeTags
           ? _value.storeTags
           : storeTags // ignore: cast_nullable_to_non_nullable
-              as List<StoreTagModel>?,
-      gameMTTItems: freezed == gameMTTItems
+              as List<StoreTagModel>,
+      gameMTTItems: null == gameMTTItems
           ? _value.gameMTTItems
           : gameMTTItems // ignore: cast_nullable_to_non_nullable
-              as List<StoreGamesModel>?,
+              as List<StoreGamesModel>,
     ) as $Val);
   }
 }
@@ -185,21 +185,21 @@ abstract class _$$StoreV2ModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String type,
-      String? name,
-      String? address,
-      String? addressDetail,
-      String? openTime,
-      String? closeTime,
-      String? phone,
-      String? kakaoChatUrl,
-      DateTime? updatedAt,
-      double? distance,
-      double? lat,
-      double? lng,
-      List<StoreImagesModel>? storeImages,
-      List<StoreBenefitsModel>? storeBenefits,
-      List<StoreTagModel>? storeTags,
-      List<StoreGamesModel>? gameMTTItems});
+      String name,
+      String address,
+      String addressDetail,
+      String openTime,
+      String closeTime,
+      String phone,
+      String kakaoChatUrl,
+      DateTime updatedAt,
+      double distance,
+      double lat,
+      double lng,
+      List<StoreImagesModel> storeImages,
+      List<StoreBenefitsModel> storeBenefits,
+      List<StoreTagModel> storeTags,
+      List<StoreGamesModel> gameMTTItems});
 }
 
 /// @nodoc
@@ -217,21 +217,21 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? type = null,
-    Object? name = freezed,
-    Object? address = freezed,
-    Object? addressDetail = freezed,
-    Object? openTime = freezed,
-    Object? closeTime = freezed,
-    Object? phone = freezed,
-    Object? kakaoChatUrl = freezed,
-    Object? updatedAt = freezed,
-    Object? distance = freezed,
-    Object? lat = freezed,
-    Object? lng = freezed,
-    Object? storeImages = freezed,
-    Object? storeBenefits = freezed,
-    Object? storeTags = freezed,
-    Object? gameMTTItems = freezed,
+    Object? name = null,
+    Object? address = null,
+    Object? addressDetail = null,
+    Object? openTime = null,
+    Object? closeTime = null,
+    Object? phone = null,
+    Object? kakaoChatUrl = null,
+    Object? updatedAt = null,
+    Object? distance = null,
+    Object? lat = null,
+    Object? lng = null,
+    Object? storeImages = null,
+    Object? storeBenefits = null,
+    Object? storeTags = null,
+    Object? gameMTTItems = null,
   }) {
     return _then(_$StoreV2ModelImpl(
       id: null == id
@@ -242,66 +242,66 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
+              as String,
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addressDetail: freezed == addressDetail
+              as String,
+      addressDetail: null == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      openTime: freezed == openTime
+              as String,
+      openTime: null == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      closeTime: freezed == closeTime
+              as String,
+      closeTime: null == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
+              as String,
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      kakaoChatUrl: freezed == kakaoChatUrl
+              as String,
+      kakaoChatUrl: null == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updatedAt: freezed == updatedAt
+              as String,
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      distance: freezed == distance
+              as DateTime,
+      distance: null == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as double?,
-      lat: freezed == lat
+              as double,
+      lat: null == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double?,
-      lng: freezed == lng
+              as double,
+      lng: null == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
-              as double?,
-      storeImages: freezed == storeImages
+              as double,
+      storeImages: null == storeImages
           ? _value._storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
-              as List<StoreImagesModel>?,
-      storeBenefits: freezed == storeBenefits
+              as List<StoreImagesModel>,
+      storeBenefits: null == storeBenefits
           ? _value._storeBenefits
           : storeBenefits // ignore: cast_nullable_to_non_nullable
-              as List<StoreBenefitsModel>?,
-      storeTags: freezed == storeTags
+              as List<StoreBenefitsModel>,
+      storeTags: null == storeTags
           ? _value._storeTags
           : storeTags // ignore: cast_nullable_to_non_nullable
-              as List<StoreTagModel>?,
-      gameMTTItems: freezed == gameMTTItems
+              as List<StoreTagModel>,
+      gameMTTItems: null == gameMTTItems
           ? _value._gameMTTItems
           : gameMTTItems // ignore: cast_nullable_to_non_nullable
-              as List<StoreGamesModel>?,
+              as List<StoreGamesModel>,
     ));
   }
 }
@@ -323,10 +323,10 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
       required this.distance,
       required this.lat,
       required this.lng,
-      required final List<StoreImagesModel>? storeImages,
-      required final List<StoreBenefitsModel>? storeBenefits,
-      required final List<StoreTagModel>? storeTags,
-      required final List<StoreGamesModel>? gameMTTItems})
+      required final List<StoreImagesModel> storeImages,
+      required final List<StoreBenefitsModel> storeBenefits,
+      required final List<StoreTagModel> storeTags,
+      required final List<StoreGamesModel> gameMTTItems})
       : _storeImages = storeImages,
         _storeBenefits = storeBenefits,
         _storeTags = storeTags,
@@ -337,65 +337,57 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
   @override
   final String type;
   @override
-  final String? name;
+  final String name;
   @override
-  final String? address;
+  final String address;
   @override
-  final String? addressDetail;
+  final String addressDetail;
   @override
-  final String? openTime;
+  final String openTime;
   @override
-  final String? closeTime;
+  final String closeTime;
   @override
-  final String? phone;
+  final String phone;
   @override
-  final String? kakaoChatUrl;
+  final String kakaoChatUrl;
   @override
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
   @override
-  final double? distance;
+  final double distance;
   @override
-  final double? lat;
+  final double lat;
   @override
-  final double? lng;
-  final List<StoreImagesModel>? _storeImages;
+  final double lng;
+  final List<StoreImagesModel> _storeImages;
   @override
-  List<StoreImagesModel>? get storeImages {
-    final value = _storeImages;
-    if (value == null) return null;
+  List<StoreImagesModel> get storeImages {
     if (_storeImages is EqualUnmodifiableListView) return _storeImages;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_storeImages);
   }
 
-  final List<StoreBenefitsModel>? _storeBenefits;
+  final List<StoreBenefitsModel> _storeBenefits;
   @override
-  List<StoreBenefitsModel>? get storeBenefits {
-    final value = _storeBenefits;
-    if (value == null) return null;
+  List<StoreBenefitsModel> get storeBenefits {
     if (_storeBenefits is EqualUnmodifiableListView) return _storeBenefits;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_storeBenefits);
   }
 
-  final List<StoreTagModel>? _storeTags;
+  final List<StoreTagModel> _storeTags;
   @override
-  List<StoreTagModel>? get storeTags {
-    final value = _storeTags;
-    if (value == null) return null;
+  List<StoreTagModel> get storeTags {
     if (_storeTags is EqualUnmodifiableListView) return _storeTags;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_storeTags);
   }
 
-  final List<StoreGamesModel>? _gameMTTItems;
+  final List<StoreGamesModel> _gameMTTItems;
   @override
-  List<StoreGamesModel>? get gameMTTItems {
-    final value = _gameMTTItems;
-    if (value == null) return null;
+  List<StoreGamesModel> get gameMTTItems {
     if (_gameMTTItems is EqualUnmodifiableListView) return _gameMTTItems;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_gameMTTItems);
   }
 
   @override
@@ -471,56 +463,56 @@ abstract class _StoreV2Model implements StoreV2Model {
   factory _StoreV2Model(
       {required final String id,
       required final String type,
-      required final String? name,
-      required final String? address,
-      required final String? addressDetail,
-      required final String? openTime,
-      required final String? closeTime,
-      required final String? phone,
-      required final String? kakaoChatUrl,
-      required final DateTime? updatedAt,
-      required final double? distance,
-      required final double? lat,
-      required final double? lng,
-      required final List<StoreImagesModel>? storeImages,
-      required final List<StoreBenefitsModel>? storeBenefits,
-      required final List<StoreTagModel>? storeTags,
-      required final List<StoreGamesModel>? gameMTTItems}) = _$StoreV2ModelImpl;
+      required final String name,
+      required final String address,
+      required final String addressDetail,
+      required final String openTime,
+      required final String closeTime,
+      required final String phone,
+      required final String kakaoChatUrl,
+      required final DateTime updatedAt,
+      required final double distance,
+      required final double lat,
+      required final double lng,
+      required final List<StoreImagesModel> storeImages,
+      required final List<StoreBenefitsModel> storeBenefits,
+      required final List<StoreTagModel> storeTags,
+      required final List<StoreGamesModel> gameMTTItems}) = _$StoreV2ModelImpl;
 
   @override
   String get id;
   @override
   String get type;
   @override
-  String? get name;
+  String get name;
   @override
-  String? get address;
+  String get address;
   @override
-  String? get addressDetail;
+  String get addressDetail;
   @override
-  String? get openTime;
+  String get openTime;
   @override
-  String? get closeTime;
+  String get closeTime;
   @override
-  String? get phone;
+  String get phone;
   @override
-  String? get kakaoChatUrl;
+  String get kakaoChatUrl;
   @override
-  DateTime? get updatedAt;
+  DateTime get updatedAt;
   @override
-  double? get distance;
+  double get distance;
   @override
-  double? get lat;
+  double get lat;
   @override
-  double? get lng;
+  double get lng;
   @override
-  List<StoreImagesModel>? get storeImages;
+  List<StoreImagesModel> get storeImages;
   @override
-  List<StoreBenefitsModel>? get storeBenefits;
+  List<StoreBenefitsModel> get storeBenefits;
   @override
-  List<StoreTagModel>? get storeTags;
+  List<StoreTagModel> get storeTags;
   @override
-  List<StoreGamesModel>? get gameMTTItems;
+  List<StoreGamesModel> get gameMTTItems;
 
   /// Create a copy of StoreV2Model
   /// with the given fields replaced by the non-null parameter values.
