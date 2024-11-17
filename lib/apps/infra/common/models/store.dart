@@ -7,7 +7,7 @@ part 'store.freezed.dart';
 class StoreModel with _$StoreModel {
   factory StoreModel({
     required String id,
-    required String? type,
+    required String type,
     required String? name,
     required String? phone,
     required String? address,

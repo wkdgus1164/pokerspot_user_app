@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_layout.dart';
@@ -36,9 +35,26 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     return res.when(
       data: (data) {
         return Scaffold(
-          floatingActionButton: _buildKakaoChat(data),
+          floatingActionButton: _buildKakaoChat(
+            name: data.name ?? "",
+            url: data.kakaoChatUrl!,
+          ),
           body: StoreDetailLayout(
-            data: data,
+            id: data.id,
+            type: data.type,
+            name: data.name ?? "",
+            address: data.address ?? "",
+            addressDetail: data.addressDetail ?? "",
+            lat: data.lat ?? 0,
+            lng: data.lng ?? 0,
+            phone: data.phone ?? "",
+            distance: data.distance ?? 0,
+            openTime: data.openTime ?? "",
+            closeTime: data.closeTime ?? "마감 시",
+            updatedAt: data.updatedAt ?? DateTime.now(),
+            storeImages: data.storeImages ?? [],
+            storeBenefits: data.storeBenefits ?? [],
+            games: data.gameMTTItems ?? [],
             showTitle: _showTitle,
             scrollController: _scrollController,
             scrollEffectTargetKey: _scrollEffectTargetWidgetKey,
@@ -54,11 +70,11 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     );
   }
 
-  Widget _buildKakaoChat(StoreV2Model data) {
-    return _kakaoChatUrl(
-      name: data.name ?? "",
-      url: data.kakaoChatUrl,
-    );
+  Widget _buildKakaoChat({
+    required String name,
+    required String url,
+  }) {
+    return _kakaoChatUrl(name: name, url: url);
   }
 
   Widget _kakaoChatUrl({

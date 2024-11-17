@@ -548,7 +548,7 @@ StoreDto _$StoreDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StoreDto {
   String get id => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
   String? get addressDetail => throw _privateConstructorUsedError;
@@ -580,7 +580,7 @@ abstract class $StoreDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String? type,
+      String type,
       String? name,
       String? address,
       String? addressDetail,
@@ -612,7 +612,7 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
   @override
   $Res call({
     Object? id = null,
-    Object? type = freezed,
+    Object? type = null,
     Object? name = freezed,
     Object? address = freezed,
     Object? addressDetail = freezed,
@@ -632,10 +632,10 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -702,7 +702,7 @@ abstract class _$$StoreDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String? type,
+      String type,
       String? name,
       String? address,
       String? addressDetail,
@@ -732,7 +732,7 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? type = freezed,
+    Object? type = null,
     Object? name = freezed,
     Object? address = freezed,
     Object? addressDetail = freezed,
@@ -752,10 +752,10 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -840,7 +840,7 @@ class _$StoreDtoImpl implements _StoreDto {
   @override
   final String id;
   @override
-  final String? type;
+  final String type;
   @override
   final String? name;
   @override
@@ -957,7 +957,7 @@ class _$StoreDtoImpl implements _StoreDto {
 abstract class _StoreDto implements StoreDto {
   factory _StoreDto(
       {required final String id,
-      required final String? type,
+      required final String type,
       required final String? name,
       required final String? address,
       required final String? addressDetail,
@@ -978,7 +978,7 @@ abstract class _StoreDto implements StoreDto {
   @override
   String get id;
   @override
-  String? get type;
+  String get type;
   @override
   String? get name;
   @override

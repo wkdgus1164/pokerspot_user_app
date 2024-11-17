@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/share/share_android.dart';
@@ -16,12 +16,22 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper_
 class StoreDetailSliverAppBar extends StatelessWidget {
   const StoreDetailSliverAppBar({
     super.key,
+    required this.name,
+    required this.distance,
+    required this.phone,
+    required this.storeImages,
     required this.showTitle,
-    required this.data,
+    required this.id,
+    required this.address,
   });
 
   final bool showTitle;
-  final StoreV2Model data;
+  final String id;
+  final String name;
+  final String address;
+  final double distance;
+  final String phone;
+  final List<StoreImagesModel> storeImages;
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +51,14 @@ class StoreDetailSliverAppBar extends StatelessWidget {
       title: AnimatedOpacity(
         opacity: showTitle ? 1 : 0,
         duration: Duration(milliseconds: 0),
-        child: Text(data.name ?? ""),
+        child: Text(name),
       ),
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           alignment: Alignment.bottomRight,
           children: [
             StoreDetailImageSwiperV2(
-              images: data.storeImages ?? [],
+              images: storeImages,
             ),
             Container(
               padding: const EdgeInsets.symmetric(
@@ -73,7 +83,7 @@ class StoreDetailSliverAppBar extends StatelessWidget {
                     size: 14,
                   ),
                   Text(
-                    '여기에서 ${Utils().getFormattedDistance(distance: data.distance ?? 0)}',
+                    '여기에서 ${Utils().getFormattedDistance(distance: distance)}',
                     style: Theme.of(context).textTheme.labelMedium!.copyWith(
                           color: colorGrey20,
                         ),
@@ -86,14 +96,20 @@ class StoreDetailSliverAppBar extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () => _showShareBottomSheet(data, context),
+          onPressed: () => _showShareBottomSheet(
+            id: id,
+            name: name,
+            address: address,
+            storeImages: storeImages,
+            context: context,
+          ),
           icon: Icon(
             Icons.share_rounded,
             color: showTitle ? Colors.black : Colors.white,
           ),
         ),
         IconButton(
-          onPressed: () => Utils().callTo(phone: data.phone),
+          onPressed: () => Utils().callTo(phone: phone),
           icon: Icon(
             Icons.call_rounded,
             color: showTitle ? Colors.black : Colors.white,
@@ -103,15 +119,26 @@ class StoreDetailSliverAppBar extends StatelessWidget {
     );
   }
 
-  void _showShareBottomSheet(StoreV2Model model, BuildContext context) {
+  void _showShareBottomSheet({
+    required String id,
+    required String name,
+    required String address,
+    required List<StoreImagesModel>? storeImages,
+    required BuildContext context,
+  }) {
     if (Platform.isAndroid) {
       showModalBottomSheet(
         context: context,
         useSafeArea: true,
         builder: (context) {
           return StoreDetailShareAndroid(
-            handleKakaoShare: () => _handleKakaoShare(model),
-            model: model,
+            handleKakaoShare: () => _handleKakaoShare(
+              id: id,
+              name: name,
+              address: address,
+              storeImages: storeImages,
+            ),
+            id: id,
           );
         },
       );
@@ -120,22 +147,32 @@ class StoreDetailSliverAppBar extends StatelessWidget {
         context: context,
         builder: (context) {
           return StoreDetailShareCupertinoActionSheet(
-            handleKakaoShare: () => _handleKakaoShare(model),
-            model: model,
+            handleKakaoShare: () => _handleKakaoShare(
+              id: id,
+              name: name,
+              address: address,
+              storeImages: storeImages,
+            ),
+            id: id,
           );
         },
       );
     }
   }
 
-  void _handleKakaoShare(StoreV2Model model) async {
+  void _handleKakaoShare({
+    required String id,
+    required String name,
+    required String address,
+    required List<StoreImagesModel>? storeImages,
+  }) async {
     Fluttertoast.showToast(msg: '카카오톡으로 공유할게요.');
     KakaoLinkHelper().shareKakaoFeed(
       KakaoFeedModel(
-        id: model.id,
-        title: model.name,
-        description: model.address,
-        thumbnail: model.storeImages![0].url ?? "",
+        id: id,
+        title: name,
+        description: address,
+        thumbnail: storeImages![0].url ?? "",
       ),
     );
   }

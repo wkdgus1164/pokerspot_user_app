@@ -3,6 +3,7 @@ enum GameType {
   SEED('시드권 토너'),
   GTD('GTD 토너'),
   ALL('전체'),
+  MTT("MTT"),
   ;
 
   const GameType(this.kr);
@@ -15,6 +16,15 @@ enum EventType {
   ;
 
   const EventType(this.kr);
+  final String kr;
+}
+
+enum StoreBenefitType {
+  FIRST_GAME('첫 게임'),
+  NEW_USER('신규 방문'),
+  ;
+
+  const StoreBenefitType(this.kr);
   final String kr;
 }
 

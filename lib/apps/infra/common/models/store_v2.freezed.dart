@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$StoreV2Model {
   String get id => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
   String? get addressDetail => throw _privateConstructorUsedError;
@@ -25,7 +25,7 @@ mixin _$StoreV2Model {
   String? get closeTime => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get kakaoChatUrl => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   double? get distance => throw _privateConstructorUsedError;
   double? get lat => throw _privateConstructorUsedError;
   double? get lng => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $StoreV2ModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String? type,
+      String type,
       String? name,
       String? address,
       String? addressDetail,
@@ -58,7 +58,7 @@ abstract class $StoreV2ModelCopyWith<$Res> {
       String? closeTime,
       String? phone,
       String? kakaoChatUrl,
-      DateTime updatedAt,
+      DateTime? updatedAt,
       double? distance,
       double? lat,
       double? lng,
@@ -84,7 +84,7 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
   @override
   $Res call({
     Object? id = null,
-    Object? type = freezed,
+    Object? type = null,
     Object? name = freezed,
     Object? address = freezed,
     Object? addressDetail = freezed,
@@ -92,7 +92,7 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
     Object? closeTime = freezed,
     Object? phone = freezed,
     Object? kakaoChatUrl = freezed,
-    Object? updatedAt = null,
+    Object? updatedAt = freezed,
     Object? distance = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
@@ -106,10 +106,10 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -138,10 +138,10 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      updatedAt: null == updatedAt
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
@@ -184,7 +184,7 @@ abstract class _$$StoreV2ModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String? type,
+      String type,
       String? name,
       String? address,
       String? addressDetail,
@@ -192,7 +192,7 @@ abstract class _$$StoreV2ModelImplCopyWith<$Res>
       String? closeTime,
       String? phone,
       String? kakaoChatUrl,
-      DateTime updatedAt,
+      DateTime? updatedAt,
       double? distance,
       double? lat,
       double? lng,
@@ -216,7 +216,7 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? type = freezed,
+    Object? type = null,
     Object? name = freezed,
     Object? address = freezed,
     Object? addressDetail = freezed,
@@ -224,7 +224,7 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
     Object? closeTime = freezed,
     Object? phone = freezed,
     Object? kakaoChatUrl = freezed,
-    Object? updatedAt = null,
+    Object? updatedAt = freezed,
     Object? distance = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
@@ -238,10 +238,10 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -270,10 +270,10 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      updatedAt: null == updatedAt
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
@@ -335,7 +335,7 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
   @override
   final String id;
   @override
-  final String? type;
+  final String type;
   @override
   final String? name;
   @override
@@ -351,7 +351,7 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
   @override
   final String? kakaoChatUrl;
   @override
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
   @override
   final double? distance;
   @override
@@ -470,7 +470,7 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
 abstract class _StoreV2Model implements StoreV2Model {
   factory _StoreV2Model(
       {required final String id,
-      required final String? type,
+      required final String type,
       required final String? name,
       required final String? address,
       required final String? addressDetail,
@@ -478,7 +478,7 @@ abstract class _StoreV2Model implements StoreV2Model {
       required final String? closeTime,
       required final String? phone,
       required final String? kakaoChatUrl,
-      required final DateTime updatedAt,
+      required final DateTime? updatedAt,
       required final double? distance,
       required final double? lat,
       required final double? lng,
@@ -490,7 +490,7 @@ abstract class _StoreV2Model implements StoreV2Model {
   @override
   String get id;
   @override
-  String? get type;
+  String get type;
   @override
   String? get name;
   @override
@@ -506,7 +506,7 @@ abstract class _StoreV2Model implements StoreV2Model {
   @override
   String? get kakaoChatUrl;
   @override
-  DateTime get updatedAt;
+  DateTime? get updatedAt;
   @override
   double? get distance;
   @override
@@ -532,8 +532,8 @@ abstract class _StoreV2Model implements StoreV2Model {
 
 /// @nodoc
 mixin _$StoreBenefitsModel {
-  StoreBenefitType get type => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  StoreBenefitType? get type => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
 
   /// Create a copy of StoreBenefitsModel
   /// with the given fields replaced by the non-null parameter values.
@@ -548,7 +548,7 @@ abstract class $StoreBenefitsModelCopyWith<$Res> {
           StoreBenefitsModel value, $Res Function(StoreBenefitsModel) then) =
       _$StoreBenefitsModelCopyWithImpl<$Res, StoreBenefitsModel>;
   @useResult
-  $Res call({StoreBenefitType type, String description});
+  $Res call({StoreBenefitType? type, String? description});
 }
 
 /// @nodoc
@@ -566,18 +566,18 @@ class _$StoreBenefitsModelCopyWithImpl<$Res, $Val extends StoreBenefitsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? description = null,
+    Object? type = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as StoreBenefitType,
-      description: null == description
+              as StoreBenefitType?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -590,7 +590,7 @@ abstract class _$$StoreBenefitsModelImplCopyWith<$Res>
       __$$StoreBenefitsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StoreBenefitType type, String description});
+  $Res call({StoreBenefitType? type, String? description});
 }
 
 /// @nodoc
@@ -606,18 +606,18 @@ class __$$StoreBenefitsModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? description = null,
+    Object? type = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$StoreBenefitsModelImpl(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as StoreBenefitType,
-      description: null == description
+              as StoreBenefitType?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -628,9 +628,9 @@ class _$StoreBenefitsModelImpl implements _StoreBenefitsModel {
   _$StoreBenefitsModelImpl({required this.type, required this.description});
 
   @override
-  final StoreBenefitType type;
+  final StoreBenefitType? type;
   @override
-  final String description;
+  final String? description;
 
   @override
   String toString() {
@@ -662,13 +662,13 @@ class _$StoreBenefitsModelImpl implements _StoreBenefitsModel {
 
 abstract class _StoreBenefitsModel implements StoreBenefitsModel {
   factory _StoreBenefitsModel(
-      {required final StoreBenefitType type,
-      required final String description}) = _$StoreBenefitsModelImpl;
+      {required final StoreBenefitType? type,
+      required final String? description}) = _$StoreBenefitsModelImpl;
 
   @override
-  StoreBenefitType get type;
+  StoreBenefitType? get type;
   @override
-  String get description;
+  String? get description;
 
   /// Create a copy of StoreBenefitsModel
   /// with the given fields replaced by the non-null parameter values.
@@ -680,7 +680,7 @@ abstract class _StoreBenefitsModel implements StoreBenefitsModel {
 
 /// @nodoc
 mixin _$StoreTagModel {
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
   /// Create a copy of StoreTagModel
   /// with the given fields replaced by the non-null parameter values.
@@ -695,7 +695,7 @@ abstract class $StoreTagModelCopyWith<$Res> {
           StoreTagModel value, $Res Function(StoreTagModel) then) =
       _$StoreTagModelCopyWithImpl<$Res, StoreTagModel>;
   @useResult
-  $Res call({String name});
+  $Res call({String? name});
 }
 
 /// @nodoc
@@ -713,13 +713,13 @@ class _$StoreTagModelCopyWithImpl<$Res, $Val extends StoreTagModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -732,7 +732,7 @@ abstract class _$$StoreTagsModelImplCopyWith<$Res>
       __$$StoreTagsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name});
+  $Res call({String? name});
 }
 
 /// @nodoc
@@ -748,13 +748,13 @@ class __$$StoreTagsModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
   }) {
     return _then(_$StoreTagsModelImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -765,7 +765,7 @@ class _$StoreTagsModelImpl implements _StoreTagsModel {
   _$StoreTagsModelImpl({required this.name});
 
   @override
-  final String name;
+  final String? name;
 
   @override
   String toString() {
@@ -794,10 +794,10 @@ class _$StoreTagsModelImpl implements _StoreTagsModel {
 }
 
 abstract class _StoreTagsModel implements StoreTagModel {
-  factory _StoreTagsModel({required final String name}) = _$StoreTagsModelImpl;
+  factory _StoreTagsModel({required final String? name}) = _$StoreTagsModelImpl;
 
   @override
-  String get name;
+  String? get name;
 
   /// Create a copy of StoreTagModel
   /// with the given fields replaced by the non-null parameter values.

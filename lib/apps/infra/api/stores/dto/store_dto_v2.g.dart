@@ -10,28 +10,30 @@ _$StoreV2DtoImpl _$$StoreV2DtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreV2DtoImpl(
       id: json['id'] as String,
       type: json['type'] as String,
-      name: json['name'] as String,
-      address: json['address'] as String,
-      addressDetail: json['addressDetail'] as String,
-      openTime: json['openTime'] as String,
-      closeTime: json['closeTime'] as String,
-      phone: json['phone'] as String,
-      kakaoChatUrl: json['kakaoChatUrl'] as String,
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
-      distance: (json['distance'] as num).toDouble(),
-      lat: (json['lat'] as num).toDouble(),
-      lng: (json['lng'] as num).toDouble(),
-      storeImages: (json['storeImages'] as List<dynamic>)
-          .map((e) => StoreImagesDto.fromJson(e as Map<String, dynamic>))
+      name: json['name'] as String?,
+      address: json['address'] as String?,
+      addressDetail: json['addressDetail'] as String?,
+      openTime: json['openTime'] as String?,
+      closeTime: json['closeTime'] as String?,
+      phone: json['phone'] as String?,
+      kakaoChatUrl: json['kakaoChatUrl'] as String?,
+      updatedAt: json['updatedAt'] == null
+          ? null
+          : DateTime.parse(json['updatedAt'] as String),
+      distance: (json['distance'] as num?)?.toDouble(),
+      lat: (json['lat'] as num?)?.toDouble(),
+      lng: (json['lng'] as num?)?.toDouble(),
+      storeImages: (json['storeImages'] as List<dynamic>?)
+          ?.map((e) => StoreImagesDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      storeBenefits: (json['storeBenefits'] as List<dynamic>)
-          .map((e) => StoreBenefitsDto.fromJson(e as Map<String, dynamic>))
+      storeBenefits: (json['storeBenefits'] as List<dynamic>?)
+          ?.map((e) => StoreBenefitsDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      storeTags: (json['storeTags'] as List<dynamic>)
-          .map((e) => StoreTagDto.fromJson(e as Map<String, dynamic>))
+      storeTags: (json['storeTags'] as List<dynamic>?)
+          ?.map((e) => StoreTagDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gameMttItems: (json['gameMttItems'] as List<dynamic>)
-          .map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
+      gameMttItems: (json['gameMttItems'] as List<dynamic>?)
+          ?.map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -46,7 +48,7 @@ Map<String, dynamic> _$$StoreV2DtoImplToJson(_$StoreV2DtoImpl instance) =>
       'closeTime': instance.closeTime,
       'phone': instance.phone,
       'kakaoChatUrl': instance.kakaoChatUrl,
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'updatedAt': instance.updatedAt?.toIso8601String(),
       'distance': instance.distance,
       'lat': instance.lat,
       'lng': instance.lng,
@@ -60,44 +62,37 @@ _$GameMttItemsV2DtoImpl _$$GameMttItemsV2DtoImplFromJson(
         Map<String, dynamic> json) =>
     _$GameMttItemsV2DtoImpl(
       id: json['id'] as String,
-      type: $enumDecode(_$GameTypeEnumMap, json['type']),
+      type: json['type'] as String,
       entryType: $enumDecode(_$EntryTypeEnumMap, json['entryType']),
       entryPrice: (json['entryPrice'] as num).toInt(),
       entryMax: (json['entryMax'] as num?)?.toInt(),
       reEntryMax: (json['reEntryMax'] as num?)?.toInt(),
       duration: (json['duration'] as num?)?.toInt(),
-      prizeType: $enumDecode(_$PrizeTypeEnumMap, json['prizeType']),
+      prizeType: $enumDecodeNullable(_$PrizeTypeEnumMap, json['prizeType']),
       prize: (json['prize'] as num?)?.toInt(),
       gtdMinReward: (json['gtdMinReward'] as num?)?.toInt(),
-      eventType: $enumDecode(_$EventTypeEnumMap, json['eventType']),
-      isDaily: json['isDaily'] as bool,
-      name: json['name'] as String,
+      eventType: $enumDecodeNullable(_$EventTypeEnumMap, json['eventType']),
+      isDaily: json['isDaily'] as bool?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$GameMttItemsV2DtoImplToJson(
         _$GameMttItemsV2DtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'type': _$GameTypeEnumMap[instance.type]!,
+      'type': instance.type,
       'entryType': _$EntryTypeEnumMap[instance.entryType]!,
       'entryPrice': instance.entryPrice,
       'entryMax': instance.entryMax,
       'reEntryMax': instance.reEntryMax,
       'duration': instance.duration,
-      'prizeType': _$PrizeTypeEnumMap[instance.prizeType]!,
+      'prizeType': _$PrizeTypeEnumMap[instance.prizeType],
       'prize': instance.prize,
       'gtdMinReward': instance.gtdMinReward,
-      'eventType': _$EventTypeEnumMap[instance.eventType]!,
+      'eventType': _$EventTypeEnumMap[instance.eventType],
       'isDaily': instance.isDaily,
       'name': instance.name,
     };
-
-const _$GameTypeEnumMap = {
-  GameType.DAILY: 'DAILY',
-  GameType.SEED: 'SEED',
-  GameType.GTD: 'GTD',
-  GameType.ALL: 'ALL',
-};
 
 const _$EntryTypeEnumMap = {
   EntryType.CASH: 'CASH',

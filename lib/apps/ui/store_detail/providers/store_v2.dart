@@ -42,10 +42,10 @@ class StoreV2Data extends _$StoreV2Data {
       distance: data.distance,
       lat: data.lat,
       lng: data.lng,
-      storeBenefits: data.storeBenefits.toStoreBenefitsModel(),
-      storeTags: data.storeTags.toStoreTagsModel(),
-      storeImages: data.storeImages.toImageListModel(),
-      gameMTTItems: data.gameMttItems.toGameListModel(),
+      storeImages: data.storeImages?.toImageListModel(),
+      gameMTTItems: data.gameMttItems?.toGameListModel(),
+      storeBenefits: data.storeBenefits?.toStoreBenefitsModel(),
+      storeTags: data.storeTags?.toStoreTagsModel(),
     );
   }
 }

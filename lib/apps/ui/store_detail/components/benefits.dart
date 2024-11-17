@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
+import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
@@ -14,6 +16,7 @@ class StoreDetailBenefits extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Logger().i('StoreDetailBenefits\n  benefits: $benefits');
     return Container(
       margin: const EdgeInsets.all(16),
       child: Column(
@@ -32,35 +35,70 @@ class StoreDetailBenefits extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: colorGrey90),
             ),
-            child: ListView.separated(
-              itemCount: benefits.length,
-              itemBuilder: (context, index) => Column(
-                children: [
-                  Row(
-                    children: [
-                      Image.asset(Assets.firstGameBenefits.path),
-                      const SizedBox(width: 16),
-                      Column(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      benefits[0].type!.kr == StoreBenefitType.FIRST_GAME.kr
+                          ? Assets.firstGameBenefits.path
+                          : Assets.newGameBenefits.path,
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            benefits[index].type.toString(),
+                            benefits[0].type?.kr ?? "-",
                             style: textTheme.titleSmall!.copyWith(
                               color: colorGrey60,
                             ),
                           ),
                           Text(
-                            benefits[index].description,
+                            benefits[0].description ?? "-",
                             style: textTheme.titleMedium!.copyWith(
                               color: colorGrey20,
                             ),
-                          )
+                          ),
                         ],
+                      ),
+                    ),
+                  ],
+                ),
+                if (benefits.length > 1) ...[
+                  const Divider(height: 32, color: colorGrey95),
+                  Row(
+                    children: [
+                      Image.asset(
+                        benefits[1].type!.kr == StoreBenefitType.FIRST_GAME.kr
+                            ? Assets.firstGameBenefits.path
+                            : Assets.newGameBenefits.path,
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              benefits[1].type?.kr ?? "-",
+                              style: textTheme.titleSmall!.copyWith(
+                                color: colorGrey60,
+                              ),
+                            ),
+                            Text(
+                              benefits[1].description ?? "-",
+                              style: textTheme.titleMedium!.copyWith(
+                                color: colorGrey20,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ],
-              ),
-              separatorBuilder: (context, index) => const Divider(),
+              ],
             ),
           ),
         ],

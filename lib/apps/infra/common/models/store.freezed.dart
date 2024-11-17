@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$StoreModel {
   String get id => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $StoreModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String? type,
+      String type,
       String? name,
       String? phone,
       String? address,
@@ -79,7 +79,7 @@ class _$StoreModelCopyWithImpl<$Res, $Val extends StoreModel>
   @override
   $Res call({
     Object? id = null,
-    Object? type = freezed,
+    Object? type = null,
     Object? name = freezed,
     Object? phone = freezed,
     Object? address = freezed,
@@ -99,10 +99,10 @@ class _$StoreModelCopyWithImpl<$Res, $Val extends StoreModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,7 @@ abstract class _$$StoreModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String? type,
+      String type,
       String? name,
       String? phone,
       String? address,
@@ -199,7 +199,7 @@ class __$$StoreModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? type = freezed,
+    Object? type = null,
     Object? name = freezed,
     Object? phone = freezed,
     Object? address = freezed,
@@ -219,10 +219,10 @@ class __$$StoreModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -304,7 +304,7 @@ class _$StoreModelImpl implements _StoreModel {
   @override
   final String id;
   @override
-  final String? type;
+  final String type;
   @override
   final String? name;
   @override
@@ -413,7 +413,7 @@ class _$StoreModelImpl implements _StoreModel {
 abstract class _StoreModel implements StoreModel {
   factory _StoreModel(
       {required final String id,
-      required final String? type,
+      required final String type,
       required final String? name,
       required final String? phone,
       required final String? address,
@@ -431,7 +431,7 @@ abstract class _StoreModel implements StoreModel {
   @override
   String get id;
   @override
-  String? get type;
+  String get type;
   @override
   String? get name;
   @override

@@ -51,6 +51,7 @@ const _$GameTypeEnumMap = {
   GameType.SEED: 'SEED',
   GameType.GTD: 'GTD',
   GameType.ALL: 'ALL',
+  GameType.MTT: 'MTT',
 };
 
 _$StoreQueryImpl _$$StoreQueryImplFromJson(Map<String, dynamic> json) =>

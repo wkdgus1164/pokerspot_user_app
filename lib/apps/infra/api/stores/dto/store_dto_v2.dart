@@ -10,21 +10,21 @@ class StoreV2Dto with _$StoreV2Dto {
   factory StoreV2Dto({
     required String id,
     required String type,
-    required String name,
-    required String address,
-    required String addressDetail,
-    required String openTime,
-    required String closeTime,
-    required String phone,
-    required String kakaoChatUrl,
-    required DateTime updatedAt,
-    required double distance,
-    required double lat,
-    required double lng,
-    required List<StoreImagesDto> storeImages,
-    required List<StoreBenefitsDto> storeBenefits,
-    required List<StoreTagDto> storeTags,
-    required List<GameMTTDto> gameMttItems,
+    required String? name,
+    required String? address,
+    required String? addressDetail,
+    required String? openTime,
+    required String? closeTime,
+    required String? phone,
+    required String? kakaoChatUrl,
+    required DateTime? updatedAt,
+    required double? distance,
+    required double? lat,
+    required double? lng,
+    required List<StoreImagesDto>? storeImages,
+    required List<StoreBenefitsDto>? storeBenefits,
+    required List<StoreTagDto>? storeTags,
+    required List<GameMTTDto>? gameMttItems,
   }) = _StoreV2Dto;
 
   factory StoreV2Dto.fromJson(
@@ -37,27 +37,22 @@ class StoreV2Dto with _$StoreV2Dto {
 class GameMttItemsV2Dto with _$GameMttItemsV2Dto {
   factory GameMttItemsV2Dto({
     required String id,
-    required GameType type,
+    required String type,
     required EntryType entryType,
     required int entryPrice,
     required int? entryMax,
     required int? reEntryMax,
     required int? duration,
-    required PrizeType prizeType,
+    required PrizeType? prizeType,
     required int? prize,
     required int? gtdMinReward,
-    required EventType eventType,
-    required bool isDaily,
-    required String name,
+    required EventType? eventType,
+    required bool? isDaily,
+    required String? name,
   }) = _GameMttItemsV2Dto;
 
   factory GameMttItemsV2Dto.fromJson(Map<String, dynamic> json) =>
       _$GameMttItemsV2DtoFromJson(json);
-}
-
-enum StoreBenefitType {
-  FIRST_GAME,
-  NEW_USER,
 }
 
 @freezed

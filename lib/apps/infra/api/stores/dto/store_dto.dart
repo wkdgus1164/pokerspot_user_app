@@ -43,7 +43,7 @@ class GameMTTDto with _$GameMTTDto {
 class StoreDto with _$StoreDto {
   factory StoreDto({
     required String id,
-    required String? type,
+    required String type,
     required String? name,
     required String? address,
     required String? addressDetail,

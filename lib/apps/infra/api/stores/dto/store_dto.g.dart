@@ -53,6 +53,7 @@ const _$GameTypeEnumMap = {
   GameType.SEED: 'SEED',
   GameType.GTD: 'GTD',
   GameType.ALL: 'ALL',
+  GameType.MTT: 'MTT',
 };
 
 const _$EventTypeEnumMap = {
@@ -63,7 +64,7 @@ const _$EventTypeEnumMap = {
 _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreDtoImpl(
       id: json['id'] as String,
-      type: json['type'] as String?,
+      type: json['type'] as String,
       name: json['name'] as String?,
       address: json['address'] as String?,
       addressDetail: json['addressDetail'] as String?,

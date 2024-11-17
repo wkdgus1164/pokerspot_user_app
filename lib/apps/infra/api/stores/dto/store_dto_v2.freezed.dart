@@ -22,22 +22,22 @@ StoreV2Dto _$StoreV2DtoFromJson(Map<String, dynamic> json) {
 mixin _$StoreV2Dto {
   String get id => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  String get addressDetail => throw _privateConstructorUsedError;
-  String get openTime => throw _privateConstructorUsedError;
-  String get closeTime => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  String get kakaoChatUrl => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
-  double get distance => throw _privateConstructorUsedError;
-  double get lat => throw _privateConstructorUsedError;
-  double get lng => throw _privateConstructorUsedError;
-  List<StoreImagesDto> get storeImages => throw _privateConstructorUsedError;
-  List<StoreBenefitsDto> get storeBenefits =>
+  String? get name => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  String? get addressDetail => throw _privateConstructorUsedError;
+  String? get openTime => throw _privateConstructorUsedError;
+  String? get closeTime => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get kakaoChatUrl => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  double? get distance => throw _privateConstructorUsedError;
+  double? get lat => throw _privateConstructorUsedError;
+  double? get lng => throw _privateConstructorUsedError;
+  List<StoreImagesDto>? get storeImages => throw _privateConstructorUsedError;
+  List<StoreBenefitsDto>? get storeBenefits =>
       throw _privateConstructorUsedError;
-  List<StoreTagDto> get storeTags => throw _privateConstructorUsedError;
-  List<GameMTTDto> get gameMttItems => throw _privateConstructorUsedError;
+  List<StoreTagDto>? get storeTags => throw _privateConstructorUsedError;
+  List<GameMTTDto>? get gameMttItems => throw _privateConstructorUsedError;
 
   /// Serializes this StoreV2Dto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,21 +58,21 @@ abstract class $StoreV2DtoCopyWith<$Res> {
   $Res call(
       {String id,
       String type,
-      String name,
-      String address,
-      String addressDetail,
-      String openTime,
-      String closeTime,
-      String phone,
-      String kakaoChatUrl,
-      DateTime updatedAt,
-      double distance,
-      double lat,
-      double lng,
-      List<StoreImagesDto> storeImages,
-      List<StoreBenefitsDto> storeBenefits,
-      List<StoreTagDto> storeTags,
-      List<GameMTTDto> gameMttItems});
+      String? name,
+      String? address,
+      String? addressDetail,
+      String? openTime,
+      String? closeTime,
+      String? phone,
+      String? kakaoChatUrl,
+      DateTime? updatedAt,
+      double? distance,
+      double? lat,
+      double? lng,
+      List<StoreImagesDto>? storeImages,
+      List<StoreBenefitsDto>? storeBenefits,
+      List<StoreTagDto>? storeTags,
+      List<GameMTTDto>? gameMttItems});
 }
 
 /// @nodoc
@@ -92,21 +92,21 @@ class _$StoreV2DtoCopyWithImpl<$Res, $Val extends StoreV2Dto>
   $Res call({
     Object? id = null,
     Object? type = null,
-    Object? name = null,
-    Object? address = null,
-    Object? addressDetail = null,
-    Object? openTime = null,
-    Object? closeTime = null,
-    Object? phone = null,
-    Object? kakaoChatUrl = null,
-    Object? updatedAt = null,
-    Object? distance = null,
-    Object? lat = null,
-    Object? lng = null,
-    Object? storeImages = null,
-    Object? storeBenefits = null,
-    Object? storeTags = null,
-    Object? gameMttItems = null,
+    Object? name = freezed,
+    Object? address = freezed,
+    Object? addressDetail = freezed,
+    Object? openTime = freezed,
+    Object? closeTime = freezed,
+    Object? phone = freezed,
+    Object? kakaoChatUrl = freezed,
+    Object? updatedAt = freezed,
+    Object? distance = freezed,
+    Object? lat = freezed,
+    Object? lng = freezed,
+    Object? storeImages = freezed,
+    Object? storeBenefits = freezed,
+    Object? storeTags = freezed,
+    Object? gameMttItems = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -117,66 +117,66 @@ class _$StoreV2DtoCopyWithImpl<$Res, $Val extends StoreV2Dto>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      addressDetail: null == addressDetail
+              as String?,
+      addressDetail: freezed == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String,
-      openTime: null == openTime
+              as String?,
+      openTime: freezed == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      closeTime: null == closeTime
+              as String?,
+      closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      kakaoChatUrl: null == kakaoChatUrl
+              as String?,
+      kakaoChatUrl: freezed == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      distance: null == distance
+              as DateTime?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as double,
-      lat: null == lat
+              as double?,
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lng: null == lng
+              as double?,
+      lng: freezed == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
-              as double,
-      storeImages: null == storeImages
+              as double?,
+      storeImages: freezed == storeImages
           ? _value.storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
-              as List<StoreImagesDto>,
-      storeBenefits: null == storeBenefits
+              as List<StoreImagesDto>?,
+      storeBenefits: freezed == storeBenefits
           ? _value.storeBenefits
           : storeBenefits // ignore: cast_nullable_to_non_nullable
-              as List<StoreBenefitsDto>,
-      storeTags: null == storeTags
+              as List<StoreBenefitsDto>?,
+      storeTags: freezed == storeTags
           ? _value.storeTags
           : storeTags // ignore: cast_nullable_to_non_nullable
-              as List<StoreTagDto>,
-      gameMttItems: null == gameMttItems
+              as List<StoreTagDto>?,
+      gameMttItems: freezed == gameMttItems
           ? _value.gameMttItems
           : gameMttItems // ignore: cast_nullable_to_non_nullable
-              as List<GameMTTDto>,
+              as List<GameMTTDto>?,
     ) as $Val);
   }
 }
@@ -192,21 +192,21 @@ abstract class _$$StoreV2DtoImplCopyWith<$Res>
   $Res call(
       {String id,
       String type,
-      String name,
-      String address,
-      String addressDetail,
-      String openTime,
-      String closeTime,
-      String phone,
-      String kakaoChatUrl,
-      DateTime updatedAt,
-      double distance,
-      double lat,
-      double lng,
-      List<StoreImagesDto> storeImages,
-      List<StoreBenefitsDto> storeBenefits,
-      List<StoreTagDto> storeTags,
-      List<GameMTTDto> gameMttItems});
+      String? name,
+      String? address,
+      String? addressDetail,
+      String? openTime,
+      String? closeTime,
+      String? phone,
+      String? kakaoChatUrl,
+      DateTime? updatedAt,
+      double? distance,
+      double? lat,
+      double? lng,
+      List<StoreImagesDto>? storeImages,
+      List<StoreBenefitsDto>? storeBenefits,
+      List<StoreTagDto>? storeTags,
+      List<GameMTTDto>? gameMttItems});
 }
 
 /// @nodoc
@@ -224,21 +224,21 @@ class __$$StoreV2DtoImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? type = null,
-    Object? name = null,
-    Object? address = null,
-    Object? addressDetail = null,
-    Object? openTime = null,
-    Object? closeTime = null,
-    Object? phone = null,
-    Object? kakaoChatUrl = null,
-    Object? updatedAt = null,
-    Object? distance = null,
-    Object? lat = null,
-    Object? lng = null,
-    Object? storeImages = null,
-    Object? storeBenefits = null,
-    Object? storeTags = null,
-    Object? gameMttItems = null,
+    Object? name = freezed,
+    Object? address = freezed,
+    Object? addressDetail = freezed,
+    Object? openTime = freezed,
+    Object? closeTime = freezed,
+    Object? phone = freezed,
+    Object? kakaoChatUrl = freezed,
+    Object? updatedAt = freezed,
+    Object? distance = freezed,
+    Object? lat = freezed,
+    Object? lng = freezed,
+    Object? storeImages = freezed,
+    Object? storeBenefits = freezed,
+    Object? storeTags = freezed,
+    Object? gameMttItems = freezed,
   }) {
     return _then(_$StoreV2DtoImpl(
       id: null == id
@@ -249,66 +249,66 @@ class __$$StoreV2DtoImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      addressDetail: null == addressDetail
+              as String?,
+      addressDetail: freezed == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String,
-      openTime: null == openTime
+              as String?,
+      openTime: freezed == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      closeTime: null == closeTime
+              as String?,
+      closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      kakaoChatUrl: null == kakaoChatUrl
+              as String?,
+      kakaoChatUrl: freezed == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      distance: null == distance
+              as DateTime?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as double,
-      lat: null == lat
+              as double?,
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lng: null == lng
+              as double?,
+      lng: freezed == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
-              as double,
-      storeImages: null == storeImages
+              as double?,
+      storeImages: freezed == storeImages
           ? _value._storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
-              as List<StoreImagesDto>,
-      storeBenefits: null == storeBenefits
+              as List<StoreImagesDto>?,
+      storeBenefits: freezed == storeBenefits
           ? _value._storeBenefits
           : storeBenefits // ignore: cast_nullable_to_non_nullable
-              as List<StoreBenefitsDto>,
-      storeTags: null == storeTags
+              as List<StoreBenefitsDto>?,
+      storeTags: freezed == storeTags
           ? _value._storeTags
           : storeTags // ignore: cast_nullable_to_non_nullable
-              as List<StoreTagDto>,
-      gameMttItems: null == gameMttItems
+              as List<StoreTagDto>?,
+      gameMttItems: freezed == gameMttItems
           ? _value._gameMttItems
           : gameMttItems // ignore: cast_nullable_to_non_nullable
-              as List<GameMTTDto>,
+              as List<GameMTTDto>?,
     ));
   }
 }
@@ -330,10 +330,10 @@ class _$StoreV2DtoImpl implements _StoreV2Dto {
       required this.distance,
       required this.lat,
       required this.lng,
-      required final List<StoreImagesDto> storeImages,
-      required final List<StoreBenefitsDto> storeBenefits,
-      required final List<StoreTagDto> storeTags,
-      required final List<GameMTTDto> gameMttItems})
+      required final List<StoreImagesDto>? storeImages,
+      required final List<StoreBenefitsDto>? storeBenefits,
+      required final List<StoreTagDto>? storeTags,
+      required final List<GameMTTDto>? gameMttItems})
       : _storeImages = storeImages,
         _storeBenefits = storeBenefits,
         _storeTags = storeTags,
@@ -347,57 +347,65 @@ class _$StoreV2DtoImpl implements _StoreV2Dto {
   @override
   final String type;
   @override
-  final String name;
+  final String? name;
   @override
-  final String address;
+  final String? address;
   @override
-  final String addressDetail;
+  final String? addressDetail;
   @override
-  final String openTime;
+  final String? openTime;
   @override
-  final String closeTime;
+  final String? closeTime;
   @override
-  final String phone;
+  final String? phone;
   @override
-  final String kakaoChatUrl;
+  final String? kakaoChatUrl;
   @override
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
   @override
-  final double distance;
+  final double? distance;
   @override
-  final double lat;
+  final double? lat;
   @override
-  final double lng;
-  final List<StoreImagesDto> _storeImages;
+  final double? lng;
+  final List<StoreImagesDto>? _storeImages;
   @override
-  List<StoreImagesDto> get storeImages {
+  List<StoreImagesDto>? get storeImages {
+    final value = _storeImages;
+    if (value == null) return null;
     if (_storeImages is EqualUnmodifiableListView) return _storeImages;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_storeImages);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<StoreBenefitsDto> _storeBenefits;
+  final List<StoreBenefitsDto>? _storeBenefits;
   @override
-  List<StoreBenefitsDto> get storeBenefits {
+  List<StoreBenefitsDto>? get storeBenefits {
+    final value = _storeBenefits;
+    if (value == null) return null;
     if (_storeBenefits is EqualUnmodifiableListView) return _storeBenefits;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_storeBenefits);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<StoreTagDto> _storeTags;
+  final List<StoreTagDto>? _storeTags;
   @override
-  List<StoreTagDto> get storeTags {
+  List<StoreTagDto>? get storeTags {
+    final value = _storeTags;
+    if (value == null) return null;
     if (_storeTags is EqualUnmodifiableListView) return _storeTags;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_storeTags);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<GameMTTDto> _gameMttItems;
+  final List<GameMTTDto>? _gameMttItems;
   @override
-  List<GameMTTDto> get gameMttItems {
+  List<GameMTTDto>? get gameMttItems {
+    final value = _gameMttItems;
+    if (value == null) return null;
     if (_gameMttItems is EqualUnmodifiableListView) return _gameMttItems;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_gameMttItems);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -481,21 +489,21 @@ abstract class _StoreV2Dto implements StoreV2Dto {
   factory _StoreV2Dto(
       {required final String id,
       required final String type,
-      required final String name,
-      required final String address,
-      required final String addressDetail,
-      required final String openTime,
-      required final String closeTime,
-      required final String phone,
-      required final String kakaoChatUrl,
-      required final DateTime updatedAt,
-      required final double distance,
-      required final double lat,
-      required final double lng,
-      required final List<StoreImagesDto> storeImages,
-      required final List<StoreBenefitsDto> storeBenefits,
-      required final List<StoreTagDto> storeTags,
-      required final List<GameMTTDto> gameMttItems}) = _$StoreV2DtoImpl;
+      required final String? name,
+      required final String? address,
+      required final String? addressDetail,
+      required final String? openTime,
+      required final String? closeTime,
+      required final String? phone,
+      required final String? kakaoChatUrl,
+      required final DateTime? updatedAt,
+      required final double? distance,
+      required final double? lat,
+      required final double? lng,
+      required final List<StoreImagesDto>? storeImages,
+      required final List<StoreBenefitsDto>? storeBenefits,
+      required final List<StoreTagDto>? storeTags,
+      required final List<GameMTTDto>? gameMttItems}) = _$StoreV2DtoImpl;
 
   factory _StoreV2Dto.fromJson(Map<String, dynamic> json) =
       _$StoreV2DtoImpl.fromJson;
@@ -505,35 +513,35 @@ abstract class _StoreV2Dto implements StoreV2Dto {
   @override
   String get type;
   @override
-  String get name;
+  String? get name;
   @override
-  String get address;
+  String? get address;
   @override
-  String get addressDetail;
+  String? get addressDetail;
   @override
-  String get openTime;
+  String? get openTime;
   @override
-  String get closeTime;
+  String? get closeTime;
   @override
-  String get phone;
+  String? get phone;
   @override
-  String get kakaoChatUrl;
+  String? get kakaoChatUrl;
   @override
-  DateTime get updatedAt;
+  DateTime? get updatedAt;
   @override
-  double get distance;
+  double? get distance;
   @override
-  double get lat;
+  double? get lat;
   @override
-  double get lng;
+  double? get lng;
   @override
-  List<StoreImagesDto> get storeImages;
+  List<StoreImagesDto>? get storeImages;
   @override
-  List<StoreBenefitsDto> get storeBenefits;
+  List<StoreBenefitsDto>? get storeBenefits;
   @override
-  List<StoreTagDto> get storeTags;
+  List<StoreTagDto>? get storeTags;
   @override
-  List<GameMTTDto> get gameMttItems;
+  List<GameMTTDto>? get gameMttItems;
 
   /// Create a copy of StoreV2Dto
   /// with the given fields replaced by the non-null parameter values.
@@ -550,18 +558,18 @@ GameMttItemsV2Dto _$GameMttItemsV2DtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GameMttItemsV2Dto {
   String get id => throw _privateConstructorUsedError;
-  GameType get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   EntryType get entryType => throw _privateConstructorUsedError;
   int get entryPrice => throw _privateConstructorUsedError;
   int? get entryMax => throw _privateConstructorUsedError;
   int? get reEntryMax => throw _privateConstructorUsedError;
   int? get duration => throw _privateConstructorUsedError;
-  PrizeType get prizeType => throw _privateConstructorUsedError;
+  PrizeType? get prizeType => throw _privateConstructorUsedError;
   int? get prize => throw _privateConstructorUsedError;
   int? get gtdMinReward => throw _privateConstructorUsedError;
-  EventType get eventType => throw _privateConstructorUsedError;
-  bool get isDaily => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  EventType? get eventType => throw _privateConstructorUsedError;
+  bool? get isDaily => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
   /// Serializes this GameMttItemsV2Dto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -581,18 +589,18 @@ abstract class $GameMttItemsV2DtoCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      GameType type,
+      String type,
       EntryType entryType,
       int entryPrice,
       int? entryMax,
       int? reEntryMax,
       int? duration,
-      PrizeType prizeType,
+      PrizeType? prizeType,
       int? prize,
       int? gtdMinReward,
-      EventType eventType,
-      bool isDaily,
-      String name});
+      EventType? eventType,
+      bool? isDaily,
+      String? name});
 }
 
 /// @nodoc
@@ -617,12 +625,12 @@ class _$GameMttItemsV2DtoCopyWithImpl<$Res, $Val extends GameMttItemsV2Dto>
     Object? entryMax = freezed,
     Object? reEntryMax = freezed,
     Object? duration = freezed,
-    Object? prizeType = null,
+    Object? prizeType = freezed,
     Object? prize = freezed,
     Object? gtdMinReward = freezed,
-    Object? eventType = null,
-    Object? isDaily = null,
-    Object? name = null,
+    Object? eventType = freezed,
+    Object? isDaily = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -632,7 +640,7 @@ class _$GameMttItemsV2DtoCopyWithImpl<$Res, $Val extends GameMttItemsV2Dto>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as GameType,
+              as String,
       entryType: null == entryType
           ? _value.entryType
           : entryType // ignore: cast_nullable_to_non_nullable
@@ -653,10 +661,10 @@ class _$GameMttItemsV2DtoCopyWithImpl<$Res, $Val extends GameMttItemsV2Dto>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int?,
-      prizeType: null == prizeType
+      prizeType: freezed == prizeType
           ? _value.prizeType
           : prizeType // ignore: cast_nullable_to_non_nullable
-              as PrizeType,
+              as PrizeType?,
       prize: freezed == prize
           ? _value.prize
           : prize // ignore: cast_nullable_to_non_nullable
@@ -665,18 +673,18 @@ class _$GameMttItemsV2DtoCopyWithImpl<$Res, $Val extends GameMttItemsV2Dto>
           ? _value.gtdMinReward
           : gtdMinReward // ignore: cast_nullable_to_non_nullable
               as int?,
-      eventType: null == eventType
+      eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as EventType,
-      isDaily: null == isDaily
+              as EventType?,
+      isDaily: freezed == isDaily
           ? _value.isDaily
           : isDaily // ignore: cast_nullable_to_non_nullable
-              as bool,
-      name: null == name
+              as bool?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -691,18 +699,18 @@ abstract class _$$GameMttItemsV2DtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      GameType type,
+      String type,
       EntryType entryType,
       int entryPrice,
       int? entryMax,
       int? reEntryMax,
       int? duration,
-      PrizeType prizeType,
+      PrizeType? prizeType,
       int? prize,
       int? gtdMinReward,
-      EventType eventType,
-      bool isDaily,
-      String name});
+      EventType? eventType,
+      bool? isDaily,
+      String? name});
 }
 
 /// @nodoc
@@ -725,12 +733,12 @@ class __$$GameMttItemsV2DtoImplCopyWithImpl<$Res>
     Object? entryMax = freezed,
     Object? reEntryMax = freezed,
     Object? duration = freezed,
-    Object? prizeType = null,
+    Object? prizeType = freezed,
     Object? prize = freezed,
     Object? gtdMinReward = freezed,
-    Object? eventType = null,
-    Object? isDaily = null,
-    Object? name = null,
+    Object? eventType = freezed,
+    Object? isDaily = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$GameMttItemsV2DtoImpl(
       id: null == id
@@ -740,7 +748,7 @@ class __$$GameMttItemsV2DtoImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as GameType,
+              as String,
       entryType: null == entryType
           ? _value.entryType
           : entryType // ignore: cast_nullable_to_non_nullable
@@ -761,10 +769,10 @@ class __$$GameMttItemsV2DtoImplCopyWithImpl<$Res>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int?,
-      prizeType: null == prizeType
+      prizeType: freezed == prizeType
           ? _value.prizeType
           : prizeType // ignore: cast_nullable_to_non_nullable
-              as PrizeType,
+              as PrizeType?,
       prize: freezed == prize
           ? _value.prize
           : prize // ignore: cast_nullable_to_non_nullable
@@ -773,18 +781,18 @@ class __$$GameMttItemsV2DtoImplCopyWithImpl<$Res>
           ? _value.gtdMinReward
           : gtdMinReward // ignore: cast_nullable_to_non_nullable
               as int?,
-      eventType: null == eventType
+      eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as EventType,
-      isDaily: null == isDaily
+              as EventType?,
+      isDaily: freezed == isDaily
           ? _value.isDaily
           : isDaily // ignore: cast_nullable_to_non_nullable
-              as bool,
-      name: null == name
+              as bool?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -813,7 +821,7 @@ class _$GameMttItemsV2DtoImpl implements _GameMttItemsV2Dto {
   @override
   final String id;
   @override
-  final GameType type;
+  final String type;
   @override
   final EntryType entryType;
   @override
@@ -825,17 +833,17 @@ class _$GameMttItemsV2DtoImpl implements _GameMttItemsV2Dto {
   @override
   final int? duration;
   @override
-  final PrizeType prizeType;
+  final PrizeType? prizeType;
   @override
   final int? prize;
   @override
   final int? gtdMinReward;
   @override
-  final EventType eventType;
+  final EventType? eventType;
   @override
-  final bool isDaily;
+  final bool? isDaily;
   @override
-  final String name;
+  final String? name;
 
   @override
   String toString() {
@@ -908,18 +916,18 @@ class _$GameMttItemsV2DtoImpl implements _GameMttItemsV2Dto {
 abstract class _GameMttItemsV2Dto implements GameMttItemsV2Dto {
   factory _GameMttItemsV2Dto(
       {required final String id,
-      required final GameType type,
+      required final String type,
       required final EntryType entryType,
       required final int entryPrice,
       required final int? entryMax,
       required final int? reEntryMax,
       required final int? duration,
-      required final PrizeType prizeType,
+      required final PrizeType? prizeType,
       required final int? prize,
       required final int? gtdMinReward,
-      required final EventType eventType,
-      required final bool isDaily,
-      required final String name}) = _$GameMttItemsV2DtoImpl;
+      required final EventType? eventType,
+      required final bool? isDaily,
+      required final String? name}) = _$GameMttItemsV2DtoImpl;
 
   factory _GameMttItemsV2Dto.fromJson(Map<String, dynamic> json) =
       _$GameMttItemsV2DtoImpl.fromJson;
@@ -927,7 +935,7 @@ abstract class _GameMttItemsV2Dto implements GameMttItemsV2Dto {
   @override
   String get id;
   @override
-  GameType get type;
+  String get type;
   @override
   EntryType get entryType;
   @override
@@ -939,17 +947,17 @@ abstract class _GameMttItemsV2Dto implements GameMttItemsV2Dto {
   @override
   int? get duration;
   @override
-  PrizeType get prizeType;
+  PrizeType? get prizeType;
   @override
   int? get prize;
   @override
   int? get gtdMinReward;
   @override
-  EventType get eventType;
+  EventType? get eventType;
   @override
-  bool get isDaily;
+  bool? get isDaily;
   @override
-  String get name;
+  String? get name;
 
   /// Create a copy of GameMttItemsV2Dto
   /// with the given fields replaced by the non-null parameter values.
