@@ -9,7 +9,6 @@ import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_android.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_ios.dart';
-import 'package:pokerspot_user_app/common/components/tonal_button.dart';
 
 class StoreDetailFooterToolbar extends StatelessWidget {
   const StoreDetailFooterToolbar({
@@ -24,24 +23,42 @@ class StoreDetailFooterToolbar extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16),
       decoration: _buildContainerDecoration(),
-      child: Column(
+      child: Row(
         children: [
-          Row(
-            children: [
-              // 네비게이션 버튼
-              _buildNavigationButton(context),
-              const SizedBox(width: 16),
-
-              // 주소 복사 버튼
-              _buildCopyAddressButton(),
-            ],
-          ),
-          const SizedBox(height: 16),
-
-          // 전화 걸기 버튼
+          _buildToolBar(context),
+          const SizedBox(width: 16),
           _buildCallButton(),
         ],
       ),
+    );
+  }
+
+  ToggleButtons _buildToolBar(BuildContext context) {
+    return ToggleButtons(
+      isSelected: [true, true],
+      onPressed: (int index) {
+        if (index == 0) {
+          _showNaviBottomSheet(
+            name: model.name,
+            address: model.address,
+            x: model.lng,
+            y: model.lat,
+            context: context,
+          );
+        } else {
+          Utils().copyToClipboard(text: model.address);
+        }
+      },
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: const Icon(Icons.navigation_rounded, size: 20),
+        ),
+        Padding(
+          padding: EdgeInsets.all(15),
+          child: const Icon(Icons.copy_rounded, size: 20),
+        ),
+      ],
     );
   }
 
@@ -63,33 +80,8 @@ class StoreDetailFooterToolbar extends StatelessWidget {
     );
   }
 
-  Widget _buildNavigationButton(BuildContext context) {
-    return Expanded(
-      child: TonalButton(
-        onPressed: () => _showNaviBottomSheet(
-          name: model.name,
-          address: model.address,
-          x: model.lng,
-          y: model.lat,
-          context: context,
-        ),
-        child: const Text('길안내'),
-      ),
-    );
-  }
-
-  Widget _buildCopyAddressButton() {
-    return Expanded(
-      child: TonalButton(
-        onPressed: () => Utils().copyToClipboard(text: model.address),
-        child: const Text('주소 복사'),
-      ),
-    );
-  }
-
   Widget _buildCallButton() {
-    return SizedBox(
-      width: double.infinity,
+    return Expanded(
       child: FilledButton(
         onPressed: () => _call(model.name, model.phone),
         child: const Text('전화 걸기'),

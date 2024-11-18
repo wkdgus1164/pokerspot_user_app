@@ -40,3 +40,18 @@ OutlinedButtonThemeData outlinedButtonThemeData = OutlinedButtonThemeData(
     ),
   ),
 );
+
+ToggleButtonsThemeData toggleButtonsThemeData = ToggleButtonsThemeData(
+  selectedColor: colorBrand50,
+  color: colorBrand50,
+  fillColor: colorBrand95,
+  borderRadius: BorderRadius.circular(16),
+  textStyle: const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  ),
+  constraints: const BoxConstraints(
+    minHeight: 32.0,
+    minWidth: 56.0,
+  ),
+);

@@ -73,6 +73,7 @@ ThemeData _createThemeData({required BuildContext context}) {
     bottomSheetTheme: bottomSheetThemeData,
     listTileTheme: listTileThemeData,
     chipTheme: chipThemeData,
+    toggleButtonsTheme: toggleButtonsThemeData,
     splashColor: colorGrey98,
     dialogBackgroundColor: Colors.white,
   );
