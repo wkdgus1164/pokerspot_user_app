@@ -5,18 +5,18 @@ import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart
 import 'package:pokerspot_user_app/apps/global/utils/extensions.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_game_type.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_open_time.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/geolocation_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'store.g.dart';
 
-typedef Models = WithOffsetPagination<List<StoreModel>?>;
+typedef Models = WithOffsetPagination<List<StoreV2Model>?>;
 
 @riverpod
 class StoresItems extends _$StoresItems {
@@ -54,7 +54,7 @@ class StoresItems extends _$StoresItems {
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
 
-    final res = await ref.read(storesApiProvider).fetchStores(
+    final res = await ref.read(storesApiProvider).fetchStoresV2(
           gameType == GameType.GTD
               ? StoresQuery(
                   lat: latitude,
@@ -88,7 +88,7 @@ class StoresItems extends _$StoresItems {
       perPage: res.data?.perPage ?? 20,
       totalPage: res.data?.totalPage ?? 0,
       totalCount: res.data?.totalCount ?? 0,
-      items: res.data?.items.toStoreListModel(),
+      items: res.data?.items.toStoreV2ListModel(),
     );
   }
 
@@ -120,7 +120,7 @@ class StoresItems extends _$StoresItems {
     final longitude = ref.read(geoLocationServiceProvider).longitude;
 
     state = await AsyncValue.guard(() async {
-      final res = await ref.read(storesApiProvider).fetchStores(
+      final res = await ref.read(storesApiProvider).fetchStoresV2(
             gameType == GameType.GTD
                 ? StoresQuery(
                     lat: latitude,
@@ -153,7 +153,7 @@ class StoresItems extends _$StoresItems {
 
       if (data == null) return old;
 
-      final newItems = data.items.toStoreListModel();
+      final newItems = data.items.toStoreV2ListModel();
 
       Logger().d('New items: $newItems');
 

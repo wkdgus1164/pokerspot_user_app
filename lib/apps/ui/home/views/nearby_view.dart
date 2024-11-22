@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
@@ -46,14 +46,14 @@ class HomeNearbyStoresListViewState
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Store(
-                    storeImages: data.items![index].storeImages ?? [],
-                    name: data.items![index].name ?? "",
-                    address: data.items![index].address ?? "",
-                    addressDetail: data.items![index].addressDetail ?? "",
-                    openTime: data.items![index].openTime ?? "",
-                    closeTime: data.items![index].closeTime ?? "",
-                    distance: data.items![index].distance ?? 0.0,
-                    storeGames: data.items![index].gameMTTItems ?? [],
+                    storeImages: data.items![index].storeImages,
+                    name: data.items![index].name,
+                    address: data.items![index].address,
+                    addressDetail: data.items![index].addressDetail,
+                    openTime: data.items![index].openTime,
+                    closeTime: data.items![index].closeTime,
+                    distance: data.items![index].distance,
+                    storeGames: data.items![index].gameMTTItems,
                     updatedAt: data.items![index].updatedAt,
                     handleClick: () => _handleClick(model: data.items![index]),
                   );
@@ -76,18 +76,18 @@ class HomeNearbyStoresListViewState
     );
   }
 
-  void _handleClick({required StoreModel model}) {
+  void _handleClick({required StoreV2Model model}) {
     final target = ref.read(recentSearchDataProvider.notifier).find(model.id);
 
     if (target == null) {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name!),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
-              image: d.Value(model.storeImages!.first.url!),
-              address: d.Value(model.address!),
-              openTime: d.Value(model.openTime!),
+              image: d.Value(model.storeImages.first.url!),
+              address: d.Value(model.address),
+              openTime: d.Value(model.openTime),
             ),
           );
     }

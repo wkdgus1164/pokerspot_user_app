@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/image_load_failed.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
@@ -29,7 +30,7 @@ class Store extends StatelessWidget {
   final String closeTime;
   final double distance;
   final DateTime updatedAt;
-  final List<StoreGamesModel> storeGames;
+  final List<StoreGameMttV2Model> storeGames;
   final Function() handleClick;
 
   @override

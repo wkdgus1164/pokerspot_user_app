@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/search_result_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
@@ -54,9 +54,9 @@ class _SearchResultListState extends ConsumerState<SearchResultList> {
             itemCount: data.length,
             itemBuilder: (context, index) {
               return SearchResultItem(
-                name: data[index].name ?? '',
+                name: data[index].name,
                 handleClick: () => _routeToStoreDetail(model: data[index]),
-                distance: data[index].distance ?? 0.0,
+                distance: data[index].distance,
               );
             },
           ),
@@ -92,18 +92,18 @@ class _SearchResultListState extends ConsumerState<SearchResultList> {
     );
   }
 
-  void _routeToStoreDetail({required StoreModel model}) {
+  void _routeToStoreDetail({required StoreV2Model model}) {
     final target = ref.read(recentSearchDataProvider.notifier).find(model.id);
 
     if (target == null) {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name!),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
-              image: d.Value(model.storeImages!.first.url!),
-              address: d.Value(model.address!),
-              openTime: d.Value(model.openTime!),
+              image: d.Value(model.storeImages.first.url!),
+              address: d.Value(model.address),
+              openTime: d.Value(model.openTime),
             ),
           );
     }

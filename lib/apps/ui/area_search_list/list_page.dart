@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/area_search_list/providers/area.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store.dart';
@@ -77,14 +77,14 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
             itemBuilder: (context, index) {
               return Store(
                 storeImages: data[index].storeImages,
-                name: data[index].name ?? "",
-                address: data[index].address ?? "",
-                addressDetail: data[index].addressDetail ?? "",
-                openTime: data[index].openTime ?? '',
-                closeTime: data[index].closeTime ?? '',
-                distance: data[index].distance ?? 0,
+                name: data[index].name,
+                address: data[index].address,
+                addressDetail: data[index].addressDetail,
+                openTime: data[index].openTime,
+                closeTime: data[index].closeTime,
+                distance: data[index].distance,
                 updatedAt: data[index].updatedAt,
-                storeGames: data[index].gameMTTItems ?? [],
+                storeGames: data[index].gameMTTItems,
                 handleClick: () => _handleClick(model: data[index]),
               );
             },
@@ -111,18 +111,18 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
     });
   }
 
-  void _handleClick({required StoreModel model}) {
+  void _handleClick({required StoreV2Model model}) {
     final target = ref.read(recentSearchDataProvider.notifier).find(model.id);
 
     if (target == null) {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name!),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
-              image: d.Value(model.storeImages!.first.url!),
-              address: d.Value(model.address!),
-              openTime: d.Value(model.openTime!),
+              image: d.Value(model.storeImages.first.url!),
+              address: d.Value(model.address),
+              openTime: d.Value(model.openTime),
             ),
           );
     }

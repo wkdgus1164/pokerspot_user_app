@@ -4,14 +4,14 @@ import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart
 import 'package:pokerspot_user_app/apps/global/utils/extensions.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/area/providers/area_data.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/geolocation_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'area.g.dart';
 
-typedef Models = WithOffsetPagination<List<StoreModel>?>;
+typedef Models = WithOffsetPagination<List<StoreV2Model>?>;
 
 @riverpod
 class AreaStoreItems extends _$AreaStoreItems {
@@ -21,7 +21,7 @@ class AreaStoreItems extends _$AreaStoreItems {
   }
 
   FutureOr<Models> _fetch() async {
-    final res = await ref.read(storesApiProvider).fetchStores(
+    final res = await ref.read(storesApiProvider).fetchStoresV2(
           StoresQuery(
             lat: ref.read(geoLocationServiceProvider).latitude,
             lng: ref.read(geoLocationServiceProvider).longitude,
@@ -44,7 +44,7 @@ class AreaStoreItems extends _$AreaStoreItems {
       perPage: res.data?.perPage ?? 20,
       totalPage: res.data?.totalPage ?? 0,
       totalCount: res.data?.totalCount ?? 0,
-      items: res.data?.items.toStoreListModel(),
+      items: res.data?.items.toStoreV2ListModel(),
     );
   }
 
@@ -59,7 +59,7 @@ class AreaStoreItems extends _$AreaStoreItems {
 
     final nextPage = page + 1;
     state = await AsyncValue.guard(() async {
-      final res = await ref.read(storesApiProvider).fetchStores(
+      final res = await ref.read(storesApiProvider).fetchStoresV2(
             StoresQuery(
               lat: ref.read(geoLocationServiceProvider).latitude,
               lng: ref.read(geoLocationServiceProvider).longitude,
@@ -79,7 +79,7 @@ class AreaStoreItems extends _$AreaStoreItems {
 
       if (data == null) return old;
 
-      final newItems = data.items.map((e) => e.toStoreModel()).toList();
+      final newItems = data.items.map((e) => e.toStoreV2Model()).toList();
 
       Logger().d('New items: $newItems');
 

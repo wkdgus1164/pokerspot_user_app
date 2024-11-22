@@ -43,7 +43,7 @@ class StoreData extends _$StoreData {
       lat: data.lat,
       lng: data.lng,
       storeImages: data.storeImages?.toImageListModel(),
-      gameMTTItems: data.gameMttItems?.toGameListModel(),
+      gameMTTItems: [],
     );
   }
 }

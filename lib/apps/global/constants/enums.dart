@@ -39,8 +39,8 @@ enum OperationStatus {
 
 enum EntryType {
   CASH('현금'),
-  TICKET('티켓'),
-  POINT('포인트'),
+  TICKET('매장이용권'),
+  POINT('매장포인트'),
   ;
 
   const EntryType(this.kr);
@@ -49,8 +49,8 @@ enum EntryType {
 
 enum PrizeType {
   CASH('현금'),
-  TICKET('티켓'),
-  POINT('포인트'),
+  TICKET('매장이용권'),
+  POINT('매장포인트'),
   ;
 
   const PrizeType(this.kr);

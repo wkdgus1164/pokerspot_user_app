@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_games/game_item.dart';
 
 class StoreGameList extends StatelessWidget {
@@ -11,7 +11,7 @@ class StoreGameList extends StatelessWidget {
     this.scrollDirection = Axis.vertical,
   });
 
-  final List<StoreGamesModel> games;
+  final List<StoreGameMttV2Model> games;
   final Axis scrollDirection;
 
   @override
@@ -78,7 +78,7 @@ class StoreGameList extends StatelessWidget {
                             color: Colors.red.shade50,
                           ),
                           child: Text(
-                            it.type?.kr ?? "",
+                            it.type.kr,
                             style: Theme.of(context)
                                 .textTheme
                                 .labelSmall!
@@ -115,7 +115,7 @@ class StoreGameList extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    it.name ?? "",
+                    it.name,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: colorGrey20,
                         ),
@@ -126,14 +126,14 @@ class StoreGameList extends StatelessWidget {
                     description: '${it.entryPrice.toString()} Ticket',
                   ),
                   const SizedBox(height: 8),
-                  StoreGameItem(
-                    title: 'ENTRY',
-                    description:
-                        it.entryMax != null ? it.entryMax.toString() : "-",
-                    caption: it.reEntryMax != null
-                        ? '리바인 ${it.reEntryMax.toString()}번 가능'
-                        : null,
-                  ),
+                  // StoreGameItem(
+                  //   title: 'ENTRY',
+                  //   description:
+                  //       it.entryMax != null ? it.entryMax.toString() : "-",
+                  //   caption: it.reEntryMax != null
+                  //       ? '리바인 ${it.reEntryMax.toString()}번 가능'
+                  //       : null,
+                  // ),
                   const SizedBox(height: 8),
                   StoreGameItem(
                     title: 'BL-UP',

@@ -24,7 +24,7 @@ class StoreV2Dto with _$StoreV2Dto {
     required List<StoreImagesDto>? storeImages,
     required List<StoreBenefitsDto>? storeBenefits,
     required List<StoreTagDto>? storeTags,
-    required List<GameMTTDto>? gameMttItems,
+    required List<GameMttItemsV2Dto>? gameMttItems,
   }) = _StoreV2Dto;
 
   factory StoreV2Dto.fromJson(
@@ -37,18 +37,19 @@ class StoreV2Dto with _$StoreV2Dto {
 class GameMttItemsV2Dto with _$GameMttItemsV2Dto {
   factory GameMttItemsV2Dto({
     required String id,
-    required String type,
+    required GameType type,
     required EntryType entryType,
     required int entryPrice,
+    required int? regEndBlindLevel,
     required int? entryMax,
-    required int? reEntryMax,
     required int? duration,
-    required PrizeType? prizeType,
+    required PrizeType prizeType,
     required int? prize,
     required int? gtdMinReward,
-    required EventType? eventType,
-    required bool? isDaily,
-    required String? name,
+    required EventType eventType,
+    required bool isDaily,
+    required String? gameSchedule,
+    required String name,
   }) = _GameMttItemsV2Dto;
 
   factory GameMttItemsV2Dto.fromJson(Map<String, dynamic> json) =>

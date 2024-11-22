@@ -21,23 +21,43 @@ class StoreV2Model with _$StoreV2Model {
     required double lat,
     required double lng,
     required List<StoreImagesModel> storeImages,
-    required List<StoreBenefitsModel> storeBenefits,
-    required List<StoreTagModel> storeTags,
-    required List<StoreGamesModel> gameMTTItems,
+    required List<StoreBenefitV2Model> storeBenefits,
+    required List<StoreTagV2Model> storeTags,
+    required List<StoreGameMttV2Model> gameMTTItems,
   }) = _StoreV2Model;
 }
 
 @freezed
-class StoreBenefitsModel with _$StoreBenefitsModel {
-  factory StoreBenefitsModel({
+class StoreBenefitV2Model with _$StoreBenefitV2Model {
+  factory StoreBenefitV2Model({
     required StoreBenefitType? type,
     required String? description,
-  }) = _StoreBenefitsModel;
+  }) = _StoreBenefitV2Model;
 }
 
 @freezed
-class StoreTagModel with _$StoreTagModel {
-  factory StoreTagModel({
+class StoreTagV2Model with _$StoreTagV2Model {
+  factory StoreTagV2Model({
     required String? name,
-  }) = _StoreTagsModel;
+  }) = _StoreTagV2Model;
+}
+
+@freezed
+class StoreGameMttV2Model with _$StoreGameMttV2Model {
+  factory StoreGameMttV2Model({
+    required String id,
+    required GameType type,
+    required EntryType entryType,
+    required int entryPrice,
+    required int? regEndBlindLevel,
+    required int? entryMax,
+    required int? duration,
+    required PrizeType prizeType,
+    required int? prize,
+    required int? gtdMinReward,
+    required EventType eventType,
+    required bool isDaily,
+    required String? gameSchedule,
+    required String name,
+  }) = _StoreGameMttV2Model;
 }

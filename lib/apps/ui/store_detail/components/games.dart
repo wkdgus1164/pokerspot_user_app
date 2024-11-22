@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list_detail.dart';
 
 class StoreDetailGameList extends StatelessWidget {
   const StoreDetailGameList({super.key, required this.games});
 
-  final List<StoreGamesModel> games;
+  final List<StoreGameMttV2Model> games;
 
   @override
   Widget build(BuildContext context) {

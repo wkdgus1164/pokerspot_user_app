@@ -42,7 +42,7 @@ class StoreV2Data extends _$StoreV2Data {
       lat: data.lat ?? 0,
       lng: data.lng ?? 0,
       storeImages: data.storeImages?.toImageListModel() ?? [],
-      gameMTTItems: data.gameMttItems?.toGameListModel() ?? [],
+      gameMTTItems: data.gameMttItems?.toGameMttListV2Model() ?? [],
       storeBenefits: data.storeBenefits?.toStoreBenefitsModel() ?? [],
       storeTags: data.storeTags?.toStoreTagsModel() ?? [],
       kakaoChatUrl: data.kakaoChatUrl ?? "",

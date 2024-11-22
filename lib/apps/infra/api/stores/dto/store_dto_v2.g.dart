@@ -33,7 +33,7 @@ _$StoreV2DtoImpl _$$StoreV2DtoImplFromJson(Map<String, dynamic> json) =>
           ?.map((e) => StoreTagDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       gameMttItems: (json['gameMttItems'] as List<dynamic>?)
-          ?.map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => GameMttItemsV2Dto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -62,37 +62,47 @@ _$GameMttItemsV2DtoImpl _$$GameMttItemsV2DtoImplFromJson(
         Map<String, dynamic> json) =>
     _$GameMttItemsV2DtoImpl(
       id: json['id'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$GameTypeEnumMap, json['type']),
       entryType: $enumDecode(_$EntryTypeEnumMap, json['entryType']),
       entryPrice: (json['entryPrice'] as num).toInt(),
+      regEndBlindLevel: (json['regEndBlindLevel'] as num?)?.toInt(),
       entryMax: (json['entryMax'] as num?)?.toInt(),
-      reEntryMax: (json['reEntryMax'] as num?)?.toInt(),
       duration: (json['duration'] as num?)?.toInt(),
-      prizeType: $enumDecodeNullable(_$PrizeTypeEnumMap, json['prizeType']),
+      prizeType: $enumDecode(_$PrizeTypeEnumMap, json['prizeType']),
       prize: (json['prize'] as num?)?.toInt(),
       gtdMinReward: (json['gtdMinReward'] as num?)?.toInt(),
-      eventType: $enumDecodeNullable(_$EventTypeEnumMap, json['eventType']),
-      isDaily: json['isDaily'] as bool?,
-      name: json['name'] as String?,
+      eventType: $enumDecode(_$EventTypeEnumMap, json['eventType']),
+      isDaily: json['isDaily'] as bool,
+      gameSchedule: json['gameSchedule'] as String?,
+      name: json['name'] as String,
     );
 
 Map<String, dynamic> _$$GameMttItemsV2DtoImplToJson(
         _$GameMttItemsV2DtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'type': instance.type,
+      'type': _$GameTypeEnumMap[instance.type]!,
       'entryType': _$EntryTypeEnumMap[instance.entryType]!,
       'entryPrice': instance.entryPrice,
+      'regEndBlindLevel': instance.regEndBlindLevel,
       'entryMax': instance.entryMax,
-      'reEntryMax': instance.reEntryMax,
       'duration': instance.duration,
-      'prizeType': _$PrizeTypeEnumMap[instance.prizeType],
+      'prizeType': _$PrizeTypeEnumMap[instance.prizeType]!,
       'prize': instance.prize,
       'gtdMinReward': instance.gtdMinReward,
-      'eventType': _$EventTypeEnumMap[instance.eventType],
+      'eventType': _$EventTypeEnumMap[instance.eventType]!,
       'isDaily': instance.isDaily,
+      'gameSchedule': instance.gameSchedule,
       'name': instance.name,
     };
+
+const _$GameTypeEnumMap = {
+  GameType.DAILY: 'DAILY',
+  GameType.SEED: 'SEED',
+  GameType.GTD: 'GTD',
+  GameType.ALL: 'ALL',
+  GameType.MTT: 'MTT',
+};
 
 const _$EntryTypeEnumMap = {
   EntryType.CASH: 'CASH',

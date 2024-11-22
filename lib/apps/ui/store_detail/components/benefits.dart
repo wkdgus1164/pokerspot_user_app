@@ -12,7 +12,7 @@ class StoreDetailBenefits extends StatelessWidget {
     required this.benefits,
   });
 
-  final List<StoreBenefitsModel> benefits;
+  final List<StoreBenefitV2Model> benefits;
 
   @override
   Widget build(BuildContext context) {

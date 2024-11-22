@@ -30,10 +30,11 @@ mixin _$StoreV2Model {
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
   List<StoreImagesModel> get storeImages => throw _privateConstructorUsedError;
-  List<StoreBenefitsModel> get storeBenefits =>
+  List<StoreBenefitV2Model> get storeBenefits =>
       throw _privateConstructorUsedError;
-  List<StoreTagModel> get storeTags => throw _privateConstructorUsedError;
-  List<StoreGamesModel> get gameMTTItems => throw _privateConstructorUsedError;
+  List<StoreTagV2Model> get storeTags => throw _privateConstructorUsedError;
+  List<StoreGameMttV2Model> get gameMTTItems =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of StoreV2Model
   /// with the given fields replaced by the non-null parameter values.
@@ -63,9 +64,9 @@ abstract class $StoreV2ModelCopyWith<$Res> {
       double lat,
       double lng,
       List<StoreImagesModel> storeImages,
-      List<StoreBenefitsModel> storeBenefits,
-      List<StoreTagModel> storeTags,
-      List<StoreGamesModel> gameMTTItems});
+      List<StoreBenefitV2Model> storeBenefits,
+      List<StoreTagV2Model> storeTags,
+      List<StoreGameMttV2Model> gameMTTItems});
 }
 
 /// @nodoc
@@ -161,15 +162,15 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
       storeBenefits: null == storeBenefits
           ? _value.storeBenefits
           : storeBenefits // ignore: cast_nullable_to_non_nullable
-              as List<StoreBenefitsModel>,
+              as List<StoreBenefitV2Model>,
       storeTags: null == storeTags
           ? _value.storeTags
           : storeTags // ignore: cast_nullable_to_non_nullable
-              as List<StoreTagModel>,
+              as List<StoreTagV2Model>,
       gameMTTItems: null == gameMTTItems
           ? _value.gameMTTItems
           : gameMTTItems // ignore: cast_nullable_to_non_nullable
-              as List<StoreGamesModel>,
+              as List<StoreGameMttV2Model>,
     ) as $Val);
   }
 }
@@ -197,9 +198,9 @@ abstract class _$$StoreV2ModelImplCopyWith<$Res>
       double lat,
       double lng,
       List<StoreImagesModel> storeImages,
-      List<StoreBenefitsModel> storeBenefits,
-      List<StoreTagModel> storeTags,
-      List<StoreGamesModel> gameMTTItems});
+      List<StoreBenefitV2Model> storeBenefits,
+      List<StoreTagV2Model> storeTags,
+      List<StoreGameMttV2Model> gameMTTItems});
 }
 
 /// @nodoc
@@ -293,15 +294,15 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
       storeBenefits: null == storeBenefits
           ? _value._storeBenefits
           : storeBenefits // ignore: cast_nullable_to_non_nullable
-              as List<StoreBenefitsModel>,
+              as List<StoreBenefitV2Model>,
       storeTags: null == storeTags
           ? _value._storeTags
           : storeTags // ignore: cast_nullable_to_non_nullable
-              as List<StoreTagModel>,
+              as List<StoreTagV2Model>,
       gameMTTItems: null == gameMTTItems
           ? _value._gameMTTItems
           : gameMTTItems // ignore: cast_nullable_to_non_nullable
-              as List<StoreGamesModel>,
+              as List<StoreGameMttV2Model>,
     ));
   }
 }
@@ -324,9 +325,9 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
       required this.lat,
       required this.lng,
       required final List<StoreImagesModel> storeImages,
-      required final List<StoreBenefitsModel> storeBenefits,
-      required final List<StoreTagModel> storeTags,
-      required final List<StoreGamesModel> gameMTTItems})
+      required final List<StoreBenefitV2Model> storeBenefits,
+      required final List<StoreTagV2Model> storeTags,
+      required final List<StoreGameMttV2Model> gameMTTItems})
       : _storeImages = storeImages,
         _storeBenefits = storeBenefits,
         _storeTags = storeTags,
@@ -366,25 +367,25 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
     return EqualUnmodifiableListView(_storeImages);
   }
 
-  final List<StoreBenefitsModel> _storeBenefits;
+  final List<StoreBenefitV2Model> _storeBenefits;
   @override
-  List<StoreBenefitsModel> get storeBenefits {
+  List<StoreBenefitV2Model> get storeBenefits {
     if (_storeBenefits is EqualUnmodifiableListView) return _storeBenefits;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_storeBenefits);
   }
 
-  final List<StoreTagModel> _storeTags;
+  final List<StoreTagV2Model> _storeTags;
   @override
-  List<StoreTagModel> get storeTags {
+  List<StoreTagV2Model> get storeTags {
     if (_storeTags is EqualUnmodifiableListView) return _storeTags;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_storeTags);
   }
 
-  final List<StoreGamesModel> _gameMTTItems;
+  final List<StoreGameMttV2Model> _gameMTTItems;
   @override
-  List<StoreGamesModel> get gameMTTItems {
+  List<StoreGameMttV2Model> get gameMTTItems {
     if (_gameMTTItems is EqualUnmodifiableListView) return _gameMTTItems;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_gameMTTItems);
@@ -461,23 +462,24 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
 
 abstract class _StoreV2Model implements StoreV2Model {
   factory _StoreV2Model(
-      {required final String id,
-      required final String type,
-      required final String name,
-      required final String address,
-      required final String addressDetail,
-      required final String openTime,
-      required final String closeTime,
-      required final String phone,
-      required final String kakaoChatUrl,
-      required final DateTime updatedAt,
-      required final double distance,
-      required final double lat,
-      required final double lng,
-      required final List<StoreImagesModel> storeImages,
-      required final List<StoreBenefitsModel> storeBenefits,
-      required final List<StoreTagModel> storeTags,
-      required final List<StoreGamesModel> gameMTTItems}) = _$StoreV2ModelImpl;
+          {required final String id,
+          required final String type,
+          required final String name,
+          required final String address,
+          required final String addressDetail,
+          required final String openTime,
+          required final String closeTime,
+          required final String phone,
+          required final String kakaoChatUrl,
+          required final DateTime updatedAt,
+          required final double distance,
+          required final double lat,
+          required final double lng,
+          required final List<StoreImagesModel> storeImages,
+          required final List<StoreBenefitV2Model> storeBenefits,
+          required final List<StoreTagV2Model> storeTags,
+          required final List<StoreGameMttV2Model> gameMTTItems}) =
+      _$StoreV2ModelImpl;
 
   @override
   String get id;
@@ -508,11 +510,11 @@ abstract class _StoreV2Model implements StoreV2Model {
   @override
   List<StoreImagesModel> get storeImages;
   @override
-  List<StoreBenefitsModel> get storeBenefits;
+  List<StoreBenefitV2Model> get storeBenefits;
   @override
-  List<StoreTagModel> get storeTags;
+  List<StoreTagV2Model> get storeTags;
   @override
-  List<StoreGamesModel> get gameMTTItems;
+  List<StoreGameMttV2Model> get gameMTTItems;
 
   /// Create a copy of StoreV2Model
   /// with the given fields replaced by the non-null parameter values.
@@ -523,37 +525,37 @@ abstract class _StoreV2Model implements StoreV2Model {
 }
 
 /// @nodoc
-mixin _$StoreBenefitsModel {
+mixin _$StoreBenefitV2Model {
   StoreBenefitType? get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
-  /// Create a copy of StoreBenefitsModel
+  /// Create a copy of StoreBenefitV2Model
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StoreBenefitsModelCopyWith<StoreBenefitsModel> get copyWith =>
+  $StoreBenefitV2ModelCopyWith<StoreBenefitV2Model> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StoreBenefitsModelCopyWith<$Res> {
-  factory $StoreBenefitsModelCopyWith(
-          StoreBenefitsModel value, $Res Function(StoreBenefitsModel) then) =
-      _$StoreBenefitsModelCopyWithImpl<$Res, StoreBenefitsModel>;
+abstract class $StoreBenefitV2ModelCopyWith<$Res> {
+  factory $StoreBenefitV2ModelCopyWith(
+          StoreBenefitV2Model value, $Res Function(StoreBenefitV2Model) then) =
+      _$StoreBenefitV2ModelCopyWithImpl<$Res, StoreBenefitV2Model>;
   @useResult
   $Res call({StoreBenefitType? type, String? description});
 }
 
 /// @nodoc
-class _$StoreBenefitsModelCopyWithImpl<$Res, $Val extends StoreBenefitsModel>
-    implements $StoreBenefitsModelCopyWith<$Res> {
-  _$StoreBenefitsModelCopyWithImpl(this._value, this._then);
+class _$StoreBenefitV2ModelCopyWithImpl<$Res, $Val extends StoreBenefitV2Model>
+    implements $StoreBenefitV2ModelCopyWith<$Res> {
+  _$StoreBenefitV2ModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of StoreBenefitsModel
+  /// Create a copy of StoreBenefitV2Model
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -575,25 +577,25 @@ class _$StoreBenefitsModelCopyWithImpl<$Res, $Val extends StoreBenefitsModel>
 }
 
 /// @nodoc
-abstract class _$$StoreBenefitsModelImplCopyWith<$Res>
-    implements $StoreBenefitsModelCopyWith<$Res> {
-  factory _$$StoreBenefitsModelImplCopyWith(_$StoreBenefitsModelImpl value,
-          $Res Function(_$StoreBenefitsModelImpl) then) =
-      __$$StoreBenefitsModelImplCopyWithImpl<$Res>;
+abstract class _$$StoreBenefitV2ModelImplCopyWith<$Res>
+    implements $StoreBenefitV2ModelCopyWith<$Res> {
+  factory _$$StoreBenefitV2ModelImplCopyWith(_$StoreBenefitV2ModelImpl value,
+          $Res Function(_$StoreBenefitV2ModelImpl) then) =
+      __$$StoreBenefitV2ModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({StoreBenefitType? type, String? description});
 }
 
 /// @nodoc
-class __$$StoreBenefitsModelImplCopyWithImpl<$Res>
-    extends _$StoreBenefitsModelCopyWithImpl<$Res, _$StoreBenefitsModelImpl>
-    implements _$$StoreBenefitsModelImplCopyWith<$Res> {
-  __$$StoreBenefitsModelImplCopyWithImpl(_$StoreBenefitsModelImpl _value,
-      $Res Function(_$StoreBenefitsModelImpl) _then)
+class __$$StoreBenefitV2ModelImplCopyWithImpl<$Res>
+    extends _$StoreBenefitV2ModelCopyWithImpl<$Res, _$StoreBenefitV2ModelImpl>
+    implements _$$StoreBenefitV2ModelImplCopyWith<$Res> {
+  __$$StoreBenefitV2ModelImplCopyWithImpl(_$StoreBenefitV2ModelImpl _value,
+      $Res Function(_$StoreBenefitV2ModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of StoreBenefitsModel
+  /// Create a copy of StoreBenefitV2Model
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -601,7 +603,7 @@ class __$$StoreBenefitsModelImplCopyWithImpl<$Res>
     Object? type = freezed,
     Object? description = freezed,
   }) {
-    return _then(_$StoreBenefitsModelImpl(
+    return _then(_$StoreBenefitV2ModelImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -616,8 +618,8 @@ class __$$StoreBenefitsModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StoreBenefitsModelImpl implements _StoreBenefitsModel {
-  _$StoreBenefitsModelImpl({required this.type, required this.description});
+class _$StoreBenefitV2ModelImpl implements _StoreBenefitV2Model {
+  _$StoreBenefitV2ModelImpl({required this.type, required this.description});
 
   @override
   final StoreBenefitType? type;
@@ -626,14 +628,14 @@ class _$StoreBenefitsModelImpl implements _StoreBenefitsModel {
 
   @override
   String toString() {
-    return 'StoreBenefitsModel(type: $type, description: $description)';
+    return 'StoreBenefitV2Model(type: $type, description: $description)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StoreBenefitsModelImpl &&
+            other is _$StoreBenefitV2ModelImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -642,65 +644,65 @@ class _$StoreBenefitsModelImpl implements _StoreBenefitsModel {
   @override
   int get hashCode => Object.hash(runtimeType, type, description);
 
-  /// Create a copy of StoreBenefitsModel
+  /// Create a copy of StoreBenefitV2Model
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$StoreBenefitsModelImplCopyWith<_$StoreBenefitsModelImpl> get copyWith =>
-      __$$StoreBenefitsModelImplCopyWithImpl<_$StoreBenefitsModelImpl>(
+  _$$StoreBenefitV2ModelImplCopyWith<_$StoreBenefitV2ModelImpl> get copyWith =>
+      __$$StoreBenefitV2ModelImplCopyWithImpl<_$StoreBenefitV2ModelImpl>(
           this, _$identity);
 }
 
-abstract class _StoreBenefitsModel implements StoreBenefitsModel {
-  factory _StoreBenefitsModel(
+abstract class _StoreBenefitV2Model implements StoreBenefitV2Model {
+  factory _StoreBenefitV2Model(
       {required final StoreBenefitType? type,
-      required final String? description}) = _$StoreBenefitsModelImpl;
+      required final String? description}) = _$StoreBenefitV2ModelImpl;
 
   @override
   StoreBenefitType? get type;
   @override
   String? get description;
 
-  /// Create a copy of StoreBenefitsModel
+  /// Create a copy of StoreBenefitV2Model
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StoreBenefitsModelImplCopyWith<_$StoreBenefitsModelImpl> get copyWith =>
+  _$$StoreBenefitV2ModelImplCopyWith<_$StoreBenefitV2ModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$StoreTagModel {
+mixin _$StoreTagV2Model {
   String? get name => throw _privateConstructorUsedError;
 
-  /// Create a copy of StoreTagModel
+  /// Create a copy of StoreTagV2Model
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StoreTagModelCopyWith<StoreTagModel> get copyWith =>
+  $StoreTagV2ModelCopyWith<StoreTagV2Model> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StoreTagModelCopyWith<$Res> {
-  factory $StoreTagModelCopyWith(
-          StoreTagModel value, $Res Function(StoreTagModel) then) =
-      _$StoreTagModelCopyWithImpl<$Res, StoreTagModel>;
+abstract class $StoreTagV2ModelCopyWith<$Res> {
+  factory $StoreTagV2ModelCopyWith(
+          StoreTagV2Model value, $Res Function(StoreTagV2Model) then) =
+      _$StoreTagV2ModelCopyWithImpl<$Res, StoreTagV2Model>;
   @useResult
   $Res call({String? name});
 }
 
 /// @nodoc
-class _$StoreTagModelCopyWithImpl<$Res, $Val extends StoreTagModel>
-    implements $StoreTagModelCopyWith<$Res> {
-  _$StoreTagModelCopyWithImpl(this._value, this._then);
+class _$StoreTagV2ModelCopyWithImpl<$Res, $Val extends StoreTagV2Model>
+    implements $StoreTagV2ModelCopyWith<$Res> {
+  _$StoreTagV2ModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of StoreTagModel
+  /// Create a copy of StoreTagV2Model
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -717,32 +719,32 @@ class _$StoreTagModelCopyWithImpl<$Res, $Val extends StoreTagModel>
 }
 
 /// @nodoc
-abstract class _$$StoreTagsModelImplCopyWith<$Res>
-    implements $StoreTagModelCopyWith<$Res> {
-  factory _$$StoreTagsModelImplCopyWith(_$StoreTagsModelImpl value,
-          $Res Function(_$StoreTagsModelImpl) then) =
-      __$$StoreTagsModelImplCopyWithImpl<$Res>;
+abstract class _$$StoreTagV2ModelImplCopyWith<$Res>
+    implements $StoreTagV2ModelCopyWith<$Res> {
+  factory _$$StoreTagV2ModelImplCopyWith(_$StoreTagV2ModelImpl value,
+          $Res Function(_$StoreTagV2ModelImpl) then) =
+      __$$StoreTagV2ModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name});
 }
 
 /// @nodoc
-class __$$StoreTagsModelImplCopyWithImpl<$Res>
-    extends _$StoreTagModelCopyWithImpl<$Res, _$StoreTagsModelImpl>
-    implements _$$StoreTagsModelImplCopyWith<$Res> {
-  __$$StoreTagsModelImplCopyWithImpl(
-      _$StoreTagsModelImpl _value, $Res Function(_$StoreTagsModelImpl) _then)
+class __$$StoreTagV2ModelImplCopyWithImpl<$Res>
+    extends _$StoreTagV2ModelCopyWithImpl<$Res, _$StoreTagV2ModelImpl>
+    implements _$$StoreTagV2ModelImplCopyWith<$Res> {
+  __$$StoreTagV2ModelImplCopyWithImpl(
+      _$StoreTagV2ModelImpl _value, $Res Function(_$StoreTagV2ModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of StoreTagModel
+  /// Create a copy of StoreTagV2Model
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
   }) {
-    return _then(_$StoreTagsModelImpl(
+    return _then(_$StoreTagV2ModelImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -753,48 +755,466 @@ class __$$StoreTagsModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StoreTagsModelImpl implements _StoreTagsModel {
-  _$StoreTagsModelImpl({required this.name});
+class _$StoreTagV2ModelImpl implements _StoreTagV2Model {
+  _$StoreTagV2ModelImpl({required this.name});
 
   @override
   final String? name;
 
   @override
   String toString() {
-    return 'StoreTagModel(name: $name)';
+    return 'StoreTagV2Model(name: $name)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StoreTagsModelImpl &&
+            other is _$StoreTagV2ModelImpl &&
             (identical(other.name, name) || other.name == name));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, name);
 
-  /// Create a copy of StoreTagModel
+  /// Create a copy of StoreTagV2Model
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$StoreTagsModelImplCopyWith<_$StoreTagsModelImpl> get copyWith =>
-      __$$StoreTagsModelImplCopyWithImpl<_$StoreTagsModelImpl>(
+  _$$StoreTagV2ModelImplCopyWith<_$StoreTagV2ModelImpl> get copyWith =>
+      __$$StoreTagV2ModelImplCopyWithImpl<_$StoreTagV2ModelImpl>(
           this, _$identity);
 }
 
-abstract class _StoreTagsModel implements StoreTagModel {
-  factory _StoreTagsModel({required final String? name}) = _$StoreTagsModelImpl;
+abstract class _StoreTagV2Model implements StoreTagV2Model {
+  factory _StoreTagV2Model({required final String? name}) =
+      _$StoreTagV2ModelImpl;
 
   @override
   String? get name;
 
-  /// Create a copy of StoreTagModel
+  /// Create a copy of StoreTagV2Model
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StoreTagsModelImplCopyWith<_$StoreTagsModelImpl> get copyWith =>
+  _$$StoreTagV2ModelImplCopyWith<_$StoreTagV2ModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$StoreGameMttV2Model {
+  String get id => throw _privateConstructorUsedError;
+  GameType get type => throw _privateConstructorUsedError;
+  EntryType get entryType => throw _privateConstructorUsedError;
+  int get entryPrice => throw _privateConstructorUsedError;
+  int? get regEndBlindLevel => throw _privateConstructorUsedError;
+  int? get entryMax => throw _privateConstructorUsedError;
+  int? get duration => throw _privateConstructorUsedError;
+  PrizeType get prizeType => throw _privateConstructorUsedError;
+  int? get prize => throw _privateConstructorUsedError;
+  int? get gtdMinReward => throw _privateConstructorUsedError;
+  EventType get eventType => throw _privateConstructorUsedError;
+  bool get isDaily => throw _privateConstructorUsedError;
+  String? get gameSchedule => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+
+  /// Create a copy of StoreGameMttV2Model
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $StoreGameMttV2ModelCopyWith<StoreGameMttV2Model> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StoreGameMttV2ModelCopyWith<$Res> {
+  factory $StoreGameMttV2ModelCopyWith(
+          StoreGameMttV2Model value, $Res Function(StoreGameMttV2Model) then) =
+      _$StoreGameMttV2ModelCopyWithImpl<$Res, StoreGameMttV2Model>;
+  @useResult
+  $Res call(
+      {String id,
+      GameType type,
+      EntryType entryType,
+      int entryPrice,
+      int? regEndBlindLevel,
+      int? entryMax,
+      int? duration,
+      PrizeType prizeType,
+      int? prize,
+      int? gtdMinReward,
+      EventType eventType,
+      bool isDaily,
+      String? gameSchedule,
+      String name});
+}
+
+/// @nodoc
+class _$StoreGameMttV2ModelCopyWithImpl<$Res, $Val extends StoreGameMttV2Model>
+    implements $StoreGameMttV2ModelCopyWith<$Res> {
+  _$StoreGameMttV2ModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of StoreGameMttV2Model
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? entryType = null,
+    Object? entryPrice = null,
+    Object? regEndBlindLevel = freezed,
+    Object? entryMax = freezed,
+    Object? duration = freezed,
+    Object? prizeType = null,
+    Object? prize = freezed,
+    Object? gtdMinReward = freezed,
+    Object? eventType = null,
+    Object? isDaily = null,
+    Object? gameSchedule = freezed,
+    Object? name = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as GameType,
+      entryType: null == entryType
+          ? _value.entryType
+          : entryType // ignore: cast_nullable_to_non_nullable
+              as EntryType,
+      entryPrice: null == entryPrice
+          ? _value.entryPrice
+          : entryPrice // ignore: cast_nullable_to_non_nullable
+              as int,
+      regEndBlindLevel: freezed == regEndBlindLevel
+          ? _value.regEndBlindLevel
+          : regEndBlindLevel // ignore: cast_nullable_to_non_nullable
+              as int?,
+      entryMax: freezed == entryMax
+          ? _value.entryMax
+          : entryMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      duration: freezed == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as int?,
+      prizeType: null == prizeType
+          ? _value.prizeType
+          : prizeType // ignore: cast_nullable_to_non_nullable
+              as PrizeType,
+      prize: freezed == prize
+          ? _value.prize
+          : prize // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gtdMinReward: freezed == gtdMinReward
+          ? _value.gtdMinReward
+          : gtdMinReward // ignore: cast_nullable_to_non_nullable
+              as int?,
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as EventType,
+      isDaily: null == isDaily
+          ? _value.isDaily
+          : isDaily // ignore: cast_nullable_to_non_nullable
+              as bool,
+      gameSchedule: freezed == gameSchedule
+          ? _value.gameSchedule
+          : gameSchedule // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$StoreGameMttV2ModelImplCopyWith<$Res>
+    implements $StoreGameMttV2ModelCopyWith<$Res> {
+  factory _$$StoreGameMttV2ModelImplCopyWith(_$StoreGameMttV2ModelImpl value,
+          $Res Function(_$StoreGameMttV2ModelImpl) then) =
+      __$$StoreGameMttV2ModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      GameType type,
+      EntryType entryType,
+      int entryPrice,
+      int? regEndBlindLevel,
+      int? entryMax,
+      int? duration,
+      PrizeType prizeType,
+      int? prize,
+      int? gtdMinReward,
+      EventType eventType,
+      bool isDaily,
+      String? gameSchedule,
+      String name});
+}
+
+/// @nodoc
+class __$$StoreGameMttV2ModelImplCopyWithImpl<$Res>
+    extends _$StoreGameMttV2ModelCopyWithImpl<$Res, _$StoreGameMttV2ModelImpl>
+    implements _$$StoreGameMttV2ModelImplCopyWith<$Res> {
+  __$$StoreGameMttV2ModelImplCopyWithImpl(_$StoreGameMttV2ModelImpl _value,
+      $Res Function(_$StoreGameMttV2ModelImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of StoreGameMttV2Model
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? entryType = null,
+    Object? entryPrice = null,
+    Object? regEndBlindLevel = freezed,
+    Object? entryMax = freezed,
+    Object? duration = freezed,
+    Object? prizeType = null,
+    Object? prize = freezed,
+    Object? gtdMinReward = freezed,
+    Object? eventType = null,
+    Object? isDaily = null,
+    Object? gameSchedule = freezed,
+    Object? name = null,
+  }) {
+    return _then(_$StoreGameMttV2ModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as GameType,
+      entryType: null == entryType
+          ? _value.entryType
+          : entryType // ignore: cast_nullable_to_non_nullable
+              as EntryType,
+      entryPrice: null == entryPrice
+          ? _value.entryPrice
+          : entryPrice // ignore: cast_nullable_to_non_nullable
+              as int,
+      regEndBlindLevel: freezed == regEndBlindLevel
+          ? _value.regEndBlindLevel
+          : regEndBlindLevel // ignore: cast_nullable_to_non_nullable
+              as int?,
+      entryMax: freezed == entryMax
+          ? _value.entryMax
+          : entryMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      duration: freezed == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as int?,
+      prizeType: null == prizeType
+          ? _value.prizeType
+          : prizeType // ignore: cast_nullable_to_non_nullable
+              as PrizeType,
+      prize: freezed == prize
+          ? _value.prize
+          : prize // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gtdMinReward: freezed == gtdMinReward
+          ? _value.gtdMinReward
+          : gtdMinReward // ignore: cast_nullable_to_non_nullable
+              as int?,
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as EventType,
+      isDaily: null == isDaily
+          ? _value.isDaily
+          : isDaily // ignore: cast_nullable_to_non_nullable
+              as bool,
+      gameSchedule: freezed == gameSchedule
+          ? _value.gameSchedule
+          : gameSchedule // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
+  _$StoreGameMttV2ModelImpl(
+      {required this.id,
+      required this.type,
+      required this.entryType,
+      required this.entryPrice,
+      required this.regEndBlindLevel,
+      required this.entryMax,
+      required this.duration,
+      required this.prizeType,
+      required this.prize,
+      required this.gtdMinReward,
+      required this.eventType,
+      required this.isDaily,
+      required this.gameSchedule,
+      required this.name});
+
+  @override
+  final String id;
+  @override
+  final GameType type;
+  @override
+  final EntryType entryType;
+  @override
+  final int entryPrice;
+  @override
+  final int? regEndBlindLevel;
+  @override
+  final int? entryMax;
+  @override
+  final int? duration;
+  @override
+  final PrizeType prizeType;
+  @override
+  final int? prize;
+  @override
+  final int? gtdMinReward;
+  @override
+  final EventType eventType;
+  @override
+  final bool isDaily;
+  @override
+  final String? gameSchedule;
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'StoreGameMttV2Model(id: $id, type: $type, entryType: $entryType, entryPrice: $entryPrice, regEndBlindLevel: $regEndBlindLevel, entryMax: $entryMax, duration: $duration, prizeType: $prizeType, prize: $prize, gtdMinReward: $gtdMinReward, eventType: $eventType, isDaily: $isDaily, gameSchedule: $gameSchedule, name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StoreGameMttV2ModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.entryType, entryType) ||
+                other.entryType == entryType) &&
+            (identical(other.entryPrice, entryPrice) ||
+                other.entryPrice == entryPrice) &&
+            (identical(other.regEndBlindLevel, regEndBlindLevel) ||
+                other.regEndBlindLevel == regEndBlindLevel) &&
+            (identical(other.entryMax, entryMax) ||
+                other.entryMax == entryMax) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
+            (identical(other.prizeType, prizeType) ||
+                other.prizeType == prizeType) &&
+            (identical(other.prize, prize) || other.prize == prize) &&
+            (identical(other.gtdMinReward, gtdMinReward) ||
+                other.gtdMinReward == gtdMinReward) &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            (identical(other.isDaily, isDaily) || other.isDaily == isDaily) &&
+            (identical(other.gameSchedule, gameSchedule) ||
+                other.gameSchedule == gameSchedule) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      type,
+      entryType,
+      entryPrice,
+      regEndBlindLevel,
+      entryMax,
+      duration,
+      prizeType,
+      prize,
+      gtdMinReward,
+      eventType,
+      isDaily,
+      gameSchedule,
+      name);
+
+  /// Create a copy of StoreGameMttV2Model
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StoreGameMttV2ModelImplCopyWith<_$StoreGameMttV2ModelImpl> get copyWith =>
+      __$$StoreGameMttV2ModelImplCopyWithImpl<_$StoreGameMttV2ModelImpl>(
+          this, _$identity);
+}
+
+abstract class _StoreGameMttV2Model implements StoreGameMttV2Model {
+  factory _StoreGameMttV2Model(
+      {required final String id,
+      required final GameType type,
+      required final EntryType entryType,
+      required final int entryPrice,
+      required final int? regEndBlindLevel,
+      required final int? entryMax,
+      required final int? duration,
+      required final PrizeType prizeType,
+      required final int? prize,
+      required final int? gtdMinReward,
+      required final EventType eventType,
+      required final bool isDaily,
+      required final String? gameSchedule,
+      required final String name}) = _$StoreGameMttV2ModelImpl;
+
+  @override
+  String get id;
+  @override
+  GameType get type;
+  @override
+  EntryType get entryType;
+  @override
+  int get entryPrice;
+  @override
+  int? get regEndBlindLevel;
+  @override
+  int? get entryMax;
+  @override
+  int? get duration;
+  @override
+  PrizeType get prizeType;
+  @override
+  int? get prize;
+  @override
+  int? get gtdMinReward;
+  @override
+  EventType get eventType;
+  @override
+  bool get isDaily;
+  @override
+  String? get gameSchedule;
+  @override
+  String get name;
+
+  /// Create a copy of StoreGameMttV2Model
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$StoreGameMttV2ModelImplCopyWith<_$StoreGameMttV2ModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
