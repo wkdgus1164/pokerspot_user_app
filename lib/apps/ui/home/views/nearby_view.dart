@@ -6,7 +6,7 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
-import 'package:pokerspot_user_app/apps/ui/global/store.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 
@@ -45,7 +45,7 @@ class HomeNearbyStoresListViewState
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
-                  return Store(
+                  return StoreV2(
                     storeImages: data.items![index].storeImages,
                     name: data.items![index].name,
                     address: data.items![index].address,
@@ -55,11 +55,13 @@ class HomeNearbyStoresListViewState
                     distance: data.items![index].distance,
                     storeGames: data.items![index].gameMTTItems,
                     updatedAt: data.items![index].updatedAt,
+                    storeBenefits: data.items![index].storeBenefits,
+                    storeTags: data.items![index].storeTags,
                     handleClick: () => _handleClick(model: data.items![index]),
                   );
                 },
                 separatorBuilder: (context, index) {
-                  return const SizedBox(height: 16);
+                  return Divider();
                 },
                 itemCount: data.items!.length,
               ),
