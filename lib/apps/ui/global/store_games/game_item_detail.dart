@@ -19,6 +19,7 @@ class StoreGameItemDetail extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
+          width: 56,
           padding: const EdgeInsets.symmetric(
             horizontal: 8,
             vertical: 4,
@@ -32,6 +33,7 @@ class StoreGameItemDetail extends StatelessWidget {
             style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   color: colorGrey40,
                 ),
+            textAlign: TextAlign.center,
           ),
         ),
         const SizedBox(width: 12),

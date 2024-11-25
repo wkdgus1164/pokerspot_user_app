@@ -60,26 +60,44 @@ class StoreGameListDetail extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                   ),
+                  if (it.gameSchedule != null) ...[
+                    Text(
+                      it.gameSchedule ?? "",
+                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                            color: colorGrey60,
+                          ),
+                    ),
+                  ],
                   const SizedBox(height: 16),
                   StoreGameItemDetail(
                     title: 'BUY-IN',
-                    description: '${it.entryPrice.toString()} Ticket',
-                  ),
-                  const SizedBox(height: 8),
-                  StoreGameItemDetail(
-                    title: 'BL-UP',
-                    description: it.duration != null
-                        ? '${it.duration.toString()}분'
-                        : "-",
-                  ),
-                  const SizedBox(height: 8),
-                  StoreGameItemDetail(
-                    title: 'PRIZE',
                     description:
-                        it.prize != null ? '${it.prize.toString()}%' : "-",
+                        '${it.entryType.kr} ${it.entryPrice}${it.entryType.unit}',
                   ),
-                  if (it.type == GameType.GTD && it.gtdMinReward != null) ...[
+                  const SizedBox(height: 8),
+                  if (it.prize != null) ...[
+                    StoreGameItemDetail(
+                      title: 'PRIZE',
+                      description:
+                          '${it.prizeType.kr} ${it.prize}${it.prizeType.unit}',
+                    ),
                     const SizedBox(height: 8),
+                  ],
+                  if (it.regEndBlindLevel != null) ...[
+                    StoreGameItemDetail(
+                      title: 'END',
+                      description: 'BL-LV ${it.regEndBlindLevel} 이전',
+                    ),
+                    const SizedBox(height: 8),
+                  ],
+                  if (it.duration != null) ...[
+                    StoreGameItemDetail(
+                      title: 'BL-UP',
+                      description: '${it.duration.toString()}분',
+                    ),
+                    const SizedBox(height: 8),
+                  ],
+                  if (it.type == GameType.GTD && it.gtdMinReward != null) ...[
                     StoreGameItemDetail(
                       title: '최소 상금',
                       description: it.gtdMinReward != null

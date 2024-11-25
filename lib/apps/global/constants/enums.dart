@@ -38,21 +38,23 @@ enum OperationStatus {
 }
 
 enum EntryType {
-  CASH('현금'),
-  TICKET('매장이용권'),
-  POINT('매장포인트'),
+  CASH('현금', '만원'),
+  TICKET('매장이용권', '장'),
+  POINT('매장포인트', 'P'),
   ;
 
-  const EntryType(this.kr);
+  const EntryType(this.kr, this.unit);
   final String kr;
+  final String unit;
 }
 
 enum PrizeType {
-  CASH('현금'),
-  TICKET('매장이용권'),
-  POINT('매장포인트'),
+  CASH('현금', '만원'),
+  TICKET('매장이용권', '장'),
+  POINT('매장포인트', 'P'),
   ;
 
-  const PrizeType(this.kr);
+  const PrizeType(this.kr, this.unit);
   final String kr;
+  final String unit;
 }
