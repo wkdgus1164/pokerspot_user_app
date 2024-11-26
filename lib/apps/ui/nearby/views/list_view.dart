@@ -7,7 +7,7 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
-import 'package:pokerspot_user_app/apps/ui/global/store.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/location_service.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
@@ -77,10 +77,9 @@ class _NearbyListViewState extends ConsumerState<NearbyListView> {
               onRefresh: _refresh,
               child: ListView.separated(
                 controller: scrollController,
-                padding: const EdgeInsets.all(16),
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  return Store(
+                  return StoreV2(
                     storeImages: data[index].storeImages,
                     name: data[index].name,
                     address: data[index].address,
@@ -90,11 +89,13 @@ class _NearbyListViewState extends ConsumerState<NearbyListView> {
                     distance: data[index].distance,
                     storeGames: data[index].gameMTTItems,
                     updatedAt: data[index].updatedAt,
+                    storeBenefits: data[index].storeBenefits,
+                    storeTags: data[index].storeTags,
                     handleClick: () => _handleClick(model: data[index]),
                   );
                 },
                 separatorBuilder: (context, index) =>
-                    const SizedBox(height: 16),
+                    const Divider(thickness: 8, height: 8),
               ),
             ),
           );

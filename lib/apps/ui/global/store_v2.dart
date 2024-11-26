@@ -1,13 +1,18 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_list_tem/benefit.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_list_tem/header.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_list_tem/store_game_statistics.dart';
+import 'package:pokerspot_user_app/common/colorful_chip/colorful_chip.dart';
 
 class StoreV2 extends StatelessWidget {
   const StoreV2({
     super.key,
-    this.storeImages,
+    required this.storeImages,
     required this.name,
     required this.address,
     required this.addressDetail,
@@ -17,11 +22,11 @@ class StoreV2 extends StatelessWidget {
     required this.storeGames,
     required this.handleClick,
     required this.updatedAt,
-    this.storeBenefits,
-    this.storeTags,
+    required this.storeBenefits,
+    required this.storeTags,
   });
 
-  final List<StoreImagesModel>? storeImages;
+  final List<StoreImagesModel> storeImages;
   final String name;
   final String address;
   final String addressDetail;
@@ -31,97 +36,76 @@ class StoreV2 extends StatelessWidget {
   final DateTime updatedAt;
   final List<StoreGameMttV2Model> storeGames;
   final Function() handleClick;
-  final List<StoreBenefitV2Model>? storeBenefits;
-  final List<StoreTagV2Model>? storeTags;
+  final List<StoreBenefitV2Model> storeBenefits;
+  final List<StoreTagV2Model> storeTags;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: handleClick,
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.8,
-        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(4),
-                    ),
-                    border: Border.all(
-                      color: colorGrey95,
-                    ),
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  child: CachedNetworkImage(
-                    imageUrl: storeImages![0].url!,
-                    width: 104,
-                    height: 104,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      SingleChildScrollView(
-                        child: Wrap(
-                          spacing: 8,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(4),
-                                ),
-                                color: Colors.red.shade50,
-                              ),
-                              child: Text(
-                                '매일 진행',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelSmall!
-                                    .copyWith(
-                                      color: Colors.red.shade700,
-                                    ),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(4),
-                                ),
-                                color: Colors.red.shade50,
-                              ),
-                              child: Text(
-                                '매일 진행',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelSmall!
-                                    .copyWith(
-                                      color: Colors.red.shade700,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            const SizedBox(height: 16),
+
+            // 헤더 (이미지, 혜택)
+            StoreListItemHeader(
+              name: name,
+              address: address,
+              openTime: openTime,
+              updatedAt: updatedAt,
+              storeImages: storeImages,
+              storeBenefits: storeBenefits,
             ),
+            const SizedBox(height: 16),
+
+            // 해시태그
+            if (storeTags.isNotEmpty) ...[
+              SingleChildScrollView(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Wrap(
+                  spacing: 8,
+                  children: [
+                    for (var i = 0; i < storeTags.length; i++)
+                      ColorfulChip(
+                        theme: i == 0
+                            ? ColorfulChipTheme.blue
+                            : ColorfulChipTheme.green,
+                        text: storeTags[i].name!,
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8),
+            ],
+
+            // 혜택 정보
+            if (storeBenefits.isNotEmpty) ...[
+              StoreListItemBenefit(storeBenefits: storeBenefits),
+              const SizedBox(height: 8),
+            ],
+
+            // 게임 통계
+            StoreListItemGameStatistics(games: storeGames),
+            const SizedBox(height: 16),
+
+            // 게임 정보
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                '토너먼트 5개',
+                style: textTheme.titleMedium!.copyWith(
+                  color: colorGrey20,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            StoreGameList(
+              games: storeGames,
+            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/ui/global/store.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_v2.dart';
 
 class MyFavoritePage extends StatefulHookConsumerWidget {
   const MyFavoritePage({super.key});
@@ -23,7 +23,7 @@ class _MyFavoritePageState extends ConsumerState<MyFavoritePage> {
         padding: const EdgeInsets.all(16),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return Store(
+          return StoreV2(
             storeImages: [
               StoreImagesModel(
                 id: "1",
@@ -39,6 +39,8 @@ class _MyFavoritePageState extends ConsumerState<MyFavoritePage> {
             distance: 1234.1234,
             updatedAt: DateTime.now(),
             storeGames: const [],
+            storeBenefits: [],
+            storeTags: [],
             handleClick: () => _handleClick(
               "1234",
               1234.2134,

@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_games/game_item.dart';
+import 'package:pokerspot_user_app/common/colorful_chip/colorful_chip.dart';
 
 class StoreGameList extends StatelessWidget {
   const StoreGameList({
     super.key,
     required this.games,
-    this.scrollDirection = Axis.vertical,
   });
 
   final List<StoreGameMttV2Model> games;
-  final Axis scrollDirection;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      scrollDirection: scrollDirection,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      scrollDirection: Axis.horizontal,
       child: Wrap(
         direction: Axis.horizontal,
         spacing: 16,
@@ -25,14 +24,11 @@ class StoreGameList extends StatelessWidget {
         children: games.map(
           (it) {
             return Container(
-              width: scrollDirection == Axis.vertical
-                  ? double.infinity
-                  : MediaQuery.of(context).size.width * 0.6,
+              width: MediaQuery.of(context).size.width * 0.6,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                border: Border.all(color: colorGrey90),
                 borderRadius: BorderRadius.circular(8),
-                color: Colors.white,
+                color: colorGrey98,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,73 +39,10 @@ class StoreGameList extends StatelessWidget {
                       direction: Axis.horizontal,
                       spacing: 12,
                       children: [
-                        if (it.eventType == EventType.FIRST_GAME) ...[
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(4),
-                              ),
-                              color: Colors.blue.shade50,
-                            ),
-                            child: Text(
-                              '첫 게임',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelSmall!
-                                  .copyWith(
-                                    color: Colors.blue.shade700,
-                                  ),
-                            ),
-                          ),
-                        ],
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(4),
-                            ),
-                            color: Colors.red.shade50,
-                          ),
-                          child: Text(
-                            it.type.kr,
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelSmall!
-                                .copyWith(
-                                  color: Colors.red.shade700,
-                                ),
-                          ),
+                        ColorfulChip(
+                          theme: ColorfulChipTheme.red,
+                          text: '실시간 12분전',
                         ),
-                        if (it.isDaily) ...[
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(4),
-                              ),
-                              color: Colors.green.shade50,
-                            ),
-                            child: Text(
-                              '매일 진행',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelSmall!
-                                  .copyWith(
-                                    color: Colors.green.shade700,
-                                  ),
-                            ),
-                          ),
-                        ],
                       ],
                     ),
                   ),
@@ -120,40 +53,26 @@ class StoreGameList extends StatelessWidget {
                           color: colorGrey20,
                         ),
                   ),
-                  const SizedBox(height: 8),
+                  if (it.gameSchedule != null) ...[
+                    Text(
+                      it.gameSchedule!,
+                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                            color: colorGrey40,
+                          ),
+                    ),
+                    const SizedBox(height: 16),
+                  ],
                   StoreGameItem(
                     title: 'BUY-IN',
-                    description: '${it.entryPrice.toString()} Ticket',
-                  ),
-                  const SizedBox(height: 8),
-                  // StoreGameItem(
-                  //   title: 'ENTRY',
-                  //   description:
-                  //       it.entryMax != null ? it.entryMax.toString() : "-",
-                  //   caption: it.reEntryMax != null
-                  //       ? '리바인 ${it.reEntryMax.toString()}번 가능'
-                  //       : null,
-                  // ),
-                  const SizedBox(height: 8),
-                  StoreGameItem(
-                    title: 'BL-UP',
-                    description: it.duration != null
-                        ? '${it.duration.toString()}분'
-                        : "-",
-                  ),
-                  const SizedBox(height: 8),
-                  StoreGameItem(
-                    title: 'PRIZE',
                     description:
-                        it.prize != null ? '${it.prize.toString()}%' : "-",
+                        '${it.entryType.kr} ${it.entryPrice.toString()} ${it.entryType.unit}',
                   ),
-                  if (it.type == GameType.GTD && it.gtdMinReward != null) ...[
-                    const SizedBox(height: 8),
+                  const SizedBox(height: 8),
+                  if (it.prize != null) ...[
                     StoreGameItem(
-                      title: '최소 상금',
-                      description: it.gtdMinReward != null
-                          ? it.gtdMinReward.toString()
-                          : "-",
+                      title: 'PRIZE',
+                      description:
+                          '${it.prizeType.kr} ${it.prize} ${it.prizeType.unit}',
                     ),
                   ],
                 ],

@@ -8,7 +8,7 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/area_search_list/providers/area.dart';
-import 'package:pokerspot_user_app/apps/ui/global/store.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
@@ -75,7 +75,7 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
             padding: const EdgeInsets.all(16),
             itemCount: data.length,
             itemBuilder: (context, index) {
-              return Store(
+              return StoreV2(
                 storeImages: data[index].storeImages,
                 name: data[index].name,
                 address: data[index].address,
@@ -85,6 +85,8 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
                 distance: data[index].distance,
                 updatedAt: data[index].updatedAt,
                 storeGames: data[index].gameMTTItems,
+                storeBenefits: data[index].storeBenefits,
+                storeTags: data[index].storeTags,
                 handleClick: () => _handleClick(model: data[index]),
               );
             },

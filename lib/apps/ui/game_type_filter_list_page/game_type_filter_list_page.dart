@@ -9,7 +9,7 @@ import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/game_type_filter_list_page/providers/game_type_fillter.dart';
-import 'package:pokerspot_user_app/apps/ui/global/store.dart';
+import 'package:pokerspot_user_app/apps/ui/global/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
@@ -75,7 +75,7 @@ class _GameTypeFilterListPageState
             padding: const EdgeInsets.all(16),
             itemCount: data.length,
             itemBuilder: (context, index) {
-              return Store(
+              return StoreV2(
                 storeImages: data[index].storeImages,
                 name: data[index].name,
                 address: data[index].address,
@@ -84,6 +84,8 @@ class _GameTypeFilterListPageState
                 closeTime: data[index].closeTime,
                 distance: data[index].distance,
                 storeGames: data[index].gameMTTItems,
+                storeBenefits: data[index].storeBenefits,
+                storeTags: data[index].storeTags,
                 updatedAt: data[index].updatedAt,
                 handleClick: () => _handleClick(model: data[index]),
               );
