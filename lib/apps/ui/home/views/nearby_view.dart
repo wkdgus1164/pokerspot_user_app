@@ -29,16 +29,19 @@ class HomeNearbyStoresListViewState
         if (data.items!.isEmpty) return const SizedBox();
         return Container(
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+          padding: const EdgeInsets.symmetric(vertical: 32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                '내 주변 추천 펍',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: colorGrey20,
-                    ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  '내 주변 추천 펍',
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: colorGrey20,
+                      ),
+                ),
               ),
               const SizedBox(height: 16),
               ListView.separated(
@@ -60,9 +63,8 @@ class HomeNearbyStoresListViewState
                     handleClick: () => _handleClick(model: data.items![index]),
                   );
                 },
-                separatorBuilder: (context, index) {
-                  return Divider();
-                },
+                separatorBuilder: (context, index) =>
+                    const Divider(thickness: 8, height: 8),
                 itemCount: data.items!.length,
               ),
             ],

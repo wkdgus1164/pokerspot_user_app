@@ -69,7 +69,12 @@ class StoreListItemHeader extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            '$address · $openTime\n$updatedAtString 최종 업데이트',
+            address,
+            style: textTheme.labelMedium!.copyWith(color: colorGrey60),
+            overflow: TextOverflow.ellipsis,
+          ),
+          Text(
+            '${Utils().getFormattedTime(time: openTime)} 오픈 · $updatedAtString 최종 업데이트',
             style: textTheme.labelMedium!.copyWith(color: colorGrey60),
             overflow: TextOverflow.ellipsis,
           ),

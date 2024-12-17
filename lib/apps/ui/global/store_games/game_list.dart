@@ -24,11 +24,11 @@ class StoreGameList extends StatelessWidget {
         children: games.map(
           (it) {
             return Container(
-              width: MediaQuery.of(context).size.width * 0.6,
+              width: MediaQuery.of(context).size.width * 0.8,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: colorGrey98,
+                border: Border.all(color: colorGrey95),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,6 +53,7 @@ class StoreGameList extends StatelessWidget {
                           color: colorGrey20,
                         ),
                   ),
+                  const SizedBox(height: 8),
                   if (it.gameSchedule != null) ...[
                     Text(
                       it.gameSchedule!,

@@ -18,14 +18,16 @@ class StoreListItemBenefit extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: colorGrey98,
       ),
-      child: Column(
+      child: Wrap(
+        runSpacing: 4,
         children: [
           if (storeBenefits.any(
               (benefit) => benefit.type == StoreBenefitType.FIRST_GAME)) ...[
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 80,
+                  width: 70,
                   child: Text(
                     '첫게임 혜택',
                     style: textTheme.labelMedium!.copyWith(
@@ -43,20 +45,19 @@ class StoreListItemBenefit extends StatelessWidget {
                         .description!,
                     style: textTheme.labelMedium!.copyWith(
                       color: colorGrey40,
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),
               ],
             ),
           ],
-          const SizedBox(height: 8),
           if (storeBenefits
               .any((benefit) => benefit.type == StoreBenefitType.NEW_USER)) ...[
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 80,
+                  width: 70,
                   child: Text(
                     '신규 혜택',
                     style: textTheme.labelMedium!.copyWith(
@@ -74,7 +75,6 @@ class StoreListItemBenefit extends StatelessWidget {
                         .description!,
                     style: textTheme.labelMedium!.copyWith(
                       color: colorGrey40,
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),
