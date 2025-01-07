@@ -41,7 +41,8 @@ class StoreGameList extends StatelessWidget {
                       children: [
                         ColorfulChip(
                           theme: ColorfulChipTheme.red,
-                          text: '실시간 12분전',
+                          text:
+                              '${it.prizeType.kr} ${it.prize} ${it.prizeType.unit}',
                         ),
                       ],
                     ),

@@ -72,7 +72,6 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
           onRefresh: _refresh,
           child: ListView.separated(
             controller: scrollController,
-            padding: const EdgeInsets.all(16),
             itemCount: data.length,
             itemBuilder: (context, index) {
               return StoreV2(
@@ -90,7 +89,10 @@ class _AreaSearchListPageState extends ConsumerState<AreaSearchListPage> {
                 handleClick: () => _handleClick(model: data[index]),
               );
             },
-            separatorBuilder: (context, index) => const SizedBox(height: 16),
+            separatorBuilder: (context, index) => const Divider(
+              thickness: 8,
+              height: 8,
+            ),
           ),
         ),
       );

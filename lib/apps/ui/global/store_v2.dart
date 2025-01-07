@@ -95,7 +95,7 @@ class StoreV2 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                '토너먼트 5개',
+                '토너먼트 ${storeGames.length}개',
                 style: textTheme.titleMedium!.copyWith(
                   color: colorGrey20,
                 ),
