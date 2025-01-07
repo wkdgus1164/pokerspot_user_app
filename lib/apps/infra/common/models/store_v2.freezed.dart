@@ -24,7 +24,8 @@ mixin _$StoreV2Model {
   String get openTime => throw _privateConstructorUsedError;
   String get closeTime => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
-  String get kakaoChatUrl => throw _privateConstructorUsedError;
+  bool get isViewKakaoChat => throw _privateConstructorUsedError;
+  String? get kakaoChatUrl => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
   double get distance => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
@@ -58,7 +59,8 @@ abstract class $StoreV2ModelCopyWith<$Res> {
       String openTime,
       String closeTime,
       String phone,
-      String kakaoChatUrl,
+      bool isViewKakaoChat,
+      String? kakaoChatUrl,
       DateTime updatedAt,
       double distance,
       double lat,
@@ -92,7 +94,8 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
     Object? openTime = null,
     Object? closeTime = null,
     Object? phone = null,
-    Object? kakaoChatUrl = null,
+    Object? isViewKakaoChat = null,
+    Object? kakaoChatUrl = freezed,
     Object? updatedAt = null,
     Object? distance = null,
     Object? lat = null,
@@ -135,10 +138,14 @@ class _$StoreV2ModelCopyWithImpl<$Res, $Val extends StoreV2Model>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      kakaoChatUrl: null == kakaoChatUrl
+      isViewKakaoChat: null == isViewKakaoChat
+          ? _value.isViewKakaoChat
+          : isViewKakaoChat // ignore: cast_nullable_to_non_nullable
+              as bool,
+      kakaoChatUrl: freezed == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -192,7 +199,8 @@ abstract class _$$StoreV2ModelImplCopyWith<$Res>
       String openTime,
       String closeTime,
       String phone,
-      String kakaoChatUrl,
+      bool isViewKakaoChat,
+      String? kakaoChatUrl,
       DateTime updatedAt,
       double distance,
       double lat,
@@ -224,7 +232,8 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
     Object? openTime = null,
     Object? closeTime = null,
     Object? phone = null,
-    Object? kakaoChatUrl = null,
+    Object? isViewKakaoChat = null,
+    Object? kakaoChatUrl = freezed,
     Object? updatedAt = null,
     Object? distance = null,
     Object? lat = null,
@@ -267,10 +276,14 @@ class __$$StoreV2ModelImplCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      kakaoChatUrl: null == kakaoChatUrl
+      isViewKakaoChat: null == isViewKakaoChat
+          ? _value.isViewKakaoChat
+          : isViewKakaoChat // ignore: cast_nullable_to_non_nullable
+              as bool,
+      kakaoChatUrl: freezed == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -319,6 +332,7 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
       required this.openTime,
       required this.closeTime,
       required this.phone,
+      required this.isViewKakaoChat,
       required this.kakaoChatUrl,
       required this.updatedAt,
       required this.distance,
@@ -350,7 +364,9 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
   @override
   final String phone;
   @override
-  final String kakaoChatUrl;
+  final bool isViewKakaoChat;
+  @override
+  final String? kakaoChatUrl;
   @override
   final DateTime updatedAt;
   @override
@@ -393,7 +409,7 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
 
   @override
   String toString() {
-    return 'StoreV2Model(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, phone: $phone, kakaoChatUrl: $kakaoChatUrl, updatedAt: $updatedAt, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, storeBenefits: $storeBenefits, storeTags: $storeTags, gameMTTItems: $gameMTTItems)';
+    return 'StoreV2Model(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, phone: $phone, isViewKakaoChat: $isViewKakaoChat, kakaoChatUrl: $kakaoChatUrl, updatedAt: $updatedAt, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, storeBenefits: $storeBenefits, storeTags: $storeTags, gameMTTItems: $gameMTTItems)';
   }
 
   @override
@@ -412,6 +428,8 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
             (identical(other.closeTime, closeTime) ||
                 other.closeTime == closeTime) &&
             (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.isViewKakaoChat, isViewKakaoChat) ||
+                other.isViewKakaoChat == isViewKakaoChat) &&
             (identical(other.kakaoChatUrl, kakaoChatUrl) ||
                 other.kakaoChatUrl == kakaoChatUrl) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -441,6 +459,7 @@ class _$StoreV2ModelImpl implements _StoreV2Model {
       openTime,
       closeTime,
       phone,
+      isViewKakaoChat,
       kakaoChatUrl,
       updatedAt,
       distance,
@@ -470,7 +489,8 @@ abstract class _StoreV2Model implements StoreV2Model {
           required final String openTime,
           required final String closeTime,
           required final String phone,
-          required final String kakaoChatUrl,
+          required final bool isViewKakaoChat,
+          required final String? kakaoChatUrl,
           required final DateTime updatedAt,
           required final double distance,
           required final double lat,
@@ -498,7 +518,9 @@ abstract class _StoreV2Model implements StoreV2Model {
   @override
   String get phone;
   @override
-  String get kakaoChatUrl;
+  bool get isViewKakaoChat;
+  @override
+  String? get kakaoChatUrl;
   @override
   DateTime get updatedAt;
   @override

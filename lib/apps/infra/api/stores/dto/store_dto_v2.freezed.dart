@@ -28,6 +28,7 @@ mixin _$StoreV2Dto {
   String? get openTime => throw _privateConstructorUsedError;
   String? get closeTime => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
+  bool get isViewKakaoChat => throw _privateConstructorUsedError;
   String? get kakaoChatUrl => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   double? get distance => throw _privateConstructorUsedError;
@@ -65,6 +66,7 @@ abstract class $StoreV2DtoCopyWith<$Res> {
       String? openTime,
       String? closeTime,
       String? phone,
+      bool isViewKakaoChat,
       String? kakaoChatUrl,
       DateTime? updatedAt,
       double? distance,
@@ -99,6 +101,7 @@ class _$StoreV2DtoCopyWithImpl<$Res, $Val extends StoreV2Dto>
     Object? openTime = freezed,
     Object? closeTime = freezed,
     Object? phone = freezed,
+    Object? isViewKakaoChat = null,
     Object? kakaoChatUrl = freezed,
     Object? updatedAt = freezed,
     Object? distance = freezed,
@@ -142,6 +145,10 @@ class _$StoreV2DtoCopyWithImpl<$Res, $Val extends StoreV2Dto>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
+      isViewKakaoChat: null == isViewKakaoChat
+          ? _value.isViewKakaoChat
+          : isViewKakaoChat // ignore: cast_nullable_to_non_nullable
+              as bool,
       kakaoChatUrl: freezed == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
@@ -199,6 +206,7 @@ abstract class _$$StoreV2DtoImplCopyWith<$Res>
       String? openTime,
       String? closeTime,
       String? phone,
+      bool isViewKakaoChat,
       String? kakaoChatUrl,
       DateTime? updatedAt,
       double? distance,
@@ -231,6 +239,7 @@ class __$$StoreV2DtoImplCopyWithImpl<$Res>
     Object? openTime = freezed,
     Object? closeTime = freezed,
     Object? phone = freezed,
+    Object? isViewKakaoChat = null,
     Object? kakaoChatUrl = freezed,
     Object? updatedAt = freezed,
     Object? distance = freezed,
@@ -274,6 +283,10 @@ class __$$StoreV2DtoImplCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
+      isViewKakaoChat: null == isViewKakaoChat
+          ? _value.isViewKakaoChat
+          : isViewKakaoChat // ignore: cast_nullable_to_non_nullable
+              as bool,
       kakaoChatUrl: freezed == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
@@ -326,6 +339,7 @@ class _$StoreV2DtoImpl implements _StoreV2Dto {
       required this.openTime,
       required this.closeTime,
       required this.phone,
+      required this.isViewKakaoChat,
       required this.kakaoChatUrl,
       required this.updatedAt,
       required this.distance,
@@ -359,6 +373,8 @@ class _$StoreV2DtoImpl implements _StoreV2Dto {
   final String? closeTime;
   @override
   final String? phone;
+  @override
+  final bool isViewKakaoChat;
   @override
   final String? kakaoChatUrl;
   @override
@@ -411,7 +427,7 @@ class _$StoreV2DtoImpl implements _StoreV2Dto {
 
   @override
   String toString() {
-    return 'StoreV2Dto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, phone: $phone, kakaoChatUrl: $kakaoChatUrl, updatedAt: $updatedAt, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, storeBenefits: $storeBenefits, storeTags: $storeTags, gameMttItems: $gameMttItems)';
+    return 'StoreV2Dto(id: $id, type: $type, name: $name, address: $address, addressDetail: $addressDetail, openTime: $openTime, closeTime: $closeTime, phone: $phone, isViewKakaoChat: $isViewKakaoChat, kakaoChatUrl: $kakaoChatUrl, updatedAt: $updatedAt, distance: $distance, lat: $lat, lng: $lng, storeImages: $storeImages, storeBenefits: $storeBenefits, storeTags: $storeTags, gameMttItems: $gameMttItems)';
   }
 
   @override
@@ -430,6 +446,8 @@ class _$StoreV2DtoImpl implements _StoreV2Dto {
             (identical(other.closeTime, closeTime) ||
                 other.closeTime == closeTime) &&
             (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.isViewKakaoChat, isViewKakaoChat) ||
+                other.isViewKakaoChat == isViewKakaoChat) &&
             (identical(other.kakaoChatUrl, kakaoChatUrl) ||
                 other.kakaoChatUrl == kakaoChatUrl) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -460,6 +478,7 @@ class _$StoreV2DtoImpl implements _StoreV2Dto {
       openTime,
       closeTime,
       phone,
+      isViewKakaoChat,
       kakaoChatUrl,
       updatedAt,
       distance,
@@ -496,6 +515,7 @@ abstract class _StoreV2Dto implements StoreV2Dto {
       required final String? openTime,
       required final String? closeTime,
       required final String? phone,
+      required final bool isViewKakaoChat,
       required final String? kakaoChatUrl,
       required final DateTime? updatedAt,
       required final double? distance,
@@ -525,6 +545,8 @@ abstract class _StoreV2Dto implements StoreV2Dto {
   String? get closeTime;
   @override
   String? get phone;
+  @override
+  bool get isViewKakaoChat;
   @override
   String? get kakaoChatUrl;
   @override

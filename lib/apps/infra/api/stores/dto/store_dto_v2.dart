@@ -16,6 +16,7 @@ class StoreV2Dto with _$StoreV2Dto {
     required String? openTime,
     required String? closeTime,
     required String? phone,
+    required bool isViewKakaoChat,
     required String? kakaoChatUrl,
     required DateTime? updatedAt,
     required double? distance,

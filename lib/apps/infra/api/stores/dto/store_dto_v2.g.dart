@@ -16,6 +16,7 @@ _$StoreV2DtoImpl _$$StoreV2DtoImplFromJson(Map<String, dynamic> json) =>
       openTime: json['openTime'] as String?,
       closeTime: json['closeTime'] as String?,
       phone: json['phone'] as String?,
+      isViewKakaoChat: json['isViewKakaoChat'] as bool,
       kakaoChatUrl: json['kakaoChatUrl'] as String?,
       updatedAt: json['updatedAt'] == null
           ? null
@@ -47,6 +48,7 @@ Map<String, dynamic> _$$StoreV2DtoImplToJson(_$StoreV2DtoImpl instance) =>
       'openTime': instance.openTime,
       'closeTime': instance.closeTime,
       'phone': instance.phone,
+      'isViewKakaoChat': instance.isViewKakaoChat,
       'kakaoChatUrl': instance.kakaoChatUrl,
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'distance': instance.distance,

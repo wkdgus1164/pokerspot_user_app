@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/components/fab.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_v2.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_layout.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
@@ -35,10 +34,6 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
     return res.when(
       data: (data) {
         return Scaffold(
-          floatingActionButton: _kakaoChatUrl(
-            name: data.name,
-            url: data.kakaoChatUrl,
-          ),
           body: StoreDetailLayout(
             model: data,
             showTitle: _showTitle,
@@ -54,17 +49,6 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         return const LoadingPlaceholder(loadingHeaderText: '-');
       },
     );
-  }
-
-  Widget _kakaoChatUrl({
-    required String name,
-    required String? url,
-  }) {
-    if (url == null || url.isEmpty || url == "") {
-      return const SizedBox();
-    } else {
-      return StoreDetailFab(name: name, url: url);
-    }
   }
 
   @override

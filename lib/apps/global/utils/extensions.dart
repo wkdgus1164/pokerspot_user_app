@@ -124,6 +124,7 @@ extension StoreV2Dto2StoreV2ModelExtension on StoreV2Dto {
       addressDetail: addressDetail ?? "",
       openTime: openTime ?? "",
       closeTime: closeTime ?? "",
+      isViewKakaoChat: isViewKakaoChat,
       kakaoChatUrl: kakaoChatUrl ?? "",
       phone: phone ?? "",
       distance: distance ?? 0,

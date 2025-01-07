@@ -46,6 +46,7 @@ class StoreV2Data extends _$StoreV2Data {
       storeBenefits: data.storeBenefits?.toStoreBenefitsModel() ?? [],
       storeTags: data.storeTags?.toStoreTagsModel() ?? [],
       kakaoChatUrl: data.kakaoChatUrl ?? "",
+      isViewKakaoChat: data.isViewKakaoChat,
     );
   }
 }

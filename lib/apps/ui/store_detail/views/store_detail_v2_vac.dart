@@ -45,6 +45,8 @@ class StoreDetailV2Vac extends StatelessWidget {
           distance: model.distance,
           runningTime: '$openTimeCalculated ~ ${model.closeTime}까지',
           updatedAt: model.updatedAt,
+          openChatUrl: model.isViewKakaoChat ? model.kakaoChatUrl : null,
+          isViewKakaoChat: model.isViewKakaoChat,
         ),
 
         // 지도 정보
