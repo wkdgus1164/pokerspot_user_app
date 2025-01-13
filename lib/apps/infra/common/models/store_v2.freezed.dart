@@ -827,19 +827,20 @@ abstract class _StoreTagV2Model implements StoreTagV2Model {
 /// @nodoc
 mixin _$StoreGameMttV2Model {
   String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   GameType get type => throw _privateConstructorUsedError;
   EntryType get entryType => throw _privateConstructorUsedError;
   int get entryPrice => throw _privateConstructorUsedError;
-  int? get regEndBlindLevel => throw _privateConstructorUsedError;
-  int? get entryMax => throw _privateConstructorUsedError;
-  int? get duration => throw _privateConstructorUsedError;
+  int get entryMax => throw _privateConstructorUsedError;
+  int? get reEntryMax => throw _privateConstructorUsedError;
+  int get duration => throw _privateConstructorUsedError;
   PrizeType get prizeType => throw _privateConstructorUsedError;
-  int? get prize => throw _privateConstructorUsedError;
-  int? get gtdMinReward => throw _privateConstructorUsedError;
+  int get prize => throw _privateConstructorUsedError;
+  int get gtdMinReward => throw _privateConstructorUsedError;
   EventType get eventType => throw _privateConstructorUsedError;
   bool get isDaily => throw _privateConstructorUsedError;
   String? get gameSchedule => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  int get regEndBlindLevel => throw _privateConstructorUsedError;
 
   /// Create a copy of StoreGameMttV2Model
   /// with the given fields replaced by the non-null parameter values.
@@ -856,19 +857,20 @@ abstract class $StoreGameMttV2ModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
+      String name,
       GameType type,
       EntryType entryType,
       int entryPrice,
-      int? regEndBlindLevel,
-      int? entryMax,
-      int? duration,
+      int entryMax,
+      int? reEntryMax,
+      int duration,
       PrizeType prizeType,
-      int? prize,
-      int? gtdMinReward,
+      int prize,
+      int gtdMinReward,
       EventType eventType,
       bool isDaily,
       String? gameSchedule,
-      String name});
+      int regEndBlindLevel});
 }
 
 /// @nodoc
@@ -887,24 +889,29 @@ class _$StoreGameMttV2ModelCopyWithImpl<$Res, $Val extends StoreGameMttV2Model>
   @override
   $Res call({
     Object? id = null,
+    Object? name = null,
     Object? type = null,
     Object? entryType = null,
     Object? entryPrice = null,
-    Object? regEndBlindLevel = freezed,
-    Object? entryMax = freezed,
-    Object? duration = freezed,
+    Object? entryMax = null,
+    Object? reEntryMax = freezed,
+    Object? duration = null,
     Object? prizeType = null,
-    Object? prize = freezed,
-    Object? gtdMinReward = freezed,
+    Object? prize = null,
+    Object? gtdMinReward = null,
     Object? eventType = null,
     Object? isDaily = null,
     Object? gameSchedule = freezed,
-    Object? name = null,
+    Object? regEndBlindLevel = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
           ? _value.type
@@ -918,30 +925,30 @@ class _$StoreGameMttV2ModelCopyWithImpl<$Res, $Val extends StoreGameMttV2Model>
           ? _value.entryPrice
           : entryPrice // ignore: cast_nullable_to_non_nullable
               as int,
-      regEndBlindLevel: freezed == regEndBlindLevel
-          ? _value.regEndBlindLevel
-          : regEndBlindLevel // ignore: cast_nullable_to_non_nullable
-              as int?,
-      entryMax: freezed == entryMax
+      entryMax: null == entryMax
           ? _value.entryMax
           : entryMax // ignore: cast_nullable_to_non_nullable
+              as int,
+      reEntryMax: freezed == reEntryMax
+          ? _value.reEntryMax
+          : reEntryMax // ignore: cast_nullable_to_non_nullable
               as int?,
-      duration: freezed == duration
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       prizeType: null == prizeType
           ? _value.prizeType
           : prizeType // ignore: cast_nullable_to_non_nullable
               as PrizeType,
-      prize: freezed == prize
+      prize: null == prize
           ? _value.prize
           : prize // ignore: cast_nullable_to_non_nullable
-              as int?,
-      gtdMinReward: freezed == gtdMinReward
+              as int,
+      gtdMinReward: null == gtdMinReward
           ? _value.gtdMinReward
           : gtdMinReward // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       eventType: null == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
@@ -954,10 +961,10 @@ class _$StoreGameMttV2ModelCopyWithImpl<$Res, $Val extends StoreGameMttV2Model>
           ? _value.gameSchedule
           : gameSchedule // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      regEndBlindLevel: null == regEndBlindLevel
+          ? _value.regEndBlindLevel
+          : regEndBlindLevel // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -972,19 +979,20 @@ abstract class _$$StoreGameMttV2ModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
+      String name,
       GameType type,
       EntryType entryType,
       int entryPrice,
-      int? regEndBlindLevel,
-      int? entryMax,
-      int? duration,
+      int entryMax,
+      int? reEntryMax,
+      int duration,
       PrizeType prizeType,
-      int? prize,
-      int? gtdMinReward,
+      int prize,
+      int gtdMinReward,
       EventType eventType,
       bool isDaily,
       String? gameSchedule,
-      String name});
+      int regEndBlindLevel});
 }
 
 /// @nodoc
@@ -1001,24 +1009,29 @@ class __$$StoreGameMttV2ModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? name = null,
     Object? type = null,
     Object? entryType = null,
     Object? entryPrice = null,
-    Object? regEndBlindLevel = freezed,
-    Object? entryMax = freezed,
-    Object? duration = freezed,
+    Object? entryMax = null,
+    Object? reEntryMax = freezed,
+    Object? duration = null,
     Object? prizeType = null,
-    Object? prize = freezed,
-    Object? gtdMinReward = freezed,
+    Object? prize = null,
+    Object? gtdMinReward = null,
     Object? eventType = null,
     Object? isDaily = null,
     Object? gameSchedule = freezed,
-    Object? name = null,
+    Object? regEndBlindLevel = null,
   }) {
     return _then(_$StoreGameMttV2ModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
           ? _value.type
@@ -1032,30 +1045,30 @@ class __$$StoreGameMttV2ModelImplCopyWithImpl<$Res>
           ? _value.entryPrice
           : entryPrice // ignore: cast_nullable_to_non_nullable
               as int,
-      regEndBlindLevel: freezed == regEndBlindLevel
-          ? _value.regEndBlindLevel
-          : regEndBlindLevel // ignore: cast_nullable_to_non_nullable
-              as int?,
-      entryMax: freezed == entryMax
+      entryMax: null == entryMax
           ? _value.entryMax
           : entryMax // ignore: cast_nullable_to_non_nullable
+              as int,
+      reEntryMax: freezed == reEntryMax
+          ? _value.reEntryMax
+          : reEntryMax // ignore: cast_nullable_to_non_nullable
               as int?,
-      duration: freezed == duration
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       prizeType: null == prizeType
           ? _value.prizeType
           : prizeType // ignore: cast_nullable_to_non_nullable
               as PrizeType,
-      prize: freezed == prize
+      prize: null == prize
           ? _value.prize
           : prize // ignore: cast_nullable_to_non_nullable
-              as int?,
-      gtdMinReward: freezed == gtdMinReward
+              as int,
+      gtdMinReward: null == gtdMinReward
           ? _value.gtdMinReward
           : gtdMinReward // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       eventType: null == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
@@ -1068,10 +1081,10 @@ class __$$StoreGameMttV2ModelImplCopyWithImpl<$Res>
           ? _value.gameSchedule
           : gameSchedule // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      regEndBlindLevel: null == regEndBlindLevel
+          ? _value.regEndBlindLevel
+          : regEndBlindLevel // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -1081,11 +1094,12 @@ class __$$StoreGameMttV2ModelImplCopyWithImpl<$Res>
 class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
   _$StoreGameMttV2ModelImpl(
       {required this.id,
+      required this.name,
       required this.type,
       required this.entryType,
       required this.entryPrice,
-      required this.regEndBlindLevel,
       required this.entryMax,
+      required this.reEntryMax,
       required this.duration,
       required this.prizeType,
       required this.prize,
@@ -1093,10 +1107,12 @@ class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
       required this.eventType,
       required this.isDaily,
       required this.gameSchedule,
-      required this.name});
+      required this.regEndBlindLevel});
 
   @override
   final String id;
+  @override
+  final String name;
   @override
   final GameType type;
   @override
@@ -1104,17 +1120,17 @@ class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
   @override
   final int entryPrice;
   @override
-  final int? regEndBlindLevel;
+  final int entryMax;
   @override
-  final int? entryMax;
+  final int? reEntryMax;
   @override
-  final int? duration;
+  final int duration;
   @override
   final PrizeType prizeType;
   @override
-  final int? prize;
+  final int prize;
   @override
-  final int? gtdMinReward;
+  final int gtdMinReward;
   @override
   final EventType eventType;
   @override
@@ -1122,11 +1138,11 @@ class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
   @override
   final String? gameSchedule;
   @override
-  final String name;
+  final int regEndBlindLevel;
 
   @override
   String toString() {
-    return 'StoreGameMttV2Model(id: $id, type: $type, entryType: $entryType, entryPrice: $entryPrice, regEndBlindLevel: $regEndBlindLevel, entryMax: $entryMax, duration: $duration, prizeType: $prizeType, prize: $prize, gtdMinReward: $gtdMinReward, eventType: $eventType, isDaily: $isDaily, gameSchedule: $gameSchedule, name: $name)';
+    return 'StoreGameMttV2Model(id: $id, name: $name, type: $type, entryType: $entryType, entryPrice: $entryPrice, entryMax: $entryMax, reEntryMax: $reEntryMax, duration: $duration, prizeType: $prizeType, prize: $prize, gtdMinReward: $gtdMinReward, eventType: $eventType, isDaily: $isDaily, gameSchedule: $gameSchedule, regEndBlindLevel: $regEndBlindLevel)';
   }
 
   @override
@@ -1135,15 +1151,16 @@ class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
         (other.runtimeType == runtimeType &&
             other is _$StoreGameMttV2ModelImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.entryType, entryType) ||
                 other.entryType == entryType) &&
             (identical(other.entryPrice, entryPrice) ||
                 other.entryPrice == entryPrice) &&
-            (identical(other.regEndBlindLevel, regEndBlindLevel) ||
-                other.regEndBlindLevel == regEndBlindLevel) &&
             (identical(other.entryMax, entryMax) ||
                 other.entryMax == entryMax) &&
+            (identical(other.reEntryMax, reEntryMax) ||
+                other.reEntryMax == reEntryMax) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
             (identical(other.prizeType, prizeType) ||
@@ -1156,18 +1173,20 @@ class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
             (identical(other.isDaily, isDaily) || other.isDaily == isDaily) &&
             (identical(other.gameSchedule, gameSchedule) ||
                 other.gameSchedule == gameSchedule) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.regEndBlindLevel, regEndBlindLevel) ||
+                other.regEndBlindLevel == regEndBlindLevel));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       id,
+      name,
       type,
       entryType,
       entryPrice,
-      regEndBlindLevel,
       entryMax,
+      reEntryMax,
       duration,
       prizeType,
       prize,
@@ -1175,7 +1194,7 @@ class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
       eventType,
       isDaily,
       gameSchedule,
-      name);
+      regEndBlindLevel);
 
   /// Create a copy of StoreGameMttV2Model
   /// with the given fields replaced by the non-null parameter values.
@@ -1190,22 +1209,25 @@ class _$StoreGameMttV2ModelImpl implements _StoreGameMttV2Model {
 abstract class _StoreGameMttV2Model implements StoreGameMttV2Model {
   factory _StoreGameMttV2Model(
       {required final String id,
+      required final String name,
       required final GameType type,
       required final EntryType entryType,
       required final int entryPrice,
-      required final int? regEndBlindLevel,
-      required final int? entryMax,
-      required final int? duration,
+      required final int entryMax,
+      required final int? reEntryMax,
+      required final int duration,
       required final PrizeType prizeType,
-      required final int? prize,
-      required final int? gtdMinReward,
+      required final int prize,
+      required final int gtdMinReward,
       required final EventType eventType,
       required final bool isDaily,
       required final String? gameSchedule,
-      required final String name}) = _$StoreGameMttV2ModelImpl;
+      required final int regEndBlindLevel}) = _$StoreGameMttV2ModelImpl;
 
   @override
   String get id;
+  @override
+  String get name;
   @override
   GameType get type;
   @override
@@ -1213,17 +1235,17 @@ abstract class _StoreGameMttV2Model implements StoreGameMttV2Model {
   @override
   int get entryPrice;
   @override
-  int? get regEndBlindLevel;
+  int get entryMax;
   @override
-  int? get entryMax;
+  int? get reEntryMax;
   @override
-  int? get duration;
+  int get duration;
   @override
   PrizeType get prizeType;
   @override
-  int? get prize;
+  int get prize;
   @override
-  int? get gtdMinReward;
+  int get gtdMinReward;
   @override
   EventType get eventType;
   @override
@@ -1231,7 +1253,7 @@ abstract class _StoreGameMttV2Model implements StoreGameMttV2Model {
   @override
   String? get gameSchedule;
   @override
-  String get name;
+  int get regEndBlindLevel;
 
   /// Create a copy of StoreGameMttV2Model
   /// with the given fields replaced by the non-null parameter values.

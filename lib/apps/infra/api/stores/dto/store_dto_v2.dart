@@ -38,19 +38,20 @@ class StoreV2Dto with _$StoreV2Dto {
 class GameMttItemsV2Dto with _$GameMttItemsV2Dto {
   factory GameMttItemsV2Dto({
     required String id,
+    required String name,
     required GameType type,
     required EntryType entryType,
     required int entryPrice,
-    required int? regEndBlindLevel,
-    required int? entryMax,
-    required int? duration,
+    required int entryMax,
+    required int? reEntryMax,
+    required int duration,
     required PrizeType prizeType,
-    required int? prize,
-    required int? gtdMinReward,
+    required int prize,
+    required int gtdMinReward,
     required EventType eventType,
     required bool isDaily,
     required String? gameSchedule,
-    required String name,
+    required int regEndBlindLevel,
   }) = _GameMttItemsV2Dto;
 
   factory GameMttItemsV2Dto.fromJson(Map<String, dynamic> json) =>

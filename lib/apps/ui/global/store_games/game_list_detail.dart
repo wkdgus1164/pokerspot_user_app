@@ -69,13 +69,16 @@ class StoreGameListDetail extends StatelessWidget {
                     ),
                   ],
                   const SizedBox(height: 16),
-                  StoreGameItemDetail(
-                    title: 'BUY-IN',
-                    description:
-                        '${it.entryType.kr} ${it.entryPrice}${it.entryType.unit}',
-                  ),
+                  if (it.entryPrice != 0) ...[
+                    StoreGameItemDetail(
+                      title: 'BUY-IN',
+                      description:
+                          '${it.entryType.kr} ${it.entryPrice}${it.entryType.unit}',
+                    ),
+                    const SizedBox(height: 8),
+                  ],
                   const SizedBox(height: 8),
-                  if (it.prize != null) ...[
+                  if (it.prize != 0) ...[
                     StoreGameItemDetail(
                       title: 'PRIZE',
                       description:
@@ -83,26 +86,24 @@ class StoreGameListDetail extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                   ],
-                  if (it.regEndBlindLevel != null) ...[
+                  if (it.regEndBlindLevel != 0) ...[
                     StoreGameItemDetail(
                       title: 'END',
                       description: 'BL-LV ${it.regEndBlindLevel} 이전',
                     ),
                     const SizedBox(height: 8),
                   ],
-                  if (it.duration != null) ...[
+                  if (it.duration != 0) ...[
                     StoreGameItemDetail(
                       title: 'BL-UP',
                       description: '${it.duration.toString()}분',
                     ),
                     const SizedBox(height: 8),
                   ],
-                  if (it.type == GameType.GTD && it.gtdMinReward != null) ...[
+                  if (it.type == GameType.GTD && it.gtdMinReward != 0) ...[
                     StoreGameItemDetail(
                       title: '최소 상금',
-                      description: it.gtdMinReward != null
-                          ? it.gtdMinReward.toString()
-                          : "-",
+                      description: it.gtdMinReward.toString(),
                     ),
                   ],
                 ],

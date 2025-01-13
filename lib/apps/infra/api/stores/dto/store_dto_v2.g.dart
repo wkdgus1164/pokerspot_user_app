@@ -64,30 +64,32 @@ _$GameMttItemsV2DtoImpl _$$GameMttItemsV2DtoImplFromJson(
         Map<String, dynamic> json) =>
     _$GameMttItemsV2DtoImpl(
       id: json['id'] as String,
+      name: json['name'] as String,
       type: $enumDecode(_$GameTypeEnumMap, json['type']),
       entryType: $enumDecode(_$EntryTypeEnumMap, json['entryType']),
       entryPrice: (json['entryPrice'] as num).toInt(),
-      regEndBlindLevel: (json['regEndBlindLevel'] as num?)?.toInt(),
-      entryMax: (json['entryMax'] as num?)?.toInt(),
-      duration: (json['duration'] as num?)?.toInt(),
+      entryMax: (json['entryMax'] as num).toInt(),
+      reEntryMax: (json['reEntryMax'] as num?)?.toInt(),
+      duration: (json['duration'] as num).toInt(),
       prizeType: $enumDecode(_$PrizeTypeEnumMap, json['prizeType']),
-      prize: (json['prize'] as num?)?.toInt(),
-      gtdMinReward: (json['gtdMinReward'] as num?)?.toInt(),
+      prize: (json['prize'] as num).toInt(),
+      gtdMinReward: (json['gtdMinReward'] as num).toInt(),
       eventType: $enumDecode(_$EventTypeEnumMap, json['eventType']),
       isDaily: json['isDaily'] as bool,
       gameSchedule: json['gameSchedule'] as String?,
-      name: json['name'] as String,
+      regEndBlindLevel: (json['regEndBlindLevel'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$GameMttItemsV2DtoImplToJson(
         _$GameMttItemsV2DtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'name': instance.name,
       'type': _$GameTypeEnumMap[instance.type]!,
       'entryType': _$EntryTypeEnumMap[instance.entryType]!,
       'entryPrice': instance.entryPrice,
-      'regEndBlindLevel': instance.regEndBlindLevel,
       'entryMax': instance.entryMax,
+      'reEntryMax': instance.reEntryMax,
       'duration': instance.duration,
       'prizeType': _$PrizeTypeEnumMap[instance.prizeType]!,
       'prize': instance.prize,
@@ -95,7 +97,7 @@ Map<String, dynamic> _$$GameMttItemsV2DtoImplToJson(
       'eventType': _$EventTypeEnumMap[instance.eventType]!,
       'isDaily': instance.isDaily,
       'gameSchedule': instance.gameSchedule,
-      'name': instance.name,
+      'regEndBlindLevel': instance.regEndBlindLevel,
     };
 
 const _$GameTypeEnumMap = {

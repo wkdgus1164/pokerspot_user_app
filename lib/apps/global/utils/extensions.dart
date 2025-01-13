@@ -91,11 +91,12 @@ extension StoreGameDto2ModelExtension on GameMttItemsV2Dto {
   StoreGameMttV2Model toGameMttV2Model() {
     return StoreGameMttV2Model(
       id: id,
+      name: name,
       type: type,
       entryType: entryType,
       entryPrice: entryPrice,
-      regEndBlindLevel: regEndBlindLevel,
       entryMax: entryMax,
+      reEntryMax: reEntryMax,
       duration: duration,
       prizeType: prizeType,
       prize: prize,
@@ -103,7 +104,7 @@ extension StoreGameDto2ModelExtension on GameMttItemsV2Dto {
       eventType: eventType,
       isDaily: isDaily,
       gameSchedule: gameSchedule,
-      name: name,
+      regEndBlindLevel: regEndBlindLevel,
     );
   }
 }

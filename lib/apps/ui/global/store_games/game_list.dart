@@ -64,13 +64,15 @@ class StoreGameList extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                   ],
-                  StoreGameItem(
-                    title: 'BUY-IN',
-                    description:
-                        '${it.entryType.kr} ${it.entryPrice.toString()} ${it.entryType.unit}',
-                  ),
-                  const SizedBox(height: 8),
-                  if (it.prize != null) ...[
+                  if (it.entryPrice != 0) ...[
+                    StoreGameItem(
+                      title: 'BUY-IN',
+                      description:
+                          '${it.entryType.kr} ${it.entryPrice.toString()} ${it.entryType.unit}',
+                    ),
+                    const SizedBox(height: 8),
+                  ],
+                  if (it.prize != 0) ...[
                     StoreGameItem(
                       title: 'PRIZE',
                       description:

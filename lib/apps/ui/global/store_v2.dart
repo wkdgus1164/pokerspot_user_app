@@ -92,20 +92,22 @@ class StoreV2 extends StatelessWidget {
             const SizedBox(height: 16),
 
             // 게임 정보
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                '토너먼트 ${storeGames.length}개',
-                style: textTheme.titleMedium!.copyWith(
-                  color: colorGrey20,
+            if (storeGames.isNotEmpty) ...[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  '토너먼트 ${storeGames.length}개',
+                  style: textTheme.titleMedium!.copyWith(
+                    color: colorGrey20,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 8),
-            StoreGameList(
-              games: storeGames,
-            ),
-            const SizedBox(height: 16),
+              const SizedBox(height: 8),
+              StoreGameList(
+                games: storeGames,
+              ),
+              const SizedBox(height: 16),
+            ],
           ],
         ),
       ),
