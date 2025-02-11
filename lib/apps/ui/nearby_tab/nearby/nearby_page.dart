@@ -4,8 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/filter.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/views/filter_view.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/views/list_view.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/views/location_vac.dart';
@@ -51,15 +49,7 @@ class _State extends ConsumerState<NearbyPage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            isScrollControlled: true,
-            backgroundColor: colorGrey100,
-            useSafeArea: true,
-            builder: (context) {
-              return const NearbySearchFilterSheet();
-            },
-          );
+          context.push(CustomRouter.nearbyFilter.path);
         },
         icon: const Icon(Icons.tune_rounded),
         label: const Text('상세 검색'),

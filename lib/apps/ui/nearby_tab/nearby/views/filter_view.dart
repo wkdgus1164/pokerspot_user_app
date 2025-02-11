@@ -1,11 +1,12 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/filter.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_game_type.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
+import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_game_type.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/views/filter_vac.dart';
 
@@ -86,13 +87,7 @@ class _State extends ConsumerState<NearbyFilterView> {
 
   // 더보기 필터 클릭
   void _handleMoreFilterClick() {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (context) {
-        return const NearbySearchFilterSheet();
-      },
-    );
+    context.push(CustomRouter.nearbyFilter.path);
 
     if (kReleaseMode) {
       FirebaseAnalytics.instance.logEvent(

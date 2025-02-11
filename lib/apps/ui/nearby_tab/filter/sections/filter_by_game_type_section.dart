@@ -3,16 +3,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_game_type.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_game_type.dart';
 
-class FilterByGameTypeView extends StatefulHookConsumerWidget {
-  const FilterByGameTypeView({super.key});
+class FilterByGameTypeSection extends StatefulHookConsumerWidget {
+  const FilterByGameTypeSection({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _State extends ConsumerState<FilterByGameTypeView> {
+class _State extends ConsumerState<FilterByGameTypeSection> {
   @override
   Widget build(BuildContext context) {
     final gameTypeFilter = ref.watch(filterByGameTypeProvider);
@@ -24,12 +24,7 @@ class _State extends ConsumerState<FilterByGameTypeView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          '토너먼트',
-          style: textTheme.titleSmall!.copyWith(
-            color: colorGrey40,
-          ),
-        ),
+        Text('토너먼트', style: textTheme.titleMedium),
         const SizedBox(height: 8),
         Row(
           children: [

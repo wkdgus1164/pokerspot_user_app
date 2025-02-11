@@ -1,11 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_open_time.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_game_type.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_benefit.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_entry_price.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_min_reward.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_operation_status.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_open_time.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_game_type.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'filter_service.g.dart';
@@ -21,6 +22,8 @@ class FilterServiceModel with _$FilterServiceModel {
     required int minEntryPrice,
     required int maxEntryPrice,
     required int minReward,
+    required bool isOnlyFirstGameBenefit,
+    required bool isOnlyNewUserBenefit,
   }) = _FilterServiceModel;
 
   FilterServiceModel._();
@@ -38,6 +41,10 @@ class FilterService extends _$FilterService {
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
     final minReward = ref.read(filterByMinRewardDataProvider).minReward;
+    final isOnlyFirstGameBenefit =
+        ref.read(filterByBenefitProvider).isOnlyFirstGameBenefit;
+    final isOnlyNewUserBenefit =
+        ref.read(filterByBenefitProvider).isOnlyNewUserBenefit;
 
     Logger().i('''
 FilterService
@@ -47,7 +54,9 @@ FilterService
   gameType: $gameType
   minEntryPrice: $minEntryPrice
   maxEntryPrice: $maxEntryPrice
-  minReward: $minReward''');
+  minReward: $minReward
+  isOnlyFirstGameBenefit: $isOnlyFirstGameBenefit
+  isOnlyNewUserBenefit: $isOnlyNewUserBenefit''');
 
     return FilterServiceModel(
       operationStatus: operationStatus,
@@ -57,6 +66,8 @@ FilterService
       minEntryPrice: minEntryPrice,
       maxEntryPrice: maxEntryPrice,
       minReward: minReward,
+      isOnlyFirstGameBenefit: isOnlyFirstGameBenefit,
+      isOnlyNewUserBenefit: isOnlyNewUserBenefit,
     );
   }
 }

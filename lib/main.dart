@@ -71,6 +71,7 @@ ThemeData _createThemeData({required BuildContext context}) {
     dialogTheme: dialogTheme,
     sliderTheme: sliderThemeData,
     bottomSheetTheme: bottomSheetThemeData,
+    textButtonTheme: textButtonThemeData,
     listTileTheme: listTileThemeData,
     chipTheme: chipThemeData,
     toggleButtonsTheme: toggleButtonsThemeData,

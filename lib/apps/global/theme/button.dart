@@ -41,6 +41,22 @@ OutlinedButtonThemeData outlinedButtonThemeData = OutlinedButtonThemeData(
   ),
 );
 
+TextButtonThemeData textButtonThemeData = TextButtonThemeData(
+  style: OutlinedButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16),
+    ),
+    elevation: 0,
+    textStyle: const TextStyle(
+      fontSize: 16,
+    ),
+    padding: const EdgeInsets.symmetric(
+      vertical: 16,
+      horizontal: 16,
+    ),
+  ),
+);
+
 ToggleButtonsThemeData toggleButtonsThemeData = ToggleButtonsThemeData(
   selectedColor: colorBrand50,
   color: colorBrand50,

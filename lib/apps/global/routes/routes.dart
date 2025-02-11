@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/ui/area_tab/area_detail/area_detail_page.dart';
 import 'package:pokerspot_user_app/apps/ui/home_tab/nearby_filtered_list/nearby_filtered_list_page.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/filter_page.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/nearby_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my_tab/favorite/favorite_page.dart';
 import 'package:pokerspot_user_app/apps/ui/my_tab/info/info_page.dart';
@@ -39,6 +40,7 @@ enum CustomRouter {
   search('/search'),
   areaSearchList('/area_search_list'),
   gameTypeFilterList('/game_type_filter_list'),
+  nearbyFilter('/nearby_filter'),
   ;
 
   const CustomRouter(this.path);
@@ -141,6 +143,10 @@ final router = GoRouter(
         final args = state.extra as GameTypeFilterListPageArguments;
         return GameTypeFilterListPage(args: args);
       },
+    ),
+    GoRoute(
+      path: CustomRouter.nearbyFilter.path,
+      builder: (_, state) => const NearbyFilterPage(),
     ),
   ],
   observers: [

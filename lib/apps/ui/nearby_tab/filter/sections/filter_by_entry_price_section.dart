@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_entry_price.dart';
 
-class FilterByEntryPriecView extends StatefulHookConsumerWidget {
-  const FilterByEntryPriecView({super.key});
+class FilterByEntryPriecSection extends StatefulHookConsumerWidget {
+  const FilterByEntryPriecSection({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _State extends ConsumerState<FilterByEntryPriecView> {
+class _State extends ConsumerState<FilterByEntryPriecSection> {
   @override
   Widget build(BuildContext context) {
     final entryPriceFilter = ref.watch(filterByEntryPriceProvider);
@@ -24,12 +24,7 @@ class _State extends ConsumerState<FilterByEntryPriecView> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              '참가비',
-              style: textTheme.titleSmall!.copyWith(
-                color: colorGrey40,
-              ),
-            ),
+            Text('참가비', style: textTheme.titleMedium),
             Text(
               '${minTicket.ceil()} Ticket ~ ${maxTicket.ceil()} Ticket',
               style: textTheme.titleSmall!.copyWith(

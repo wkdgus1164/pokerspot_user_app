@@ -23,6 +23,8 @@ mixin _$FilterServiceModel {
   int get minEntryPrice => throw _privateConstructorUsedError;
   int get maxEntryPrice => throw _privateConstructorUsedError;
   int get minReward => throw _privateConstructorUsedError;
+  bool get isOnlyFirstGameBenefit => throw _privateConstructorUsedError;
+  bool get isOnlyNewUserBenefit => throw _privateConstructorUsedError;
 
   /// Create a copy of FilterServiceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -44,7 +46,9 @@ abstract class $FilterServiceModelCopyWith<$Res> {
       GameType gameType,
       int minEntryPrice,
       int maxEntryPrice,
-      int minReward});
+      int minReward,
+      bool isOnlyFirstGameBenefit,
+      bool isOnlyNewUserBenefit});
 }
 
 /// @nodoc
@@ -69,6 +73,8 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
     Object? minEntryPrice = null,
     Object? maxEntryPrice = null,
     Object? minReward = null,
+    Object? isOnlyFirstGameBenefit = null,
+    Object? isOnlyNewUserBenefit = null,
   }) {
     return _then(_value.copyWith(
       operationStatus: null == operationStatus
@@ -99,6 +105,14 @@ class _$FilterServiceModelCopyWithImpl<$Res, $Val extends FilterServiceModel>
           ? _value.minReward
           : minReward // ignore: cast_nullable_to_non_nullable
               as int,
+      isOnlyFirstGameBenefit: null == isOnlyFirstGameBenefit
+          ? _value.isOnlyFirstGameBenefit
+          : isOnlyFirstGameBenefit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOnlyNewUserBenefit: null == isOnlyNewUserBenefit
+          ? _value.isOnlyNewUserBenefit
+          : isOnlyNewUserBenefit // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -118,7 +132,9 @@ abstract class _$$FilterServiceModelImplCopyWith<$Res>
       GameType gameType,
       int minEntryPrice,
       int maxEntryPrice,
-      int minReward});
+      int minReward,
+      bool isOnlyFirstGameBenefit,
+      bool isOnlyNewUserBenefit});
 }
 
 /// @nodoc
@@ -141,6 +157,8 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
     Object? minEntryPrice = null,
     Object? maxEntryPrice = null,
     Object? minReward = null,
+    Object? isOnlyFirstGameBenefit = null,
+    Object? isOnlyNewUserBenefit = null,
   }) {
     return _then(_$FilterServiceModelImpl(
       operationStatus: null == operationStatus
@@ -171,6 +189,14 @@ class __$$FilterServiceModelImplCopyWithImpl<$Res>
           ? _value.minReward
           : minReward // ignore: cast_nullable_to_non_nullable
               as int,
+      isOnlyFirstGameBenefit: null == isOnlyFirstGameBenefit
+          ? _value.isOnlyFirstGameBenefit
+          : isOnlyFirstGameBenefit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOnlyNewUserBenefit: null == isOnlyNewUserBenefit
+          ? _value.isOnlyNewUserBenefit
+          : isOnlyNewUserBenefit // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -185,7 +211,9 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
       required this.gameType,
       required this.minEntryPrice,
       required this.maxEntryPrice,
-      required this.minReward})
+      required this.minReward,
+      required this.isOnlyFirstGameBenefit,
+      required this.isOnlyNewUserBenefit})
       : super._();
 
   @override
@@ -202,10 +230,14 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
   final int maxEntryPrice;
   @override
   final int minReward;
+  @override
+  final bool isOnlyFirstGameBenefit;
+  @override
+  final bool isOnlyNewUserBenefit;
 
   @override
   String toString() {
-    return 'FilterServiceModel(operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, minReward: $minReward)';
+    return 'FilterServiceModel(operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, minReward: $minReward, isOnlyFirstGameBenefit: $isOnlyFirstGameBenefit, isOnlyNewUserBenefit: $isOnlyNewUserBenefit)';
   }
 
   @override
@@ -226,12 +258,25 @@ class _$FilterServiceModelImpl extends _FilterServiceModel {
             (identical(other.maxEntryPrice, maxEntryPrice) ||
                 other.maxEntryPrice == maxEntryPrice) &&
             (identical(other.minReward, minReward) ||
-                other.minReward == minReward));
+                other.minReward == minReward) &&
+            (identical(other.isOnlyFirstGameBenefit, isOnlyFirstGameBenefit) ||
+                other.isOnlyFirstGameBenefit == isOnlyFirstGameBenefit) &&
+            (identical(other.isOnlyNewUserBenefit, isOnlyNewUserBenefit) ||
+                other.isOnlyNewUserBenefit == isOnlyNewUserBenefit));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, operationStatus, minOpenTime,
-      maxOpenTime, gameType, minEntryPrice, maxEntryPrice, minReward);
+  int get hashCode => Object.hash(
+      runtimeType,
+      operationStatus,
+      minOpenTime,
+      maxOpenTime,
+      gameType,
+      minEntryPrice,
+      maxEntryPrice,
+      minReward,
+      isOnlyFirstGameBenefit,
+      isOnlyNewUserBenefit);
 
   /// Create a copy of FilterServiceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -251,7 +296,9 @@ abstract class _FilterServiceModel extends FilterServiceModel {
       required final GameType gameType,
       required final int minEntryPrice,
       required final int maxEntryPrice,
-      required final int minReward}) = _$FilterServiceModelImpl;
+      required final int minReward,
+      required final bool isOnlyFirstGameBenefit,
+      required final bool isOnlyNewUserBenefit}) = _$FilterServiceModelImpl;
   _FilterServiceModel._() : super._();
 
   @override
@@ -268,6 +315,10 @@ abstract class _FilterServiceModel extends FilterServiceModel {
   int get maxEntryPrice;
   @override
   int get minReward;
+  @override
+  bool get isOnlyFirstGameBenefit;
+  @override
+  bool get isOnlyNewUserBenefit;
 
   /// Create a copy of FilterServiceModel
   /// with the given fields replaced by the non-null parameter values.

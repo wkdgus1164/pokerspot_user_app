@@ -3,16 +3,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_operation_status.dart';
 
-class FilterByOperationStatusView extends StatefulHookConsumerWidget {
-  const FilterByOperationStatusView({super.key});
+class FilterByOperationStatusSection extends StatefulHookConsumerWidget {
+  const FilterByOperationStatusSection({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _State extends ConsumerState<FilterByOperationStatusView> {
+class _State extends ConsumerState<FilterByOperationStatusSection> {
   @override
   Widget build(BuildContext context) {
     final operationStatusFilter = ref.watch(filterByOperationStatusProvider);
@@ -22,10 +22,7 @@ class _State extends ConsumerState<FilterByOperationStatusView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          '운영 상태',
-          style: textTheme.titleSmall!.copyWith(color: colorGrey40),
-        ),
+        Text('운영 상태', style: textTheme.titleMedium),
         const SizedBox(height: 8),
         Row(
           children: [

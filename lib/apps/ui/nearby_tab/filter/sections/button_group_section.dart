@@ -3,24 +3,41 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_game_type.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_open_time.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
+import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_benefit.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_entry_price.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_game_type.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_min_reward.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_open_time.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/providers/store.dart';
 
-class FilterButtonGroupView extends StatefulHookConsumerWidget {
-  const FilterButtonGroupView({super.key});
+class FilterButtonGroupSection extends StatefulHookConsumerWidget {
+  const FilterButtonGroupSection({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _State extends ConsumerState<FilterButtonGroupView> {
+class _State extends ConsumerState<FilterButtonGroupSection> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            color: colorGrey90,
+          ),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: colorGrey95,
+            blurRadius: 10,
+            offset: Offset(0, -6),
+          ),
+        ],
+        color: Colors.white,
+      ),
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
@@ -33,6 +50,7 @@ class _State extends ConsumerState<FilterButtonGroupView> {
               ref.read(filterByEntryPriceProvider.notifier).setMinTicket(1);
               ref.read(filterByEntryPriceProvider.notifier).setMaxTicket(30);
               ref.read(filterByMinRewardDataProvider.notifier).setMinReward(50);
+              ref.read(filterByBenefitProvider.notifier).setAll();
               ref.invalidate(storesItemsProvider);
               context.pop();
             },
@@ -63,6 +81,12 @@ class _State extends ConsumerState<FilterButtonGroupView> {
                           ref.read(filterByEntryPriceProvider).maxTicket,
                       'gtd_min_reward':
                           ref.read(filterByMinRewardDataProvider).minReward,
+                      'benefit_first_game': ref
+                          .read(filterByBenefitProvider)
+                          .isOnlyFirstGameBenefit,
+                      'benefit_new_user': ref
+                          .read(filterByBenefitProvider)
+                          .isOnlyNewUserBenefit,
                     },
                   );
                 }

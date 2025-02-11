@@ -3,16 +3,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/slider.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_min_reward.dart';
 
-class FilterByMinRewardView extends StatefulHookConsumerWidget {
-  const FilterByMinRewardView({super.key});
+class FilterByMinRewardSection extends StatefulHookConsumerWidget {
+  const FilterByMinRewardSection({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _State extends ConsumerState<FilterByMinRewardView> {
+class _State extends ConsumerState<FilterByMinRewardSection> {
   @override
   Widget build(BuildContext context) {
     final minRewardFilter = ref.watch(filterByMinRewardDataProvider);
@@ -24,12 +24,7 @@ class _State extends ConsumerState<FilterByMinRewardView> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              '최소 상금',
-              style: textTheme.titleSmall!.copyWith(
-                color: colorGrey40,
-              ),
-            ),
+            Text('GTD 최소 상금', style: textTheme.titleMedium),
             Text(
               '${minReward.ceil()}',
               style: textTheme.titleSmall!.copyWith(

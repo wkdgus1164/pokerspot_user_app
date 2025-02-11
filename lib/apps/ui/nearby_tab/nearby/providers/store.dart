@@ -5,11 +5,12 @@ import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_entry_price.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_game_type.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_min_reward.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_open_time.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/bottom_sheet/providers/filter_by_operation_status.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_benefit.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_entry_price.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_game_type.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_min_reward.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_open_time.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/providers/filter_by_operation_status.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/providers/geolocation_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -52,6 +53,10 @@ class StoresItems extends _$StoresItems {
     final minReward = ref.read(filterByMinRewardDataProvider).minReward;
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
+    final isOnlyFirstGameBenefit =
+        ref.read(filterByBenefitProvider).isOnlyFirstGameBenefit;
+    final isOnlyNewUserBenefit =
+        ref.read(filterByBenefitProvider).isOnlyNewUserBenefit;
 
     final res = await ref.read(storesApiProvider).fetchStores(
           gameType == GameType.GTD
@@ -67,6 +72,8 @@ class StoresItems extends _$StoresItems {
                   gtdMinReward: minReward,
                   minEntryPrice: minEntryPrice,
                   maxEntryPrice: maxEntryPrice,
+                  isOnlyFirstGameBenefit: isOnlyFirstGameBenefit,
+                  isOnlyNewUserBenefit: isOnlyNewUserBenefit,
                 )
               : StoresQuery(
                   lat: latitude,
@@ -79,6 +86,8 @@ class StoresItems extends _$StoresItems {
                   gameType: gameType,
                   minEntryPrice: minEntryPrice,
                   maxEntryPrice: maxEntryPrice,
+                  isOnlyFirstGameBenefit: isOnlyFirstGameBenefit,
+                  isOnlyNewUserBenefit: isOnlyNewUserBenefit,
                 ),
         );
 
