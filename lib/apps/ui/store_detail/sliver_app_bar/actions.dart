@@ -19,8 +19,8 @@ List<Widget> buildStoreDetailSliverAppBarBuildActions({
     IconButton(
       onPressed: () => _showShareBottomSheet(
         id: model.id,
-        name: model.name ?? '',
-        address: model.address ?? '',
+        name: model.name,
+        address: model.address,
         storeImages: model.storeImages,
         context: context,
       ),

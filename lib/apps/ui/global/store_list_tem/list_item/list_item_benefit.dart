@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
@@ -11,6 +12,7 @@ class StoreListItemBenefit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Logger().i('StoreListItemBenefit\n  storeBenefits: $storeBenefits');
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.all(12),
@@ -21,8 +23,8 @@ class StoreListItemBenefit extends StatelessWidget {
       child: Wrap(
         runSpacing: 4,
         children: [
-          if (storeBenefits.any(
-              (benefit) => benefit.type == StoreBenefitType.FIRST_GAME.kr)) ...[
+          if (storeBenefits.any((benefit) =>
+              benefit.type == StoreBenefitType.FIRST_GAME.name)) ...[
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -41,7 +43,7 @@ class StoreListItemBenefit extends StatelessWidget {
                   child: Text(
                     storeBenefits
                         .firstWhere((benefit) =>
-                            benefit.type == StoreBenefitType.FIRST_GAME.kr)
+                            benefit.type == StoreBenefitType.FIRST_GAME.name)
                         .description,
                     style: textTheme.labelMedium!.copyWith(
                       color: colorGrey40,
@@ -52,7 +54,7 @@ class StoreListItemBenefit extends StatelessWidget {
             ),
           ],
           if (storeBenefits.any(
-              (benefit) => benefit.type == StoreBenefitType.NEW_USER.kr)) ...[
+              (benefit) => benefit.type == StoreBenefitType.NEW_USER.name)) ...[
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -71,7 +73,7 @@ class StoreListItemBenefit extends StatelessWidget {
                   child: Text(
                     storeBenefits
                         .firstWhere((benefit) =>
-                            benefit.type == StoreBenefitType.NEW_USER.kr)
+                            benefit.type == StoreBenefitType.NEW_USER.name)
                         .description,
                     style: textTheme.labelMedium!.copyWith(
                       color: colorGrey40,

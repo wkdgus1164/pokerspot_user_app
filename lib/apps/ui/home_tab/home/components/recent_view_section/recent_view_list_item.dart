@@ -30,7 +30,7 @@ class HomeRecentViewListItem extends StatelessWidget {
 
   BoxDecoration _decoration() {
     return BoxDecoration(
-      border: Border.all(color: colorGrey95),
+      border: Border.all(color: colorGrey90),
       borderRadius: BorderRadius.circular(8),
       color: Colors.white,
     );

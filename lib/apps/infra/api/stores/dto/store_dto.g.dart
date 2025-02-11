@@ -108,15 +108,15 @@ Map<String, dynamic> _$$StoreTagsDtoImplToJson(_$StoreTagsDtoImpl instance) =>
 _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreDtoImpl(
       id: json['id'] as String,
-      type: json['type'] as String?,
-      name: json['name'] as String?,
-      address: json['address'] as String?,
-      addressDetail: json['addressDetail'] as String?,
-      openTime: json['openTime'] as String?,
-      closeTime: json['closeTime'] as String?,
-      phone: json['phone'] as String?,
+      type: json['type'] as String? ?? '',
+      name: json['name'] as String? ?? '',
+      address: json['address'] as String? ?? '',
+      addressDetail: json['addressDetail'] as String? ?? '',
+      openTime: json['openTime'] as String? ?? '',
+      closeTime: json['closeTime'] as String? ?? '마감 시',
+      phone: json['phone'] as String? ?? '',
       isViewKakaoChat: json['isViewKakaoChat'] as bool? ?? false,
-      kakaoChatUrl: json['kakaoChatUrl'] as String?,
+      kakaoChatUrl: json['kakaoChatUrl'] as String? ?? '',
       updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),

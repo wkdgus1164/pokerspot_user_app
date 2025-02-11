@@ -57,7 +57,7 @@ class _State extends ConsumerState<HomeNearbyStoresSection> {
                     );
                   },
                   separatorBuilder: (context, index) =>
-                      const Divider(thickness: 10, height: 10),
+                      const Divider(height: 10, thickness: 10),
                   itemCount: stores.items.length,
                 ),
               ],
@@ -79,11 +79,11 @@ class _State extends ConsumerState<HomeNearbyStoresSection> {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name ?? ''),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
               image: d.Value(model.storeImages.first.url),
-              address: d.Value(model.address ?? ''),
-              openTime: d.Value(model.openTime ?? ''),
+              address: d.Value(model.address),
+              openTime: d.Value(model.openTime),
             ),
           );
     }

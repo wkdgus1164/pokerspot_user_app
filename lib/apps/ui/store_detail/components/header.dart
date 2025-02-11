@@ -35,27 +35,30 @@ class StoreDetailHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(title, style: textTheme.headlineSmall),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                children: [
-                  Text(
-                    runningTime,
-                    style: textTheme.labelMedium!.copyWith(
-                      color: colorGrey50,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      runningTime,
+                      style: textTheme.labelMedium!.copyWith(
+                        color: colorGrey50,
+                      ),
                     ),
-                  ),
-                  Text(
-                    '${Utils().getFormattedTimeAgo(dateTime: updatedAt)} 최종 업데이트',
-                    style: textTheme.labelMedium!.copyWith(
-                      color: colorGrey50,
+                    Text(
+                      '${Utils().getFormattedTimeAgo(dateTime: updatedAt)} 최종 업데이트',
+                      style: textTheme.labelMedium!.copyWith(
+                        color: colorGrey50,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               if (isViewKakaoChat && openChatUrl != null && openChatUrl != "")
                 GestureDetector(

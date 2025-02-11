@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/sliver_app_bar/sliver_app_bar.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/footer_toolbar.dart';
@@ -40,15 +41,11 @@ class StoreDetailLayout extends StatelessWidget {
           child: StoreDetailVac(
             model: model,
             scrollEffectTargetKey: scrollEffectTargetKey,
-            openTimeCalculated: _calculateOpenTime(model.openTime),
+            openTime: Utils().getFormattedTime(time: model.openTime),
+            closeTime: Utils().getFormattedTime(time: model.closeTime),
           ),
         ),
       ],
     );
-  }
-
-  String _calculateOpenTime(String? openTime) {
-    final int time = int.parse(openTime.toString().substring(0, 2));
-    return time > 12 ? '오후 ${time - 12}시' : '오후 $time시';
   }
 }

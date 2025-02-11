@@ -116,7 +116,7 @@ class __$$StoreImageDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StoreImageDtoImpl implements _StoreImageDto {
-  _$StoreImageDtoImpl({required this.id, required this.url});
+  const _$StoreImageDtoImpl({required this.id, required this.url});
 
   factory _$StoreImageDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$StoreImageDtoImplFromJson(json);
@@ -161,7 +161,7 @@ class _$StoreImageDtoImpl implements _StoreImageDto {
 }
 
 abstract class _StoreImageDto implements StoreImagesDto {
-  factory _StoreImageDto(
+  const factory _StoreImageDto(
       {required final String id,
       required final String url}) = _$StoreImageDtoImpl;
 
@@ -456,22 +456,22 @@ class __$$GameMTTDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GameMTTDtoImpl implements _GameMTTDto {
-  _$GameMTTDtoImpl(
+  const _$GameMTTDtoImpl(
       {required this.id,
       required this.type,
       required this.entryType,
-      required this.entryPrice,
-      required this.regEndBlindLevel,
-      required this.entryMax,
-      required this.reEntryMax,
-      required this.duration,
-      required this.prizeType,
-      required this.prize,
-      required this.gtdMinReward,
-      required this.eventType,
-      required this.isDaily,
-      required this.gameSchedule,
-      required this.name});
+      this.entryPrice,
+      this.regEndBlindLevel,
+      this.entryMax,
+      this.reEntryMax,
+      this.duration,
+      this.prizeType,
+      this.prize,
+      this.gtdMinReward,
+      this.eventType,
+      this.isDaily,
+      this.gameSchedule,
+      this.name});
 
   factory _$GameMTTDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$GameMTTDtoImplFromJson(json);
@@ -581,22 +581,22 @@ class _$GameMTTDtoImpl implements _GameMTTDto {
 }
 
 abstract class _GameMTTDto implements GameMTTDto {
-  factory _GameMTTDto(
+  const factory _GameMTTDto(
       {required final String id,
       required final GameType type,
       required final EntryType entryType,
-      required final int? entryPrice,
-      required final int? regEndBlindLevel,
-      required final int? entryMax,
-      required final int? reEntryMax,
-      required final int? duration,
-      required final PrizeType? prizeType,
-      required final int? prize,
-      required final int? gtdMinReward,
-      required final EventType? eventType,
-      required final bool? isDaily,
-      required final String? gameSchedule,
-      required final String? name}) = _$GameMTTDtoImpl;
+      final int? entryPrice,
+      final int? regEndBlindLevel,
+      final int? entryMax,
+      final int? reEntryMax,
+      final int? duration,
+      final PrizeType? prizeType,
+      final int? prize,
+      final int? gtdMinReward,
+      final EventType? eventType,
+      final bool? isDaily,
+      final String? gameSchedule,
+      final String? name}) = _$GameMTTDtoImpl;
 
   factory _GameMTTDto.fromJson(Map<String, dynamic> json) =
       _$GameMTTDtoImpl.fromJson;
@@ -742,7 +742,7 @@ class __$$StoreBenefitsDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StoreBenefitsDtoImpl implements _StoreBenefitsDto {
-  _$StoreBenefitsDtoImpl({required this.type, required this.description});
+  const _$StoreBenefitsDtoImpl({required this.type, required this.description});
 
   factory _$StoreBenefitsDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$StoreBenefitsDtoImplFromJson(json);
@@ -789,7 +789,7 @@ class _$StoreBenefitsDtoImpl implements _StoreBenefitsDto {
 }
 
 abstract class _StoreBenefitsDto implements StoreBenefitsDto {
-  factory _StoreBenefitsDto(
+  const factory _StoreBenefitsDto(
       {required final String type,
       required final String description}) = _$StoreBenefitsDtoImpl;
 
@@ -900,7 +900,7 @@ class __$$StoreTagsDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StoreTagsDtoImpl implements _StoreTagsDto {
-  _$StoreTagsDtoImpl({required this.name});
+  const _$StoreTagsDtoImpl({required this.name});
 
   factory _$StoreTagsDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$StoreTagsDtoImplFromJson(json);
@@ -942,7 +942,8 @@ class _$StoreTagsDtoImpl implements _StoreTagsDto {
 }
 
 abstract class _StoreTagsDto implements StoreTagsDto {
-  factory _StoreTagsDto({required final String name}) = _$StoreTagsDtoImpl;
+  const factory _StoreTagsDto({required final String name}) =
+      _$StoreTagsDtoImpl;
 
   factory _StoreTagsDto.fromJson(Map<String, dynamic> json) =
       _$StoreTagsDtoImpl.fromJson;
@@ -965,15 +966,15 @@ StoreDto _$StoreDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StoreDto {
   String get id => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  String? get addressDetail => throw _privateConstructorUsedError;
-  String? get openTime => throw _privateConstructorUsedError;
-  String? get closeTime => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  String get addressDetail => throw _privateConstructorUsedError;
+  String get openTime => throw _privateConstructorUsedError;
+  String get closeTime => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
   bool get isViewKakaoChat => throw _privateConstructorUsedError;
-  String? get kakaoChatUrl => throw _privateConstructorUsedError;
+  String get kakaoChatUrl => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   double get distance => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
@@ -1001,15 +1002,15 @@ abstract class $StoreDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String? type,
-      String? name,
-      String? address,
-      String? addressDetail,
-      String? openTime,
-      String? closeTime,
-      String? phone,
+      String type,
+      String name,
+      String address,
+      String addressDetail,
+      String openTime,
+      String closeTime,
+      String phone,
       bool isViewKakaoChat,
-      String? kakaoChatUrl,
+      String kakaoChatUrl,
       DateTime? updatedAt,
       double distance,
       double lat,
@@ -1036,15 +1037,15 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
   @override
   $Res call({
     Object? id = null,
-    Object? type = freezed,
-    Object? name = freezed,
-    Object? address = freezed,
-    Object? addressDetail = freezed,
-    Object? openTime = freezed,
-    Object? closeTime = freezed,
-    Object? phone = freezed,
+    Object? type = null,
+    Object? name = null,
+    Object? address = null,
+    Object? addressDetail = null,
+    Object? openTime = null,
+    Object? closeTime = null,
+    Object? phone = null,
     Object? isViewKakaoChat = null,
-    Object? kakaoChatUrl = freezed,
+    Object? kakaoChatUrl = null,
     Object? updatedAt = freezed,
     Object? distance = null,
     Object? lat = null,
@@ -1059,42 +1060,42 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
+              as String,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
+              as String,
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addressDetail: freezed == addressDetail
+              as String,
+      addressDetail: null == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      openTime: freezed == openTime
+              as String,
+      openTime: null == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      closeTime: freezed == closeTime
+              as String,
+      closeTime: null == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
+              as String,
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       isViewKakaoChat: null == isViewKakaoChat
           ? _value.isViewKakaoChat
           : isViewKakaoChat // ignore: cast_nullable_to_non_nullable
               as bool,
-      kakaoChatUrl: freezed == kakaoChatUrl
+      kakaoChatUrl: null == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -1141,15 +1142,15 @@ abstract class _$$StoreDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String? type,
-      String? name,
-      String? address,
-      String? addressDetail,
-      String? openTime,
-      String? closeTime,
-      String? phone,
+      String type,
+      String name,
+      String address,
+      String addressDetail,
+      String openTime,
+      String closeTime,
+      String phone,
       bool isViewKakaoChat,
-      String? kakaoChatUrl,
+      String kakaoChatUrl,
       DateTime? updatedAt,
       double distance,
       double lat,
@@ -1174,15 +1175,15 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? type = freezed,
-    Object? name = freezed,
-    Object? address = freezed,
-    Object? addressDetail = freezed,
-    Object? openTime = freezed,
-    Object? closeTime = freezed,
-    Object? phone = freezed,
+    Object? type = null,
+    Object? name = null,
+    Object? address = null,
+    Object? addressDetail = null,
+    Object? openTime = null,
+    Object? closeTime = null,
+    Object? phone = null,
     Object? isViewKakaoChat = null,
-    Object? kakaoChatUrl = freezed,
+    Object? kakaoChatUrl = null,
     Object? updatedAt = freezed,
     Object? distance = null,
     Object? lat = null,
@@ -1197,42 +1198,42 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
+              as String,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
+              as String,
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addressDetail: freezed == addressDetail
+              as String,
+      addressDetail: null == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      openTime: freezed == openTime
+              as String,
+      openTime: null == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      closeTime: freezed == closeTime
+              as String,
+      closeTime: null == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
+              as String,
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       isViewKakaoChat: null == isViewKakaoChat
           ? _value.isViewKakaoChat
           : isViewKakaoChat // ignore: cast_nullable_to_non_nullable
               as bool,
-      kakaoChatUrl: freezed == kakaoChatUrl
+      kakaoChatUrl: null == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -1272,17 +1273,17 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StoreDtoImpl implements _StoreDto {
-  _$StoreDtoImpl(
+  const _$StoreDtoImpl(
       {required this.id,
-      this.type,
-      this.name,
-      this.address,
-      this.addressDetail,
-      this.openTime,
-      this.closeTime,
-      this.phone,
+      this.type = '',
+      this.name = '',
+      this.address = '',
+      this.addressDetail = '',
+      this.openTime = '',
+      this.closeTime = '마감 시',
+      this.phone = '',
       this.isViewKakaoChat = false,
-      this.kakaoChatUrl,
+      this.kakaoChatUrl = '',
       this.updatedAt,
       this.distance = 0.0,
       this.lat = 0.0,
@@ -1302,24 +1303,32 @@ class _$StoreDtoImpl implements _StoreDto {
   @override
   final String id;
   @override
-  final String? type;
+  @JsonKey()
+  final String type;
   @override
-  final String? name;
+  @JsonKey()
+  final String name;
   @override
-  final String? address;
+  @JsonKey()
+  final String address;
   @override
-  final String? addressDetail;
+  @JsonKey()
+  final String addressDetail;
   @override
-  final String? openTime;
+  @JsonKey()
+  final String openTime;
   @override
-  final String? closeTime;
+  @JsonKey()
+  final String closeTime;
   @override
-  final String? phone;
+  @JsonKey()
+  final String phone;
   @override
   @JsonKey()
   final bool isViewKakaoChat;
   @override
-  final String? kakaoChatUrl;
+  @JsonKey()
+  final String kakaoChatUrl;
   @override
   final DateTime? updatedAt;
   @override
@@ -1448,17 +1457,17 @@ class _$StoreDtoImpl implements _StoreDto {
 }
 
 abstract class _StoreDto implements StoreDto {
-  factory _StoreDto(
+  const factory _StoreDto(
       {required final String id,
-      final String? type,
-      final String? name,
-      final String? address,
-      final String? addressDetail,
-      final String? openTime,
-      final String? closeTime,
-      final String? phone,
+      final String type,
+      final String name,
+      final String address,
+      final String addressDetail,
+      final String openTime,
+      final String closeTime,
+      final String phone,
       final bool isViewKakaoChat,
-      final String? kakaoChatUrl,
+      final String kakaoChatUrl,
       final DateTime? updatedAt,
       final double distance,
       final double lat,
@@ -1474,23 +1483,23 @@ abstract class _StoreDto implements StoreDto {
   @override
   String get id;
   @override
-  String? get type;
+  String get type;
   @override
-  String? get name;
+  String get name;
   @override
-  String? get address;
+  String get address;
   @override
-  String? get addressDetail;
+  String get addressDetail;
   @override
-  String? get openTime;
+  String get openTime;
   @override
-  String? get closeTime;
+  String get closeTime;
   @override
-  String? get phone;
+  String get phone;
   @override
   bool get isViewKakaoChat;
   @override
-  String? get kakaoChatUrl;
+  String get kakaoChatUrl;
   @override
   DateTime? get updatedAt;
   @override

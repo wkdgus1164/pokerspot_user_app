@@ -11,13 +11,15 @@ import 'package:pokerspot_user_app/apps/ui/store_map/store_map_page.dart';
 class StoreDetailVac extends StatelessWidget {
   const StoreDetailVac({
     super.key,
-    required this.openTimeCalculated,
+    required this.openTime,
+    required this.closeTime,
     required this.scrollEffectTargetKey,
     required this.model,
   });
 
   final StoreDto model;
-  final String openTimeCalculated;
+  final String openTime;
+  final String closeTime;
   final GlobalKey scrollEffectTargetKey;
 
   @override
@@ -40,10 +42,10 @@ class StoreDetailVac extends StatelessWidget {
       children: [
         // 헤더
         StoreDetailHeader(
-          type: model.type ?? '',
-          title: model.name ?? '',
+          type: model.type,
+          title: model.name,
           distance: model.distance,
-          runningTime: '$openTimeCalculated ~ ${model.closeTime}까지',
+          runningTime: '$openTime ~ $closeTime까지',
           updatedAt: model.updatedAt ?? DateTime.now(),
           openChatUrl: model.isViewKakaoChat ? model.kakaoChatUrl : null,
           isViewKakaoChat: model.isViewKakaoChat,
@@ -56,9 +58,9 @@ class StoreDetailVac extends StatelessWidget {
             context.push(
               CustomRouter.storeMap.path,
               extra: StoreMapPageArguments(
-                name: model.name ?? '',
-                addressDetail: model.addressDetail ?? '',
-                address: model.address ?? '',
+                name: model.name,
+                addressDetail: model.addressDetail,
+                address: model.address,
                 lat: model.lat,
                 lng: model.lng,
               ),

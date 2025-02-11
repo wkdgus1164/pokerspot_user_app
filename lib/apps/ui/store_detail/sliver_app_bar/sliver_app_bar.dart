@@ -28,7 +28,7 @@ class StoreDetailSliverAppBar extends StatelessWidget {
       title: AnimatedOpacity(
         opacity: showTitle ? 1 : 0,
         duration: Duration(milliseconds: 0),
-        child: Text(model.name ?? ''),
+        child: Text(model.name),
       ),
       flexibleSpace: StoreDetailSliverAppBarFlexibleSpaceBar(
         storeImages: model.storeImages,

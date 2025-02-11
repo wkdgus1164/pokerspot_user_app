@@ -31,9 +31,9 @@ class StoreListItemHeader extends StatelessWidget {
 
           // Store Information
           _buildStoreInformation(
-            name: store.name ?? '',
-            address: store.address ?? '',
-            openTime: store.openTime ?? '',
+            name: store.name,
+            address: store.address,
+            openTime: store.openTime,
             updatedAtString: updatedAtString,
           ),
         ],
