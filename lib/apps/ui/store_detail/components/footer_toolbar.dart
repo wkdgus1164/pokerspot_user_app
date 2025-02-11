@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_android.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/navigation/navi_ios.dart';
 
@@ -16,7 +16,7 @@ class StoreDetailFooterToolbar extends StatelessWidget {
     required this.model,
   });
 
-  final StoreV2Model model;
+  final StoreDto model;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +39,8 @@ class StoreDetailFooterToolbar extends StatelessWidget {
       onPressed: (int index) {
         if (index == 0) {
           _showNaviBottomSheet(
-            name: model.name,
-            address: model.address,
+            name: model.name ?? '',
+            address: model.address ?? '',
             x: model.lng,
             y: model.lat,
             context: context,
@@ -71,7 +71,7 @@ class StoreDetailFooterToolbar extends StatelessWidget {
       ),
       boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.1),
+          color: Colors.black.withAlpha(26),
           blurRadius: 10,
           offset: const Offset(0, 0),
           spreadRadius: 0,
@@ -83,7 +83,7 @@ class StoreDetailFooterToolbar extends StatelessWidget {
   Widget _buildCallButton() {
     return Expanded(
       child: FilledButton(
-        onPressed: () => _call(model.name, model.phone),
+        onPressed: () => _call(model.name ?? '', model.phone ?? ''),
         child: const Text('전화 걸기'),
       ),
     );

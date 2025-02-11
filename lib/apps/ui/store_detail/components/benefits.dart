@@ -4,7 +4,7 @@ import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 
 class StoreDetailBenefits extends StatelessWidget {
   const StoreDetailBenefits({
@@ -12,7 +12,7 @@ class StoreDetailBenefits extends StatelessWidget {
     required this.benefits,
   });
 
-  final List<StoreBenefitV2Model> benefits;
+  final List<StoreBenefitsDto> benefits;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,9 @@ class StoreDetailBenefits extends StatelessWidget {
         children: [
           Text(
             '혜택 정보',
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+            style: textTheme.titleMedium!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 16),
           Container(
@@ -40,7 +40,7 @@ class StoreDetailBenefits extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      benefits[0].type!.kr == StoreBenefitType.FIRST_GAME.kr
+                      benefits[0].type == StoreBenefitType.FIRST_GAME.kr
                           ? Assets.firstGameBenefits.path
                           : Assets.newGameBenefits.path,
                     ),
@@ -50,13 +50,13 @@ class StoreDetailBenefits extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            benefits[0].type?.kr ?? "-",
+                            benefits[0].type,
                             style: textTheme.titleSmall!.copyWith(
                               color: colorGrey60,
                             ),
                           ),
                           Text(
-                            benefits[0].description ?? "-",
+                            benefits[0].description,
                             style: textTheme.titleMedium!.copyWith(
                               color: colorGrey20,
                             ),
@@ -71,7 +71,7 @@ class StoreDetailBenefits extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset(
-                        benefits[1].type!.kr == StoreBenefitType.FIRST_GAME.kr
+                        benefits[1].type == StoreBenefitType.FIRST_GAME.kr
                             ? Assets.firstGameBenefits.path
                             : Assets.newGameBenefits.path,
                       ),
@@ -81,13 +81,13 @@ class StoreDetailBenefits extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Text(
-                              benefits[1].type?.kr ?? "-",
+                              benefits[1].type,
                               style: textTheme.titleSmall!.copyWith(
                                 color: colorGrey60,
                               ),
                             ),
                             Text(
-                              benefits[1].description ?? "-",
+                              benefits[1].description,
                               style: textTheme.titleMedium!.copyWith(
                                 color: colorGrey20,
                               ),

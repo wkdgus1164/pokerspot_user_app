@@ -9,11 +9,7 @@ part of 'stores_api.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _StoresApi implements StoresApi {
-  _StoresApi(
-    this._dio, {
-    this.baseUrl,
-    this.errorLogger,
-  });
+  _StoresApi(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -28,22 +24,16 @@ class _StoresApi implements StoresApi {
     queryParameters.addAll(query.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<StoresDto>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/v1/stores',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<ApiResponse<StoresDto>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/stores',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late ApiResponse<StoresDto> _value;
     try {
@@ -68,22 +58,16 @@ class _StoresApi implements StoresApi {
     queryParameters.addAll(query.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<StoreDto>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/v1/stores/${storeId}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<ApiResponse<StoreDto>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/stores/${storeId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late ApiResponse<StoreDto> _value;
     try {
@@ -99,34 +83,28 @@ class _StoresApi implements StoresApi {
   }
 
   @override
-  Future<ApiResponse<StoresV2Dto>> fetchStoresV2(StoresQuery query) async {
+  Future<ApiResponse<StoresDto>> fetchStoresV2(StoresQuery query) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(query.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<StoresV2Dto>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/v2/stores',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<ApiResponse<StoresDto>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v2/stores',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ApiResponse<StoresV2Dto> _value;
+    late ApiResponse<StoresDto> _value;
     try {
-      _value = ApiResponse<StoresV2Dto>.fromJson(
+      _value = ApiResponse<StoresDto>.fromJson(
         _result.data!,
-        (json) => StoresV2Dto.fromJson(json as Map<String, dynamic>),
+        (json) => StoresDto.fromJson(json as Map<String, dynamic>),
       );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
@@ -136,7 +114,7 @@ class _StoresApi implements StoresApi {
   }
 
   @override
-  Future<ApiResponse<StoreV2Dto>> fetchStoreDetailV2(
+  Future<ApiResponse<StoreDto>> fetchStoreDetailV2(
     String storeId,
     StoreQuery query,
   ) async {
@@ -145,28 +123,22 @@ class _StoresApi implements StoresApi {
     queryParameters.addAll(query.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<StoreV2Dto>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/v2/stores/${storeId}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<ApiResponse<StoreDto>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v2/stores/${storeId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ApiResponse<StoreV2Dto> _value;
+    late ApiResponse<StoreDto> _value;
     try {
-      _value = ApiResponse<StoreV2Dto>.fromJson(
+      _value = ApiResponse<StoreDto>.fromJson(
         _result.data!,
-        (json) => StoreV2Dto.fromJson(json as Map<String, dynamic>),
+        (json) => StoreDto.fromJson(json as Map<String, dynamic>),
       );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
@@ -188,10 +160,7 @@ class _StoresApi implements StoresApi {
     return requestOptions;
   }
 
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
+  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }

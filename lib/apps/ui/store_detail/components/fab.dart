@@ -38,15 +38,13 @@ class StoreDetailFab extends StatelessWidget {
           width: 20,
           height: 20,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.85),
+            Colors.black,
             BlendMode.srcIn,
           ),
         ),
         label: Text(
           '오픈채팅방',
-          style: TextStyle(
-            color: Colors.black.withOpacity(0.85),
-          ),
+          style: TextStyle(color: Colors.black),
         ),
       ),
     );

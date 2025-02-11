@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/components/benefits.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/games.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/header.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/components/map.dart';
@@ -10,12 +11,12 @@ import 'package:pokerspot_user_app/apps/ui/store_map/store_map_page.dart';
 class StoreDetailVac extends StatelessWidget {
   const StoreDetailVac({
     super.key,
-    required this.model,
     required this.openTimeCalculated,
     required this.scrollEffectTargetKey,
+    required this.model,
   });
 
-  final StoreV2Model model;
+  final StoreDto model;
   final String openTimeCalculated;
   final GlobalKey scrollEffectTargetKey;
 
@@ -40,11 +41,11 @@ class StoreDetailVac extends StatelessWidget {
         // 헤더
         StoreDetailHeader(
           type: model.type,
-          title: model.name,
+          title: model.name ?? '',
           distance: model.distance,
           runningTime: '$openTimeCalculated ~ ${model.closeTime}까지',
           updatedAt: model.updatedAt,
-          openChatUrl: model.kakaoChatUrl,
+          openChatUrl: model.isViewKakaoChat ? model.kakaoChatUrl : null,
           isViewKakaoChat: model.isViewKakaoChat,
         ),
 
@@ -55,9 +56,9 @@ class StoreDetailVac extends StatelessWidget {
             context.push(
               CustomRouter.storeMap.path,
               extra: StoreMapPageArguments(
-                name: model.name,
-                addressDetail: model.addressDetail,
-                address: model.address,
+                name: model.name ?? '',
+                addressDetail: model.addressDetail ?? '',
+                address: model.address ?? '',
                 lat: model.lat,
                 lng: model.lng,
               ),
@@ -65,8 +66,13 @@ class StoreDetailVac extends StatelessWidget {
           },
         ),
 
+        if (model.storeBenefits?.isNotEmpty ?? false) ...[
+          // 혜택 정보
+          StoreDetailBenefits(benefits: model.storeBenefits ?? []),
+        ],
+
         // 토너먼트 정보
-        StoreDetailGameList(games: model.gameMTTItems),
+        StoreDetailGameList(games: model.gameMttItems ?? []),
       ],
     );
   }

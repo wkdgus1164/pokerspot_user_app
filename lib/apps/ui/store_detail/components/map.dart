@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/map_view.dart';
 import 'package:pokerspot_user_app/common/components/tonal_button.dart';
 
@@ -12,7 +13,7 @@ class StoreDetailMap extends StatelessWidget {
     required this.model,
   });
 
-  final StoreV2Model model;
+  final StoreDto model;
   final Function() handleButtonClick;
 
   @override
@@ -45,9 +46,9 @@ class StoreDetailMap extends StatelessWidget {
         Expanded(
           child: Text(
             "${model.address}\n${model.addressDetail}",
-            style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: colorGrey50,
-                ),
+            style: textTheme.labelLarge!.copyWith(
+              color: colorGrey50,
+            ),
           ),
         ),
         const SizedBox(width: 16),

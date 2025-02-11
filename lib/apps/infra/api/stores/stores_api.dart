@@ -2,10 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/infra/api/common/models/api_res.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
-import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto_v2.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
-import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_v2_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/common/dio/dio_pr.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -28,12 +26,12 @@ abstract class StoresApi {
   );
 
   @GET('/api/v2/stores')
-  Future<ApiResponse<StoresV2Dto>> fetchStoresV2(
+  Future<ApiResponse<StoresDto>> fetchStoresV2(
     @Queries() StoresQuery query,
   );
 
   @GET('/api/v2/stores/{storeId}')
-  Future<ApiResponse<StoreV2Dto>> fetchStoreDetailV2(
+  Future<ApiResponse<StoreDto>> fetchStoreDetailV2(
     @Path('storeId') String storeId,
     @Queries() StoreQuery query,
   );

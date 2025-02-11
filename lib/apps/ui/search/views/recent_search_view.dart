@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 
@@ -37,19 +38,18 @@ class _RecentSearchViewState extends ConsumerState<RecentSearchView> {
                 children: [
                   Text(
                     '최근 본 펍',
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: colorGrey40,
-                        ),
+                    style: textTheme.titleSmall!.copyWith(
+                      color: colorGrey40,
+                    ),
                   ),
                   if (data.isNotEmpty) ...[
                     GestureDetector(
                       onTap: _handleRemoveAll,
                       child: Text(
                         '전체 삭제',
-                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                              color: colorGrey60,
-                              fontWeight: FontWeight.normal,
-                            ),
+                        style: textTheme.titleSmall!.copyWith(
+                          color: colorGrey60,
+                        ),
                       ),
                     ),
                   ],
@@ -62,9 +62,9 @@ class _RecentSearchViewState extends ConsumerState<RecentSearchView> {
                 child: Center(
                   child: Text(
                     '최근 본 매장이 없어요.',
-                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          color: colorGrey60,
-                        ),
+                    style: textTheme.labelLarge!.copyWith(
+                      color: colorGrey60,
+                    ),
                   ),
                 ),
               ),

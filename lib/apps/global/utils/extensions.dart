@@ -2,12 +2,9 @@ import 'package:pokerspot_user_app/apps/infra/api/address/dto/area_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/banners/dto/banner_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/notices/dto/notice_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
-import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto_v2.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
-import 'package:pokerspot_user_app/apps/ui/area/models/area.dart';
-import 'package:pokerspot_user_app/apps/ui/home/models/banner.dart';
-import 'package:pokerspot_user_app/apps/ui/my/notice/models/notice.dart';
+import 'package:pokerspot_user_app/apps/ui/area_tab/area_list/models/area.dart';
+import 'package:pokerspot_user_app/apps/ui/home_tab/home/models/banner.dart';
+import 'package:pokerspot_user_app/apps/ui/my_tab/notice/models/notice.dart';
 
 // extension StoresModelMapperExtension on List<StoreDto> {
 //   List<StoreModel> toStoreListModel() {
@@ -38,14 +35,14 @@ import 'package:pokerspot_user_app/apps/ui/my/notice/models/notice.dart';
 // }
 
 extension StoreImagesListDto2ModelExtension on List<StoreImagesDto> {
-  List<StoreImagesModel> toImageListModel() {
+  List<StoreImagesDto> toImageListModel() {
     return map((it) => it.toStoreImagesModel()).toList();
   }
 }
 
 extension StoreImagesDto2ModelExtension on StoreImagesDto {
-  StoreImagesModel toStoreImagesModel() {
-    return StoreImagesModel(
+  StoreImagesDto toStoreImagesModel() {
+    return StoreImagesDto(
       id: id,
       url: url,
     );
@@ -53,43 +50,43 @@ extension StoreImagesDto2ModelExtension on StoreImagesDto {
 }
 
 extension StoreBenefitsListDto2ModelExtension on List<StoreBenefitsDto> {
-  List<StoreBenefitV2Model> toStoreBenefitsModel() {
+  List<StoreBenefitsDto> toStoreBenefitsModel() {
     return map((it) => it.toStoreBenefitsModel()).toList();
   }
 }
 
 extension StoreBenefitsDto2ModelExtension on StoreBenefitsDto {
-  StoreBenefitV2Model toStoreBenefitsModel() {
-    return StoreBenefitV2Model(
+  StoreBenefitsDto toStoreBenefitsModel() {
+    return StoreBenefitsDto(
       type: type,
       description: description,
     );
   }
 }
 
-extension StoreTagsListDto2ModelExtension on List<StoreTagDto> {
-  List<StoreTagV2Model> toStoreTagsModel() {
+extension StoreTagsListDto2ModelExtension on List<StoreTagsDto> {
+  List<StoreTagsDto> toStoreTagsModel() {
     return map((it) => it.toStoreTagsModel()).toList();
   }
 }
 
-extension StoreTagsDto2ModelExtension on StoreTagDto {
-  StoreTagV2Model toStoreTagsModel() {
-    return StoreTagV2Model(
+extension StoreTagsDto2ModelExtension on StoreTagsDto {
+  StoreTagsDto toStoreTagsModel() {
+    return StoreTagsDto(
       name: name,
     );
   }
 }
 
-extension StoreGamesListDto2ModelExtension on List<GameMttItemsV2Dto> {
-  List<StoreGameMttV2Model> toGameMttListV2Model() {
+extension StoreGamesListDto2ModelExtension on List<GameMTTDto> {
+  List<GameMTTDto> toGameMttListV2Model() {
     return map((it) => it.toGameMttV2Model()).toList();
   }
 }
 
-extension StoreGameDto2ModelExtension on GameMttItemsV2Dto {
-  StoreGameMttV2Model toGameMttV2Model() {
-    return StoreGameMttV2Model(
+extension StoreGameDto2ModelExtension on GameMTTDto {
+  GameMTTDto toGameMttV2Model() {
+    return GameMTTDto(
       id: id,
       name: name,
       type: type,
@@ -109,15 +106,15 @@ extension StoreGameDto2ModelExtension on GameMttItemsV2Dto {
   }
 }
 
-extension StoreV2ModelMapperExtension on List<StoreV2Dto> {
-  List<StoreV2Model> toStoreV2ListModel() {
+extension StoreV2ModelMapperExtension on List<StoreDto> {
+  List<StoreDto> toStoreV2ListModel() {
     return map((it) => it.toStoreV2Model()).toList();
   }
 }
 
-extension StoreV2Dto2StoreV2ModelExtension on StoreV2Dto {
-  StoreV2Model toStoreV2Model() {
-    return StoreV2Model(
+extension StoreDto2StoreDtoExtension on StoreDto {
+  StoreDto toStoreV2Model() {
+    return StoreDto(
       id: id,
       type: type,
       name: name ?? "",
@@ -135,7 +132,7 @@ extension StoreV2Dto2StoreV2ModelExtension on StoreV2Dto {
       storeImages: storeImages?.toImageListModel() ?? [],
       storeBenefits: storeBenefits?.toStoreBenefitsModel() ?? [],
       storeTags: storeTags?.toStoreTagsModel() ?? [],
-      gameMTTItems: gameMttItems?.toGameMttListV2Model() ?? [],
+      gameMttItems: gameMttItems?.toGameMttListV2Model() ?? [],
     );
   }
 }

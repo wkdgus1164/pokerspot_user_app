@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/sliver_app_bar/actions.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/sliver_app_bar/flexible_spacebar.dart';
 
@@ -11,7 +11,7 @@ class StoreDetailSliverAppBar extends StatelessWidget {
     required this.model,
   });
 
-  final StoreV2Model model;
+  final StoreDto model;
   final bool showTitle;
 
   @override
@@ -28,10 +28,10 @@ class StoreDetailSliverAppBar extends StatelessWidget {
       title: AnimatedOpacity(
         opacity: showTitle ? 1 : 0,
         duration: Duration(milliseconds: 0),
-        child: Text(model.name),
+        child: Text(model.name ?? ''),
       ),
       flexibleSpace: StoreDetailSliverAppBarFlexibleSpaceBar(
-        storeImages: model.storeImages,
+        storeImages: model.storeImages ?? [],
         distance: model.distance,
       ),
       actions: buildStoreDetailSliverAppBarBuildActions(

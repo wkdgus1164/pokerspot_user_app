@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 class LoadingPlaceholder extends StatelessWidget {
   const LoadingPlaceholder({
@@ -32,9 +33,9 @@ class LoadingPlaceholder extends StatelessWidget {
             if (message != null)
               Text(
                 message!,
-                style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                      color: colorGrey80,
-                    ),
+                style: textTheme.labelMedium!.copyWith(
+                  color: colorGrey80,
+                ),
               ),
           ],
         ),

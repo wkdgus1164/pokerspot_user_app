@@ -3,43 +3,52 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/photo_viewer/photo_viewer_page.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
+import 'package:pokerspot_user_app/apps/ui/global/photo_viewer/photo_viewer_page.dart';
 
 class StoreDetailImageSwiper extends StatelessWidget {
   const StoreDetailImageSwiper({super.key, required this.images});
 
-  final List<StoreImagesModel> images;
+  final List<StoreImagesDto> images;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 16),
-      child: AspectRatio(
-        aspectRatio: 16 / 9,
-        child: Swiper(
-          itemCount: images.length,
-          autoplay: true,
-          loop: true,
-          viewportFraction: 0.8,
-          scale: 0.9,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () => _handleImageClick(context, images[index].url ?? ""),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
+      height: MediaQuery.of(context).size.width * 9 / 16,
+      child: Swiper(
+        itemCount: images.length,
+        autoplay: true,
+        loop: true,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () => _handleImageClick(context, images[index].url),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: images[index].url,
+                  ),
                 ),
-                clipBehavior: Clip.antiAlias,
-                child: CachedNetworkImage(
-                  fit: BoxFit.cover,
-                  imageUrl: images[index].url ?? "",
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.black.withAlpha(102),
+                        Colors.transparent,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
                 ),
-              ),
-            );
-          },
-        ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

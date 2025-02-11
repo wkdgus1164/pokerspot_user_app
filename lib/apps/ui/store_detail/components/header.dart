@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -36,12 +37,7 @@ class StoreDetailHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  fontWeight: FontWeight.normal,
-                ),
-          ),
+          Text(title, style: textTheme.headlineSmall),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -49,15 +45,15 @@ class StoreDetailHeader extends StatelessWidget {
                 children: [
                   Text(
                     runningTime,
-                    style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                          color: colorGrey50,
-                        ),
+                    style: textTheme.labelMedium!.copyWith(
+                      color: colorGrey50,
+                    ),
                   ),
                   Text(
                     '${Utils().getFormattedTimeAgo(dateTime: updatedAt)} 최종 업데이트',
-                    style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                          color: colorGrey50,
-                        ),
+                    style: textTheme.labelMedium!.copyWith(
+                      color: colorGrey50,
+                    ),
                   ),
                 ],
               ),
@@ -92,7 +88,7 @@ class StoreDetailHeader extends StatelessWidget {
                           width: 20,
                           height: 20,
                           colorFilter: ColorFilter.mode(
-                            Colors.black.withOpacity(0.85),
+                            Colors.black.withAlpha(217),
                             BlendMode.srcIn,
                           ),
                         ),
@@ -100,7 +96,7 @@ class StoreDetailHeader extends StatelessWidget {
                         Text(
                           '오픈채팅방',
                           style: TextStyle(
-                            color: Colors.black.withOpacity(0.85),
+                            color: Colors.black.withAlpha(217),
                           ),
                         ),
                       ],

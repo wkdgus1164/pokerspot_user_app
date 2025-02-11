@@ -4,6 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 
 class StoreMapPageArguments {
@@ -99,7 +100,7 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withAlpha(25),
                   blurRadius: 10,
                   offset: const Offset(0, 0),
                   spreadRadius: 0,
@@ -111,9 +112,9 @@ class _StoreMapPageState extends ConsumerState<StoreMapPage> {
               children: [
                 Text(
                   _args.address,
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: colorGrey30,
-                      ),
+                  style: textTheme.bodyLarge!.copyWith(
+                    color: colorGrey30,
+                  ),
                 ),
                 const SizedBox(height: 16),
                 SizedBox(

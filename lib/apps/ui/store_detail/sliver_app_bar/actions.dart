@@ -4,8 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/kakao_link.dart';
 import 'package:pokerspot_user_app/apps/infra/third_party/kakao/share/models/kakao_feed_model.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/share/share_android.dart';
@@ -13,15 +12,15 @@ import 'package:pokerspot_user_app/apps/ui/store_detail/bottom_sheets/share/shar
 
 List<Widget> buildStoreDetailSliverAppBarBuildActions({
   required BuildContext context,
-  required StoreV2Model model,
+  required StoreDto model,
   required bool showTitle,
 }) {
   return [
     IconButton(
       onPressed: () => _showShareBottomSheet(
         id: model.id,
-        name: model.name,
-        address: model.address,
+        name: model.name ?? '',
+        address: model.address ?? '',
         storeImages: model.storeImages,
         context: context,
       ),
@@ -44,7 +43,7 @@ void _showShareBottomSheet({
   required String id,
   required String name,
   required String address,
-  required List<StoreImagesModel>? storeImages,
+  required List<StoreImagesDto>? storeImages,
   required BuildContext context,
 }) {
   if (Platform.isAndroid) {
@@ -85,7 +84,7 @@ void _handleKakaoShare({
   required String id,
   required String name,
   required String address,
-  required List<StoreImagesModel>? storeImages,
+  required List<StoreImagesDto>? storeImages,
 }) async {
   Fluttertoast.showToast(msg: '카카오톡으로 공유할게요.');
   KakaoLinkHelper().shareKakaoFeed(
@@ -93,7 +92,7 @@ void _handleKakaoShare({
       id: id,
       title: name,
       description: address,
-      thumbnail: storeImages![0].url ?? "",
+      thumbnail: storeImages?.first.url ?? "",
     ),
   );
 }

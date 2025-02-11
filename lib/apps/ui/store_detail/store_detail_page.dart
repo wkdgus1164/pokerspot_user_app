@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store_v2.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/views/store_detail_layout.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
 
+class StoreDetailPageArgs {
+  final String id;
+
+  StoreDetailPageArgs({required this.id});
+}
+
 class StoreDetailPage extends StatefulHookConsumerWidget {
   const StoreDetailPage({
     super.key,
-    required this.id,
+    required this.args,
   });
 
-  final String id;
+  final StoreDetailPageArgs args;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -20,7 +26,7 @@ class StoreDetailPage extends StatefulHookConsumerWidget {
 }
 
 class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
-  String get _storeId => widget.id;
+  String get _storeId => widget.args.id;
   bool _showTitle = false;
 
   final GlobalKey _scrollEffectTargetWidgetKey = GlobalKey();
@@ -29,7 +35,7 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
   @override
   Widget build(BuildContext context) {
     Logger().i('StoreDetailPage\n  store id: $_storeId');
-    final res = ref.watch(storeV2DataProvider.call(_storeId));
+    final res = ref.watch(storeDataProvider.call(_storeId));
 
     return res.when(
       data: (data) {
@@ -43,10 +49,17 @@ class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
         );
       },
       error: (error, stackTrace) {
-        return ErrorPlaceholder(error: error.toString());
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('오류'),
+          ),
+          body: ErrorPlaceholder(error: error.toString()),
+        );
       },
       loading: () {
-        return const LoadingPlaceholder(loadingHeaderText: '-');
+        return const Scaffold(
+          body: LoadingPlaceholder(loadingHeaderText: '-'),
+        );
       },
     );
   }

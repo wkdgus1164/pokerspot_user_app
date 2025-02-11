@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 
 class StoreDetailBasicInformation extends StatelessWidget {
@@ -28,9 +29,9 @@ class StoreDetailBasicInformation extends StatelessWidget {
         children: [
           Text(
             '기본 정보',
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+            style: textTheme.titleMedium!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 16),
 
@@ -55,10 +56,9 @@ class StoreDetailBasicInformation extends StatelessWidget {
                     Expanded(
                       child: Text(
                         '$address, $addressDetail',
-                        style:
-                            Theme.of(context).textTheme.labelMedium!.copyWith(
-                                  color: colorGrey50,
-                                ),
+                        style: textTheme.labelMedium!.copyWith(
+                          color: colorGrey50,
+                        ),
                       ),
                     ),
                   ],
@@ -109,9 +109,9 @@ class StoreDetailBasicInformation extends StatelessWidget {
         const SizedBox(width: 16),
         Text(
           data,
-          style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                color: colorGrey50,
-              ),
+          style: textTheme.labelMedium!.copyWith(
+            color: colorGrey50,
+          ),
         ),
       ],
     );

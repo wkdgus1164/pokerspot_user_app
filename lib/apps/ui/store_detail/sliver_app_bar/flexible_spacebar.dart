@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
-import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper_v2.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/components/image_swiper.dart';
 
 class StoreDetailSliverAppBarFlexibleSpaceBar extends StatelessWidget {
   const StoreDetailSliverAppBarFlexibleSpaceBar({
@@ -11,7 +12,7 @@ class StoreDetailSliverAppBarFlexibleSpaceBar extends StatelessWidget {
     required this.distance,
   });
 
-  final List<StoreImagesModel> storeImages;
+  final List<StoreImagesDto> storeImages;
   final double distance;
 
   @override
@@ -20,7 +21,7 @@ class StoreDetailSliverAppBarFlexibleSpaceBar extends StatelessWidget {
       background: Stack(
         alignment: Alignment.bottomRight,
         children: [
-          StoreDetailImageSwiperV2(
+          StoreDetailImageSwiper(
             images: storeImages,
           ),
           Container(
@@ -34,7 +35,7 @@ class StoreDetailSliverAppBarFlexibleSpaceBar extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100),
-              color: Colors.white.withOpacity(0.7),
+              color: Colors.white.withAlpha(179),
             ),
             child: Wrap(
               spacing: 4,
@@ -47,9 +48,7 @@ class StoreDetailSliverAppBarFlexibleSpaceBar extends StatelessWidget {
                 ),
                 Text(
                   '여기에서 ${Utils().getFormattedDistance(distance: distance)}',
-                  style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                        color: colorGrey20,
-                      ),
+                  style: textTheme.labelMedium,
                 ),
               ],
             ),

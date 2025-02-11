@@ -4,14 +4,14 @@ import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart
 import 'package:pokerspot_user_app/apps/global/utils/extensions.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby/providers/geolocation_data.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/providers/geolocation_data.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'search.g.dart';
 
-typedef Models = WithOffsetPagination<List<StoreV2Model>?>;
+typedef Models = WithOffsetPagination<List<StoreDto>?>;
 
 @riverpod
 class SearchResult extends _$SearchResult {

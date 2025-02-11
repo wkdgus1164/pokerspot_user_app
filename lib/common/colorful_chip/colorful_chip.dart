@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 enum ColorfulChipTheme {
   red(Color(0xFFFFEBEE), Color(0xFFD32F2F)),
@@ -36,9 +37,9 @@ class ColorfulChip extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.labelSmall!.copyWith(
-              color: theme.foregroundColor,
-            ),
+        style: textTheme.labelSmall!.copyWith(
+          color: theme.foregroundColor,
+        ),
       ),
     );
   }

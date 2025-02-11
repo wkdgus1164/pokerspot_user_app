@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:logger/web.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store_v2.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_games/game_item_detail.dart';
 
 class StoreGameListDetail extends StatelessWidget {
@@ -12,7 +13,7 @@ class StoreGameListDetail extends StatelessWidget {
     this.scrollDirection = Axis.vertical,
   });
 
-  final List<StoreGameMttV2Model> games;
+  final List<GameMTTDto> games;
   final Axis scrollDirection;
 
   @override
@@ -55,17 +56,17 @@ class StoreGameListDetail extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     it.name,
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: colorGrey30,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: textTheme.titleMedium!.copyWith(
+                      color: colorGrey30,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   if (it.gameSchedule != null) ...[
                     Text(
                       it.gameSchedule ?? "",
-                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                            color: colorGrey60,
-                          ),
+                      style: textTheme.labelMedium!.copyWith(
+                        color: colorGrey60,
+                      ),
                     ),
                   ],
                   const SizedBox(height: 16),
@@ -132,9 +133,9 @@ class StoreGameListDetail extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.labelSmall!.copyWith(
-              color: Colors.blue.shade700,
-            ),
+        style: textTheme.labelSmall!.copyWith(
+          color: Colors.blue.shade700,
+        ),
       ),
     );
   }
