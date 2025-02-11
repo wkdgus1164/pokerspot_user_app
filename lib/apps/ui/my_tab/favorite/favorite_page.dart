@@ -5,6 +5,7 @@ import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_list_tem/list_item.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 
 class MyFavoritePage extends StatefulHookConsumerWidget {
   const MyFavoritePage({super.key});
@@ -64,11 +65,9 @@ class _State extends ConsumerState<MyFavoritePage> {
   }
 
   void _handleClick(String storeId, double lat, double lng) {
-    context.pushNamed(
+    context.push(
       CustomRouter.store.path,
-      pathParameters: {'storeId': storeId},
+      extra: StoreDetailPageArgs(id: storeId),
     );
   }
 }
-
-class StoreType {}

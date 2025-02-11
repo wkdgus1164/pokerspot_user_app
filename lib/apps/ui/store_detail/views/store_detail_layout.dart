@@ -23,13 +23,13 @@ class StoreDetailLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: _buildScrollView()),
-        StoreDetailFooterToolbar(model: model),
+        Expanded(child: _buildScrollView(context)),
+        SafeArea(child: StoreDetailFooterToolbar(model: model)),
       ],
     );
   }
 
-  Widget _buildScrollView() {
+  Widget _buildScrollView(BuildContext context) {
     return CustomScrollView(
       controller: scrollController,
       slivers: [

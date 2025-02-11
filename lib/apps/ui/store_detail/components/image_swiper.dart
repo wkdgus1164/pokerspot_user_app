@@ -15,7 +15,7 @@ class StoreDetailImageSwiper extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.width * 9 / 16,
+      height: MediaQuery.of(context).size.width * 11 / 16,
       child: Swiper(
         itemCount: images.length,
         autoplay: true,
@@ -37,7 +37,7 @@ class StoreDetailImageSwiper extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.black.withAlpha(102),
+                        Colors.black.withAlpha(200),
                         Colors.transparent,
                       ],
                       begin: Alignment.topCenter,

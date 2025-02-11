@@ -10,6 +10,7 @@ import 'package:pokerspot_user_app/apps/ui/area_tab/area_detail/providers/area.d
 import 'package:pokerspot_user_app/apps/ui/global/store_list_tem/list_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/providers/store.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -121,9 +122,9 @@ class _State extends ConsumerState<AreaDetailPage> {
     }
 
     ref.invalidate(recentSearchDataProvider);
-    context.pushNamed(
-      CustomRouter.store.name,
-      pathParameters: {'id': model.id},
+    context.push(
+      CustomRouter.store.path,
+      extra: StoreDetailPageArgs(id: model.id),
     );
   }
 }

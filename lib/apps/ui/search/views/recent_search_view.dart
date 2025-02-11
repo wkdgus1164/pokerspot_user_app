@@ -7,6 +7,7 @@ import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 
 class RecentSearchView extends StatefulHookConsumerWidget {
   const RecentSearchView({super.key});
@@ -99,9 +100,9 @@ class _State extends ConsumerState<RecentSearchView> {
   }
 
   void _handleItemClick({required String id}) {
-    context.pushNamed(
-      CustomRouter.store.name,
-      pathParameters: {'id': id},
+    context.push(
+      CustomRouter.store.path,
+      extra: StoreDetailPageArgs(id: id),
     );
   }
 

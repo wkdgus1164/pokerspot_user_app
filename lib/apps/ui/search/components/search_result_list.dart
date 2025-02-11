@@ -12,6 +12,7 @@ import 'package:pokerspot_user_app/apps/ui/search/components/search_result_item.
 import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/search.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 
 class SearchResultList extends StatefulHookConsumerWidget {
@@ -108,9 +109,9 @@ class _State extends ConsumerState<SearchResultList> {
           );
     }
     ref.read(searchKeywordProvider.notifier).clearSearchKeyword();
-    context.pushNamed(
-      CustomRouter.store.name,
-      pathParameters: {"id": model.id},
+    context.push(
+      CustomRouter.store.path,
+      extra: StoreDetailPageArgs(id: model.id),
     );
   }
 }

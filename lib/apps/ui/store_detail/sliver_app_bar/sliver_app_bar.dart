@@ -17,6 +17,9 @@ class StoreDetailSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      // 앱바의 최대 높이를 설정합니다.
+      // 화면 너비의 10:16 비율에서 앱바 기본 높이를 뺀 값으로 설정됩니다.
+      // 이는 이미지가 16:10 비율로 표시되도록 하기 위함입니다.
       expandedHeight:
           MediaQuery.of(context).size.width * 10 / 16 - kToolbarHeight,
       pinned: true,

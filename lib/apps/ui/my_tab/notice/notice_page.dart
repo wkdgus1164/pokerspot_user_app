@@ -6,6 +6,7 @@ import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/ui/my_tab/notice/models/notice.dart';
 import 'package:pokerspot_user_app/apps/ui/my_tab/notice/providers/notice.dart';
+import 'package:pokerspot_user_app/apps/ui/my_tab/notice_detail/notice_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -95,9 +96,9 @@ class _State extends ConsumerState<MyNoticePage> {
   }
 
   void _handleItemClick({required String id}) {
-    context.pushNamed(
-      CustomRouter.noticeDetail.name,
-      pathParameters: {'id': id},
+    context.push(
+      CustomRouter.noticeDetail.path,
+      extra: MyNoticeDetailPageArgs(id: id),
     );
   }
 }

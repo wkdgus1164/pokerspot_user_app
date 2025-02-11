@@ -10,6 +10,7 @@ import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dar
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/nearby_store_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 
 class NearbyStoresView extends StatefulHookConsumerWidget {
@@ -83,9 +84,9 @@ class _State extends ConsumerState<NearbyStoresView> {
     }
 
     ref.invalidate(recentSearchDataProvider);
-    context.pushNamed(
-      CustomRouter.store.name,
-      pathParameters: {"id": model.id},
+    context.push(
+      CustomRouter.store.path,
+      extra: StoreDetailPageArgs(id: model.id),
     );
   }
 }
