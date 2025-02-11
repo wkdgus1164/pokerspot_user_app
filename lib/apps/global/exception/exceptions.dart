@@ -77,3 +77,12 @@ class NotFoundToolCategoriesException extends CustomException {
     super.message = "툴 카테고리가 존재하지 않습니다.",
   });
 }
+
+class NotFoundStoreException extends CustomException {
+  static String code = "NOT_FOUND_STORE";
+
+  NotFoundStoreException({
+    super.title = "매장 조회 실패",
+    super.message = "매장 정보를 찾을 수 없습니다.",
+  });
+}

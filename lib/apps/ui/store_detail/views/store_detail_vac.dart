@@ -40,11 +40,11 @@ class StoreDetailVac extends StatelessWidget {
       children: [
         // 헤더
         StoreDetailHeader(
-          type: model.type,
-          title: model.name,
+          type: model.type ?? '',
+          title: model.name ?? '',
           distance: model.distance,
           runningTime: '$openTimeCalculated ~ ${model.closeTime}까지',
-          updatedAt: model.updatedAt,
+          updatedAt: model.updatedAt ?? DateTime.now(),
           openChatUrl: model.isViewKakaoChat ? model.kakaoChatUrl : null,
           isViewKakaoChat: model.isViewKakaoChat,
         ),
@@ -56,9 +56,9 @@ class StoreDetailVac extends StatelessWidget {
             context.push(
               CustomRouter.storeMap.path,
               extra: StoreMapPageArguments(
-                name: model.name,
-                addressDetail: model.addressDetail,
-                address: model.address,
+                name: model.name ?? '',
+                addressDetail: model.addressDetail ?? '',
+                address: model.address ?? '',
                 lat: model.lat,
                 lng: model.lng,
               ),
