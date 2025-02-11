@@ -9,12 +9,10 @@ class FilterByOperationStatusView extends StatefulHookConsumerWidget {
   const FilterByOperationStatusView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByOperationStatusState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _FilterByOperationStatusState
-    extends ConsumerState<FilterByOperationStatusView> {
+class _State extends ConsumerState<FilterByOperationStatusView> {
   @override
   Widget build(BuildContext context) {
     final operationStatusFilter = ref.watch(filterByOperationStatusProvider);

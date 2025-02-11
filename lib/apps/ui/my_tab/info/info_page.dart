@@ -13,10 +13,10 @@ class MyInfoPage extends StatefulHookConsumerWidget {
   const MyInfoPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _MyInfoPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _MyInfoPageState extends ConsumerState<MyInfoPage> {
+class _State extends ConsumerState<MyInfoPage> {
   final isKakaoActivated = false;
   final isAppleActivated = false;
 

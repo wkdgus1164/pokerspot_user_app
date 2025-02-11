@@ -29,10 +29,10 @@ class StoreMapPage extends StatefulHookConsumerWidget {
   final StoreMapPageArguments args;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _StoreMapPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _StoreMapPageState extends ConsumerState<StoreMapPage> {
+class _State extends ConsumerState<StoreMapPage> {
   StoreMapPageArguments get _args => widget.args;
 
   late GoogleMapController mapController;

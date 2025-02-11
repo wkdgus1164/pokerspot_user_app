@@ -14,10 +14,10 @@ class SplashPage extends StatefulHookConsumerWidget {
   const SplashPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _SplashPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _SplashPageState extends ConsumerState<SplashPage> {
+class _State extends ConsumerState<SplashPage> {
   late Timer _timer;
 
   @override

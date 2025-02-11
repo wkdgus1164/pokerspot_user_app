@@ -12,11 +12,10 @@ class RecentSearchView extends StatefulHookConsumerWidget {
   const RecentSearchView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _RecentSearchViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _RecentSearchViewState extends ConsumerState<RecentSearchView> {
+class _State extends ConsumerState<RecentSearchView> {
   @override
   Widget build(BuildContext context) {
     final res = ref.watch(recentSearchDataProvider);

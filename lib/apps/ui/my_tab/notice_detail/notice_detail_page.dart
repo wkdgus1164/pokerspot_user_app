@@ -19,11 +19,10 @@ class MyNoticeDetailPage extends StatefulHookConsumerWidget {
   final MyNoticeDetailPageArgs args;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _MyNoticeDetailPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _MyNoticeDetailPageState extends ConsumerState<MyNoticeDetailPage> {
+class _State extends ConsumerState<MyNoticeDetailPage> {
   String get _noticeId => widget.args.id;
 
   @override

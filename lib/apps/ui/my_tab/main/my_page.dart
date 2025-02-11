@@ -10,10 +10,10 @@ class MyPage extends StatefulHookConsumerWidget {
   const MyPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _MyPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _MyPageState extends ConsumerState<MyPage> {
+class _State extends ConsumerState<MyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

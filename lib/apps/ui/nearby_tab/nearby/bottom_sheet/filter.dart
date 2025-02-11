@@ -13,12 +13,10 @@ class NearbySearchFilterSheet extends StatefulHookConsumerWidget {
   const NearbySearchFilterSheet({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _NearbySearchFilterSheetState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _NearbySearchFilterSheetState
-    extends ConsumerState<NearbySearchFilterSheet> {
+class _State extends ConsumerState<NearbySearchFilterSheet> {
   @override
   Widget build(BuildContext context) {
     final gameType = ref.watch(filterByGameTypeProvider).gameType;

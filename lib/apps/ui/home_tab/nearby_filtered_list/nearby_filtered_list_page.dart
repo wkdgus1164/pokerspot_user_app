@@ -12,6 +12,7 @@ import 'package:pokerspot_user_app/apps/ui/home_tab/nearby_filtered_list/provide
 import 'package:pokerspot_user_app/apps/ui/global/store_list_tem/list_item.dart';
 import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/empty.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/loading.dart';
@@ -30,12 +31,10 @@ class GameTypeFilterListPage extends StatefulHookConsumerWidget {
   final GameTypeFilterListPageArguments args;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _GameTypeFilterListPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _GameTypeFilterListPageState
-    extends ConsumerState<GameTypeFilterListPage> {
+class _State extends ConsumerState<GameTypeFilterListPage> {
   GameTypeFilterListPageArguments get _args => widget.args;
 
   @override
@@ -123,9 +122,9 @@ class _GameTypeFilterListPageState
     }
 
     ref.invalidate(recentSearchDataProvider);
-    context.pushNamed(
-      CustomRouter.store.name,
-      pathParameters: {"id": model.id},
+    context.push(
+      CustomRouter.store.path,
+      extra: StoreDetailPageArgs(id: model.id),
     );
   }
 }

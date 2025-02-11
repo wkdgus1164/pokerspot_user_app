@@ -14,10 +14,10 @@ class MyNoticePage extends StatefulHookConsumerWidget {
   const MyNoticePage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _MyNoticePageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _MyNoticePageState extends ConsumerState<MyNoticePage> {
+class _State extends ConsumerState<MyNoticePage> {
   ScrollController scrollController = ScrollController();
 
   @override

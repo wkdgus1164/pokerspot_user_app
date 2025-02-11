@@ -18,11 +18,10 @@ class SearchResultList extends StatefulHookConsumerWidget {
   const SearchResultList({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _SearchResultListState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _SearchResultListState extends ConsumerState<SearchResultList> {
+class _State extends ConsumerState<SearchResultList> {
   @override
   Widget build(BuildContext context) {
     final searchResult = ref.watch(searchResultProvider);

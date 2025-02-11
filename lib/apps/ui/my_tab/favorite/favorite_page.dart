@@ -10,10 +10,10 @@ class MyFavoritePage extends StatefulHookConsumerWidget {
   const MyFavoritePage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _MyFavoritePageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _MyFavoritePageState extends ConsumerState<MyFavoritePage> {
+class _State extends ConsumerState<MyFavoritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

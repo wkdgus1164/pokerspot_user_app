@@ -8,11 +8,10 @@ class FilterByEntryPriecView extends StatefulHookConsumerWidget {
   const FilterByEntryPriecView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByEntryPriceState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _FilterByEntryPriceState extends ConsumerState<FilterByEntryPriecView> {
+class _State extends ConsumerState<FilterByEntryPriecView> {
   @override
   Widget build(BuildContext context) {
     final entryPriceFilter = ref.watch(filterByEntryPriceProvider);

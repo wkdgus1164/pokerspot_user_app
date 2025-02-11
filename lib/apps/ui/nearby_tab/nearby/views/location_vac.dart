@@ -8,11 +8,10 @@ class NearbyLocationView extends StatefulHookConsumerWidget {
   const NearbyLocationView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _NearbyLocationViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _NearbyLocationViewState extends ConsumerState<NearbyLocationView> {
+class _State extends ConsumerState<NearbyLocationView> {
   @override
   Widget build(BuildContext context) {
     final locationModel = ref.watch(locationServiceProvider);

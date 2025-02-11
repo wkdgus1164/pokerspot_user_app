@@ -16,11 +16,10 @@ class NearbyStoresView extends StatefulHookConsumerWidget {
   const NearbyStoresView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _NearbyStoresViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
+class _State extends ConsumerState<NearbyStoresView> {
   @override
   Widget build(BuildContext context) {
     final result = ref.watch(storesItemsProvider);

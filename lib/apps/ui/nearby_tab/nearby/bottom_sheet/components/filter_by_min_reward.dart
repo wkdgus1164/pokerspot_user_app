@@ -9,11 +9,10 @@ class FilterByMinRewardView extends StatefulHookConsumerWidget {
   const FilterByMinRewardView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByMinRewardState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _FilterByMinRewardState extends ConsumerState<FilterByMinRewardView> {
+class _State extends ConsumerState<FilterByMinRewardView> {
   @override
   Widget build(BuildContext context) {
     final minRewardFilter = ref.watch(filterByMinRewardDataProvider);

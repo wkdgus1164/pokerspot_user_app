@@ -9,11 +9,10 @@ class FilterByGameTypeView extends StatefulHookConsumerWidget {
   const FilterByGameTypeView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByGameTypeState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _FilterByGameTypeState extends ConsumerState<FilterByGameTypeView> {
+class _State extends ConsumerState<FilterByGameTypeView> {
   @override
   Widget build(BuildContext context) {
     final gameTypeFilter = ref.watch(filterByGameTypeProvider);

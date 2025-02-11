@@ -10,11 +10,10 @@ class HomeCTAButtonView extends StatefulHookConsumerWidget {
   const HomeCTAButtonView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _HomeCTAButtonViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _HomeCTAButtonViewState extends ConsumerState<HomeCTAButtonView> {
+class _State extends ConsumerState<HomeCTAButtonView> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

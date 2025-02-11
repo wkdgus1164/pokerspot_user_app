@@ -13,11 +13,10 @@ class NearbyFilterView extends StatefulHookConsumerWidget {
   const NearbyFilterView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _NearbyFilterViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _NearbyFilterViewState extends ConsumerState<NearbyFilterView> {
+class _State extends ConsumerState<NearbyFilterView> {
   @override
   Widget build(BuildContext context) {
     final OperationStatus operationStatus =

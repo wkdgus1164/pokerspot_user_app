@@ -14,11 +14,10 @@ class FilterButtonGroupView extends StatefulHookConsumerWidget {
   const FilterButtonGroupView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterButtonGroupViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _FilterButtonGroupViewState extends ConsumerState<FilterButtonGroupView> {
+class _State extends ConsumerState<FilterButtonGroupView> {
   @override
   Widget build(BuildContext context) {
     return Padding(

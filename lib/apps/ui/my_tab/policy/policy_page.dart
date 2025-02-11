@@ -9,10 +9,10 @@ class PolicyPage extends StatefulHookConsumerWidget {
   const PolicyPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _PolicyPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _PolicyPageState extends ConsumerState<PolicyPage> {
+class _State extends ConsumerState<PolicyPage> {
   @override
   Widget build(BuildContext context) {
     return PopScope(

@@ -14,10 +14,10 @@ class NearbyPage extends StatefulHookConsumerWidget {
   const NearbyPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _NearbyPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _NearbyPageState extends ConsumerState<NearbyPage> {
+class _State extends ConsumerState<NearbyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

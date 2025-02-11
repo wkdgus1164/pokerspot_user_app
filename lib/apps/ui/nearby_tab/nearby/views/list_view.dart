@@ -19,10 +19,10 @@ class NearbyListView extends StatefulHookConsumerWidget {
   const NearbyListView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _NearbyListViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _NearbyListViewState extends ConsumerState<NearbyListView> {
+class _State extends ConsumerState<NearbyListView> {
   final RefreshController _refreshController =
       RefreshController(initialRefresh: false);
 

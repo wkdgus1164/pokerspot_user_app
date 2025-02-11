@@ -21,11 +21,10 @@ class StoreDetailPage extends StatefulHookConsumerWidget {
   final StoreDetailPageArgs args;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _StoreDetailPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _StoreDetailPageState extends ConsumerState<StoreDetailPage> {
+class _State extends ConsumerState<StoreDetailPage> {
   String get _storeId => widget.args.id;
   bool _showTitle = false;
 

@@ -9,11 +9,10 @@ class FilterByOpenTimeView extends StatefulHookConsumerWidget {
   const FilterByOpenTimeView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterByOpenTimeViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _FilterByOpenTimeViewState extends ConsumerState<FilterByOpenTimeView> {
+class _State extends ConsumerState<FilterByOpenTimeView> {
   @override
   Widget build(BuildContext context) {
     final openTimeFilter = ref.watch(filterByOpenTimeProvider);

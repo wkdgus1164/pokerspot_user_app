@@ -12,11 +12,10 @@ class AreaSubCategoryView extends StatefulHookConsumerWidget {
   const AreaSubCategoryView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _AreaSubCategoryViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _AreaSubCategoryViewState extends ConsumerState<AreaSubCategoryView> {
+class _State extends ConsumerState<AreaSubCategoryView> {
   @override
   Widget build(BuildContext context) {
     final res = ref.watch(areaServiceProvider);

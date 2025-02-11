@@ -14,10 +14,10 @@ class MyRecentPage extends StatefulHookConsumerWidget {
   const MyRecentPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _MyRecentPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _MyRecentPageState extends ConsumerState<MyRecentPage> {
+class _State extends ConsumerState<MyRecentPage> {
   @override
   Widget build(BuildContext context) {
     final res = ref.watch(recentSearchDataProvider);
