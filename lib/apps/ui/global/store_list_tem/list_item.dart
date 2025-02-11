@@ -28,16 +28,24 @@ class StoreListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 16),
+
+            // 헤더
             StoreListItemHeader(store: store),
             const SizedBox(height: 16),
+
+            // 태그
             if (store.storeTags.isNotEmpty) ...[
               _buildTags(),
               const SizedBox(height: 8),
             ],
+
+            // 혜택
             if (store.storeBenefits.isNotEmpty) ...[
               StoreListItemBenefit(storeBenefits: store.storeBenefits),
               const SizedBox(height: 8),
             ],
+
+            // 게임
             StoreListItemGameStatistics(games: store.gameMttItems),
             const SizedBox(height: 16),
             if (store.gameMttItems.isNotEmpty) ...[

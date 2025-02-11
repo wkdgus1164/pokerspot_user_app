@@ -25,7 +25,7 @@ class StoreListItemGamesList extends StatelessWidget {
         children: games.map(
           (it) {
             return Container(
-              width: MediaQuery.of(context).size.width * 0.8,
+              width: 260,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
@@ -53,14 +53,16 @@ class StoreListItemGamesList extends StatelessWidget {
                     it.name ?? '',
                     style: textTheme.titleMedium!.copyWith(
                       color: colorGrey20,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(height: 8),
                   if (it.gameSchedule != null) ...[
                     Text(
-                      it.gameSchedule!,
+                      it.gameSchedule ?? '',
                       style: textTheme.labelMedium!.copyWith(
                         color: colorGrey40,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     const SizedBox(height: 16),

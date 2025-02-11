@@ -18,10 +18,9 @@ class StoreListItem_GameListItemRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          width: 50,
+          width: 60,
           padding: const EdgeInsets.symmetric(
             horizontal: 8,
             vertical: 4,
@@ -34,17 +33,26 @@ class StoreListItem_GameListItemRow extends StatelessWidget {
             title,
             style: textTheme.labelSmall!.copyWith(
               color: colorGrey40,
+              overflow: TextOverflow.ellipsis,
             ),
             textAlign: TextAlign.center,
           ),
         ),
         const SizedBox(width: 8),
-        Text(description, style: textTheme.bodyMedium),
+        Expanded(
+          child: Text(
+            description,
+            style: textTheme.bodyMedium!.copyWith(
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ),
         const SizedBox(width: 8),
         Text(
           caption ?? '',
           style: textTheme.labelMedium!.copyWith(
             color: colorGrey50,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ],
