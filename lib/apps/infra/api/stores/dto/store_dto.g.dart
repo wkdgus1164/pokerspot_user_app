@@ -23,18 +23,18 @@ _$GameMTTDtoImpl _$$GameMTTDtoImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       type: $enumDecode(_$GameTypeEnumMap, json['type']),
       entryType: $enumDecode(_$EntryTypeEnumMap, json['entryType']),
-      entryPrice: (json['entryPrice'] as num).toInt(),
-      regEndBlindLevel: (json['regEndBlindLevel'] as num).toInt(),
-      entryMax: (json['entryMax'] as num).toInt(),
+      entryPrice: (json['entryPrice'] as num?)?.toInt(),
+      regEndBlindLevel: (json['regEndBlindLevel'] as num?)?.toInt(),
+      entryMax: (json['entryMax'] as num?)?.toInt(),
       reEntryMax: (json['reEntryMax'] as num?)?.toInt(),
-      duration: (json['duration'] as num).toInt(),
-      prizeType: $enumDecode(_$PrizeTypeEnumMap, json['prizeType']),
-      prize: (json['prize'] as num).toInt(),
-      gtdMinReward: (json['gtdMinReward'] as num).toInt(),
-      eventType: $enumDecode(_$EventTypeEnumMap, json['eventType']),
-      isDaily: json['isDaily'] as bool,
+      duration: (json['duration'] as num?)?.toInt(),
+      prizeType: $enumDecodeNullable(_$PrizeTypeEnumMap, json['prizeType']),
+      prize: (json['prize'] as num?)?.toInt(),
+      gtdMinReward: (json['gtdMinReward'] as num?)?.toInt(),
+      eventType: $enumDecodeNullable(_$EventTypeEnumMap, json['eventType']),
+      isDaily: json['isDaily'] as bool?,
       gameSchedule: json['gameSchedule'] as String?,
-      name: json['name'] as String,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$GameMTTDtoImplToJson(_$GameMTTDtoImpl instance) =>
@@ -47,10 +47,10 @@ Map<String, dynamic> _$$GameMTTDtoImplToJson(_$GameMTTDtoImpl instance) =>
       'entryMax': instance.entryMax,
       'reEntryMax': instance.reEntryMax,
       'duration': instance.duration,
-      'prizeType': _$PrizeTypeEnumMap[instance.prizeType]!,
+      'prizeType': _$PrizeTypeEnumMap[instance.prizeType],
       'prize': instance.prize,
       'gtdMinReward': instance.gtdMinReward,
-      'eventType': _$EventTypeEnumMap[instance.eventType]!,
+      'eventType': _$EventTypeEnumMap[instance.eventType],
       'isDaily': instance.isDaily,
       'gameSchedule': instance.gameSchedule,
       'name': instance.name,
@@ -109,29 +109,29 @@ _$StoreDtoImpl _$$StoreDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoreDtoImpl(
       id: json['id'] as String,
       type: json['type'] as String,
-      name: json['name'] as String?,
-      address: json['address'] as String?,
-      addressDetail: json['addressDetail'] as String?,
+      name: json['name'] as String,
+      address: json['address'] as String,
+      addressDetail: json['addressDetail'] as String,
       openTime: json['openTime'] as String?,
       closeTime: json['closeTime'] as String?,
       phone: json['phone'] as String?,
       isViewKakaoChat: json['isViewKakaoChat'] as bool,
-      kakaoChatUrl: json['kakaoChatUrl'] as String?,
+      kakaoChatUrl: json['kakaoChatUrl'] as String,
       updatedAt: DateTime.parse(json['updatedAt'] as String),
       distance: (json['distance'] as num).toDouble(),
       lat: (json['lat'] as num).toDouble(),
       lng: (json['lng'] as num).toDouble(),
-      storeImages: (json['storeImages'] as List<dynamic>?)
-          ?.map((e) => StoreImagesDto.fromJson(e as Map<String, dynamic>))
+      storeImages: (json['storeImages'] as List<dynamic>)
+          .map((e) => StoreImagesDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      storeBenefits: (json['storeBenefits'] as List<dynamic>?)
-          ?.map((e) => StoreBenefitsDto.fromJson(e as Map<String, dynamic>))
+      storeBenefits: (json['storeBenefits'] as List<dynamic>)
+          .map((e) => StoreBenefitsDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      storeTags: (json['storeTags'] as List<dynamic>?)
-          ?.map((e) => StoreTagsDto.fromJson(e as Map<String, dynamic>))
+      storeTags: (json['storeTags'] as List<dynamic>)
+          .map((e) => StoreTagsDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gameMttItems: (json['gameMttItems'] as List<dynamic>?)
-          ?.map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
+      gameMttItems: (json['gameMttItems'] as List<dynamic>)
+          .map((e) => GameMTTDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

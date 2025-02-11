@@ -41,7 +41,7 @@ class StoreDetailVac extends StatelessWidget {
         // 헤더
         StoreDetailHeader(
           type: model.type,
-          title: model.name ?? '',
+          title: model.name,
           distance: model.distance,
           runningTime: '$openTimeCalculated ~ ${model.closeTime}까지',
           updatedAt: model.updatedAt,
@@ -56,9 +56,9 @@ class StoreDetailVac extends StatelessWidget {
             context.push(
               CustomRouter.storeMap.path,
               extra: StoreMapPageArguments(
-                name: model.name ?? '',
-                addressDetail: model.addressDetail ?? '',
-                address: model.address ?? '',
+                name: model.name,
+                addressDetail: model.addressDetail,
+                address: model.address,
                 lat: model.lat,
                 lng: model.lng,
               ),
@@ -66,13 +66,13 @@ class StoreDetailVac extends StatelessWidget {
           },
         ),
 
-        if (model.storeBenefits?.isNotEmpty ?? false) ...[
+        if (model.storeBenefits.isNotEmpty) ...[
           // 혜택 정보
-          StoreDetailBenefits(benefits: model.storeBenefits ?? []),
+          StoreDetailBenefits(benefits: model.storeBenefits),
         ],
 
         // 토너먼트 정보
-        StoreDetailGameList(games: model.gameMttItems ?? []),
+        StoreDetailGameList(games: model.gameMttItems),
       ],
     );
   }

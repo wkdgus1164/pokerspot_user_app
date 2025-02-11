@@ -23,7 +23,7 @@ class GameTypeFilterResult extends _$GameTypeFilterResult {
   }
 
   Future<Models> _fetch({required GameType gameType}) async {
-    final res = await ref.read(storesApiProvider).fetchStoresV2(
+    final res = await ref.read(storesApiProvider).fetchStores(
           StoresQuery(
             lat: ref.read(geoLocationServiceProvider).latitude,
             lng: ref.read(geoLocationServiceProvider).longitude,
@@ -61,7 +61,7 @@ class GameTypeFilterResult extends _$GameTypeFilterResult {
 
     state = await AsyncValue.guard(
       () async {
-        final res = await ref.read(storesApiProvider).fetchStoresV2(
+        final res = await ref.read(storesApiProvider).fetchStores(
               StoresQuery(
                 lat: ref.read(geoLocationServiceProvider).latitude,
                 lng: ref.read(geoLocationServiceProvider).longitude,

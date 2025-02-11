@@ -48,14 +48,14 @@ class StoreGameListDetail extends StatelessWidget {
                       children: [
                         _buildHeaderTag(
                           context: context,
-                          text: it.prizeType.kr,
+                          text: it.prizeType?.kr ?? '',
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    it.name,
+                    it.name ?? '',
                     style: textTheme.titleMedium!.copyWith(
                       color: colorGrey30,
                       fontWeight: FontWeight.bold,
@@ -63,7 +63,7 @@ class StoreGameListDetail extends StatelessWidget {
                   ),
                   if (it.gameSchedule != null) ...[
                     Text(
-                      it.gameSchedule ?? "",
+                      it.gameSchedule ?? '',
                       style: textTheme.labelMedium!.copyWith(
                         color: colorGrey60,
                       ),
@@ -83,7 +83,7 @@ class StoreGameListDetail extends StatelessWidget {
                     StoreGameItemDetail(
                       title: 'PRIZE',
                       description:
-                          '${it.prizeType.kr} ${it.prize}${it.prizeType.unit}',
+                          '${it.prizeType?.kr} ${it.prize}${it.prizeType?.unit}',
                     ),
                     const SizedBox(height: 8),
                   ],

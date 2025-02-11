@@ -7,7 +7,7 @@ part of 'game_type_fillter.dart';
 // **************************************************************************
 
 String _$gameTypeFilterResultHash() =>
-    r'3a71fc363a86febbf66edc5db1bf13849b5aec14';
+    r'e5abb8c99886f04f79549c24d4c73aa0a808d96b';
 
 /// Copied from Dart SDK
 class _SystemHash {

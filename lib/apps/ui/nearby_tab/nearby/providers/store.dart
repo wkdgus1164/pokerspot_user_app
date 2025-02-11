@@ -2,7 +2,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/constants/enums.dart';
 import 'package:pokerspot_user_app/apps/global/pagination/offset_pagination.dart';
-import 'package:pokerspot_user_app/apps/global/utils/extensions.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/stores_query.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/stores_api.dart';
 import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
@@ -16,7 +15,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'store.g.dart';
 
-typedef Models = WithOffsetPagination<List<StoreDto>?>;
+typedef Models = WithOffsetPagination<List<StoreDto>>;
 
 @riverpod
 class StoresItems extends _$StoresItems {
@@ -54,7 +53,7 @@ class StoresItems extends _$StoresItems {
     final minEntryPrice = ref.read(filterByEntryPriceProvider).minTicket;
     final maxEntryPrice = ref.read(filterByEntryPriceProvider).maxTicket;
 
-    final res = await ref.read(storesApiProvider).fetchStoresV2(
+    final res = await ref.read(storesApiProvider).fetchStores(
           gameType == GameType.GTD
               ? StoresQuery(
                   lat: latitude,
@@ -88,7 +87,7 @@ class StoresItems extends _$StoresItems {
       perPage: res.data?.perPage ?? 20,
       totalPage: res.data?.totalPage ?? 0,
       totalCount: res.data?.totalCount ?? 0,
-      items: res.data?.items.toStoreV2ListModel(),
+      items: res.data?.items ?? [],
     );
   }
 
@@ -120,7 +119,7 @@ class StoresItems extends _$StoresItems {
     final longitude = ref.read(geoLocationServiceProvider).longitude;
 
     state = await AsyncValue.guard(() async {
-      final res = await ref.read(storesApiProvider).fetchStoresV2(
+      final res = await ref.read(storesApiProvider).fetchStores(
             gameType == GameType.GTD
                 ? StoresQuery(
                     lat: latitude,
@@ -153,12 +152,12 @@ class StoresItems extends _$StoresItems {
 
       if (data == null) return old;
 
-      final newItems = data.items.toStoreV2ListModel();
+      final newItems = data.items;
 
       Logger().d('New items: $newItems');
 
       return WithOffsetPagination(
-        items: items! + newItems,
+        items: items + newItems,
         page: nextPage,
         perPage: perPage,
         totalPage: data.totalPage,

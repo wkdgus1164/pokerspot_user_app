@@ -27,7 +27,7 @@ class StoreDetailFooterToolbar extends StatelessWidget {
         children: [
           _buildToolBar(context),
           const SizedBox(width: 16),
-          _buildCallButton(),
+          if (model.phone != null) _buildCallButton(),
         ],
       ),
     );
@@ -39,8 +39,8 @@ class StoreDetailFooterToolbar extends StatelessWidget {
       onPressed: (int index) {
         if (index == 0) {
           _showNaviBottomSheet(
-            name: model.name ?? '',
-            address: model.address ?? '',
+            name: model.name,
+            address: model.address,
             x: model.lng,
             y: model.lat,
             context: context,
@@ -83,7 +83,7 @@ class StoreDetailFooterToolbar extends StatelessWidget {
   Widget _buildCallButton() {
     return Expanded(
       child: FilledButton(
-        onPressed: () => _call(model.name ?? '', model.phone ?? ''),
+        onPressed: () => _call(model.name, model.phone!),
         child: const Text('전화 걸기'),
       ),
     );

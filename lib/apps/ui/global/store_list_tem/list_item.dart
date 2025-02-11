@@ -30,17 +30,17 @@ class StoreListItem extends StatelessWidget {
             const SizedBox(height: 16),
             StoreListItemHeader(store: store),
             const SizedBox(height: 16),
-            if (store.storeTags?.isNotEmpty ?? false) ...[
+            if (store.storeTags.isNotEmpty) ...[
               _buildTags(),
               const SizedBox(height: 8),
             ],
-            if (store.storeBenefits?.isNotEmpty ?? false) ...[
-              StoreListItemBenefit(storeBenefits: store.storeBenefits ?? []),
+            if (store.storeBenefits.isNotEmpty) ...[
+              StoreListItemBenefit(storeBenefits: store.storeBenefits),
               const SizedBox(height: 8),
             ],
-            StoreListItemGameStatistics(games: store.gameMttItems ?? []),
+            StoreListItemGameStatistics(games: store.gameMttItems),
             const SizedBox(height: 16),
-            if (store.gameMttItems?.isNotEmpty ?? false) ...[
+            if (store.gameMttItems.isNotEmpty) ...[
               _buildGamesList(),
               const SizedBox(height: 16),
             ],
@@ -56,14 +56,13 @@ class StoreListItem extends StatelessWidget {
       child: Wrap(
         spacing: 8,
         children: store.storeTags
-                ?.map((e) => ColorfulChip(
-                      theme: e.name == '토너먼트'
-                          ? ColorfulChipTheme.blue
-                          : ColorfulChipTheme.green,
-                      text: e.name,
-                    ))
-                .toList() ??
-            [],
+            .map((e) => ColorfulChip(
+                  theme: e.name == '토너먼트'
+                      ? ColorfulChipTheme.blue
+                      : ColorfulChipTheme.green,
+                  text: e.name,
+                ))
+            .toList(),
       ),
     );
   }
@@ -75,14 +74,14 @@ class StoreListItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            '토너먼트 ${store.gameMttItems?.length ?? 0}개',
+            '토너먼트 ${store.gameMttItems.length}개',
             style: textTheme.titleMedium!.copyWith(
               color: colorGrey20,
             ),
           ),
         ),
         const SizedBox(height: 8),
-        StoreListItemGamesList(games: store.gameMttItems ?? []),
+        StoreListItemGamesList(games: store.gameMttItems),
       ],
     );
   }

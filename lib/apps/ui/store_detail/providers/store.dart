@@ -32,54 +32,22 @@ class StoreData extends _$StoreData {
     return StoreModel(
       id: id,
       type: data.type,
-      name: data.name ?? '',
-      phone: data.phone ?? '',
-      address: data.address ?? '',
-      addressDetail: data.addressDetail ?? '',
-      openTime: data.openTime ?? '',
-      closeTime: data.closeTime ?? '',
+      name: data.name,
+      phone: data.phone,
+      address: data.address,
+      addressDetail: data.addressDetail,
+      openTime: data.openTime,
+      closeTime: data.closeTime,
       isViewKakaoChat: data.isViewKakaoChat,
-      storeBenefits: data.storeBenefits
-          ?.map((e) => StoreBenefitsDto(
-                type: e.type,
-                description: e.description,
-              ))
-          .toList(),
-      storeTags: data.storeTags
-          ?.map((e) => StoreTagsDto(
-                name: e.name,
-              ))
-          .toList(),
-      gameMttItems: data.gameMttItems
-          ?.map((e) => GameMTTDto(
-                id: e.id,
-                type: e.type,
-                entryType: e.entryType,
-                entryPrice: e.entryPrice,
-                regEndBlindLevel: e.regEndBlindLevel,
-                entryMax: e.entryMax,
-                reEntryMax: e.reEntryMax,
-                duration: e.duration,
-                prizeType: e.prizeType,
-                prize: e.prize,
-                gtdMinReward: e.gtdMinReward,
-                eventType: e.eventType,
-                isDaily: e.isDaily,
-                gameSchedule: e.gameSchedule,
-                name: e.name,
-              ))
-          .toList(),
+      storeBenefits: data.storeBenefits,
+      storeTags: data.storeTags,
+      gameMttItems: data.gameMttItems,
       kakaoChatUrl: data.kakaoChatUrl,
       updatedAt: data.updatedAt,
       distance: data.distance,
       lat: data.lat,
       lng: data.lng,
-      storeImages: data.storeImages
-          ?.map((e) => StoreImagesDto(
-                id: e.id,
-                url: e.url,
-              ))
-          .toList(),
+      storeImages: data.storeImages,
     );
   }
 }

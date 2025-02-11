@@ -43,14 +43,14 @@ class StoreListItemGamesList extends StatelessWidget {
                         ColorfulChip(
                           theme: ColorfulChipTheme.red,
                           text:
-                              '${it.prizeType.kr} ${it.prize} ${it.prizeType.unit}',
+                              '${it.prizeType?.kr} ${it.prize} ${it.prizeType?.unit}',
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    it.name,
+                    it.name ?? '',
                     style: textTheme.titleMedium!.copyWith(
                       color: colorGrey20,
                     ),
@@ -77,7 +77,7 @@ class StoreListItemGamesList extends StatelessWidget {
                     StoreListItem_GameListItemRow(
                       title: 'PRIZE',
                       description:
-                          '${it.prizeType.kr} ${it.prize} ${it.prizeType.unit}',
+                          '${it.prizeType?.kr} ${it.prize} ${it.prizeType?.unit}',
                     ),
                   ],
                 ],

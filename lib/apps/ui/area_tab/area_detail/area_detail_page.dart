@@ -111,10 +111,10 @@ class _State extends ConsumerState<AreaDetailPage> {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name ?? ''),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
-              image: d.Value(model.storeImages?.first.url ?? ''),
-              address: d.Value(model.address ?? ''),
+              image: d.Value(model.storeImages.first.url),
+              address: d.Value(model.address),
               openTime: d.Value(model.openTime ?? ''),
             ),
           );

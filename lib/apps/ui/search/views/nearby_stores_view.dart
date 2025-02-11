@@ -32,13 +32,13 @@ class _State extends ConsumerState<NearbyStoresView> {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return NearbyStoreItem(
-              name: data?[index].name ?? "",
-              distance: data?[index].distance ?? 0,
-              handleClick: () => _handleNearbyStoreClick(model: data![index]),
+              name: data[index].name,
+              distance: data[index].distance,
+              handleClick: () => _handleNearbyStoreClick(model: data[index]),
             );
           },
           separatorBuilder: (context, index) => const Divider(),
-          itemCount: data?.length ?? 0,
+          itemCount: data.length,
           shrinkWrap: true,
         );
       },
@@ -73,10 +73,10 @@ class _State extends ConsumerState<NearbyStoresView> {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name ?? ''),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
-              image: d.Value(model.storeImages?.first.url ?? ''),
-              address: d.Value(model.address ?? ''),
+              image: d.Value(model.storeImages.first.url),
+              address: d.Value(model.address),
               openTime: d.Value(model.openTime ?? ''),
             ),
           );

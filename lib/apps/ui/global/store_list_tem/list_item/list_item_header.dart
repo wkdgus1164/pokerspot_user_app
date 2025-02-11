@@ -26,13 +26,13 @@ class StoreListItemHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Store Image
-          _buildStoreImage(store.storeImages?.first.url ?? ''),
+          _buildStoreImage(store.storeImages.first.url),
           const SizedBox(width: 16),
 
           // Store Information
           _buildStoreInformation(
-            name: store.name ?? '',
-            address: store.address ?? '',
+            name: store.name,
+            address: store.address,
             openTime: store.openTime ?? '',
             updatedAtString: updatedAtString,
           ),
@@ -51,7 +51,7 @@ class StoreListItemHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _buildBenefits(store.storeBenefits ?? []),
+          _buildBenefits(store.storeBenefits),
           const SizedBox(height: 4),
           Text(
             name,

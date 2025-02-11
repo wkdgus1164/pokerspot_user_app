@@ -28,71 +28,6 @@ class _StoresApi implements StoresApi {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/api/v1/stores',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ApiResponse<StoresDto> _value;
-    try {
-      _value = ApiResponse<StoresDto>.fromJson(
-        _result.data!,
-        (json) => StoresDto.fromJson(json as Map<String, dynamic>),
-      );
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<ApiResponse<StoreDto>> fetchStoreDetail(
-    String storeId,
-    StoreQuery query,
-  ) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(query.toJson());
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<StoreDto>>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/api/v1/stores/${storeId}',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ApiResponse<StoreDto> _value;
-    try {
-      _value = ApiResponse<StoreDto>.fromJson(
-        _result.data!,
-        (json) => StoreDto.fromJson(json as Map<String, dynamic>),
-      );
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<ApiResponse<StoresDto>> fetchStoresV2(StoresQuery query) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(query.toJson());
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<StoresDto>>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
             '/api/v2/stores',
             queryParameters: queryParameters,
             data: _data,
@@ -114,7 +49,7 @@ class _StoresApi implements StoresApi {
   }
 
   @override
-  Future<ApiResponse<StoreDto>> fetchStoreDetailV2(
+  Future<ApiResponse<StoreDto>> fetchStoreDetail(
     String storeId,
     StoreQuery query,
   ) async {

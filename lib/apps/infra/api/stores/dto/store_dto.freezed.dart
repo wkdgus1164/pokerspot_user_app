@@ -190,18 +190,18 @@ mixin _$GameMTTDto {
   String get id => throw _privateConstructorUsedError;
   GameType get type => throw _privateConstructorUsedError;
   EntryType get entryType => throw _privateConstructorUsedError;
-  int get entryPrice => throw _privateConstructorUsedError;
-  int get regEndBlindLevel => throw _privateConstructorUsedError;
-  int get entryMax => throw _privateConstructorUsedError;
+  int? get entryPrice => throw _privateConstructorUsedError;
+  int? get regEndBlindLevel => throw _privateConstructorUsedError;
+  int? get entryMax => throw _privateConstructorUsedError;
   int? get reEntryMax => throw _privateConstructorUsedError;
-  int get duration => throw _privateConstructorUsedError;
-  PrizeType get prizeType => throw _privateConstructorUsedError;
-  int get prize => throw _privateConstructorUsedError;
-  int get gtdMinReward => throw _privateConstructorUsedError;
-  EventType get eventType => throw _privateConstructorUsedError;
-  bool get isDaily => throw _privateConstructorUsedError;
+  int? get duration => throw _privateConstructorUsedError;
+  PrizeType? get prizeType => throw _privateConstructorUsedError;
+  int? get prize => throw _privateConstructorUsedError;
+  int? get gtdMinReward => throw _privateConstructorUsedError;
+  EventType? get eventType => throw _privateConstructorUsedError;
+  bool? get isDaily => throw _privateConstructorUsedError;
   String? get gameSchedule => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
   /// Serializes this GameMTTDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -223,18 +223,18 @@ abstract class $GameMTTDtoCopyWith<$Res> {
       {String id,
       GameType type,
       EntryType entryType,
-      int entryPrice,
-      int regEndBlindLevel,
-      int entryMax,
+      int? entryPrice,
+      int? regEndBlindLevel,
+      int? entryMax,
       int? reEntryMax,
-      int duration,
-      PrizeType prizeType,
-      int prize,
-      int gtdMinReward,
-      EventType eventType,
-      bool isDaily,
+      int? duration,
+      PrizeType? prizeType,
+      int? prize,
+      int? gtdMinReward,
+      EventType? eventType,
+      bool? isDaily,
       String? gameSchedule,
-      String name});
+      String? name});
 }
 
 /// @nodoc
@@ -255,18 +255,18 @@ class _$GameMTTDtoCopyWithImpl<$Res, $Val extends GameMTTDto>
     Object? id = null,
     Object? type = null,
     Object? entryType = null,
-    Object? entryPrice = null,
-    Object? regEndBlindLevel = null,
-    Object? entryMax = null,
+    Object? entryPrice = freezed,
+    Object? regEndBlindLevel = freezed,
+    Object? entryMax = freezed,
     Object? reEntryMax = freezed,
-    Object? duration = null,
-    Object? prizeType = null,
-    Object? prize = null,
-    Object? gtdMinReward = null,
-    Object? eventType = null,
-    Object? isDaily = null,
+    Object? duration = freezed,
+    Object? prizeType = freezed,
+    Object? prize = freezed,
+    Object? gtdMinReward = freezed,
+    Object? eventType = freezed,
+    Object? isDaily = freezed,
     Object? gameSchedule = freezed,
-    Object? name = null,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -281,54 +281,54 @@ class _$GameMTTDtoCopyWithImpl<$Res, $Val extends GameMTTDto>
           ? _value.entryType
           : entryType // ignore: cast_nullable_to_non_nullable
               as EntryType,
-      entryPrice: null == entryPrice
+      entryPrice: freezed == entryPrice
           ? _value.entryPrice
           : entryPrice // ignore: cast_nullable_to_non_nullable
-              as int,
-      regEndBlindLevel: null == regEndBlindLevel
+              as int?,
+      regEndBlindLevel: freezed == regEndBlindLevel
           ? _value.regEndBlindLevel
           : regEndBlindLevel // ignore: cast_nullable_to_non_nullable
-              as int,
-      entryMax: null == entryMax
+              as int?,
+      entryMax: freezed == entryMax
           ? _value.entryMax
           : entryMax // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       reEntryMax: freezed == reEntryMax
           ? _value.reEntryMax
           : reEntryMax // ignore: cast_nullable_to_non_nullable
               as int?,
-      duration: null == duration
+      duration: freezed == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as int,
-      prizeType: null == prizeType
+              as int?,
+      prizeType: freezed == prizeType
           ? _value.prizeType
           : prizeType // ignore: cast_nullable_to_non_nullable
-              as PrizeType,
-      prize: null == prize
+              as PrizeType?,
+      prize: freezed == prize
           ? _value.prize
           : prize // ignore: cast_nullable_to_non_nullable
-              as int,
-      gtdMinReward: null == gtdMinReward
+              as int?,
+      gtdMinReward: freezed == gtdMinReward
           ? _value.gtdMinReward
           : gtdMinReward // ignore: cast_nullable_to_non_nullable
-              as int,
-      eventType: null == eventType
+              as int?,
+      eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as EventType,
-      isDaily: null == isDaily
+              as EventType?,
+      isDaily: freezed == isDaily
           ? _value.isDaily
           : isDaily // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       gameSchedule: freezed == gameSchedule
           ? _value.gameSchedule
           : gameSchedule // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -345,18 +345,18 @@ abstract class _$$GameMTTDtoImplCopyWith<$Res>
       {String id,
       GameType type,
       EntryType entryType,
-      int entryPrice,
-      int regEndBlindLevel,
-      int entryMax,
+      int? entryPrice,
+      int? regEndBlindLevel,
+      int? entryMax,
       int? reEntryMax,
-      int duration,
-      PrizeType prizeType,
-      int prize,
-      int gtdMinReward,
-      EventType eventType,
-      bool isDaily,
+      int? duration,
+      PrizeType? prizeType,
+      int? prize,
+      int? gtdMinReward,
+      EventType? eventType,
+      bool? isDaily,
       String? gameSchedule,
-      String name});
+      String? name});
 }
 
 /// @nodoc
@@ -375,18 +375,18 @@ class __$$GameMTTDtoImplCopyWithImpl<$Res>
     Object? id = null,
     Object? type = null,
     Object? entryType = null,
-    Object? entryPrice = null,
-    Object? regEndBlindLevel = null,
-    Object? entryMax = null,
+    Object? entryPrice = freezed,
+    Object? regEndBlindLevel = freezed,
+    Object? entryMax = freezed,
     Object? reEntryMax = freezed,
-    Object? duration = null,
-    Object? prizeType = null,
-    Object? prize = null,
-    Object? gtdMinReward = null,
-    Object? eventType = null,
-    Object? isDaily = null,
+    Object? duration = freezed,
+    Object? prizeType = freezed,
+    Object? prize = freezed,
+    Object? gtdMinReward = freezed,
+    Object? eventType = freezed,
+    Object? isDaily = freezed,
     Object? gameSchedule = freezed,
-    Object? name = null,
+    Object? name = freezed,
   }) {
     return _then(_$GameMTTDtoImpl(
       id: null == id
@@ -401,54 +401,54 @@ class __$$GameMTTDtoImplCopyWithImpl<$Res>
           ? _value.entryType
           : entryType // ignore: cast_nullable_to_non_nullable
               as EntryType,
-      entryPrice: null == entryPrice
+      entryPrice: freezed == entryPrice
           ? _value.entryPrice
           : entryPrice // ignore: cast_nullable_to_non_nullable
-              as int,
-      regEndBlindLevel: null == regEndBlindLevel
+              as int?,
+      regEndBlindLevel: freezed == regEndBlindLevel
           ? _value.regEndBlindLevel
           : regEndBlindLevel // ignore: cast_nullable_to_non_nullable
-              as int,
-      entryMax: null == entryMax
+              as int?,
+      entryMax: freezed == entryMax
           ? _value.entryMax
           : entryMax // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       reEntryMax: freezed == reEntryMax
           ? _value.reEntryMax
           : reEntryMax // ignore: cast_nullable_to_non_nullable
               as int?,
-      duration: null == duration
+      duration: freezed == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as int,
-      prizeType: null == prizeType
+              as int?,
+      prizeType: freezed == prizeType
           ? _value.prizeType
           : prizeType // ignore: cast_nullable_to_non_nullable
-              as PrizeType,
-      prize: null == prize
+              as PrizeType?,
+      prize: freezed == prize
           ? _value.prize
           : prize // ignore: cast_nullable_to_non_nullable
-              as int,
-      gtdMinReward: null == gtdMinReward
+              as int?,
+      gtdMinReward: freezed == gtdMinReward
           ? _value.gtdMinReward
           : gtdMinReward // ignore: cast_nullable_to_non_nullable
-              as int,
-      eventType: null == eventType
+              as int?,
+      eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as EventType,
-      isDaily: null == isDaily
+              as EventType?,
+      isDaily: freezed == isDaily
           ? _value.isDaily
           : isDaily // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       gameSchedule: freezed == gameSchedule
           ? _value.gameSchedule
           : gameSchedule // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -483,29 +483,29 @@ class _$GameMTTDtoImpl implements _GameMTTDto {
   @override
   final EntryType entryType;
   @override
-  final int entryPrice;
+  final int? entryPrice;
   @override
-  final int regEndBlindLevel;
+  final int? regEndBlindLevel;
   @override
-  final int entryMax;
+  final int? entryMax;
   @override
   final int? reEntryMax;
   @override
-  final int duration;
+  final int? duration;
   @override
-  final PrizeType prizeType;
+  final PrizeType? prizeType;
   @override
-  final int prize;
+  final int? prize;
   @override
-  final int gtdMinReward;
+  final int? gtdMinReward;
   @override
-  final EventType eventType;
+  final EventType? eventType;
   @override
-  final bool isDaily;
+  final bool? isDaily;
   @override
   final String? gameSchedule;
   @override
-  final String name;
+  final String? name;
 
   @override
   String toString() {
@@ -585,18 +585,18 @@ abstract class _GameMTTDto implements GameMTTDto {
       {required final String id,
       required final GameType type,
       required final EntryType entryType,
-      required final int entryPrice,
-      required final int regEndBlindLevel,
-      required final int entryMax,
+      required final int? entryPrice,
+      required final int? regEndBlindLevel,
+      required final int? entryMax,
       required final int? reEntryMax,
-      required final int duration,
-      required final PrizeType prizeType,
-      required final int prize,
-      required final int gtdMinReward,
-      required final EventType eventType,
-      required final bool isDaily,
+      required final int? duration,
+      required final PrizeType? prizeType,
+      required final int? prize,
+      required final int? gtdMinReward,
+      required final EventType? eventType,
+      required final bool? isDaily,
       required final String? gameSchedule,
-      required final String name}) = _$GameMTTDtoImpl;
+      required final String? name}) = _$GameMTTDtoImpl;
 
   factory _GameMTTDto.fromJson(Map<String, dynamic> json) =
       _$GameMTTDtoImpl.fromJson;
@@ -608,29 +608,29 @@ abstract class _GameMTTDto implements GameMTTDto {
   @override
   EntryType get entryType;
   @override
-  int get entryPrice;
+  int? get entryPrice;
   @override
-  int get regEndBlindLevel;
+  int? get regEndBlindLevel;
   @override
-  int get entryMax;
+  int? get entryMax;
   @override
   int? get reEntryMax;
   @override
-  int get duration;
+  int? get duration;
   @override
-  PrizeType get prizeType;
+  PrizeType? get prizeType;
   @override
-  int get prize;
+  int? get prize;
   @override
-  int get gtdMinReward;
+  int? get gtdMinReward;
   @override
-  EventType get eventType;
+  EventType? get eventType;
   @override
-  bool get isDaily;
+  bool? get isDaily;
   @override
   String? get gameSchedule;
   @override
-  String get name;
+  String? get name;
 
   /// Create a copy of GameMTTDto
   /// with the given fields replaced by the non-null parameter values.
@@ -966,23 +966,23 @@ StoreDto _$StoreDtoFromJson(Map<String, dynamic> json) {
 mixin _$StoreDto {
   String get id => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  String? get addressDetail => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  String get addressDetail => throw _privateConstructorUsedError;
   String? get openTime => throw _privateConstructorUsedError;
   String? get closeTime => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   bool get isViewKakaoChat => throw _privateConstructorUsedError;
-  String? get kakaoChatUrl => throw _privateConstructorUsedError;
+  String get kakaoChatUrl => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
   double get distance => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
-  List<StoreImagesDto>? get storeImages => throw _privateConstructorUsedError;
-  List<StoreBenefitsDto>? get storeBenefits =>
+  List<StoreImagesDto> get storeImages => throw _privateConstructorUsedError;
+  List<StoreBenefitsDto> get storeBenefits =>
       throw _privateConstructorUsedError;
-  List<StoreTagsDto>? get storeTags => throw _privateConstructorUsedError;
-  List<GameMTTDto>? get gameMttItems => throw _privateConstructorUsedError;
+  List<StoreTagsDto> get storeTags => throw _privateConstructorUsedError;
+  List<GameMTTDto> get gameMttItems => throw _privateConstructorUsedError;
 
   /// Serializes this StoreDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1002,22 +1002,22 @@ abstract class $StoreDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String type,
-      String? name,
-      String? address,
-      String? addressDetail,
+      String name,
+      String address,
+      String addressDetail,
       String? openTime,
       String? closeTime,
       String? phone,
       bool isViewKakaoChat,
-      String? kakaoChatUrl,
+      String kakaoChatUrl,
       DateTime updatedAt,
       double distance,
       double lat,
       double lng,
-      List<StoreImagesDto>? storeImages,
-      List<StoreBenefitsDto>? storeBenefits,
-      List<StoreTagsDto>? storeTags,
-      List<GameMTTDto>? gameMttItems});
+      List<StoreImagesDto> storeImages,
+      List<StoreBenefitsDto> storeBenefits,
+      List<StoreTagsDto> storeTags,
+      List<GameMTTDto> gameMttItems});
 }
 
 /// @nodoc
@@ -1037,22 +1037,22 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
   $Res call({
     Object? id = null,
     Object? type = null,
-    Object? name = freezed,
-    Object? address = freezed,
-    Object? addressDetail = freezed,
+    Object? name = null,
+    Object? address = null,
+    Object? addressDetail = null,
     Object? openTime = freezed,
     Object? closeTime = freezed,
     Object? phone = freezed,
     Object? isViewKakaoChat = null,
-    Object? kakaoChatUrl = freezed,
+    Object? kakaoChatUrl = null,
     Object? updatedAt = null,
     Object? distance = null,
     Object? lat = null,
     Object? lng = null,
-    Object? storeImages = freezed,
-    Object? storeBenefits = freezed,
-    Object? storeTags = freezed,
-    Object? gameMttItems = freezed,
+    Object? storeImages = null,
+    Object? storeBenefits = null,
+    Object? storeTags = null,
+    Object? gameMttItems = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -1063,18 +1063,18 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
+              as String,
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addressDetail: freezed == addressDetail
+              as String,
+      addressDetail: null == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       openTime: freezed == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
@@ -1091,10 +1091,10 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
           ? _value.isViewKakaoChat
           : isViewKakaoChat // ignore: cast_nullable_to_non_nullable
               as bool,
-      kakaoChatUrl: freezed == kakaoChatUrl
+      kakaoChatUrl: null == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -1111,22 +1111,22 @@ class _$StoreDtoCopyWithImpl<$Res, $Val extends StoreDto>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      storeImages: freezed == storeImages
+      storeImages: null == storeImages
           ? _value.storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
-              as List<StoreImagesDto>?,
-      storeBenefits: freezed == storeBenefits
+              as List<StoreImagesDto>,
+      storeBenefits: null == storeBenefits
           ? _value.storeBenefits
           : storeBenefits // ignore: cast_nullable_to_non_nullable
-              as List<StoreBenefitsDto>?,
-      storeTags: freezed == storeTags
+              as List<StoreBenefitsDto>,
+      storeTags: null == storeTags
           ? _value.storeTags
           : storeTags // ignore: cast_nullable_to_non_nullable
-              as List<StoreTagsDto>?,
-      gameMttItems: freezed == gameMttItems
+              as List<StoreTagsDto>,
+      gameMttItems: null == gameMttItems
           ? _value.gameMttItems
           : gameMttItems // ignore: cast_nullable_to_non_nullable
-              as List<GameMTTDto>?,
+              as List<GameMTTDto>,
     ) as $Val);
   }
 }
@@ -1142,22 +1142,22 @@ abstract class _$$StoreDtoImplCopyWith<$Res>
   $Res call(
       {String id,
       String type,
-      String? name,
-      String? address,
-      String? addressDetail,
+      String name,
+      String address,
+      String addressDetail,
       String? openTime,
       String? closeTime,
       String? phone,
       bool isViewKakaoChat,
-      String? kakaoChatUrl,
+      String kakaoChatUrl,
       DateTime updatedAt,
       double distance,
       double lat,
       double lng,
-      List<StoreImagesDto>? storeImages,
-      List<StoreBenefitsDto>? storeBenefits,
-      List<StoreTagsDto>? storeTags,
-      List<GameMTTDto>? gameMttItems});
+      List<StoreImagesDto> storeImages,
+      List<StoreBenefitsDto> storeBenefits,
+      List<StoreTagsDto> storeTags,
+      List<GameMTTDto> gameMttItems});
 }
 
 /// @nodoc
@@ -1175,22 +1175,22 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? type = null,
-    Object? name = freezed,
-    Object? address = freezed,
-    Object? addressDetail = freezed,
+    Object? name = null,
+    Object? address = null,
+    Object? addressDetail = null,
     Object? openTime = freezed,
     Object? closeTime = freezed,
     Object? phone = freezed,
     Object? isViewKakaoChat = null,
-    Object? kakaoChatUrl = freezed,
+    Object? kakaoChatUrl = null,
     Object? updatedAt = null,
     Object? distance = null,
     Object? lat = null,
     Object? lng = null,
-    Object? storeImages = freezed,
-    Object? storeBenefits = freezed,
-    Object? storeTags = freezed,
-    Object? gameMttItems = freezed,
+    Object? storeImages = null,
+    Object? storeBenefits = null,
+    Object? storeTags = null,
+    Object? gameMttItems = null,
   }) {
     return _then(_$StoreDtoImpl(
       id: null == id
@@ -1201,18 +1201,18 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
+              as String,
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addressDetail: freezed == addressDetail
+              as String,
+      addressDetail: null == addressDetail
           ? _value.addressDetail
           : addressDetail // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       openTime: freezed == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
@@ -1229,10 +1229,10 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
           ? _value.isViewKakaoChat
           : isViewKakaoChat // ignore: cast_nullable_to_non_nullable
               as bool,
-      kakaoChatUrl: freezed == kakaoChatUrl
+      kakaoChatUrl: null == kakaoChatUrl
           ? _value.kakaoChatUrl
           : kakaoChatUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -1249,22 +1249,22 @@ class __$$StoreDtoImplCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      storeImages: freezed == storeImages
+      storeImages: null == storeImages
           ? _value._storeImages
           : storeImages // ignore: cast_nullable_to_non_nullable
-              as List<StoreImagesDto>?,
-      storeBenefits: freezed == storeBenefits
+              as List<StoreImagesDto>,
+      storeBenefits: null == storeBenefits
           ? _value._storeBenefits
           : storeBenefits // ignore: cast_nullable_to_non_nullable
-              as List<StoreBenefitsDto>?,
-      storeTags: freezed == storeTags
+              as List<StoreBenefitsDto>,
+      storeTags: null == storeTags
           ? _value._storeTags
           : storeTags // ignore: cast_nullable_to_non_nullable
-              as List<StoreTagsDto>?,
-      gameMttItems: freezed == gameMttItems
+              as List<StoreTagsDto>,
+      gameMttItems: null == gameMttItems
           ? _value._gameMttItems
           : gameMttItems // ignore: cast_nullable_to_non_nullable
-              as List<GameMTTDto>?,
+              as List<GameMTTDto>,
     ));
   }
 }
@@ -1287,10 +1287,10 @@ class _$StoreDtoImpl implements _StoreDto {
       required this.distance,
       required this.lat,
       required this.lng,
-      required final List<StoreImagesDto>? storeImages,
-      required final List<StoreBenefitsDto>? storeBenefits,
-      required final List<StoreTagsDto>? storeTags,
-      required final List<GameMTTDto>? gameMttItems})
+      required final List<StoreImagesDto> storeImages,
+      required final List<StoreBenefitsDto> storeBenefits,
+      required final List<StoreTagsDto> storeTags,
+      required final List<GameMTTDto> gameMttItems})
       : _storeImages = storeImages,
         _storeBenefits = storeBenefits,
         _storeTags = storeTags,
@@ -1304,11 +1304,11 @@ class _$StoreDtoImpl implements _StoreDto {
   @override
   final String type;
   @override
-  final String? name;
+  final String name;
   @override
-  final String? address;
+  final String address;
   @override
-  final String? addressDetail;
+  final String addressDetail;
   @override
   final String? openTime;
   @override
@@ -1318,7 +1318,7 @@ class _$StoreDtoImpl implements _StoreDto {
   @override
   final bool isViewKakaoChat;
   @override
-  final String? kakaoChatUrl;
+  final String kakaoChatUrl;
   @override
   final DateTime updatedAt;
   @override
@@ -1327,44 +1327,36 @@ class _$StoreDtoImpl implements _StoreDto {
   final double lat;
   @override
   final double lng;
-  final List<StoreImagesDto>? _storeImages;
+  final List<StoreImagesDto> _storeImages;
   @override
-  List<StoreImagesDto>? get storeImages {
-    final value = _storeImages;
-    if (value == null) return null;
+  List<StoreImagesDto> get storeImages {
     if (_storeImages is EqualUnmodifiableListView) return _storeImages;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_storeImages);
   }
 
-  final List<StoreBenefitsDto>? _storeBenefits;
+  final List<StoreBenefitsDto> _storeBenefits;
   @override
-  List<StoreBenefitsDto>? get storeBenefits {
-    final value = _storeBenefits;
-    if (value == null) return null;
+  List<StoreBenefitsDto> get storeBenefits {
     if (_storeBenefits is EqualUnmodifiableListView) return _storeBenefits;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_storeBenefits);
   }
 
-  final List<StoreTagsDto>? _storeTags;
+  final List<StoreTagsDto> _storeTags;
   @override
-  List<StoreTagsDto>? get storeTags {
-    final value = _storeTags;
-    if (value == null) return null;
+  List<StoreTagsDto> get storeTags {
     if (_storeTags is EqualUnmodifiableListView) return _storeTags;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_storeTags);
   }
 
-  final List<GameMTTDto>? _gameMttItems;
+  final List<GameMTTDto> _gameMttItems;
   @override
-  List<GameMTTDto>? get gameMttItems {
-    final value = _gameMttItems;
-    if (value == null) return null;
+  List<GameMTTDto> get gameMttItems {
     if (_gameMttItems is EqualUnmodifiableListView) return _gameMttItems;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_gameMttItems);
   }
 
   @override
@@ -1451,22 +1443,22 @@ abstract class _StoreDto implements StoreDto {
   factory _StoreDto(
       {required final String id,
       required final String type,
-      required final String? name,
-      required final String? address,
-      required final String? addressDetail,
+      required final String name,
+      required final String address,
+      required final String addressDetail,
       required final String? openTime,
       required final String? closeTime,
       required final String? phone,
       required final bool isViewKakaoChat,
-      required final String? kakaoChatUrl,
+      required final String kakaoChatUrl,
       required final DateTime updatedAt,
       required final double distance,
       required final double lat,
       required final double lng,
-      required final List<StoreImagesDto>? storeImages,
-      required final List<StoreBenefitsDto>? storeBenefits,
-      required final List<StoreTagsDto>? storeTags,
-      required final List<GameMTTDto>? gameMttItems}) = _$StoreDtoImpl;
+      required final List<StoreImagesDto> storeImages,
+      required final List<StoreBenefitsDto> storeBenefits,
+      required final List<StoreTagsDto> storeTags,
+      required final List<GameMTTDto> gameMttItems}) = _$StoreDtoImpl;
 
   factory _StoreDto.fromJson(Map<String, dynamic> json) =
       _$StoreDtoImpl.fromJson;
@@ -1476,11 +1468,11 @@ abstract class _StoreDto implements StoreDto {
   @override
   String get type;
   @override
-  String? get name;
+  String get name;
   @override
-  String? get address;
+  String get address;
   @override
-  String? get addressDetail;
+  String get addressDetail;
   @override
   String? get openTime;
   @override
@@ -1490,7 +1482,7 @@ abstract class _StoreDto implements StoreDto {
   @override
   bool get isViewKakaoChat;
   @override
-  String? get kakaoChatUrl;
+  String get kakaoChatUrl;
   @override
   DateTime get updatedAt;
   @override
@@ -1500,13 +1492,13 @@ abstract class _StoreDto implements StoreDto {
   @override
   double get lng;
   @override
-  List<StoreImagesDto>? get storeImages;
+  List<StoreImagesDto> get storeImages;
   @override
-  List<StoreBenefitsDto>? get storeBenefits;
+  List<StoreBenefitsDto> get storeBenefits;
   @override
-  List<StoreTagsDto>? get storeTags;
+  List<StoreTagsDto> get storeTags;
   @override
-  List<GameMTTDto>? get gameMttItems;
+  List<GameMTTDto> get gameMttItems;
 
   /// Create a copy of StoreDto
   /// with the given fields replaced by the non-null parameter values.

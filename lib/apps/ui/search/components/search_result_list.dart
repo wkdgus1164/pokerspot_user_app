@@ -54,7 +54,7 @@ class _State extends ConsumerState<SearchResultList> {
             itemCount: data.length,
             itemBuilder: (context, index) {
               return SearchResultItem(
-                name: data[index].name ?? '',
+                name: data[index].name,
                 handleClick: () => _routeToStoreDetail(model: data[index]),
                 distance: data[index].distance,
               );
@@ -99,10 +99,10 @@ class _State extends ConsumerState<SearchResultList> {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name ?? ''),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
-              image: d.Value(model.storeImages?.first.url ?? ''),
-              address: d.Value(model.address ?? ''),
+              image: d.Value(model.storeImages.first.url),
+              address: d.Value(model.address),
               openTime: d.Value(model.openTime ?? ''),
             ),
           );

@@ -21,7 +21,7 @@ class SearchResult extends _$SearchResult {
   }
 
   Future<Models> _fetch() async {
-    final res = await ref.read(storesApiProvider).fetchStoresV2(
+    final res = await ref.read(storesApiProvider).fetchStores(
           StoresQuery(
             lat: ref.read(geoLocationServiceProvider).latitude,
             lng: ref.read(geoLocationServiceProvider).longitude,
@@ -59,7 +59,7 @@ class SearchResult extends _$SearchResult {
 
     state = await AsyncValue.guard(
       () async {
-        final res = await ref.read(storesApiProvider).fetchStoresV2(
+        final res = await ref.read(storesApiProvider).fetchStores(
               StoresQuery(
                 lat: ref.read(geoLocationServiceProvider).latitude,
                 lng: ref.read(geoLocationServiceProvider).longitude,

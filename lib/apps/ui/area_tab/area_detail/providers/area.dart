@@ -21,7 +21,7 @@ class AreaStoreItems extends _$AreaStoreItems {
   }
 
   FutureOr<Models> _fetch() async {
-    final res = await ref.read(storesApiProvider).fetchStoresV2(
+    final res = await ref.read(storesApiProvider).fetchStores(
           StoresQuery(
             lat: ref.read(geoLocationServiceProvider).latitude,
             lng: ref.read(geoLocationServiceProvider).longitude,
@@ -59,7 +59,7 @@ class AreaStoreItems extends _$AreaStoreItems {
 
     final nextPage = page + 1;
     state = await AsyncValue.guard(() async {
-      final res = await ref.read(storesApiProvider).fetchStoresV2(
+      final res = await ref.read(storesApiProvider).fetchStores(
             StoresQuery(
               lat: ref.read(geoLocationServiceProvider).latitude,
               lng: ref.read(geoLocationServiceProvider).longitude,

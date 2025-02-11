@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
 import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
@@ -36,10 +34,14 @@ class StoreListItemGameStatistics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final buyInMin = games.map((e) => e.entryPrice).reduce(min);
-    final buyInMax = games.map((e) => e.entryPrice).reduce(max);
-    final prizeMin = games.map((e) => e.prize).reduce(min);
-    final prizeMax = games.map((e) => e.prize).reduce(max);
+    final buyInMin =
+        games.map((e) => e.entryPrice).reduce((a, b) => a! < b! ? a : b);
+    final buyInMax =
+        games.map((e) => e.entryPrice).reduce((a, b) => a! > b! ? a : b);
+    final prizeMin =
+        games.map((e) => e.prize).reduce((a, b) => a! < b! ? a : b);
+    final prizeMax =
+        games.map((e) => e.prize).reduce((a, b) => a! > b! ? a : b);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -47,12 +49,12 @@ class StoreListItemGameStatistics extends StatelessWidget {
         children: [
           _buildStatisticsItem(
             title: 'BUY-IN',
-            value: _formatPriceRange(buyInMin, buyInMax),
+            value: _formatPriceRange(buyInMin ?? 0, buyInMax ?? 0),
           ),
           const SizedBox(width: 8),
           _buildStatisticsItem(
             title: 'PRIZE',
-            value: _getPrizeDisplayText(prizeMin, prizeMax),
+            value: _getPrizeDisplayText(prizeMin ?? 0, prizeMax ?? 0),
           ),
         ],
       ),

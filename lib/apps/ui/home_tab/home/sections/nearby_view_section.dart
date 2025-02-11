@@ -26,7 +26,7 @@ class _State extends ConsumerState<HomeNearbyStoresSection> {
 
     return res.when(
       data: (stores) {
-        if (stores.items == null || stores.items!.isEmpty) {
+        if (stores.items.isEmpty) {
           return const SizedBox.shrink();
         }
 
@@ -44,21 +44,23 @@ class _State extends ConsumerState<HomeNearbyStoresSection> {
                   ),
                 ),
               ),
-              ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return StoreListItem(
-                    store: stores.items![index],
-                    handleClick: () => _handleClick(
-                      model: stores.items![index],
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index) =>
-                    const Divider(thickness: 10, height: 10),
-                itemCount: stores.items!.length,
-              ),
+              if (stores.items.isNotEmpty) ...[
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return StoreListItem(
+                      store: stores.items[index],
+                      handleClick: () => _handleClick(
+                        model: stores.items[index],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) =>
+                      const Divider(thickness: 10, height: 10),
+                  itemCount: stores.items.length,
+                ),
+              ],
             ],
           ),
         );
@@ -77,10 +79,10 @@ class _State extends ConsumerState<HomeNearbyStoresSection> {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name ?? ''),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
-              image: d.Value(model.storeImages?.first.url ?? ''),
-              address: d.Value(model.address ?? ''),
+              image: d.Value(model.storeImages.first.url),
+              address: d.Value(model.address),
               openTime: d.Value(model.openTime ?? ''),
             ),
           );
