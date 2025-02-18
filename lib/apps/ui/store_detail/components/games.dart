@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/ui/global/store_games/game_list_detail.dart';
 
 class StoreDetailGameList extends StatelessWidget {
   const StoreDetailGameList({super.key, required this.games});
 
-  final List<StoreGamesModel> games;
+  final List<GameMTTDto> games;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +17,9 @@ class StoreDetailGameList extends StatelessWidget {
         children: [
           Text(
             '토너먼트 정보',
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+            style: textTheme.titleMedium!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 16),
           StoreGameListDetail(games: games),

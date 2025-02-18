@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 class EmptyListPlaceHolder extends StatelessWidget {
   const EmptyListPlaceHolder({
@@ -24,7 +25,7 @@ class EmptyListPlaceHolder extends StatelessWidget {
           Icon(
             iconData,
             size: 36,
-            color: Colors.grey.shade800.withOpacity(0.5),
+            color: Colors.grey.shade800.withAlpha(127),
           ),
           const SizedBox(
             height: 16,
@@ -32,9 +33,9 @@ class EmptyListPlaceHolder extends StatelessWidget {
           Text(
             message,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: Colors.grey.shade800.withOpacity(0.5),
-                ),
+            style: textTheme.labelLarge!.copyWith(
+              color: Colors.grey.shade800.withAlpha(127),
+            ),
           ),
         ],
       ),

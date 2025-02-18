@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/secret/secret.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -42,7 +43,7 @@ Interceptor _loggingInterceptor = InterceptorsWrapper(
 
 /// 특별한 설정이 안된 Dio Client
 @riverpod
-Dio dio(DioRef ref) {
+Dio dio(Ref ref) {
   Dio dio = Dio(_options);
   dio.interceptors.add(_loggingInterceptor);
 

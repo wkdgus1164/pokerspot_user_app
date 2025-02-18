@@ -18,7 +18,7 @@ class StoreDetailFab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 86),
+      padding: const EdgeInsets.only(bottom: 120),
       child: FloatingActionButton.extended(
         backgroundColor: const Color(0xffffdf00),
         onPressed: () {
@@ -38,15 +38,13 @@ class StoreDetailFab extends StatelessWidget {
           width: 20,
           height: 20,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.85),
+            Colors.black,
             BlendMode.srcIn,
           ),
         ),
         label: Text(
           '오픈채팅방',
-          style: TextStyle(
-            color: Colors.black.withOpacity(0.85),
-          ),
+          style: TextStyle(color: Colors.black),
         ),
       ),
     );

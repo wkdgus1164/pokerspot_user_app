@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
 
 class StoreDetailShareAndroid extends StatelessWidget {
   const StoreDetailShareAndroid({
     super.key,
     required this.handleKakaoShare,
-    required this.model,
+    required this.id,
   });
 
   final Function() handleKakaoShare;
-  final StoreModel model;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class StoreDetailShareAndroid extends StatelessWidget {
             title: const Text('링크 복사'),
             subtitle: const Text('매장 링크 복사하기'),
             onTap: () => Utils().copyToClipboard(
-              text: 'https://app.pokerspot.co.kr/store/${model.id}',
+              text: 'https://app.pokerspot.co.kr/store/$id',
             ),
           ),
         ],

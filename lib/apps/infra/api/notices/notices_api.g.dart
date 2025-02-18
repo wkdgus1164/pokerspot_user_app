@@ -6,14 +6,10 @@ part of 'notices_api.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _NoticesApi implements NoticesApi {
-  _NoticesApi(
-    this._dio, {
-    this.baseUrl,
-    this.errorLogger,
-  });
+  _NoticesApi(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -22,10 +18,7 @@ class _NoticesApi implements NoticesApi {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<ApiResponse<NoticesDto>> fetchNotices(
-    int page,
-    int perPage,
-  ) async {
+  Future<ApiResponse<NoticesDto>> fetchNotices(int page, int perPage) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'page': page,
@@ -33,22 +26,16 @@ class _NoticesApi implements NoticesApi {
     };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<NoticesDto>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/v1/notices',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<ApiResponse<NoticesDto>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/notices',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late ApiResponse<NoticesDto> _value;
     try {
@@ -69,22 +56,16 @@ class _NoticesApi implements NoticesApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<NoticeDto>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/v1/notices/${id}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<ApiResponse<NoticeDto>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/notices/${id}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late ApiResponse<NoticeDto> _value;
     try {
@@ -112,10 +93,7 @@ class _NoticesApi implements NoticesApi {
     return requestOptions;
   }
 
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
+  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }
@@ -134,7 +112,7 @@ class _NoticesApi implements NoticesApi {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noticesApiHash() => r'7cb506780698b7b66d6d234f93eee98a0078c6bf';
+String _$noticesApiHash() => r'1983810e346e338e02ff31f48c2b7b480badca1f';
 
 /// See also [noticesApi].
 @ProviderFor(noticesApi)
@@ -147,6 +125,8 @@ final noticesApiProvider = AutoDisposeProvider<NoticesApi>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef NoticesApiRef = AutoDisposeProviderRef<NoticesApi>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

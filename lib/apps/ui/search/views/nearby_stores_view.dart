@@ -4,22 +4,23 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pokerspot_user_app/apps/global/routes/routes.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/infra/common/models/store.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
+import 'package:pokerspot_user_app/apps/infra/api/stores/dto/store_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/local/db/recent_search/dao/dao.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/nearby_store_item.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/recent_search.dart';
+import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/common/components/placeholder/error.dart';
 
 class NearbyStoresView extends StatefulHookConsumerWidget {
   const NearbyStoresView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _NearbyStoresViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
+class _State extends ConsumerState<NearbyStoresView> {
   @override
   Widget build(BuildContext context) {
     final result = ref.watch(storesItemsProvider);
@@ -32,13 +33,13 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return NearbyStoreItem(
-              name: data?[index].name ?? "",
-              distance: data?[index].distance ?? 0,
-              handleClick: () => _handleNearbyStoreClick(model: data![index]),
+              name: data[index].name,
+              distance: data[index].distance,
+              handleClick: () => _handleNearbyStoreClick(model: data[index]),
             );
           },
           separatorBuilder: (context, index) => const Divider(),
-          itemCount: data?.length ?? 0,
+          itemCount: data.length,
           shrinkWrap: true,
         );
       },
@@ -55,9 +56,9 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
               Text(
                 '주변 매장 정보를 가져오고 있어요.\n잠시만 기다려주세요.',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                      color: colorGrey70,
-                    ),
+                style: textTheme.labelMedium!.copyWith(
+                  color: colorGrey70,
+                ),
               ),
             ],
           ),
@@ -66,26 +67,26 @@ class _NearbyStoresViewState extends ConsumerState<NearbyStoresView> {
     );
   }
 
-  void _handleNearbyStoreClick({required StoreModel model}) {
+  void _handleNearbyStoreClick({required StoreDto model}) {
     final target = ref.read(recentSearchDataProvider.notifier).find(model.id);
 
     if (target == null) {
       ref.read(recentSearchDaoProvider).insert(
             RecentSearchEntityCompanion(
               id: d.Value(model.id),
-              name: d.Value(model.name!),
+              name: d.Value(model.name),
               createdAt: d.Value(DateTime.now()),
-              image: d.Value(model.storeImages!.first.url!),
-              address: d.Value(model.address!),
-              openTime: d.Value(model.openTime!),
+              image: d.Value(model.storeImages.first.url),
+              address: d.Value(model.address),
+              openTime: d.Value(model.openTime),
             ),
           );
     }
 
     ref.invalidate(recentSearchDataProvider);
-    context.pushNamed(
-      CustomRouter.store.name,
-      pathParameters: {"id": model.id},
+    context.push(
+      CustomRouter.store.path,
+      extra: StoreDetailPageArgs(id: model.id),
     );
   }
 }

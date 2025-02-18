@@ -1,26 +1,31 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pokerspot_user_app/apps/ui/area_search_list/list_page.dart';
-import 'package:pokerspot_user_app/apps/ui/game_type_filter_list_page/game_type_filter_list_page.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby/nearby_page.dart';
-import 'package:pokerspot_user_app/apps/ui/my/favorite/favorite_page.dart';
-import 'package:pokerspot_user_app/apps/ui/my/info/info_page.dart';
-import 'package:pokerspot_user_app/apps/ui/my/notice/notice_page.dart';
-import 'package:pokerspot_user_app/apps/ui/my/notice_detail/notice_detail_page.dart';
-import 'package:pokerspot_user_app/apps/ui/my/policy/policy_page.dart';
-import 'package:pokerspot_user_app/apps/ui/my/recent/recent_page.dart';
-import 'package:pokerspot_user_app/apps/ui/navigation/navigation_page.dart';
-import 'package:pokerspot_user_app/apps/ui/permission/permission_page.dart';
-import 'package:pokerspot_user_app/apps/ui/photo_viewer/photo_viewer_page.dart';
+import 'package:pokerspot_user_app/apps/ui/area_tab/area_detail/area_detail_page.dart';
+import 'package:pokerspot_user_app/apps/ui/home_tab/nearby_filtered_list/nearby_filtered_list_page.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/filter/filter_page.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/nearby_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my_tab/favorite/favorite_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my_tab/info/info_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my_tab/notice/notice_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my_tab/notice_detail/notice_detail_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my_tab/policy/policy_page.dart';
+import 'package:pokerspot_user_app/apps/ui/my_tab/recent/recent_page.dart';
+import 'package:pokerspot_user_app/apps/ui/bottom_navigation/bottom_navigation.dart';
+import 'package:pokerspot_user_app/apps/ui/onboarding/permission/permission_page.dart';
+import 'package:pokerspot_user_app/apps/ui/global/photo_viewer/photo_viewer_page.dart';
 import 'package:pokerspot_user_app/apps/ui/search/search_page.dart';
-import 'package:pokerspot_user_app/apps/ui/splash/splash_page.dart';
+import 'package:pokerspot_user_app/apps/ui/onboarding/splash/splash_page.dart';
 import 'package:pokerspot_user_app/apps/ui/store_detail/store_detail_page.dart';
 import 'package:pokerspot_user_app/apps/ui/store_map/store_map_page.dart';
 
 enum CustomRouter {
+  // Onboarding
   splash('/splash'),
   permission('/permission'),
+
+  // Main
   main('/main'),
   nearby('/nearby'),
   store('/store/:id'),
@@ -35,6 +40,7 @@ enum CustomRouter {
   search('/search'),
   areaSearchList('/area_search_list'),
   gameTypeFilterList('/game_type_filter_list'),
+  nearbyFilter('/nearby_filter'),
   ;
 
   const CustomRouter(this.path);
@@ -49,107 +55,110 @@ final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 final router = GoRouter(
   navigatorKey: rootNavKey,
   initialLocation: CustomRouter.splash.path,
-  onException: (context, state, router) {
+  onException: (_, state, router) {
     router.go("/splash");
   },
   routes: [
     GoRoute(
       path: CustomRouter.permission.path,
-      builder: (context, state) => const PermissionPage(),
+      builder: (_, state) => const PermissionPage(),
     ),
     GoRoute(
       path: CustomRouter.splash.path,
-      builder: (context, state) => const SplashPage(),
+      builder: (_, state) => const SplashPage(),
     ),
     GoRoute(
       path: CustomRouter.main.path,
-      builder: (context, state) => const NavigationPage(),
+      builder: (_, state) => const BottomNavigation(),
     ),
     GoRoute(
       path: CustomRouter.nearby.path,
-      builder: (context, state) => const NearbyPage(),
+      builder: (_, state) => const NearbyPage(),
     ),
     GoRoute(
       path: CustomRouter.store.path,
-      name: CustomRouter.store.name,
-      builder: (context, state) {
-        final id = state.pathParameters['id'] ?? "";
+      builder: (_, state) {
+        final args = state.extra as StoreDetailPageArgs;
 
-        return StoreDetailPage(id: id);
+        return StoreDetailPage(args: args);
       },
     ),
     GoRoute(
       path: CustomRouter.policy.path,
-      builder: (context, state) => const PolicyPage(),
+      builder: (_, state) => const PolicyPage(),
     ),
     GoRoute(
       path: CustomRouter.myInfo.path,
-      builder: (context, state) => const MyInfoPage(),
+      builder: (_, state) => const MyInfoPage(),
     ),
     GoRoute(
       path: CustomRouter.notice.path,
-      builder: (context, state) => const MyNoticePage(),
+      builder: (_, state) => const MyNoticePage(),
     ),
     GoRoute(
       path: CustomRouter.noticeDetail.path,
       name: CustomRouter.noticeDetail.name,
-      builder: (context, state) {
-        final id = state.pathParameters['id'] ?? "";
-
-        return MyNoticeDetailPage(id: id);
+      builder: (_, state) {
+        final args = state.extra as MyNoticeDetailPageArgs;
+        return MyNoticeDetailPage(args: args);
       },
     ),
     GoRoute(
       path: CustomRouter.favorite.path,
-      builder: (context, state) => const MyFavoritePage(),
+      builder: (_, state) => const MyFavoritePage(),
     ),
     GoRoute(
       path: CustomRouter.recent.path,
-      builder: (context, state) => const MyRecentPage(),
+      builder: (_, state) => const MyRecentPage(),
     ),
     GoRoute(
       path: CustomRouter.photoView.path,
-      builder: (context, state) {
+      builder: (_, state) {
         final args = state.extra as PhotoViewerPageArguments;
         return PhotoViewerPage(args: args);
       },
     ),
     GoRoute(
       path: CustomRouter.storeMap.path,
-      builder: (context, state) {
+      builder: (_, state) {
         final args = state.extra as StoreMapPageArguments;
         return StoreMapPage(args: args);
       },
     ),
     GoRoute(
       path: CustomRouter.search.path,
-      builder: (context, state) => const SearchPage(),
+      builder: (_, state) => const SearchPage(),
     ),
     GoRoute(
       path: CustomRouter.areaSearchList.path,
       name: CustomRouter.areaSearchList.name,
-      builder: (context, state) {
-        final args = state.extra as AreaSearchListPageArguments;
-        return AreaSearchListPage(args: args);
+      builder: (_, state) {
+        final args = state.extra as AreaDetailPageArgs;
+        return AreaDetailPage(args: args);
       },
     ),
     GoRoute(
       path: CustomRouter.gameTypeFilterList.path,
-      name: CustomRouter.gameTypeFilterList.name,
-      builder: (context, state) {
+      builder: (_, state) {
         final args = state.extra as GameTypeFilterListPageArguments;
         return GameTypeFilterListPage(args: args);
       },
+    ),
+    GoRoute(
+      path: CustomRouter.nearbyFilter.path,
+      builder: (_, state) => const NearbyFilterPage(),
     ),
   ],
   observers: [
     FirebaseAnalyticsObserver(analytics: analytics),
   ],
-  redirect: (context, state) {
-    analytics.logEvent(
-      name: 'screen_view',
-      parameters: {'screen_name': state.matchedLocation},
-    );
+  redirect: (_, state) {
+    if (kReleaseMode) {
+      analytics.logEvent(
+        name: 'screen_view',
+        parameters: {'screen_name': state.matchedLocation},
+      );
+    }
     return null;
   },
 );

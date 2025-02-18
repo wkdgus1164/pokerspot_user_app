@@ -6,7 +6,7 @@ part of 'dio_pr.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dioHash() => r'd93b9444a935ed74a42d0b1bb26374d5c15d74cf';
+String _$dioHash() => r'93ccb6aabcb66f560dd452769f4a88b82a1c3a69';
 
 /// 특별한 설정이 안된 Dio Client
 ///
@@ -21,6 +21,8 @@ final dioProvider = AutoDisposeProvider<Dio>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef DioRef = AutoDisposeProviderRef<Dio>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

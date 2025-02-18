@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 class ClickableListItem extends StatelessWidget {
   const ClickableListItem({
@@ -30,9 +31,9 @@ class ClickableListItem extends StatelessWidget {
                     startWidget ?? Container(),
                     Text(
                       title,
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: colorGrey40,
-                          ),
+                      style: textTheme.bodyLarge!.copyWith(
+                        color: colorGrey40,
+                      ),
                     ),
                   ],
                 ),

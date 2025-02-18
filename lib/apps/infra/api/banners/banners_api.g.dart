@@ -6,14 +6,10 @@ part of 'banners_api.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _BannersApi implements BannersApi {
-  _BannersApi(
-    this._dio, {
-    this.baseUrl,
-    this.errorLogger,
-  });
+  _BannersApi(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -27,22 +23,16 @@ class _BannersApi implements BannersApi {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiResponse<List<BannerDto>>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/v1/banners',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<ApiResponse<List<BannerDto>>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/banners',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late ApiResponse<List<BannerDto>> _value;
     try {
@@ -51,7 +41,8 @@ class _BannersApi implements BannersApi {
         (json) => json is List<dynamic>
             ? json
                 .map<BannerDto>(
-                    (i) => BannerDto.fromJson(i as Map<String, dynamic>))
+                  (i) => BannerDto.fromJson(i as Map<String, dynamic>),
+                )
                 .toList()
             : List.empty(),
       );
@@ -75,10 +66,7 @@ class _BannersApi implements BannersApi {
     return requestOptions;
   }
 
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
+  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }
@@ -97,7 +85,7 @@ class _BannersApi implements BannersApi {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bannerApiHash() => r'38e2920e7c94a0dcc672dc044aee3ec6d38a50c4';
+String _$bannerApiHash() => r'4b5c823315a2b05b653ea019da0c9fd821cc01c3';
 
 /// See also [bannerApi].
 @ProviderFor(bannerApi)
@@ -110,6 +98,8 @@ final bannerApiProvider = AutoDisposeProvider<BannersApi>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef BannerApiRef = AutoDisposeProviderRef<BannersApi>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

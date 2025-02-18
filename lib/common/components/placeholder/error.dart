@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 class ErrorPlaceholder extends StatelessWidget {
   const ErrorPlaceholder({
@@ -28,18 +29,18 @@ class ErrorPlaceholder extends StatelessWidget {
           Text(
             caption!,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: colorGrey60,
-                ),
+            style: textTheme.bodyLarge!.copyWith(
+              color: colorGrey60,
+            ),
           ),
           if (error != null) ...[
             const SizedBox(height: 16),
             Text(
               error!,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                    color: colorGrey80,
-                  ),
+              style: textTheme.labelMedium!.copyWith(
+                color: colorGrey80,
+              ),
             ),
           ],
         ],

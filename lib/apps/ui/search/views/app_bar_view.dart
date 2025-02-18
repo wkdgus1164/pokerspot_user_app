@@ -8,11 +8,10 @@ class SearchAppBarView extends StatefulHookConsumerWidget {
   const SearchAppBarView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _SearchAppBarViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _SearchAppBarViewState extends ConsumerState<SearchAppBarView> {
+class _State extends ConsumerState<SearchAppBarView> {
   @override
   Widget build(BuildContext context) {
     return SearchAppBar(
