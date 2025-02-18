@@ -20,19 +20,62 @@ StoresQuery _$StoresQueryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StoresQuery {
+  /// 위도
   double get lat => throw _privateConstructorUsedError;
+
+  /// 경도
   double get lng => throw _privateConstructorUsedError;
-  OperationStatus? get operationStatus => throw _privateConstructorUsedError;
-  String? get minOpenTime => throw _privateConstructorUsedError;
-  String? get maxOpenTime => throw _privateConstructorUsedError;
-  GameType? get gameType => throw _privateConstructorUsedError;
-  int? get minEntryPrice => throw _privateConstructorUsedError;
-  int? get maxEntryPrice => throw _privateConstructorUsedError;
+
+  /// 영업 상태
+  OperationStatus get operationStatus => throw _privateConstructorUsedError;
+
+  /// 최소 영업 시작 시간
+  String get minOpenTime => throw _privateConstructorUsedError;
+
+  /// 최대 영업 종료 시간
+  String get maxOpenTime => throw _privateConstructorUsedError;
+
+  /// 게임 종류
+  GameType get gameType => throw _privateConstructorUsedError;
+
+  /// 최소 엔트리 비용
+  int get minEntryPrice => throw _privateConstructorUsedError;
+
+  /// 최대 엔트리 비용
+  int get maxEntryPrice => throw _privateConstructorUsedError;
+
+  /// GTD 최소 보상금
   int? get gtdMinReward => throw _privateConstructorUsedError;
+
+  /// 검색어
   String? get searchText => throw _privateConstructorUsedError;
+
+  /// 행정구역 코드
   String? get regCode => throw _privateConstructorUsedError;
-  int? get page => throw _privateConstructorUsedError;
-  int? get perPage => throw _privateConstructorUsedError;
+
+  /// 최소 프라이즈 머니
+  /// Default: 0
+  int get minPrize => throw _privateConstructorUsedError;
+
+  /// 최대 프라이즈 머니
+  /// Default: 100
+  int get maxPrize => throw _privateConstructorUsedError;
+
+  /// 오리지널 칩셋 초과 여부
+  /// Default: false
+  bool get isOnlyFirstGameBenefit => throw _privateConstructorUsedError;
+
+  /// 신규 칩셋 초과 여부
+  /// Default: false
+  bool get isOnlyNewUserBenefit => throw _privateConstructorUsedError;
+
+  /// 페이지 번호
+  /// Default: 1
+  int get page => throw _privateConstructorUsedError;
+
+  /// 페이지당 항목 수
+  /// Default: 20
+  int get perPage => throw _privateConstructorUsedError;
 
   /// Serializes this StoresQuery to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,17 +96,21 @@ abstract class $StoresQueryCopyWith<$Res> {
   $Res call(
       {double lat,
       double lng,
-      OperationStatus? operationStatus,
-      String? minOpenTime,
-      String? maxOpenTime,
-      GameType? gameType,
-      int? minEntryPrice,
-      int? maxEntryPrice,
+      OperationStatus operationStatus,
+      String minOpenTime,
+      String maxOpenTime,
+      GameType gameType,
+      int minEntryPrice,
+      int maxEntryPrice,
       int? gtdMinReward,
       String? searchText,
       String? regCode,
-      int? page,
-      int? perPage});
+      int minPrize,
+      int maxPrize,
+      bool isOnlyFirstGameBenefit,
+      bool isOnlyNewUserBenefit,
+      int page,
+      int perPage});
 }
 
 /// @nodoc
@@ -83,17 +130,21 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
   $Res call({
     Object? lat = null,
     Object? lng = null,
-    Object? operationStatus = freezed,
-    Object? minOpenTime = freezed,
-    Object? maxOpenTime = freezed,
-    Object? gameType = freezed,
-    Object? minEntryPrice = freezed,
-    Object? maxEntryPrice = freezed,
+    Object? operationStatus = null,
+    Object? minOpenTime = null,
+    Object? maxOpenTime = null,
+    Object? gameType = null,
+    Object? minEntryPrice = null,
+    Object? maxEntryPrice = null,
     Object? gtdMinReward = freezed,
     Object? searchText = freezed,
     Object? regCode = freezed,
-    Object? page = freezed,
-    Object? perPage = freezed,
+    Object? minPrize = null,
+    Object? maxPrize = null,
+    Object? isOnlyFirstGameBenefit = null,
+    Object? isOnlyNewUserBenefit = null,
+    Object? page = null,
+    Object? perPage = null,
   }) {
     return _then(_value.copyWith(
       lat: null == lat
@@ -104,30 +155,30 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      operationStatus: freezed == operationStatus
+      operationStatus: null == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
-              as OperationStatus?,
-      minOpenTime: freezed == minOpenTime
+              as OperationStatus,
+      minOpenTime: null == minOpenTime
           ? _value.minOpenTime
           : minOpenTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      maxOpenTime: freezed == maxOpenTime
+              as String,
+      maxOpenTime: null == maxOpenTime
           ? _value.maxOpenTime
           : maxOpenTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gameType: freezed == gameType
+              as String,
+      gameType: null == gameType
           ? _value.gameType
           : gameType // ignore: cast_nullable_to_non_nullable
-              as GameType?,
-      minEntryPrice: freezed == minEntryPrice
+              as GameType,
+      minEntryPrice: null == minEntryPrice
           ? _value.minEntryPrice
           : minEntryPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxEntryPrice: freezed == maxEntryPrice
+              as int,
+      maxEntryPrice: null == maxEntryPrice
           ? _value.maxEntryPrice
           : maxEntryPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       gtdMinReward: freezed == gtdMinReward
           ? _value.gtdMinReward
           : gtdMinReward // ignore: cast_nullable_to_non_nullable
@@ -140,14 +191,30 @@ class _$StoresQueryCopyWithImpl<$Res, $Val extends StoresQuery>
           ? _value.regCode
           : regCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      page: freezed == page
+      minPrize: null == minPrize
+          ? _value.minPrize
+          : minPrize // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxPrize: null == maxPrize
+          ? _value.maxPrize
+          : maxPrize // ignore: cast_nullable_to_non_nullable
+              as int,
+      isOnlyFirstGameBenefit: null == isOnlyFirstGameBenefit
+          ? _value.isOnlyFirstGameBenefit
+          : isOnlyFirstGameBenefit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOnlyNewUserBenefit: null == isOnlyNewUserBenefit
+          ? _value.isOnlyNewUserBenefit
+          : isOnlyNewUserBenefit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      perPage: freezed == perPage
+              as int,
+      perPage: null == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -163,17 +230,21 @@ abstract class _$$StoresQueryImplCopyWith<$Res>
   $Res call(
       {double lat,
       double lng,
-      OperationStatus? operationStatus,
-      String? minOpenTime,
-      String? maxOpenTime,
-      GameType? gameType,
-      int? minEntryPrice,
-      int? maxEntryPrice,
+      OperationStatus operationStatus,
+      String minOpenTime,
+      String maxOpenTime,
+      GameType gameType,
+      int minEntryPrice,
+      int maxEntryPrice,
       int? gtdMinReward,
       String? searchText,
       String? regCode,
-      int? page,
-      int? perPage});
+      int minPrize,
+      int maxPrize,
+      bool isOnlyFirstGameBenefit,
+      bool isOnlyNewUserBenefit,
+      int page,
+      int perPage});
 }
 
 /// @nodoc
@@ -191,17 +262,21 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
   $Res call({
     Object? lat = null,
     Object? lng = null,
-    Object? operationStatus = freezed,
-    Object? minOpenTime = freezed,
-    Object? maxOpenTime = freezed,
-    Object? gameType = freezed,
-    Object? minEntryPrice = freezed,
-    Object? maxEntryPrice = freezed,
+    Object? operationStatus = null,
+    Object? minOpenTime = null,
+    Object? maxOpenTime = null,
+    Object? gameType = null,
+    Object? minEntryPrice = null,
+    Object? maxEntryPrice = null,
     Object? gtdMinReward = freezed,
     Object? searchText = freezed,
     Object? regCode = freezed,
-    Object? page = freezed,
-    Object? perPage = freezed,
+    Object? minPrize = null,
+    Object? maxPrize = null,
+    Object? isOnlyFirstGameBenefit = null,
+    Object? isOnlyNewUserBenefit = null,
+    Object? page = null,
+    Object? perPage = null,
   }) {
     return _then(_$StoresQueryImpl(
       lat: null == lat
@@ -212,30 +287,30 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double,
-      operationStatus: freezed == operationStatus
+      operationStatus: null == operationStatus
           ? _value.operationStatus
           : operationStatus // ignore: cast_nullable_to_non_nullable
-              as OperationStatus?,
-      minOpenTime: freezed == minOpenTime
+              as OperationStatus,
+      minOpenTime: null == minOpenTime
           ? _value.minOpenTime
           : minOpenTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      maxOpenTime: freezed == maxOpenTime
+              as String,
+      maxOpenTime: null == maxOpenTime
           ? _value.maxOpenTime
           : maxOpenTime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gameType: freezed == gameType
+              as String,
+      gameType: null == gameType
           ? _value.gameType
           : gameType // ignore: cast_nullable_to_non_nullable
-              as GameType?,
-      minEntryPrice: freezed == minEntryPrice
+              as GameType,
+      minEntryPrice: null == minEntryPrice
           ? _value.minEntryPrice
           : minEntryPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxEntryPrice: freezed == maxEntryPrice
+              as int,
+      maxEntryPrice: null == maxEntryPrice
           ? _value.maxEntryPrice
           : maxEntryPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       gtdMinReward: freezed == gtdMinReward
           ? _value.gtdMinReward
           : gtdMinReward // ignore: cast_nullable_to_non_nullable
@@ -248,14 +323,30 @@ class __$$StoresQueryImplCopyWithImpl<$Res>
           ? _value.regCode
           : regCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      page: freezed == page
+      minPrize: null == minPrize
+          ? _value.minPrize
+          : minPrize // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxPrize: null == maxPrize
+          ? _value.maxPrize
+          : maxPrize // ignore: cast_nullable_to_non_nullable
+              as int,
+      isOnlyFirstGameBenefit: null == isOnlyFirstGameBenefit
+          ? _value.isOnlyFirstGameBenefit
+          : isOnlyFirstGameBenefit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOnlyNewUserBenefit: null == isOnlyNewUserBenefit
+          ? _value.isOnlyNewUserBenefit
+          : isOnlyNewUserBenefit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      perPage: freezed == perPage
+              as int,
+      perPage: null == perPage
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -266,51 +357,114 @@ class _$StoresQueryImpl implements _StoresQuery {
   _$StoresQueryImpl(
       {required this.lat,
       required this.lng,
-      this.operationStatus,
-      this.minOpenTime,
-      this.maxOpenTime,
-      this.gameType,
-      this.minEntryPrice,
-      this.maxEntryPrice,
+      this.operationStatus = OperationStatus.ALL,
+      this.minOpenTime = '00:00',
+      this.maxOpenTime = '23:30',
+      this.gameType = GameType.ALL,
+      this.minEntryPrice = 0,
+      this.maxEntryPrice = 100,
       this.gtdMinReward,
       this.searchText,
       this.regCode,
-      this.page,
-      this.perPage});
+      this.minPrize = 0,
+      this.maxPrize = 100,
+      this.isOnlyFirstGameBenefit = false,
+      this.isOnlyNewUserBenefit = false,
+      this.page = 1,
+      this.perPage = 20});
 
   factory _$StoresQueryImpl.fromJson(Map<String, dynamic> json) =>
       _$$StoresQueryImplFromJson(json);
 
+  /// 위도
   @override
   final double lat;
+
+  /// 경도
   @override
   final double lng;
+
+  /// 영업 상태
   @override
-  final OperationStatus? operationStatus;
+  @JsonKey()
+  final OperationStatus operationStatus;
+
+  /// 최소 영업 시작 시간
   @override
-  final String? minOpenTime;
+  @JsonKey()
+  final String minOpenTime;
+
+  /// 최대 영업 종료 시간
   @override
-  final String? maxOpenTime;
+  @JsonKey()
+  final String maxOpenTime;
+
+  /// 게임 종류
   @override
-  final GameType? gameType;
+  @JsonKey()
+  final GameType gameType;
+
+  /// 최소 엔트리 비용
   @override
-  final int? minEntryPrice;
+  @JsonKey()
+  final int minEntryPrice;
+
+  /// 최대 엔트리 비용
   @override
-  final int? maxEntryPrice;
+  @JsonKey()
+  final int maxEntryPrice;
+
+  /// GTD 최소 보상금
   @override
   final int? gtdMinReward;
+
+  /// 검색어
   @override
   final String? searchText;
+
+  /// 행정구역 코드
   @override
   final String? regCode;
+
+  /// 최소 프라이즈 머니
+  /// Default: 0
   @override
-  final int? page;
+  @JsonKey()
+  final int minPrize;
+
+  /// 최대 프라이즈 머니
+  /// Default: 100
   @override
-  final int? perPage;
+  @JsonKey()
+  final int maxPrize;
+
+  /// 오리지널 칩셋 초과 여부
+  /// Default: false
+  @override
+  @JsonKey()
+  final bool isOnlyFirstGameBenefit;
+
+  /// 신규 칩셋 초과 여부
+  /// Default: false
+  @override
+  @JsonKey()
+  final bool isOnlyNewUserBenefit;
+
+  /// 페이지 번호
+  /// Default: 1
+  @override
+  @JsonKey()
+  final int page;
+
+  /// 페이지당 항목 수
+  /// Default: 20
+  @override
+  @JsonKey()
+  final int perPage;
 
   @override
   String toString() {
-    return 'StoresQuery(lat: $lat, lng: $lng, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, gtdMinReward: $gtdMinReward, searchText: $searchText, regCode: $regCode, page: $page, perPage: $perPage)';
+    return 'StoresQuery(lat: $lat, lng: $lng, operationStatus: $operationStatus, minOpenTime: $minOpenTime, maxOpenTime: $maxOpenTime, gameType: $gameType, minEntryPrice: $minEntryPrice, maxEntryPrice: $maxEntryPrice, gtdMinReward: $gtdMinReward, searchText: $searchText, regCode: $regCode, minPrize: $minPrize, maxPrize: $maxPrize, isOnlyFirstGameBenefit: $isOnlyFirstGameBenefit, isOnlyNewUserBenefit: $isOnlyNewUserBenefit, page: $page, perPage: $perPage)';
   }
 
   @override
@@ -337,6 +491,14 @@ class _$StoresQueryImpl implements _StoresQuery {
             (identical(other.searchText, searchText) ||
                 other.searchText == searchText) &&
             (identical(other.regCode, regCode) || other.regCode == regCode) &&
+            (identical(other.minPrize, minPrize) ||
+                other.minPrize == minPrize) &&
+            (identical(other.maxPrize, maxPrize) ||
+                other.maxPrize == maxPrize) &&
+            (identical(other.isOnlyFirstGameBenefit, isOnlyFirstGameBenefit) ||
+                other.isOnlyFirstGameBenefit == isOnlyFirstGameBenefit) &&
+            (identical(other.isOnlyNewUserBenefit, isOnlyNewUserBenefit) ||
+                other.isOnlyNewUserBenefit == isOnlyNewUserBenefit) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.perPage, perPage) || other.perPage == perPage));
   }
@@ -356,6 +518,10 @@ class _$StoresQueryImpl implements _StoresQuery {
       gtdMinReward,
       searchText,
       regCode,
+      minPrize,
+      maxPrize,
+      isOnlyFirstGameBenefit,
+      isOnlyNewUserBenefit,
       page,
       perPage);
 
@@ -379,47 +545,98 @@ abstract class _StoresQuery implements StoresQuery {
   factory _StoresQuery(
       {required final double lat,
       required final double lng,
-      final OperationStatus? operationStatus,
-      final String? minOpenTime,
-      final String? maxOpenTime,
-      final GameType? gameType,
-      final int? minEntryPrice,
-      final int? maxEntryPrice,
+      final OperationStatus operationStatus,
+      final String minOpenTime,
+      final String maxOpenTime,
+      final GameType gameType,
+      final int minEntryPrice,
+      final int maxEntryPrice,
       final int? gtdMinReward,
       final String? searchText,
       final String? regCode,
-      final int? page,
-      final int? perPage}) = _$StoresQueryImpl;
+      final int minPrize,
+      final int maxPrize,
+      final bool isOnlyFirstGameBenefit,
+      final bool isOnlyNewUserBenefit,
+      final int page,
+      final int perPage}) = _$StoresQueryImpl;
 
   factory _StoresQuery.fromJson(Map<String, dynamic> json) =
       _$StoresQueryImpl.fromJson;
 
+  /// 위도
   @override
   double get lat;
+
+  /// 경도
   @override
   double get lng;
+
+  /// 영업 상태
   @override
-  OperationStatus? get operationStatus;
+  OperationStatus get operationStatus;
+
+  /// 최소 영업 시작 시간
   @override
-  String? get minOpenTime;
+  String get minOpenTime;
+
+  /// 최대 영업 종료 시간
   @override
-  String? get maxOpenTime;
+  String get maxOpenTime;
+
+  /// 게임 종류
   @override
-  GameType? get gameType;
+  GameType get gameType;
+
+  /// 최소 엔트리 비용
   @override
-  int? get minEntryPrice;
+  int get minEntryPrice;
+
+  /// 최대 엔트리 비용
   @override
-  int? get maxEntryPrice;
+  int get maxEntryPrice;
+
+  /// GTD 최소 보상금
   @override
   int? get gtdMinReward;
+
+  /// 검색어
   @override
   String? get searchText;
+
+  /// 행정구역 코드
   @override
   String? get regCode;
+
+  /// 최소 프라이즈 머니
+  /// Default: 0
   @override
-  int? get page;
+  int get minPrize;
+
+  /// 최대 프라이즈 머니
+  /// Default: 100
   @override
-  int? get perPage;
+  int get maxPrize;
+
+  /// 오리지널 칩셋 초과 여부
+  /// Default: false
+  @override
+  bool get isOnlyFirstGameBenefit;
+
+  /// 신규 칩셋 초과 여부
+  /// Default: false
+  @override
+  bool get isOnlyNewUserBenefit;
+
+  /// 페이지 번호
+  /// Default: 1
+  @override
+  int get page;
+
+  /// 페이지당 항목 수
+  /// Default: 20
+  @override
+  int get perPage;
 
   /// Create a copy of StoresQuery
   /// with the given fields replaced by the non-null parameter values.

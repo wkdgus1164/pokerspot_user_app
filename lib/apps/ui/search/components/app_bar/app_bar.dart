@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 class SearchAppBar extends StatelessWidget {
   const SearchAppBar({
@@ -76,10 +77,10 @@ class SearchAppBar extends StatelessWidget {
     return InputDecoration(
       contentPadding: EdgeInsets.zero,
       hintText: '매장명을 검색해보세요.',
-      hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-            color: colorGrey80,
-            height: 1,
-          ),
+      hintStyle: textTheme.bodyLarge!.copyWith(
+        color: colorGrey80,
+        height: 1,
+      ),
       border: InputBorder.none,
     );
   }

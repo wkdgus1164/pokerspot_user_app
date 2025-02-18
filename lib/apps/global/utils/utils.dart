@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:intl/intl.dart';
 
 class Utils {
   /// [text] 클립보드에 복사할 텍스트
@@ -49,10 +50,26 @@ class Utils {
   ///  DateTime 을 한국 시간으로 표시합니다.
   /// [dateTime] 표시할 DateTime 시간
   String getFormattedTime({required String time}) {
-    final openTimeCalculated = int.parse(time.substring(0, 2)) > 12
-        ? '오후 ${int.parse(time.substring(0, 2)) - 12}시'
-        : '오전 ${int.parse(time.substring(0, 2))}시';
+    try {
+      final DateTime dateTime = DateFormat('HH:mm:ss').parse(time);
+      final hour = dateTime.hour;
+      final minute = dateTime.minute;
+      final second = dateTime.second;
 
-    return openTimeCalculated;
+      final period = hour >= 12 ? '오후' : '오전';
+      final displayHour = hour > 12
+          ? hour - 12
+          : hour == 0
+              ? 12
+              : hour;
+
+      var result = '$period $displayHour시';
+      if (minute > 0) result += ' $minute분';
+      if (second > 0) result += ' $second초';
+
+      return result;
+    } catch (e) {
+      return '오전 12시';
+    }
   }
 }

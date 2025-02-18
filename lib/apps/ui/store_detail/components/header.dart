@@ -1,6 +1,13 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:logger/logger.dart';
+import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StoreDetailHeader extends StatelessWidget {
   const StoreDetailHeader({
@@ -10,6 +17,8 @@ class StoreDetailHeader extends StatelessWidget {
     required this.distance,
     required this.runningTime,
     required this.updatedAt,
+    required this.openChatUrl,
+    required this.isViewKakaoChat,
   });
 
   final String type;
@@ -17,81 +26,87 @@ class StoreDetailHeader extends StatelessWidget {
   final double distance;
   final String runningTime;
   final DateTime updatedAt;
+  final String? openChatUrl;
+  final bool isViewKakaoChat;
 
   @override
   Widget build(BuildContext context) {
+    Logger().d("openChatUrl: $openChatUrl, isViewKakaoChat: $isViewKakaoChat");
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Text(title, style: textTheme.headlineSmall),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: colorBrand95,
-                ),
-                child: Text(
-                  type,
-                  style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                        color: colorBrand50,
-                      ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  border: Border.all(color: colorGrey95),
-                  borderRadius: BorderRadius.circular(4),
-                  color: colorGrey98,
-                ),
-                child: Wrap(
-                  spacing: 4,
-                  crossAxisAlignment: WrapCrossAlignment.center,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Icon(
-                      Icons.gps_fixed_rounded,
-                      color: colorGrey60,
-                      size: 14,
+                    Text(
+                      runningTime,
+                      style: textTheme.labelMedium!.copyWith(
+                        color: colorGrey50,
+                      ),
                     ),
                     Text(
-                      '${Utils().getFormattedDistance(distance: distance)} 주변에 있어요.',
-                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                            color: colorGrey60,
-                          ),
+                      '${Utils().getFormattedTimeAgo(dateTime: updatedAt)} 최종 업데이트',
+                      style: textTheme.labelMedium!.copyWith(
+                        color: colorGrey50,
+                      ),
                     ),
                   ],
                 ),
               ),
+              if (isViewKakaoChat && openChatUrl != null && openChatUrl != "")
+                GestureDetector(
+                  onTap: () {
+                    if (openChatUrl != null && openChatUrl != "") {
+                      launchUrl(Uri.parse(openChatUrl!));
+                    }
+                    if (kReleaseMode) {
+                      FirebaseAnalytics.instance.logEvent(
+                        name: 'store_detail_open_chat',
+                        parameters: {
+                          'store_name': title,
+                        },
+                      );
+                    }
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xffffdf00),
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          Assets.kakao.path,
+                          width: 20,
+                          height: 20,
+                          colorFilter: ColorFilter.mode(
+                            Colors.black.withAlpha(217),
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '오픈채팅방',
+                          style: TextStyle(
+                            color: Colors.black.withAlpha(217),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
             ],
-          ),
-          const SizedBox(height: 16),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-          Text(
-            runningTime,
-            style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                  color: colorGrey50,
-                ),
-          ),
-          Text(
-            '${Utils().getFormattedTimeAgo(dateTime: updatedAt)} 최종 업데이트',
-            style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                  color: colorGrey50,
-                ),
           ),
         ],
       ),

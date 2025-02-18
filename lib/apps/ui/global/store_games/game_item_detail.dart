@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 
 class StoreGameItemDetail extends StatelessWidget {
   const StoreGameItemDetail({
@@ -19,6 +20,7 @@ class StoreGameItemDetail extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
+          width: 56,
           padding: const EdgeInsets.symmetric(
             horizontal: 8,
             vertical: 4,
@@ -29,24 +31,25 @@ class StoreGameItemDetail extends StatelessWidget {
           ),
           child: Text(
             title,
-            style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                  color: colorGrey40,
-                ),
+            style: textTheme.labelSmall!.copyWith(
+              color: colorGrey40,
+            ),
+            textAlign: TextAlign.center,
           ),
         ),
         const SizedBox(width: 12),
         Text(
           description,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                color: colorGrey50,
-              ),
+          style: textTheme.bodyMedium!.copyWith(
+            color: colorGrey50,
+          ),
         ),
         const SizedBox(width: 12),
         Text(
           caption ?? '',
-          style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                color: colorGrey60,
-              ),
+          style: textTheme.labelMedium!.copyWith(
+            color: colorGrey60,
+          ),
         ),
       ],
     );

@@ -49,6 +49,7 @@ ThemeData _createThemeData({required BuildContext context}) {
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
       seedColor: colorBrand50,
+      secondary: colorBrand95,
     ),
     appBarTheme: appBarTheme,
     scaffoldBackgroundColor: colorBrand100,
@@ -70,8 +71,10 @@ ThemeData _createThemeData({required BuildContext context}) {
     dialogTheme: dialogTheme,
     sliderTheme: sliderThemeData,
     bottomSheetTheme: bottomSheetThemeData,
+    textButtonTheme: textButtonThemeData,
     listTileTheme: listTileThemeData,
     chipTheme: chipThemeData,
+    toggleButtonsTheme: toggleButtonsThemeData,
     splashColor: colorGrey98,
     dialogBackgroundColor: Colors.white,
   );

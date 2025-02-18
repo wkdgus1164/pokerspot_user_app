@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokerspot_user_app/apps/global/constants/assets.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
 import 'package:pokerspot_user_app/apps/global/utils/utils.dart';
 
 class SearchResultItem extends StatelessWidget {
@@ -22,9 +23,9 @@ class SearchResultItem extends StatelessWidget {
       onTap: handleClick,
       title: Text(
         name,
-        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-              color: colorGrey40,
-            ),
+        style: textTheme.bodyLarge!.copyWith(
+          color: colorGrey40,
+        ),
         overflow: TextOverflow.ellipsis,
       ),
       contentPadding: const EdgeInsets.symmetric(
@@ -41,9 +42,9 @@ class SearchResultItem extends StatelessWidget {
       ),
       trailing: Text(
         Utils().getFormattedDistance(distance: distance),
-        style: Theme.of(context).textTheme.labelLarge!.copyWith(
-              color: colorGrey60,
-            ),
+        style: textTheme.labelLarge!.copyWith(
+          color: colorGrey60,
+        ),
       ),
     );
   }

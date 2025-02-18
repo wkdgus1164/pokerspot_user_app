@@ -18,21 +18,20 @@ class StoreDetailMapView extends StatefulHookConsumerWidget {
   final double lng;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _StoreDetailMapViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
+class _State extends ConsumerState<StoreDetailMapView> {
   late GoogleMapController mapController;
   BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
 
   @override
   void initState() {
     super.initState();
-    _loadMarkerIcon();
+    loadMarkerIcon();
   }
 
-  Future<void> _loadMarkerIcon() async {
+  Future<void> loadMarkerIcon() async {
     final byteData = await rootBundle.load(Assets.marker.path);
     final bytes = byteData.buffer.asUint8List();
     final bitmapDescriptor = BitmapDescriptor.bytes(bytes, width: 36);
@@ -41,7 +40,7 @@ class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
     });
   }
 
-  void _onMapCreated(GoogleMapController controller) {
+  void onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
 
@@ -55,7 +54,7 @@ class _StoreDetailMapViewState extends ConsumerState<StoreDetailMapView> {
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: GoogleMap(
-        onMapCreated: _onMapCreated,
+        onMapCreated: onMapCreated,
         mapToolbarEnabled: false,
         liteModeEnabled: Platform.isAndroid,
         myLocationButtonEnabled: Platform.isAndroid,

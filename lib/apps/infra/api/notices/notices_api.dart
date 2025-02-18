@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pokerspot_user_app/apps/infra/api/common/models/api_res.dart';
 import 'package:pokerspot_user_app/apps/infra/api/notices/dto/notice_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/api/notices/dto/notices_dto.dart';
 import 'package:pokerspot_user_app/apps/infra/common/dio/dio_pr.dart';
+import 'package:pokerspot_user_app/apps/infra/common/models/api_res.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

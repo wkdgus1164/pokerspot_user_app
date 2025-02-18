@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:pokerspot_user_app/apps/global/theme/color_scheme.dart';
-import 'package:pokerspot_user_app/apps/ui/nearby/providers/store.dart';
+import 'package:pokerspot_user_app/apps/global/theme/typo.dart';
+import 'package:pokerspot_user_app/apps/ui/nearby_tab/nearby/providers/store.dart';
 import 'package:pokerspot_user_app/apps/ui/search/providers/keyword.dart';
 import 'package:pokerspot_user_app/apps/ui/search/views/app_bar_view.dart';
 import 'package:pokerspot_user_app/apps/ui/search/components/search_result_list.dart';
@@ -13,10 +14,10 @@ class SearchPage extends StatefulHookConsumerWidget {
   const SearchPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _SearchPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _State();
 }
 
-class _SearchPageState extends ConsumerState<SearchPage> {
+class _State extends ConsumerState<SearchPage> {
   @override
   Widget build(BuildContext context) {
     final searchKeyword = ref.watch(searchKeywordProvider).keyword;
@@ -74,9 +75,9 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                   ),
                   child: Text(
                     '주변 매장 리스트',
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: colorGrey40,
-                        ),
+                    style: textTheme.titleSmall!.copyWith(
+                      color: colorGrey40,
+                    ),
                   ),
                 ),
               ],
