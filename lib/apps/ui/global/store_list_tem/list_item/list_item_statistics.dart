@@ -24,24 +24,27 @@ class StoreListItemGameStatistics extends StatelessWidget {
 
   /// Prize 표시 문자열 생성
   String _getPrizeDisplayText(int prizeMin, int prizeMax) {
-    if (prizeMin == 0 && prizeMax == 0) return '준비중';
-    if (prizeMin == prizeMax) return prizeMin.toString();
-    if (prizeMin != 0 && prizeMax != 0) {
-      return _formatPriceRange(prizeMin, prizeMax);
+    String result = '';
+
+    if (prizeMin == 0 && prizeMax == 0) result = '-';
+    if (prizeMin == 0) result = '$prizeMax%';
+    if (prizeMax == 0) result = '$prizeMin%';
+    if (prizeMin == prizeMax) result = '$prizeMin%';
+    if (prizeMin != 0 && prizeMax != 0 && prizeMin != prizeMax) {
+      result = '$prizeMin% ~ $prizeMax%';
     }
-    return (prizeMin != 0) ? prizeMin.toString() : prizeMax.toString();
+
+    return result;
   }
 
   @override
   Widget build(BuildContext context) {
     final buyInMin =
-        games.map((e) => e.entryPrice).reduce((a, b) => a! < b! ? a : b);
+        games.map((e) => e.entryPrice!).reduce((a, b) => a < b ? a : b);
     final buyInMax =
-        games.map((e) => e.entryPrice).reduce((a, b) => a! > b! ? a : b);
-    final prizeMin =
-        games.map((e) => e.prize).reduce((a, b) => a! < b! ? a : b);
-    final prizeMax =
-        games.map((e) => e.prize).reduce((a, b) => a! > b! ? a : b);
+        games.map((e) => e.entryPrice!).reduce((a, b) => a > b ? a : b);
+    final prizeMin = games.map((e) => e.prize!).reduce((a, b) => a < b ? a : b);
+    final prizeMax = games.map((e) => e.prize!).reduce((a, b) => a > b ? a : b);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -49,12 +52,12 @@ class StoreListItemGameStatistics extends StatelessWidget {
         children: [
           _buildStatisticsItem(
             title: 'BUY-IN',
-            value: _formatPriceRange(buyInMin ?? 0, buyInMax ?? 0),
+            value: _formatPriceRange(buyInMin, buyInMax),
           ),
           const SizedBox(width: 8),
           _buildStatisticsItem(
             title: 'PRIZE',
-            value: _getPrizeDisplayText(prizeMin ?? 0, prizeMax ?? 0),
+            value: _getPrizeDisplayText(prizeMin, prizeMax),
           ),
         ],
       ),

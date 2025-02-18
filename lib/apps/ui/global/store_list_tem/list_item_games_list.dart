@@ -42,8 +42,7 @@ class StoreListItemGamesList extends StatelessWidget {
                       children: [
                         ColorfulChip(
                           theme: ColorfulChipTheme.red,
-                          text:
-                              '${it.prizeType?.kr} ${it.prize} ${it.prizeType?.unit}',
+                          text: '${it.prize}%',
                         ),
                       ],
                     ),
@@ -78,8 +77,8 @@ class StoreListItemGamesList extends StatelessWidget {
                   if (it.prize != 0) ...[
                     StoreListItem_GameListItemRow(
                       title: 'PRIZE',
-                      description:
-                          '${it.prizeType?.kr} ${it.prize} ${it.prizeType?.unit}',
+                      description: '${it.prize}%',
+                      // '${it.prizeType?.kr} ${it.prize} ${it.prizeType?.unit}',
                     ),
                   ],
                 ],
